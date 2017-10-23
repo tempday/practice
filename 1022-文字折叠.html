@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script src="http://192.168.3.200/yesterday/03-1-Jquery/JS/jquery-1.11.3.min.js"></script>
+	<style>
+		.more_h a,.more_h a:visited{
+			color:#42bd56;
+			text-decoration:none;
+		}
+	</style>
+</head>
+<body>
+	<div class="con">
+    <p class="intro_title">就让我们，晚点在一起。然后一辈子。</p>
+    <p class="intro_content more_h">
+        不需要晚多久，就再过那么几年，那时我们有稳定的收入，靠谱的工作，所有的一切步入正轨、我不再是一个追梦的漂浮的女生，而是一个只寻求安稳生活的女人，你不再是一个青涩的毛头小伙子，而是一个成熟的男人。
+        <br />
+        到那个时候，我们在相爱、
+        <br />
+        如果，我们可以晚一些相遇。<br />
+        不需要多久，就在过那么几年，那时候我们已经学会了知足学会了包容和珍惜，而你也真的能从容的面对那些不追逐你的异性、
+        <br />
+        到那时候，那时候我们在相爱、
+    </p>
+    <p class="intro_content more_h">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, officiis, consequuntur. Numquam, quia dolor quisquam quam perferendis sequi natus vitae voluptatum et voluptates porro error repudiandae ducimus illum aut debitis!
+    </p>
+    <div class="more">abd+-</div>
+ </div>
+</body>
+<script>
+    $(function(){
+        var contents=[];
+        var more = true;
+        //限制字符个数
+        function ellipsis(){
+            $(".more_h").each(function(){
+	            contents.push($(this).html());
+                var maxheight=120;
+                if($(this).text().length>maxheight){
+                    $(this).text($(this).text().slice(0,maxheight));
+                    $(this).html($(this).html()+' ...<a href="#">(详情)</a>');
+                    more = true;
+                }
+            });
+         };
+     ellipsis();
+     $('.more').click(function(){
+         if(more){
+             $(".more_h").html(content);
+             $(this).html("收起文章");
+             more = false;
+         }else{
+             ellipsis();
+         }
+     });
+   })
+ </script>
+</html>

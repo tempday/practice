@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		ul{
+			width:50%;
+			height:500px;
+			margin:30px auto;
+			position: relative;
+			border: 1px solid #ddd;
+			box-sizing:border-box;
+		}
+		li{
+			list-style-type:none;
+			width:31%;
+			height:31%;
+			position: absolute;
+		}
+		img{
+			border-radius:10px;
+			width:100%;
+			height:100%;
+		}
+	</style>
+</head>
+<body>
+	<ul id="photo">
+		<li><img src="images/beauty01.jpg" alt="" ></li>
+		<li><img src="images/beauty02.jpg" alt=""></li>
+		<li><img src="images/beauty03.jpg" alt=""></li>
+		<li><img src="images/beauty04.jpg" alt=""></li>
+		<li><img src="images/Garden.jpg" alt=""></li>
+		<li><img src="images/GreenBubbles.jpg" alt=""></li>
+		<li><img src="images/beauty01.jpg" alt=""></li>
+		<li><img src="images/Stars.jpg" alt=""></li>
+		<li><img src="images/beauty01.jpg" alt=""></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var photo=document.getElementById("photo");
+	function setPos(){
+		var liHeight=parseInt(getComputedStyle(photo.children[0]).height);
+		var liWid=parseInt(getComputedStyle(photo.children[0]).width);
+		var hspace=(500-liHeight*3)/4;
+		var wspace=(parseInt(getComputedStyle(photo).width)-liWid*3)/4;
+		for(var i=0;i<photo.children.length;i++){
+			photo.children[i].style.top=hspace+(hspace+liHeight)*Math.floor(i/3)+"px";
+			photo.children[i].style.left=wspace+(wspace+liWid)*(i%3)+"px";
+		}
+	}
+	setPos();
+	window.onresize=function(){
+		setPos();
+	}
+	photo.onmousedown=function(){
+		var li=(event.srcElement||event.target).parentNode;
+		window.onmousemove=function(){
+			console.log(event.offsetY);
+		}
+		li.style.top=event.offsetY;
+		
+	}
+</script>
+</html>

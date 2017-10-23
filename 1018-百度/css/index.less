@@ -1,0 +1,309 @@
+@font-clr:#555;
+@font-clr-dark:#222;
+@font-clr-light:#999;
+@blue-clr:#38f;
+@blue-clr-dark:#317ef3;
+@blue-clr-darker:#3075dc;
+
+body,input{
+	padding: 0;
+	margin:0;
+	font-size: 14px;
+	font-family: "Helvetica Neue", "Microsoft Yahei", "SimHei", Helvetica, Arial, sans-serif;
+}
+body{
+	min-height: 600px;
+	position: relative;
+}
+header,section,footer{
+	width: 100%;
+	overflow: hidden;
+	color: @font-clr;
+	min-width: 810px;
+	display: block;
+}
+a:visited,a:active{
+	color: @font-clr;
+}
+ul.links{
+	float: right;
+	margin: 20px 0 5px;
+	li{
+		display: inline-block;
+		list-style-type:none;
+		margin-right: 15px;
+		line-height: 24px;
+		a{
+			color:@font-clr;
+			font-weight: 600;
+			font-size: 13px;
+		}
+		a:hover{
+			color:#00c;
+		}
+		&:last-child{
+			border-radius:3px ;
+			background:@blue-clr ;
+			margin-left: 8px;
+			margin-right: 15px;
+			a{
+				color: #fff;
+				text-decoration: none;
+				font-weight:500;
+				margin: 0 4px;
+			}
+		}
+	}
+}
+section{
+	padding-top: 20px;
+	overflow: visible;
+	div.first{
+		display: inline-block;
+		width: 100%;
+		position: relative;
+		margin:10px auto;
+		text-align: center;
+		img{
+			width: 270px;
+			height: 129px;
+		}
+	}
+	form{
+		display: inline-block;
+		width: 100%;
+		position: relative;
+		margin:10px auto;
+		text-align: center;
+		div.btngroup{
+			margin:0 auto;
+			width: 640px;
+			height: 35px;
+			display: block;
+			background-color: @blue-clr;
+			box-sizing: border-box;
+			position: relative;
+			input{
+				width: 540px;
+				height: 100%;
+				float: left;
+				outline: none;
+				border: 1px solid #b8b8b8;
+				box-sizing: border-box;
+				&:hover{
+					border-color:#adadad;
+				}
+				&:focus{
+					border-color: @blue-clr;
+				}
+				padding: 2px 40px 2px 8px;
+			}
+			b{
+				position: absolute;
+				top: 10px;
+				left: 510px;
+				background: url(../img/camera_new_5606e8f.png) no-repeat;
+				height: 16px;
+				width: 18px;
+				&:hover{
+					background-position: 0 -20px;
+				}
+				
+			}
+			button{
+				display: inline-block;
+				background-color: @blue-clr;
+				color: #fff;
+				height: 100%;
+				width: 100px;
+				border:none;
+				font-size: 15px;
+				font-weight: 500;
+				&:hover{
+					background-color: @blue-clr-dark;
+				}
+				&:active{
+					background-color: @blue-clr-darker;
+				}
+			}
+			//上传图片弹出框
+			div.loadimg{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				padding-top: 35px;
+				background-color: #fff;
+				border: 1px solid @blue-clr;
+				overflow: hidden;
+				margin:0;
+				z-index: 10;
+				display: none;
+				//图片搜索输入框+按钮
+				span{
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 35px;
+					box-sizing: border-box;
+					input{
+						border:0;
+						border-bottom: 1px solid #b8b8b8;
+					}
+					//相机图标
+					b{
+						top: 10px;
+						left: 581px;
+						background: url(../img/camera_2.png) no-repeat;
+					}
+					//输入图片提示
+					p#tips{
+						position: absolute;
+						top:5px;
+						right: 115px;
+						margin: 0;
+						padding-left:36px ;
+						background:url("../img/soutu_icons_sample_e128610.png") right -65px no-repeat;
+						width: 135px;
+						height: 26px;
+						line-height: 26px;
+						color: #e43;
+						font-size: 12px;
+						display: none;
+					}
+				}
+				//弹出框下半部
+				div.imgbox{
+					width: 100%;
+					box-sizing: border-box;
+					padding: 23px 20px 27px;
+					//position: absolute;
+					//top:35px;
+					//left:0;
+					margin: 0;
+					color:@font-clr-light;
+					font-size: 16px;
+					//图片拖拽区
+					div.pullpic{
+						height: 75px;
+						width: 100%;
+						background-color:#fafafa;
+						padding-top: 25px;
+						margin-bottom: 16px;
+						i{
+							display: inline-block;
+							height: 28px;
+							width: 28px;
+							background:url("../img/soutu_icons_sample_e128610.png") -70px -2px no-repeat;
+							vertical-align: middle;
+							margin-top: 10px;
+						}
+					}
+					//上传框外容器
+					div.upload{
+						display: inline-block;
+						*display:inline;
+						height: 43px;
+						line-height: 43px;
+						width:150px;
+						border: 1px solid #cacbcc;
+						text-align: center;
+						margin: 5px auto 5px;
+						position: relative;
+						&:hover{
+							border-color:@blue-clr-dark;
+
+						}
+						//上传框
+						input#upload{
+							display: inline-block;
+							*display:inline;
+							position: absolute;
+							left: 0;
+							opacity: 0;
+							filter: alpha(opacity=0);
+							border:0;
+							padding:0;
+							height: 100%;
+							width: 100%;
+							background-color: #fff;
+							//修改鼠标光标,只对最外层元素有效,input覆盖整个div
+							cursor: pointer;
+						}
+						//上传框内图标
+						i{
+							display: inline-block;
+							height: 18px;
+							width: 18px;
+							background:url("../img/soutu_icons_sample_e128610.png") -144px 0 no-repeat;
+							vertical-align: middle;
+							margin-top: -4px;
+							margin-right: 5px;
+						}
+						//上传框内文字
+						span{
+							display: inline;
+							position: static;
+							color: @font-clr;
+						}
+					}
+				}
+				a{
+					position: absolute;
+					right: 18px;
+					bottom: 13px;
+					background:url("../img/soutu_icons_sample_e128610.png") -20px 0 no-repeat;
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+	}
+
+
+}
+footer{
+	position: absolute;
+	bottom:30px;
+	div{
+		width: 100%;
+		text-align: center;
+		margin-bottom: 10px;
+		&.qcode{
+			margin-bottom: 0;
+		}
+		p{
+			margin-bottom: 5px;
+			margin-top:20px;
+			a{
+				color:@font-clr-light;
+				font-size: 12px;
+				display: inline-block;
+				margin-right: 20px;
+				&:visited{
+					color:#999;
+				}
+			}
+			&.copyright{
+				margin-top:0;
+
+				a{
+					margin-right: 0;
+				}
+			}
+		}
+
+		b{
+			display: inline-block;
+			height: 17px;
+			width: 14px;
+			background: url(../img/icons_5859e57.png) no-repeat -623px -95px;
+			vertical-align: middle;
+			margin-bottom: 3px;
+			&.icon{
+					background-position: -600px -95px;
+				}
+		}
+
+	}
+}

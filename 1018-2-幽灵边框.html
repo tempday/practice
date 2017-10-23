@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>幽灵边框</title>
+</head>
+<style>
+	div{
+		position: fixed;
+		width: 300px;
+		height: 200px;
+		left: 50%;
+		top: 50%;
+		margin-left: -150px;
+		margin-top: -100px;
+		transition: all .3s linear;
+		border: 2px dashed #f83;
+		text-align: center;
+	}
+	.line{
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		z-index: 10;
+		border: 3px solid transparent;
+		box-sizing: border-box;
+		transition: all .3s linear;
+	}
+	.line:not(:last-child){
+		top: 5%;
+	}
+	.line:first-child{
+		left: 5%;
+	}
+	div:hover .line:first-child{
+		border-top-color: rgba(50,100,50,1);
+		width: 90%;
+	}
+	.line:last-child{
+		bottom: 5%;
+		left: 5%;
+	}
+	div:hover .line:last-child{
+		border-left-color: rgba(50,100,50,1);
+		height: 90%;
+	}
+	.line:nth-child(2){
+		width: 90%;
+		right: 5%;
+	}
+	div:hover .line:nth-child(2){
+		border-right-color: rgba(50,100,50,1);
+		height: 90%;
+	}
+	.line:nth-child(3){
+		height: 90%;
+		right: 5%;
+	}
+	div:hover .line:nth-child(3){
+		border-bottom-color: rgba(50,100,50,1);
+		width: 90%;
+	}
+	div:hover{
+		background-color: pink;
+	}
+	div:before{
+		content: "幽灵边框";
+		display: block;
+		margin-top: 20%;
+		font-size: 36px;
+	}
+</style>
+<body>
+	<div>
+		<span class="line"></span>
+		<span class="line"></span>
+		<span class="line"></span>
+		<span class="line"></span>
+	</div>
+</body>
+</html>

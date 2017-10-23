@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>js跨域请求</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script src="http://127.0.0.1/yesterday/03-1-Jquery/JS/jquery-1.11.3.min.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+function getdata(data){
+	console.log(data);
+}
+//jquery 直接写法
+$.getJSON('http://192.168.3.200/yesterday/03-4-Ajax/01_1.php?callback=?',function(data){
+	console.log("1:"+data);//如果参数是个json对象 则要数据获得才会生效
+});
+console.log(1);
+//ajax写法,只有两项是必要的:url+jsonp
+$.ajax({
+	type:'get',				//可以省略,默认是get手动改无效
+	url:'http://192.168.3.200/yesterday/03-4-Ajax/01_1.php',
+							//跨域直接请求提示No 'Access-Control-Allow-Origin' header is present 
+					 		//url:'data/01_1.php', 同源可直接获取数据 
+	dataType:'jsonp',
+	data:'',		 		//非必要
+	jsonp:'callback',		//非必要
+	success:function(data){} //非必要
+	
+});
+
+</script>
+<!--script标签 将接收到服务器返回的一段js代码,并由script执行,返回的js:getdata(9587),所以要先定义带参数的函数getdata-->
+<script type="text/javascript" src="http://192.168.3.200/yesterday/03-4-Ajax/01_1.php?callback=getdata"></script>
+
+</html>

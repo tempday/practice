@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		body{
+			text-align: center;
+		}
+		div.outer{
+			text-align: center;
+			position: relative;
+			background-color: #DDD;
+			
+			width:100%;
+			height:720px;
+			display: table;
+		}
+		span{
+			height:300px;
+			width:70%;
+			background-color: green;
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+			
+		}
+		div.inner{
+			height:50%;
+			width:50%;
+			background-color: #DDD;
+			display:inline-block;
+			z-index: 50;
+			
+		}
+		/*方法2*/
+		div.outer2{
+			text-align: center;
+			position: relative;
+			background-color: #DDD;
+			width:100%;
+			height:720px;
+		}
+		div.inner2{
+			height:40%;
+			width:70%;
+			background-color: yellow;
+			display:block;
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform:translatex(-50%) translatey(-50%);
+		}
+		/*方法3*/
+		div.outer3{
+			text-align: center;
+			background-color: #DDD;
+			width:100%;
+			height:720px;
+		}
+		div.outer3:before{
+			content:"";
+			display:inline-block;
+			vertical-align: middle;
+			height:100%;
+			margin-right:-0.25em;
+		}
+		div.inner3{
+			height:40%;
+			width:70%;
+			background-color: pink;
+			display:inline-block;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<h1>不定高宽居中方法:</h1>
+	<h2>方法一:模拟table布局法,也可以直接用table</h2>
+	<div class="outer">
+		<span>
+			<div class="inner">模拟table布局法</div>
+		</span>
+	</div>
+	<h2>方法二:css3</h2>
+	<div class="outer2">
+		<div class="inner2">
+			css3
+		</div>
+	</div>
+	<h2>方法二:伪元素 逆天方式</h2>
+	<div class="outer3">
+		<div class="inner3">
+			伪元素
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>

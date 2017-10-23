@@ -1,0 +1,39 @@
+/**
+ * Created by lglong on 2017-10-11.
+ */
+angular.module('myModule',['ng','ngRoute','ngAnimate'])
+	.controller('startCtrl',function($scope,$location,$rootScope){
+		$scope.pageNum=1;
+		$rootScope.links=['/start','/main','/detail'];
+		$scope.jumpTo=function(){
+			$location.path($scope.links[$scope.pageNum]);
+		}
+}).controller('mainCtrl',['$scope','$location',function($scope,$location){
+	$scope.pageNum=2;
+	$scope.jumpTo=function(){
+		$location.path($scope.links[$scope.pageNum]);
+	}
+}]).controller('detailCtrl',['$scope','$location',function($scope,$location){
+	$scope.pageNum=0;
+	$scope.jumpTo=function(){
+		$location.path($scope.links[$scope.pageNum]);
+	}
+}]).controller('orderCtrl',['$scope',function($scope){
+
+}]).controller('myorderCtrl',['$scope',function($scope){
+
+}]).config(function($routeProvider){
+	$routeProvider.when('/start',{
+		templateUrl:'template/start.html',
+		controller:'startCtrl'
+	}).when('/main',{
+		templateUrl:'template/main.html',
+		controller:'mainCtrl'
+	}).when('/detail',{
+		templateUrl:'template/detail.html',
+		controller:'detailCtrl'
+	}).otherwise({
+		redirectTo:'/start'
+	});
+})
+;

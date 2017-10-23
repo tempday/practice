@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta http-equiv='X-UA-Compatible' content='IE=Edge'>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		div{
+			position: fixed;
+			width: 300px;
+			height: 200px;
+			left: 50%;
+			top: 50%;
+			margin-left: -150px;
+			margin-top: -100px;
+			transition: all .3s linear;
+			border: 2px dashed #f83;
+			text-align: center;
+			overflow: hidden;
+		}
+		span{
+			display: block;
+			width:100%;
+			height:100%;
+			position: absolute;
+			left:0;
+			top:0;
+			background-color:rgba(100,100,100,.6);
+			visibility:hidden;
+		}
+		@keyframes to-top{
+			from{
+				top:100%;
+			}
+			to{
+				top:0;
+				visibility:visible;
+			}
+		}
+		@keyframes to-bottom{
+			from{
+				top:-100%;
+			}
+			to{
+				top:0;
+				visibility:visible;
+			}
+		}
+		@keyframes to-left{
+			from{
+				left:100%;
+			}
+			to{
+				top:0;
+				visibility:visible;
+			}
+		}
+		@keyframes to-right{
+			from{
+				left:-100%;
+			}
+			to{
+				top:0;
+				visibility:visible;
+			}
+		}
+		div:hover span{
+			animation:to-right .4s ease forwards;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<span class="cover"></span>
+	</div>
+</body>
+<script type="text/javascript">
+	div.addEventListener('mouseenter',function(e){
+		console.log(e.offsetX);
+		return false;
+	},false);
+</script>
+</html>

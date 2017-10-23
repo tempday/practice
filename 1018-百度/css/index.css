@@ -1,0 +1,285 @@
+body,
+input {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-family: "Helvetica Neue", "Microsoft Yahei", "SimHei", Helvetica, Arial, sans-serif;
+}
+body {
+  min-height: 600px;
+  position: relative;
+}
+header,
+section,
+footer {
+  width: 100%;
+  overflow: hidden;
+  color: #555555;
+  min-width: 810px;
+  display: block;
+}
+a:visited,
+a:active {
+  color: #555555;
+}
+ul.links {
+  float: right;
+  margin: 20px 0 5px;
+}
+ul.links li {
+  display: inline-block;
+  list-style-type: none;
+  margin-right: 15px;
+  line-height: 24px;
+}
+ul.links li a {
+  color: #555555;
+  font-weight: 600;
+  font-size: 13px;
+}
+ul.links li a:hover {
+  color: #00c;
+}
+ul.links li:last-child {
+  border-radius: 3px ;
+  background: #3388ff;
+  margin-left: 8px;
+  margin-right: 15px;
+}
+ul.links li:last-child a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 4px;
+}
+section {
+  padding-top: 20px;
+  overflow: visible;
+}
+section div.first {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  margin: 10px auto;
+  text-align: center;
+}
+section div.first img {
+  width: 270px;
+  height: 129px;
+}
+section form {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  margin: 10px auto;
+  text-align: center;
+}
+section form div.btngroup {
+  margin: 0 auto;
+  width: 640px;
+  height: 35px;
+  display: block;
+  background-color: #3388ff;
+  box-sizing: border-box;
+  position: relative;
+}
+section form div.btngroup input {
+  width: 540px;
+  height: 100%;
+  float: left;
+  outline: none;
+  border: 1px solid #b8b8b8;
+  box-sizing: border-box;
+  padding: 2px 40px 2px 8px;
+}
+section form div.btngroup input:hover {
+  border-color: #adadad;
+}
+section form div.btngroup input:focus {
+  border-color: #3388ff;
+}
+section form div.btngroup b {
+  position: absolute;
+  top: 10px;
+  left: 510px;
+  background: url(../img/camera_new_5606e8f.png) no-repeat;
+  height: 16px;
+  width: 18px;
+}
+section form div.btngroup b:hover {
+  background-position: 0 -20px;
+}
+section form div.btngroup button {
+  display: inline-block;
+  background-color: #3388ff;
+  color: #fff;
+  height: 100%;
+  width: 100px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+section form div.btngroup button:hover {
+  background-color: #317ef3;
+}
+section form div.btngroup button:active {
+  background-color: #3075dc;
+}
+section form div.btngroup div.loadimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 35px;
+  background-color: #fff;
+  border: 1px solid #3388ff;
+  overflow: hidden;
+  margin: 0;
+  z-index: 10;
+  display: none;
+}
+section form div.btngroup div.loadimg span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  box-sizing: border-box;
+}
+section form div.btngroup div.loadimg span input {
+  border: 0;
+  border-bottom: 1px solid #b8b8b8;
+}
+section form div.btngroup div.loadimg span b {
+  top: 10px;
+  left: 581px;
+  background: url(../img/camera_2.png) no-repeat;
+}
+section form div.btngroup div.loadimg span p#tips {
+  position: absolute;
+  top: 5px;
+  right: 115px;
+  margin: 0;
+  padding-left: 36px ;
+  background: url("../img/soutu_icons_sample_e128610.png") right -65px no-repeat;
+  width: 135px;
+  height: 26px;
+  line-height: 26px;
+  color: #e43;
+  font-size: 12px;
+  display: none;
+}
+section form div.btngroup div.loadimg div.imgbox {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 23px 20px 27px;
+  margin: 0;
+  color: #999999;
+  font-size: 16px;
+}
+section form div.btngroup div.loadimg div.imgbox div.pullpic {
+  height: 75px;
+  width: 100%;
+  background-color: #fafafa;
+  padding-top: 25px;
+  margin-bottom: 16px;
+}
+section form div.btngroup div.loadimg div.imgbox div.pullpic i {
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  background: url("../img/soutu_icons_sample_e128610.png") -70px -2px no-repeat;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+section form div.btngroup div.loadimg div.imgbox div.upload {
+  display: inline-block;
+  *display: inline;
+  height: 43px;
+  line-height: 43px;
+  width: 150px;
+  border: 1px solid #cacbcc;
+  text-align: center;
+  margin: 5px auto 5px;
+  position: relative;
+}
+section form div.btngroup div.loadimg div.imgbox div.upload:hover {
+  border-color: #317ef3;
+}
+section form div.btngroup div.loadimg div.imgbox div.upload input#upload {
+  display: inline-block;
+  *display: inline;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  border: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  cursor: pointer;
+}
+section form div.btngroup div.loadimg div.imgbox div.upload i {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background: url("../img/soutu_icons_sample_e128610.png") -144px 0 no-repeat;
+  vertical-align: middle;
+  margin-top: -4px;
+  margin-right: 5px;
+}
+section form div.btngroup div.loadimg div.imgbox div.upload span {
+  display: inline;
+  position: static;
+  color: #555555;
+}
+section form div.btngroup div.loadimg a {
+  position: absolute;
+  right: 18px;
+  bottom: 13px;
+  background: url("../img/soutu_icons_sample_e128610.png") -20px 0 no-repeat;
+  width: 18px;
+  height: 18px;
+}
+footer {
+  position: absolute;
+  bottom: 30px;
+}
+footer div {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+footer div.qcode {
+  margin-bottom: 0;
+}
+footer div p {
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+footer div p a {
+  color: #999999;
+  font-size: 12px;
+  display: inline-block;
+  margin-right: 20px;
+}
+footer div p a:visited {
+  color: #999;
+}
+footer div p.copyright {
+  margin-top: 0;
+}
+footer div p.copyright a {
+  margin-right: 0;
+}
+footer div b {
+  display: inline-block;
+  height: 17px;
+  width: 14px;
+  background: url(../img/icons_5859e57.png) no-repeat -623px -95px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+footer div b.icon {
+  background-position: -600px -95px;
+}

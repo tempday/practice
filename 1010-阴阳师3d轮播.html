@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阴阳师轮播图</title>
+	<style>
+	body{
+		width: 1200px;
+		height: 1000px;
+	}
+	.part-tese {
+	    height: 850px;
+	    top: 0;
+	}
+	.content-part {
+	    position: absolute;
+	    width: 1200px;
+	    left: 50%;
+	    margin-left: -600px;
+	}
+	.content-part.show .content-title {
+	    opacity: 1;
+	    transform: translateY(0px);
+	    -ms-transform: translateY(0px);
+	    -webkit-transform: translateY(0px);
+	    -moz-transform: translateY(0px);
+	    -o-transform: translateY(0px);
+	    transition: all 1s;
+	    -webkit-transition: all 1s;
+	    -moz-transition: all 1s;
+	    -o-transition: all 1s;
+	}
+	.part-tese .content-title {
+	}
+	.content-part .content-title {
+	    opacity: 0;
+	    transform: translateY(50px);
+	    -ms-transform: translateY(50px);
+	    -webkit-transform: translateY(50px);
+	    -moz-transform: translateY(50px);
+	    -o-transform: translateY(50px);
+	}
+	.content-part .content-title {
+	    position: absolute;
+	    width: 650px;
+	    height: 263px;
+	    top: 0;
+	    left: 50%;
+	    margin-left: -325px;
+	}
+	.part-tese .shadow {
+	    position: absolute;
+	    width: 1014px;
+	    height: 190px;
+	    bottom: 0;
+	    left: 50%;
+	    margin-left: -507px;
+	}
+	.part-tese.show .gallery_container {
+	    opacity: 1;
+	    transform: translateY(0px);
+	    -ms-transform: translateY(0px);
+	    -webkit-transform: translateY(0px);
+	    -moz-transform: translateY(0px);
+	    -o-transform: translateY(0px);
+	    transition: all 1s .1s;
+	    -webkit-transition: all 1s .1s;
+	    -moz-transition: all 1s .1s;
+	    -o-transition: all 1s .1s;
+	}
+
+	.part-tese .gallery_container {
+	    position: absolute;
+	    width: 1000px;
+	    height: 550px;
+	    top: 210px;
+	    left: 50%;
+	    margin-left: -500px;
+	}
+	.part-tese .gallery_container {
+	    opacity: 0;
+	    transform: translateY(200px);
+	    -ms-transform: translateY(200px);
+	    -webkit-transform: translateY(200px);
+	    -moz-transform: translateY(200px);
+	    -o-transform: translateY(200px);
+	}
+	.gallery_container {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	.part-tese .gallery_container .gallery_wrap {
+	    width: 720px;
+	    height: 520px;
+	}
+
+	.gallery_container .gallery_wrap {
+	    width: 320px;
+	    height: 474px;
+	}
+	.threeD_gallery_wrap {
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    -webkit-perspective: 1000px;
+	    -moz-perspective: 1000px;
+	    -ms-perspective: 1000px;
+	    perspective: 1000px;
+	}
+	.front_side {
+	    z-index: 5;
+	    -webkit-transform: rotateY(0) translateX(0) translateZ(0px);
+	    -moz-transform: rotateY(0) translateX(0) translateZ(0px);
+	    -ms-transform: rotateY(0) translateX(0) translateZ(0px);
+	    -o-transform: rotateY(0) translateX(0) translateZ(0px);
+	    transform: rotateY(0) translateX(0) translateZ(0px);
+	}
+	.threeD_gallery_item {
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    cursor: pointer;
+	    -webkit-transition: all .5s ease;
+	    -moz-transition: all .5s ease;
+	    -ms-transition: all .5s ease;
+	    -o-transition: all .5s ease;
+	    transition: all .5s ease;
+	}
+	.part-tese .gallery_right_middle {
+	    z-index: 3;
+	    transform: rotateY(-30deg) translateX(200px) translateZ(-300px) scale(0.6);
+	    -ms-transform: rotateY(-30deg) translateX(200px) translateZ(-300px) scale(0.6);
+	    -webkit-transform: rotateY(-30deg) translateX(200px) translateZ(-300px) scale(0.6);
+	    -moz-transform: rotateY(-30deg) translateX(200px) translateZ(-300px) scale(0.6);
+	    -o-transform: rotateY(-30deg) translateX(200px) translateZ(-300px) scale(0.6);
+	}
+	.gallery_right_middle {
+	    z-index: 3;
+	    -webkit-transform: rotateY(-55deg) translateX(90px) translateZ(-364px) scale(0.95);
+	    -moz-transform: rotateY(-55deg) translateX(90px) translateZ(-364px) scale(0.95);
+	    -ms-transform: rotateY(-55deg) translateX(90px) translateZ(-364px) scale(0.95);
+	    -o-transform: rotateY(-55deg) translateX(90px) translateZ(-364px) scale(0.95);
+	    transform: rotateY(-55deg) translateX(90px) translateZ(-364px) scale(0.95);
+	}
+	.gallery_out {
+	    -webkit-transform: rotateY(0) translateX(0) translateZ(0px) scale(0.6);
+	    -moz-transform: rotateY(0) translateX(0) translateZ(0px) scale(0.6);
+	    -ms-transform: rotateY(0) translateX(0) translateZ(0px) scale(0.6);
+	    -o-transform: rotateY(0) translateX(0) translateZ(0px) scale(0.6);
+	    transform: rotateY(0) translateX(0) translateZ(0px) scale(0.6);
+	    z-index: -1;
+	    opacity: 0!important;
+	}
+	.part-tese .gallery_left_middle {
+	    z-index: 3;
+	    transform: rotateY(30deg) translateX(-200px) translateZ(-300px) scale(0.6);
+	    -ms-transform: rotateY(30deg) translateX(-200px) translateZ(-300px) scale(0.6);
+	    -webkit-transform: rotateY(30deg) translateX(-200px) translateZ(-300px) scale(0.6);
+	    -moz-transform: rotateY(30deg) translateX(-200px) translateZ(-300px) scale(0.6);
+	    -o-transform: rotateY(30deg) translateX(-200px) translateZ(-300px) scale(0.6);
+	}
+	.gallery_left_middle {
+	    z-index: 3;
+	    -webkit-transform: rotateY(55deg) translateX(-90px) translateZ(-364px) scale(0.95);
+	    -moz-transform: rotateY(55deg) translateX(-90px) translateZ(-364px) scale(0.95);
+	    -ms-transform: rotateY(55deg) translateX(-90px) translateZ(-364px) scale(0.95);
+	    -o-transform: rotateY(55deg) translateX(-90px) translateZ(-364px) scale(0.95);
+	    transform: rotateY(55deg) translateX(-90px) translateZ(-364px) scale(0.95);
+	}
+	.part-tese .gallery_container .gallery_wrap img {
+	    width: 100%;
+	}
+	.gallery_container .gallery_item img.show {
+	    visibility: visible;
+	}
+	.gallery_container .gallery_item img {
+	    width: 100%;
+	    height: 100%;
+	    visibility: hidden;
+	}
+	.part-tese .gallery_container .gallery_wrap .line-t, .part-tese .gallery_container .gallery_wrap .line-r, .part-tese .gallery_container .gallery_wrap .line-b, .part-tese .gallery_container .gallery_wrap .line-l {
+	    position: absolute;
+	    background: #fff;
+	}
+	.part-tese .gallery_container .gallery_wrap .front_side .line-t {
+	    width: 700px;
+	    transition: all .2s .2s;
+	    -webkit-transition: all .2s .2s;
+	    -moz-transition: all .2s .2s;
+	    -o-transition: all .2s .2s;
+	}
+	.part-tese .gallery_container .gallery_wrap .line-t {
+	    height: 1px;
+	    width: 0;
+	    top: 10px;
+	    left: 10px;
+	}
+	.part-tese .gallery_container .gallery_wrap .front_side .line-r {
+	    height: 500px;
+	    transition: all .2s .4s;
+	    -webkit-transition: all .2s .4s;
+	    -moz-transition: all .2s .4s;
+	    -o-transition: all .2s .4s;
+	}
+	.part-tese .gallery_container .gallery_wrap .line-r {
+	    width: 1px;
+	    height: 0;
+	    right: 10px;
+	    top: 10px;
+	}
+	.part-tese .gallery_container .gallery_wrap .front_side .line-b {
+	    width: 700px;
+	    transition: all .2s .6s;
+	    -webkit-transition: all .2s .6s;
+	    -moz-transition: all .2s .6s;
+	    -o-transition: all .2s .6s;
+	}
+	.part-tese .gallery_container .gallery_wrap .line-b {
+	    height: 1px;
+	    width: 0;
+	    bottom: 10px;
+	    right: 10px;
+	}
+	.part-tese .gallery_container .gallery_wrap .front_side .line-l {
+	    height: 500px;
+	    transition: all .2s .8s;
+	    -webkit-transition: all .2s .8s;
+	    -moz-transition: all .2s .8s;
+	    -o-transition: all .2s .8s;
+	}
+	.part-tese .gallery_container .gallery_wrap .line-l {
+	    width: 1px;
+	    height: 0;
+	    left: 10px;
+	    bottom: 10px;
+	}
+	</style>
+</head>
+<body>
+	<div class="content-part part-tese show">
+        <div class="content-title"></div>
+        <div class="shadow"></div>
+        <div class="gallery_container">
+          <div class="gallery_wrap threeD_gallery_wrap" style="margin-left: -360px; margin-top: -260px;">
+          	<div href="javascript:;" class="gallery_item threeD_gallery_item gallery_left_middle">
+              <img src="images/beauty01.jpg" class="show">
+              <div class="line-t"></div>
+              <div class="line-r"></div>
+              <div class="line-b"></div>
+              <div class="line-l"></div>
+            </div>
+            <div href="javascript:;" class="gallery_item threeD_gallery_item front_side">
+              <img src="images/beauty02.jpg" class="show">
+              <div class="line-t"></div>
+              <div class="line-r"></div>
+              <div class="line-b"></div>
+              <div class="line-l"></div>
+            </div>
+            <div href="javascript:;" class="gallery_item threeD_gallery_item gallery_right_middle">
+              <img src="images/beauty03.jpg" class="show">
+              <div class="line-t"></div>
+              <div class="line-r"></div>
+              <div class="line-b"></div>
+              <div class="line-l"></div>
+            </div>
+            <div href="javascript:;" class="gallery_item threeD_gallery_item gallery_out">
+              <img src="images/beauty04.jpg" class="show">
+              <div class="line-t"></div>
+              <div class="line-r"></div>
+              <div class="line-b"></div>
+              <div class="line-l"></div>
+            </div>
+            <div href="javascript:;" class="gallery_item threeD_gallery_item gallery_out">
+              <img src="images/beauty02.jpg" class="show">
+              <div class="line-t"></div>
+              <div class="line-r"></div>
+              <div class="line-b"></div>
+              <div class="line-l"></div>
+            </div>
+          </div>
+          <a class="prev" href="javascript:;"></a>
+          <a class="next" href="javascript:;"></a>
+        </div>
+    </div>
+<script src="http://127.0.0.1/yesterday/04-1-Bootstrap/bootstrap_3_3_5/js/jquery-1.11.3.js"></script>
+<script>
+$(function(){
+	var $threeD_gallery_item = $('.gallery_item.threeD_gallery_item');
+	$(document).on('click','.gallery_item.gallery_left_middle',function(){
+		var idx = parseInt($(this).index());
+		$threeD_gallery_item.eq(idx).removeClass('gallery_left_middle').addClass('front_side');
+		//当idx值为0时，执行逻辑
+		idx == 0 ? $threeD_gallery_item.eq(idx + 4).removeClass('gallery_out').addClass('gallery_left_middle'):
+		$threeD_gallery_item.eq(idx - 1).removeClass('gallery_out').addClass('gallery_left_middle');
+		//当idx值为1时，执行逻辑
+		idx <= 1 ? $threeD_gallery_item.eq(idx + 3).removeClass('gallery_out').addClass('gallery_out'):
+		$threeD_gallery_item.eq(idx - 2).removeClass('gallery_out').addClass('gallery_out');
+		//当idx值为2时，执行逻辑
+		idx <= 2 ? $threeD_gallery_item.eq(idx + 2).removeClass('gallery_right_middle').addClass('gallery_out'):
+		$threeD_gallery_item.eq(idx - 3).removeClass('gallery_right_middle').addClass('gallery_out');
+		//当idx值为3时，执行逻辑
+		idx <= 3 ? $threeD_gallery_item.eq(idx + 1).removeClass('front_side').addClass('gallery_right_middle'):
+		$threeD_gallery_item.eq(idx - 4).removeClass('front_side').addClass('gallery_right_middle');
+	})
+	$(document).on('click','.gallery_item.gallery_right_middle',function(){
+		var idx = $(this).index();
+		$threeD_gallery_item.eq(idx).removeClass('gallery_right_middle').addClass('front_side');
+		//当idx值为0时，执行逻辑
+		idx == 0 ? $threeD_gallery_item.eq(idx + 4).removeClass('front_side').addClass('gallery_left_middle'):
+		$threeD_gallery_item.eq(idx - 1).removeClass('front_side').addClass('gallery_left_middle');
+		//当idx值为1时，执行逻辑
+		idx <= 1 ? $threeD_gallery_item.eq(idx + 3).removeClass('gallery_left_middle').addClass('gallery_out'):
+		$threeD_gallery_item.eq(idx - 2).removeClass('gallery_left_middle').addClass('gallery_out');
+		//当idx值为2时，执行逻辑
+		idx <= 2 ? $threeD_gallery_item.eq(idx + 2).removeClass('gallery_out').addClass('gallery_out'):
+		$threeD_gallery_item.eq(idx - 3).removeClass('gallery_out').addClass('gallery_out');
+		//当idx值为3时，执行逻辑
+		idx <= 3 ? $threeD_gallery_item.eq(idx + 1).removeClass('gallery_out').addClass('gallery_right_middle'):
+		$threeD_gallery_item.eq(idx - 4).removeClass('gallery_out').addClass('gallery_right_middle');
+	})
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script type='text/javascript' src='js/jquery-1.11.3.js'></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<audio id="music1" controls="controls" autoplay="autoplay" preload><!--hidden 可以让audio 隐藏-->
+		<source src="music/AmazingGrace.mp3" type="audio/mp3" />
+		Your browser does not support the audio element.
+	</audio>
+</body>
+<script type="text/javascript">
+	var audio = document.getElementById('music1');
+$("#btn").bind("touchstart", function bf() {
+ 
+if(audio !== null) {
+//检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+//alert(audio.paused);
+if(audio.paused) {
+audio.play(); //audio.play();// 这个就是播放
+$("#btn").addClass("active")
+} else {
+audio.pause(); // 这个就是暂停
+$("#btn").removeClass("active")
+}
+}
+})
+
+$("html").one('touchstart',function(){
+audio.play();
+})
+</script>
+</html>
