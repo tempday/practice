@@ -1,33 +1,16 @@
 body{
 	color: #333;
 	font-family:"Microsoft yahei";
+	margin:0;
+	font-size: 14px;
 }
 .container{
 	max-width: 1024px;
-	margin:0 auto;
+	margin:10px auto 0;
 }
-h1{text-align: center;}
-ul{padding:10px 20px;}
-li{list-style: none;border-bottom: 1px solid #ddd;padding-bottom: 10px;padding-top: 10px;
-	margin:0 auto;position: relative;min-height: 200px;}
-li:nth-child(even){
-	background-color:rgba(251,252,250,.8);
-}
-.left{position: absolute;top:40px;width:100px;}
-.left img{width:100%;}
-.right{padding-left:110px;}
-.right p{
-	line-height:1.3em;
-	/*max-height:12.5em;*/
-	/*overflow: hidden;*/
-	padding:0 5px;
-	text-align: justify;
-}
+/*标签*/
 
-.right p a,.right p a:visited{
-	color:#6c90a6;
-	text-decoration:none;
-}
+
 .search{
 	padding: 5px 20px;
 }
@@ -40,11 +23,38 @@ li:nth-child(even){
 	position: relative;
 	padding-right: 60px;			
 }
-@media screen and (max-width:600px){
+.search div.types{
+	height:25px;
+	line-height:25px;
+	font-size: 1em;
+	margin-bottom:5px;
+}
+div.types b{
+	padding:0 3px;
+	border-radius:3px;
+	color:#4a7a94;
+	height:20px;
+	line-height:20px;
+	display: inline-block;
+	font-size: 1em;
+	text-align:center;
+	cursor:pointer;
+}
+div.types b.active{
+	background-color: #8ba9b9;
+	color:#fff;
+	
+}
+.search div.types span{
+	color:#4a7a94;
+	font-weight:bold;
+}
+@media screen and (max-width:640px){
 	.search div{
 		margin:0 auto;
 		width:100%;
 	}
+	
 }
 .search input{
 		width: 100%;
@@ -78,6 +88,33 @@ button:hover{
 button:active{
 	background-color: #6c90a6;
 }
+
+/*正文*/
+.left{position: absolute;top:40px;width:100px;}
+.left img{width:100%;border:0;}
+.right{padding-left:110px;}
+.right p{
+	line-height:1.3em;
+	/*max-height:12.5em;*/
+	/*overflow: hidden;*/
+	padding:0 5px;
+	text-align: justify;
+}
+
+.right p a,.right p a:visited{
+	color:#6c90a6;
+	text-decoration:none;
+}
+h1{text-align: center;}
+ul{padding:10px 20px;list-style:none;}
+li{border-bottom: 1px solid #ddd;padding-bottom: 10px;padding-top: 10px;
+	margin:0 auto;position: relative;min-height: 200px;}
+li:nth-child(even){
+	background-color:rgba(251,252,250,.8);
+}
+
+
+
 footer{
 	text-align: center;
 	color: #999;
@@ -87,6 +124,7 @@ footer{
 	border-radius: 5px;
 	margin-bottom: 30px
 }
+/*文字左右线条*/
 .loading:before{
 	content: "";
 	display: inline-block;

@@ -7,7 +7,7 @@
 	<title>豆瓣图书</title>
 	<script src="http://192.168.3.200/yesterday/03-1-Jquery/JS/jquery-1.11.3.min.js"></script>
 	<script src="js/searchbooks.js"></script>
-	<link rel="stylesheet" href="css/searchbooks.css" type="" media="screen"/>
+	<link rel="stylesheet" href="css/searchbooks.css"  media="screen"/>
 	<style>
 		
 	</style>
@@ -15,9 +15,14 @@
 <body>
 	<div class="container">
 		<header class="search">
+			<div class='types'>
+				<span>豆瓣搜索:</span>
+				<b class="active">图书</b>
+				<b>电影</b>
+			</div>
 			<div><input autofocus type="text"><button type="button">搜索</button></div>
 		</header>
-		<h1>豆瓣图书搜索:<span>美好</span></h1>
+		<h1>豆瓣图书<b>推荐</b>:<span>美好</span></h1>
 		<ul id="list">
 			<li><div class="left"><a href="https://book.douban.com/subject/25981411/"><img src="https://img3.doubanio.com/mpic/s27462105.jpg"></a></div><div class="right"><h3><b>书名</b>：《美好》</h3><p><b>图书简介：</b>《美好》是以幾米2009年出版的经典绘本《星空》为蓝本设计的静美笔记本，软皮精装，油画布压纹，全新设计，舒适纸张，手感、质感、视觉效果相得益彰。实用与美观结合，更是工作生活笔记、学生笔记，以及节日赠送亲友的好选择。</p></div></li>
 		</ul>
@@ -43,6 +48,7 @@
 		var lDiv
 	}
 	*/
+	
 </script>
 <!-- <script type="text/javascript" src="https://api.douban.com/v2/book/search?q=万物&callback=getBooks"></script> -->
 </html>

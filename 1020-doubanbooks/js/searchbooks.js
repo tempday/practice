@@ -48,12 +48,30 @@ $(function(){
 		*/
 		$('.search button').on('click',function(){
 			var key=$('.search input').val().trim();
+			$('h1 b').html("搜索");
 			$('h1 span').html(key);
 			$("#list").html("");
 			searchByKye(key,5);
 		});
 		$('footer.addmore').on('click',function(){
 			addmore(books);
-		})
+		});
+		$("div.types b").click(function(){
+			$("div.types b").removeClass('active');
+			$(this).addClass('active');
+		});
+		$.ajax({
+			url:'http://1.lglong519.applinzi.com/data/keywords.php',
+			dataType:'json',
+			success:function(data){
+				//var index=Math.ceil(new Date().getHours()/6);
+				var index=parseInt(Math.random()*data['keywords'].length);
+				var key=data['keywords'][index].keys[parseInt(Math.random()*data['keywords'][index].keys.length)];
+				$('h1 b').html("推荐");
+				$('h1 span').html(data['keywords'][index].type);
+				$("#list").html("");
+				searchByKye(key,5);
+			}
+		});
 	});
 	
