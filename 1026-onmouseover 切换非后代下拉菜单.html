@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<title>无标题文档</title>
+		<style type="text/css">
+			*{font-size:12px;}
+			a{text-decoration:none;}
+			a:hover{text-decoration:underline;}
+			ul{margin:0px;padding:0px; list-style:none;}
+			ul li{margin:1px;}
+			#d_category{ position:absolute;left:400px;top:50px;background-color:#fff5d6;line-height:30px;}
+			#d_category a{ font-size:14px; font-weight:bold;color:#eb5c15;}
+			#d_category a:hover{ text-decoration:underline;cursor:pointer;}
+		</style>
+		<script type="text/javascript">
+			var aa;
+				function over1(){
+					document.getElementById("tab1").style.display = "block";clearTimeout(aa);
+				}
+				function out1(){
+					aa = setTimeout(hide,100);
+				}
+				function hide(){
+					document.getElementById("tab1").style.display = "none"
+				}
+		</script>
+	</head>
+	<body>
+		<div id="d_category" onmousemove="over1();" onmouseout="out1();"><a href="javascript:void(0);">总共20类商品</a>
+		</div>
+		<table id="tab1" onmousemove="over1();" onmouseout="out1();" style="position:absolute;width:500px;background-color:#ddeeff;left:190px;top:74px;display:none;z-index:10;">
+			<tbody>
+				
+				<tr>
+					<td style="BORDER-TOP: #999 1px dashed" colSpan=4>&nbsp;</td>
+				</tr>
+				<tr>
+					<td valign=top>
+						<!-- BEGIN other -->
+						<div class=category>
+							<StrONG class=category-name>其它</StrONG>
+						</div>
+						<div class=category>
+							<ul>
+								<li><a href="#">E周刊</a> 
+									<li><a href="#">联盟</a>
+									</li>
+							</ul>
+						</div>
+						<!-- END other -->
+					</td>
+					<td valign=top>
+						<!-- BEGIN Hardline -->
+						<div class=category>
+							<StrONG class=category-name>合作伙伴</StrONG>
+						</div>
+						
+						<!-- END Hardline -->
+					</td>
+					<td class=softline valign=top>&nbsp;</td>
+					<td class=softline valign=top>&nbsp;</td>
+				</tr>
+				<!-- END Other -->
+			</tbody>
+		</table>
+	</body>
+
+</html>

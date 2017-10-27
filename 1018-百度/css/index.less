@@ -12,14 +12,14 @@ body,input{
 	font-family: "Helvetica Neue", "Microsoft Yahei", "SimHei", Helvetica, Arial, sans-serif;
 }
 body{
-	min-height: 600px;
+	min-height: 480px;
 	position: relative;
 }
 header,section,footer{
 	width: 100%;
 	overflow: hidden;
 	color: @font-clr;
-	min-width: 810px;
+	min-width: 640px;
 	display: block;
 }
 a:visited,a:active{
@@ -30,6 +30,7 @@ ul.links{
 	margin: 20px 0 5px;
 	li{
 		display: inline-block;
+		*display: inline;
 		list-style-type:none;
 		margin-right: 15px;
 		line-height: 24px;
@@ -60,6 +61,7 @@ section{
 	overflow: visible;
 	div.first{
 		display: inline-block;
+		*display: block;
 		width: 100%;
 		position: relative;
 		margin:10px auto;
@@ -112,6 +114,7 @@ section{
 			}
 			button{
 				display: inline-block;
+				*display: inline;
 				background-color: @blue-clr;
 				color: #fff;
 				height: 100%;

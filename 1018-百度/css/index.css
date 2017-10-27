@@ -6,7 +6,7 @@ input {
   font-family: "Helvetica Neue", "Microsoft Yahei", "SimHei", Helvetica, Arial, sans-serif;
 }
 body {
-  min-height: 600px;
+  min-height: 480px;
   position: relative;
 }
 header,
@@ -14,13 +14,13 @@ section,
 footer {
   width: 100%;
   overflow: hidden;
-  color: #555555;
-  min-width: 810px;
+  color: #555;
+  min-width: 640px;
   display: block;
 }
 a:visited,
 a:active {
-  color: #555555;
+  color: #555;
 }
 ul.links {
   float: right;
@@ -28,12 +28,13 @@ ul.links {
 }
 ul.links li {
   display: inline-block;
+  *display: inline;
   list-style-type: none;
   margin-right: 15px;
   line-height: 24px;
 }
 ul.links li a {
-  color: #555555;
+  color: #555;
   font-weight: 600;
   font-size: 13px;
 }
@@ -42,7 +43,7 @@ ul.links li a:hover {
 }
 ul.links li:last-child {
   border-radius: 3px ;
-  background: #3388ff;
+  background: #38f;
   margin-left: 8px;
   margin-right: 15px;
 }
@@ -58,6 +59,7 @@ section {
 }
 section div.first {
   display: inline-block;
+  *display: block;
   width: 100%;
   position: relative;
   margin: 10px auto;
@@ -79,7 +81,7 @@ section form div.btngroup {
   width: 640px;
   height: 35px;
   display: block;
-  background-color: #3388ff;
+  background-color: #38f;
   box-sizing: border-box;
   position: relative;
 }
@@ -96,7 +98,7 @@ section form div.btngroup input:hover {
   border-color: #adadad;
 }
 section form div.btngroup input:focus {
-  border-color: #3388ff;
+  border-color: #38f;
 }
 section form div.btngroup b {
   position: absolute;
@@ -111,7 +113,8 @@ section form div.btngroup b:hover {
 }
 section form div.btngroup button {
   display: inline-block;
-  background-color: #3388ff;
+  *display: inline;
+  background-color: #38f;
   color: #fff;
   height: 100%;
   width: 100px;
@@ -132,7 +135,7 @@ section form div.btngroup div.loadimg {
   width: 100%;
   padding-top: 35px;
   background-color: #fff;
-  border: 1px solid #3388ff;
+  border: 1px solid #38f;
   overflow: hidden;
   margin: 0;
   z-index: 10;
@@ -173,7 +176,7 @@ section form div.btngroup div.loadimg div.imgbox {
   box-sizing: border-box;
   padding: 23px 20px 27px;
   margin: 0;
-  color: #999999;
+  color: #999;
   font-size: 16px;
 }
 section form div.btngroup div.loadimg div.imgbox div.pullpic {
@@ -231,7 +234,7 @@ section form div.btngroup div.loadimg div.imgbox div.upload i {
 section form div.btngroup div.loadimg div.imgbox div.upload span {
   display: inline;
   position: static;
-  color: #555555;
+  color: #555;
 }
 section form div.btngroup div.loadimg a {
   position: absolute;
@@ -258,7 +261,7 @@ footer div p {
   margin-top: 20px;
 }
 footer div p a {
-  color: #999999;
+  color: #999;
   font-size: 12px;
   display: inline-block;
   margin-right: 20px;

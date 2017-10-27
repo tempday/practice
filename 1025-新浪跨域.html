@@ -10,11 +10,15 @@
 	<link rel="stylesheet" href=""/>
 	<script src="http://192.168.3.200/yesterday/03-1-Jquery/JS/jquery-1.11.3.min.js"></script>
 	<style>
-		div{
+		div,span{
 			width:300px;
 			height:150px;
 			background-color: pink;
 			margin: 20px auto;
+			text-align: center;
+			line-height:150px;
+		}
+		span{
 		}
 	</style>
 </head>
@@ -24,22 +28,21 @@
 </body>
 <script type="text/javascript">
 	//function mydatas(data){}
-	$.getJSON('http://1.lglong519.applinzi.com/data/keywordsjs.php?callback=?',function (data){
-		/*
-				console.log(data);
-				console.log(data.keywords);
-				console.log(data['keywords']);
-				div.innerHTML=data['keywords'][1].type;
-				*/
+	$.getJSON('http://1.lglong519.applinzi.com/data/api?callback=?',function (data){
+		console.log(data);
+		console.log(data['keywords']);
+		div.innerHTML=data['keywords'][1].type;
+		/*		
 		 $.each(data,function(a,b){
 		        console.log(a+b);
 		      });
-
-				
+*/
 	});
+	/*
 	function callback(data){
 		div.innerHTML=data['keywords'][1].type;
 		span.innerHTML+=data['keywords'][1].keys[0];
 	}
+	*/
 </script>
 </html>
