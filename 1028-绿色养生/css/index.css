@@ -1,0 +1,429 @@
+html {
+  font-family: PingFangSC-Regular, Verdana, Arial, '微软雅黑', '宋体', sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 14px;
+  color: #666;
+}
+body {
+  margin: 0;
+}
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+ul,
+ol {
+  list-style: none;
+}
+header,
+main,
+section,
+footer {
+  display: block;
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
+}
+.container {
+  min-width: 960px;
+  width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.container:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/*
+_::-webkit-full-page-media, _:future, :root .safari_only {
+  .ocntainer{
+		width:1200px;
+	}
+}
+*/
+header {
+  height: 100px;
+  background-color: #f3f3f3;
+  line-height: 100px;
+}
+header a.logo {
+  float: left;
+}
+header ul {
+  float: right;
+  line-height: 100px;
+  height: 100px;
+  margin-right: 100px;
+}
+header ul li {
+  display: inline-block;
+  *display: inline;
+  height: 50px;
+  line-height: 50px;
+  width: 100px;
+  padding: 0 10px;
+  text-align: center;
+}
+header ul li:hover {
+  background-color: #e6e6e6;
+}
+header ul li:hover a {
+  color: #000000;
+}
+header ul li a {
+  color: #6e5041;
+  font-size: 20px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+main {
+  height: 600px;
+  position: relative;
+}
+main div.m-bg {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+main div.m-bg > img {
+  width: 1920px;
+  height: 100%;
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 0;
+  margin-left: -960px;
+  z-index: 0;
+}
+main div.container {
+  text-align: center;
+  height: 600px;
+  position: relative;
+}
+main div.container div.m-title {
+  position: relative;
+  z-index: 15;
+  width: 525px;
+  height: 65px;
+  margin: 70px auto 0;
+}
+main div.container .m-ps,
+main div.container .m-art,
+main div.container .m-qrcode {
+  position: absolute;
+  z-index: 10;
+}
+main div.container .m-ps {
+  width: 670px;
+  height: 600px;
+  bottom: 0;
+  left: -10%;
+}
+main div.container .m-art {
+  width: 250px;
+  height: 600px;
+  bottom: 0;
+  right: 0;
+}
+main div.container .m-qrcode {
+  width: 168px;
+  height: 165px;
+  bottom: 0;
+  left: 70%;
+}
+.container h1 {
+  text-align: center;
+  margin-top: 23px;
+  margin-bottom: 16px;
+  font-size: 28px;
+  color: #333;
+  font-weight: normal;
+}
+.container h3 {
+  text-align: center;
+  margin-top: 23px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #666;
+  font-weight: normal;
+}
+section#about {
+  height: 450px;
+}
+section#about ol {
+  margin: 40px auto 0;
+  display: table;
+}
+section#about ol:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+section#about ol li {
+  border: 1px solid #dedede;
+  padding: 25px 29px 0;
+  height: 230px;
+  width: 220px;
+  float: left;
+  margin-right: 10px;
+}
+section#about ol li h2 {
+  font-size: 18px;
+  color: #333;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+section#about ol li h2 b {
+  display: inline-block;
+  *display: inline;
+  height: 22px;
+  width: 22px;
+  background-color: #a6a6a6;
+  color: #fff;
+  text-align: center;
+  margin-right: 5px;
+}
+section#about ol li p {
+  color: #666;
+  text-align: justify;
+  line-height: 27px;
+}
+section#special {
+  height: 360px;
+  background-color: #f3f3f3;
+}
+section#special ul {
+  display: table;
+  margin: 30px auto 0;
+}
+section#special ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+section#special ul li {
+  float: left;
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  line-height: 181px;
+  border: 2px solid #d0d0d0;
+  text-align: center;
+  display: table-cell;
+  margin-right: 5px;
+  vertical-align: middle;
+  transition: all 1s;
+}
+section#special ul li:hover {
+  box-shadow: 0 0 10px rgba(120, 50, 50, 0.5);
+}
+section#special ul li div {
+  display: inline-block;
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background: url("../img/products-01.png") no-repeat;
+  transition: transform 1s;
+  -webkit-transition: -webkit-transform 1s;
+}
+section#special ul li div:hover {
+  transform: scale(1.13);
+  -webkit-transform: scale(1.13);
+}
+section#special ul li:nth-child(2) div {
+  background-position: -203px 0;
+}
+section#special ul li:nth-child(3) div {
+  background-position: -406px 0;
+}
+section#special ul li:nth-child(4) div,
+section#special ul li:nth-child(5) div,
+section#special ul li:last-child div {
+  background-image: url("../img/products-02.png");
+}
+section#special ul li:nth-child(5) div {
+  background-position: -203px 0;
+}
+section#special ul li:last-child {
+  margin-right: 0;
+}
+section#special ul li:last-child div {
+  background-position: -406px 0;
+}
+section#exhibition {
+  height: 690px;
+}
+section#exhibition ul.btngroup {
+  display: table;
+  margin: 30px auto 0;
+}
+section#exhibition ul.btngroup:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+section#exhibition ul.btngroup > li {
+  float: left;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  line-height: 40px;
+  border: 1px solid #d0d0d0;
+  text-align: center;
+  display: table-cell;
+  margin-right: 98px;
+  vertical-align: middle;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
+section#exhibition ul.btngroup > li:hover,
+section#exhibition ul.btngroup > li.hover {
+  color: #fff;
+  background-color: #7f4d51;
+  cursor: pointer;
+}
+section#exhibition ul.btngroup > li:last-child {
+  margin-right: 0;
+}
+section#exhibition div.sliderbox {
+  position: relative;
+  height: 300px;
+  margin: 120px auto 0;
+  width: 1024px;
+}
+section#exhibition div.sliderbox b {
+  display: block;
+  position: absolute;
+  height: 120px;
+  width: 60px;
+  background: url("../img/arrow-l.png") no-repeat;
+  top: 50%;
+  margin-top: -60px;
+}
+section#exhibition div.sliderbox b:hover {
+  background-position: -60px 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+section#exhibition div.sliderbox b:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+section#exhibition div.sliderbox b#prev {
+  left: 0;
+}
+section#exhibition div.sliderbox b#next {
+  background-image: url("../img/arrow-r.png");
+  right: 0;
+}
+section#exhibition div.sliderbox ul {
+  height: 100%;
+  width: 780px;
+  overflow: hidden;
+  display: table;
+  margin: 0 auto;
+  position: relative;
+}
+section#exhibition div.sliderbox ul li {
+  width: 780px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 1s ease;
+  -webkit-transition: all 1.2s ease;
+}
+section#exhibition div.sliderbox ul li:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+section#exhibition div.sliderbox ul li div {
+  display: block;
+  float: left;
+  width: 440px;
+  text-align: left;
+  box-sizing: border-box;
+}
+section#exhibition div.sliderbox ul li div h1 {
+  text-align: left;
+  font-size: 50px;
+  width: 350px;
+  color: #333;
+}
+section#exhibition div.sliderbox ul li div h3 {
+  font-size: 18px;
+  line-height: 26px;
+  color: #999;
+  text-align: left;
+  margin-top: 10px;
+}
+section#exhibition div.sliderbox ul li div img {
+  width: 100%;
+}
+section#exhibition div.sliderbox ul li div.p1 {
+  width: 340px;
+}
+section#exhibition div.sliderbox ul li.current {
+  z-index: 10;
+  opacity: 1;
+}
+footer#copyright {
+  height: 100px;
+  background-color: #2e1b17;
+  position: relative;
+}
+footer#copyright:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+footer#copyright p {
+  text-align: center;
+  color: #fff;
+  padding-top: 30px;
+}
+footer#copyright p:nth-child(2) {
+  padding-top: 10px;
+}
+footer#copyright a {
+  position: absolute;
+  right: 100px;
+  top: 40%;
+  color: #fff;
+  text-decoration: underline;
+}
