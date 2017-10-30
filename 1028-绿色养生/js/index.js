@@ -1,6 +1,27 @@
 /**
  * Created by lglong on 2017-10-29.
  */
+//解决IE10以下不支持Function.bind
+if (!Function.prototype.bind) {
+	Function.prototype.bind = function(oThis) {
+		if (typeof this !== "function") {
+			throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+		}
+		var aArgs = Array.prototype.slice.call(arguments, 1),
+				fToBind = this,
+				fNOP = function() {},
+				fBound = function() {
+					return fToBind.apply(this instanceof fNOP && oThis ? this : oThis,
+							aArgs.concat(Array.prototype.slice.call(arguments)));
+				};
+		fNOP.prototype = this.prototype;
+		fBound.prototype = new fNOP();
+		return fBound;
+	};
+}
+
+
+
 var slider={
 	counter:0,
 	imgs:null,
@@ -22,8 +43,8 @@ var slider={
 		next.onclick=function(){
 			me.changeImg(1);
 		};
-		btngroup.onclick=function(e){
-			var src=e.srcElement||e.target;
+		btngroup.onclick=function(){
+			var src=event.srcElement||event.target;
 			if(src.nodeName=="LI"){
 				for (var i=0;i<this.children.length;i++){
 					if(this.children[i]==src){
@@ -130,16 +151,15 @@ var jumpToAnchor={
 	wTop:0,
 	direction:true,
 	init:function(id){
-		var navbar=document.getElementById(id);
-		navbar.onclick=function(){
+		var btnElem=document.getElementById(id);
+		btnElem.onclick=function(){
 			var src=event.srcElement||event.target;
 			if(src.nodeName=="A"){
 				var href=src.getAttribute('href');
-				if(href.match(/^#/)){
+				console.log(href);
+				if(href.match(/#/)){//^#  兼容ie7,ie7获得的是整个超链接
 					jumpToAnchor.getScrollTop();
-					if(jumpToAnchor.getData(href.replace(/[#\s]/g,''))){
-						jumpToAnchor.jump();
-					}
+					(jumpToAnchor.getData(href.replace(/(.*?)#|\s/g,'')))&&(jumpToAnchor.jump());
 				}
 				return false;
 			}
@@ -192,3 +212,6 @@ var jumpToAnchor={
 };
 jumpToAnchor.init("navbar");
 jumpToAnchor.init("toTop");
+
+
+

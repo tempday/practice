@@ -1,6 +1,5 @@
 //css reset
-
-
+@charset "UTF-8";
 html {
 	font-family: PingFangSC-Regular, Verdana, Arial, '微软雅黑', '宋体',sans-serif;
 	-ms-text-size-adjust: 100%; // 2
@@ -61,19 +60,24 @@ ul,ol{
 	}
 	//*/
 }
+//兼容ie7/8 将H5标签改为class
 header,
 main,
 section,
-footer
+footer,
+.header,
+.main,
+.section,
+.footer
 {
-	display: block;
+	display: table;
 	margin: 0 auto;
 	max-width: 1920px;
+	min-width: 1200px;
 	width: 100%;
-
 }
 .container{
-	min-width:960px;
+	min-width:1200px;
 	//min-width:640px;
 	width: 1200px;
 	margin: 0 auto;
@@ -81,23 +85,18 @@ footer
 	padding-right: 20px;
 	.before();
 	.after();
+	//缩放右边框有问题
 	//display: table;
+	text-align: center;
 }
-//兼容Safari
-/*
-_::-webkit-full-page-media, _:future, :root .safari_only {
-  .ocntainer{
-		width:1200px;
-	}
-}
-*/
 //布局
-header{
+header,.header{
 	height: 100px;
 	background-color:@bg-clr;
 	line-height: 100px;
 	a.logo{
 		float: left;
+		*margin-top: 30px;
 	}
 	ul{
 		float: right;
@@ -105,8 +104,9 @@ header{
 		height: 100px;
 		margin-right: 100px;
 		li{
-			display: inline-block;
-			*display:inline;
+			display:block;
+			margin-top: 25px;
+			float: left;
 			height: 50px;
 			line-height: 50px;
 			width: 100px;
@@ -129,7 +129,7 @@ header{
 		}
 	}
 }
-main{
+main,.main{
 	height: 600px;
 	position: relative;
 	div.m-bg{
@@ -140,7 +140,7 @@ main{
 		width: 100%;
 		>img{
 			width: 1920px;
-			height: 100%;
+			height: 600px;
 			display: block;
 			position: relative;
 			left: 50%;
@@ -206,7 +206,7 @@ main{
 	}
 }
 // 关于我们
-section#about{
+section#about,.section#about{
 	height: 450px;
 
 	ol{
@@ -220,6 +220,7 @@ section#about{
 			width: 220px;
 			float: left;
 			margin-right: 10px;
+			text-align: left;
 			h2{
 				b{
 					display: inline-block;
@@ -244,7 +245,7 @@ section#about{
 		}
 	}
 }
-section#special {
+section#special,.section#special {
 	height: 360px;
 	background-color: @bg-clr;
 	ul{
@@ -281,14 +282,18 @@ section#special {
 					transform: scale(1.13);
 					-webkit-transform: scale(1.13);
 				}
+				&.nth-4,&.nth-5,&.nth-6{
+					background-image: url("../img/products-02.png");
+				}
+				&.nth-2,&.nth-5{
+					background-position: -203px 0;
+				}
+				&.nth-3,&.nth-6{
+					background-position: -406px 0;
+				}
 			}
 		}
-		li:nth-child(2){
-			div{
-				background-position: -203px 0;
-			}
-		}
-		li:nth-child(3){
+		li:nth-child(3),li:last-child{
 			div{
 				background-position: -406px 0;
 			}
@@ -298,20 +303,17 @@ section#special {
 				background-image: url("../img/products-02.png");
 			}
 		}
-		li:nth-child(5){
+		li:nth-child(2),li:nth-child(5){
 			div{
 				background-position: -203px 0;
 			}
 		}
 		li:last-child{
 			margin-right: 0;
-			div{
-				background-position: -406px 0;
-			}
 		}
 	}
 }
-section#exhibition {
+section#exhibition,.section#exhibition {
 	height: 690px;
 	ul.btngroup {
 		.after();
@@ -339,7 +341,6 @@ section#exhibition {
 		>li:last-child{
 			margin-right: 0;
 		}
-
 	}
 	div.sliderbox{
 		position: relative;
@@ -429,7 +430,7 @@ section#exhibition {
 
 	}
 }
-footer#copyright {
+footer#copyright,.footer#copyright {
 	height: 100px;
 	background-color: hsv(10,49%,18%);
 	.before();
@@ -442,9 +443,10 @@ footer#copyright {
 	p:nth-child(2){
 		padding-top: 10px;
 	}
+	//返回顶部
 	a{
 		position: absolute;
-		right: 100px;
+		right: 40px;
 		top:40%;
 		color: #fff;
 		text-decoration:underline;

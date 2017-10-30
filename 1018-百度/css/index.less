@@ -15,7 +15,7 @@ body{
 	min-height: 480px;
 	position: relative;
 }
-header,section,footer{
+.header,.section,.footer{
 	width: 100%;
 	overflow: hidden;
 	color: @font-clr;
@@ -25,6 +25,7 @@ header,section,footer{
 a:visited,a:active{
 	color: @font-clr;
 }
+//导航栏右侧的一系列链接按钮
 ul.links{
 	float: right;
 	margin: 20px 0 5px;
@@ -42,7 +43,8 @@ ul.links{
 		a:hover{
 			color:#00c;
 		}
-		&:last-child{
+		//最后一个:更多产品
+		&.last-child{
 			border-radius:3px ;
 			background:@blue-clr ;
 			margin-left: 8px;
@@ -56,7 +58,7 @@ ul.links{
 		}
 	}
 }
-section{
+.section{
 	padding-top: 20px;
 	overflow: visible;
 	div.first{
@@ -87,11 +89,14 @@ section{
 			position: relative;
 			input{
 				width: 540px;
+				*width: 490px;
 				height: 100%;
+				*height: 29px;
 				float: left;
 				outline: none;
 				border: 1px solid #b8b8b8;
 				box-sizing: border-box;
+				display: inline-block;
 				&:hover{
 					border-color:#adadad;
 				}
@@ -103,7 +108,7 @@ section{
 			b{
 				position: absolute;
 				top: 10px;
-				left: 510px;
+				right: 120px;
 				background: url(../img/camera_new_5606e8f.png) no-repeat;
 				height: 16px;
 				width: 18px;
@@ -112,9 +117,11 @@ section{
 				}
 				
 			}
+			//搜索按钮
 			button{
 				display: inline-block;
 				*display: inline;
+				float: right;
 				background-color: @blue-clr;
 				color: #fff;
 				height: 100%;
@@ -156,8 +163,9 @@ section{
 					//相机图标
 					b{
 						top: 10px;
-						left: 581px;
+						right: 41px;
 						background: url(../img/camera_2.png) no-repeat;
+
 					}
 					//输入图片提示
 					p#tips{
@@ -262,10 +270,16 @@ section{
 			}
 		}
 	}
-
-
 }
-footer{
+@media screen and (max-width:640px) {
+	.section form div.btngroup{
+		width: 500px;
+		input{
+			width: 400px;
+		}
+	}
+}
+.footer{
 	position: absolute;
 	bottom:30px;
 	div{

@@ -9,9 +9,9 @@ body {
   min-height: 480px;
   position: relative;
 }
-header,
-section,
-footer {
+.header,
+.section,
+.footer {
   width: 100%;
   overflow: hidden;
   color: #555;
@@ -41,23 +41,23 @@ ul.links li a {
 ul.links li a:hover {
   color: #00c;
 }
-ul.links li:last-child {
+ul.links li.last-child {
   border-radius: 3px ;
   background: #38f;
   margin-left: 8px;
   margin-right: 15px;
 }
-ul.links li:last-child a {
+ul.links li.last-child a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   margin: 0 4px;
 }
-section {
+.section {
   padding-top: 20px;
   overflow: visible;
 }
-section div.first {
+.section div.first {
   display: inline-block;
   *display: block;
   width: 100%;
@@ -65,18 +65,18 @@ section div.first {
   margin: 10px auto;
   text-align: center;
 }
-section div.first img {
+.section div.first img {
   width: 270px;
   height: 129px;
 }
-section form {
+.section form {
   display: inline-block;
   width: 100%;
   position: relative;
   margin: 10px auto;
   text-align: center;
 }
-section form div.btngroup {
+.section form div.btngroup {
   margin: 0 auto;
   width: 640px;
   height: 35px;
@@ -85,35 +85,39 @@ section form div.btngroup {
   box-sizing: border-box;
   position: relative;
 }
-section form div.btngroup input {
+.section form div.btngroup input {
   width: 540px;
+  *width: 490px;
   height: 100%;
+  *height: 29px;
   float: left;
   outline: none;
   border: 1px solid #b8b8b8;
   box-sizing: border-box;
+  display: inline-block;
   padding: 2px 40px 2px 8px;
 }
-section form div.btngroup input:hover {
+.section form div.btngroup input:hover {
   border-color: #adadad;
 }
-section form div.btngroup input:focus {
+.section form div.btngroup input:focus {
   border-color: #38f;
 }
-section form div.btngroup b {
+.section form div.btngroup b {
   position: absolute;
   top: 10px;
-  left: 510px;
+  right: 120px;
   background: url(../img/camera_new_5606e8f.png) no-repeat;
   height: 16px;
   width: 18px;
 }
-section form div.btngroup b:hover {
+.section form div.btngroup b:hover {
   background-position: 0 -20px;
 }
-section form div.btngroup button {
+.section form div.btngroup button {
   display: inline-block;
   *display: inline;
+  float: right;
   background-color: #38f;
   color: #fff;
   height: 100%;
@@ -122,13 +126,13 @@ section form div.btngroup button {
   font-size: 15px;
   font-weight: 500;
 }
-section form div.btngroup button:hover {
+.section form div.btngroup button:hover {
   background-color: #317ef3;
 }
-section form div.btngroup button:active {
+.section form div.btngroup button:active {
   background-color: #3075dc;
 }
-section form div.btngroup div.loadimg {
+.section form div.btngroup div.loadimg {
   position: absolute;
   top: 0;
   left: 0;
@@ -141,23 +145,23 @@ section form div.btngroup div.loadimg {
   z-index: 10;
   display: none;
 }
-section form div.btngroup div.loadimg span {
+.section form div.btngroup div.loadimg span {
   position: absolute;
   top: 0;
   left: 0;
   height: 35px;
   box-sizing: border-box;
 }
-section form div.btngroup div.loadimg span input {
+.section form div.btngroup div.loadimg span input {
   border: 0;
   border-bottom: 1px solid #b8b8b8;
 }
-section form div.btngroup div.loadimg span b {
+.section form div.btngroup div.loadimg span b {
   top: 10px;
-  left: 581px;
+  right: 41px;
   background: url(../img/camera_2.png) no-repeat;
 }
-section form div.btngroup div.loadimg span p#tips {
+.section form div.btngroup div.loadimg span p#tips {
   position: absolute;
   top: 5px;
   right: 115px;
@@ -171,7 +175,7 @@ section form div.btngroup div.loadimg span p#tips {
   font-size: 12px;
   display: none;
 }
-section form div.btngroup div.loadimg div.imgbox {
+.section form div.btngroup div.loadimg div.imgbox {
   width: 100%;
   box-sizing: border-box;
   padding: 23px 20px 27px;
@@ -179,14 +183,14 @@ section form div.btngroup div.loadimg div.imgbox {
   color: #999;
   font-size: 16px;
 }
-section form div.btngroup div.loadimg div.imgbox div.pullpic {
+.section form div.btngroup div.loadimg div.imgbox div.pullpic {
   height: 75px;
   width: 100%;
   background-color: #fafafa;
   padding-top: 25px;
   margin-bottom: 16px;
 }
-section form div.btngroup div.loadimg div.imgbox div.pullpic i {
+.section form div.btngroup div.loadimg div.imgbox div.pullpic i {
   display: inline-block;
   height: 28px;
   width: 28px;
@@ -194,7 +198,7 @@ section form div.btngroup div.loadimg div.imgbox div.pullpic i {
   vertical-align: middle;
   margin-top: 10px;
 }
-section form div.btngroup div.loadimg div.imgbox div.upload {
+.section form div.btngroup div.loadimg div.imgbox div.upload {
   display: inline-block;
   *display: inline;
   height: 43px;
@@ -205,10 +209,10 @@ section form div.btngroup div.loadimg div.imgbox div.upload {
   margin: 5px auto 5px;
   position: relative;
 }
-section form div.btngroup div.loadimg div.imgbox div.upload:hover {
+.section form div.btngroup div.loadimg div.imgbox div.upload:hover {
   border-color: #317ef3;
 }
-section form div.btngroup div.loadimg div.imgbox div.upload input#upload {
+.section form div.btngroup div.loadimg div.imgbox div.upload input#upload {
   display: inline-block;
   *display: inline;
   position: absolute;
@@ -222,7 +226,7 @@ section form div.btngroup div.loadimg div.imgbox div.upload input#upload {
   background-color: #fff;
   cursor: pointer;
 }
-section form div.btngroup div.loadimg div.imgbox div.upload i {
+.section form div.btngroup div.loadimg div.imgbox div.upload i {
   display: inline-block;
   height: 18px;
   width: 18px;
@@ -231,12 +235,12 @@ section form div.btngroup div.loadimg div.imgbox div.upload i {
   margin-top: -4px;
   margin-right: 5px;
 }
-section form div.btngroup div.loadimg div.imgbox div.upload span {
+.section form div.btngroup div.loadimg div.imgbox div.upload span {
   display: inline;
   position: static;
   color: #555;
 }
-section form div.btngroup div.loadimg a {
+.section form div.btngroup div.loadimg a {
   position: absolute;
   right: 18px;
   bottom: 13px;
@@ -244,38 +248,46 @@ section form div.btngroup div.loadimg a {
   width: 18px;
   height: 18px;
 }
-footer {
+@media screen and (max-width: 640px) {
+  .section form div.btngroup {
+    width: 500px;
+  }
+  .section form div.btngroup input {
+    width: 400px;
+  }
+}
+.footer {
   position: absolute;
   bottom: 30px;
 }
-footer div {
+.footer div {
   width: 100%;
   text-align: center;
   margin-bottom: 10px;
 }
-footer div.qcode {
+.footer div.qcode {
   margin-bottom: 0;
 }
-footer div p {
+.footer div p {
   margin-bottom: 5px;
   margin-top: 20px;
 }
-footer div p a {
+.footer div p a {
   color: #999;
   font-size: 12px;
   display: inline-block;
   margin-right: 20px;
 }
-footer div p a:visited {
+.footer div p a:visited {
   color: #999;
 }
-footer div p.copyright {
+.footer div p.copyright {
   margin-top: 0;
 }
-footer div p.copyright a {
+.footer div p.copyright a {
   margin-right: 0;
 }
-footer div b {
+.footer div b {
   display: inline-block;
   height: 17px;
   width: 14px;
@@ -283,6 +295,6 @@ footer div b {
   vertical-align: middle;
   margin-bottom: 3px;
 }
-footer div b.icon {
+.footer div b.icon {
   background-position: -600px -95px;
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-family: PingFangSC-Regular, Verdana, Arial, '微软雅黑', '宋体', sans-serif;
   -ms-text-size-adjust: 100%;
@@ -39,18 +40,24 @@ ol {
 header,
 main,
 section,
-footer {
-  display: block;
+footer,
+.header,
+.main,
+.section,
+.footer {
+  display: table;
   margin: 0 auto;
   max-width: 1920px;
+  min-width: 1200px;
   width: 100%;
 }
 .container {
-  min-width: 960px;
+  min-width: 1200px;
   width: 1200px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+  text-align: center;
 }
 .container:before {
   content: "";
@@ -62,63 +69,68 @@ footer {
   display: table;
   clear: both;
 }
-/*
-_::-webkit-full-page-media, _:future, :root .safari_only {
-  .ocntainer{
-		width:1200px;
-	}
-}
-*/
-header {
+header,
+.header {
   height: 100px;
   background-color: #f3f3f3;
   line-height: 100px;
 }
-header a.logo {
+header a.logo,
+.header a.logo {
   float: left;
+  *margin-top: 30px;
 }
-header ul {
+header ul,
+.header ul {
   float: right;
   line-height: 100px;
   height: 100px;
   margin-right: 100px;
 }
-header ul li {
-  display: inline-block;
-  *display: inline;
+header ul li,
+.header ul li {
+  display: block;
+  margin-top: 25px;
+  float: left;
   height: 50px;
   line-height: 50px;
   width: 100px;
   padding: 0 10px;
   text-align: center;
 }
-header ul li:hover {
+header ul li:hover,
+.header ul li:hover {
   background-color: #e6e6e6;
 }
-header ul li:hover a {
+header ul li:hover a,
+.header ul li:hover a {
   color: #000000;
 }
-header ul li a {
+header ul li a,
+.header ul li a {
   color: #6e5041;
   font-size: 20px;
   display: inline-block;
   width: 100%;
   height: 100%;
 }
-main {
+main,
+.main {
   height: 600px;
   position: relative;
 }
-main div.m-bg {
+main div.m-bg,
+.main div.m-bg {
   overflow: hidden;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
 }
-main div.m-bg > img {
+main div.m-bg > img,
+.main div.m-bg > img {
   width: 1920px;
-  height: 100%;
+  height: 600px;
   display: block;
   position: relative;
   left: 50%;
@@ -126,12 +138,14 @@ main div.m-bg > img {
   margin-left: -960px;
   z-index: 0;
 }
-main div.container {
+main div.container,
+.main div.container {
   text-align: center;
   height: 600px;
   position: relative;
 }
-main div.container div.m-title {
+main div.container div.m-title,
+.main div.container div.m-title {
   position: relative;
   z-index: 15;
   width: 525px;
@@ -139,24 +153,30 @@ main div.container div.m-title {
   margin: 70px auto 0;
 }
 main div.container .m-ps,
+.main div.container .m-ps,
 main div.container .m-art,
-main div.container .m-qrcode {
+.main div.container .m-art,
+main div.container .m-qrcode,
+.main div.container .m-qrcode {
   position: absolute;
   z-index: 10;
 }
-main div.container .m-ps {
+main div.container .m-ps,
+.main div.container .m-ps {
   width: 670px;
   height: 600px;
   bottom: 0;
   left: -10%;
 }
-main div.container .m-art {
+main div.container .m-art,
+.main div.container .m-art {
   width: 250px;
   height: 600px;
   bottom: 0;
   right: 0;
 }
-main div.container .m-qrcode {
+main div.container .m-qrcode,
+.main div.container .m-qrcode {
   width: 168px;
   height: 165px;
   bottom: 0;
@@ -179,33 +199,40 @@ main div.container .m-qrcode {
   color: #666;
   font-weight: normal;
 }
-section#about {
+section#about,
+.section#about {
   height: 450px;
 }
-section#about ol {
+section#about ol,
+.section#about ol {
   margin: 40px auto 0;
   display: table;
 }
-section#about ol:after {
+section#about ol:after,
+.section#about ol:after {
   content: "";
   display: table;
   clear: both;
 }
-section#about ol li {
+section#about ol li,
+.section#about ol li {
   border: 1px solid #dedede;
   padding: 25px 29px 0;
   height: 230px;
   width: 220px;
   float: left;
   margin-right: 10px;
+  text-align: left;
 }
-section#about ol li h2 {
+section#about ol li h2,
+.section#about ol li h2 {
   font-size: 18px;
   color: #333;
   font-weight: normal;
   margin-bottom: 10px;
 }
-section#about ol li h2 b {
+section#about ol li h2 b,
+.section#about ol li h2 b {
   display: inline-block;
   *display: inline;
   height: 22px;
@@ -215,25 +242,30 @@ section#about ol li h2 b {
   text-align: center;
   margin-right: 5px;
 }
-section#about ol li p {
+section#about ol li p,
+.section#about ol li p {
   color: #666;
   text-align: justify;
   line-height: 27px;
 }
-section#special {
+section#special,
+.section#special {
   height: 360px;
   background-color: #f3f3f3;
 }
-section#special ul {
+section#special ul,
+.section#special ul {
   display: table;
   margin: 30px auto 0;
 }
-section#special ul:after {
+section#special ul:after,
+.section#special ul:after {
   content: "";
   display: table;
   clear: both;
 }
-section#special ul li {
+section#special ul li,
+.section#special ul li {
   float: left;
   width: 185px;
   height: 185px;
@@ -246,10 +278,12 @@ section#special ul li {
   vertical-align: middle;
   transition: all 1s;
 }
-section#special ul li:hover {
+section#special ul li:hover,
+.section#special ul li:hover {
   box-shadow: 0 0 10px rgba(120, 50, 50, 0.5);
 }
-section#special ul li div {
+section#special ul li div,
+.section#special ul li div {
   display: inline-block;
   width: 164px;
   height: 164px;
@@ -259,43 +293,72 @@ section#special ul li div {
   transition: transform 1s;
   -webkit-transition: -webkit-transform 1s;
 }
-section#special ul li div:hover {
+section#special ul li div:hover,
+.section#special ul li div:hover {
   transform: scale(1.13);
   -webkit-transform: scale(1.13);
 }
-section#special ul li:nth-child(2) div {
+section#special ul li div.nth-4,
+.section#special ul li div.nth-4,
+section#special ul li div.nth-5,
+.section#special ul li div.nth-5,
+section#special ul li div.nth-6,
+.section#special ul li div.nth-6 {
+  background-image: url("../img/products-02.png");
+}
+section#special ul li div.nth-2,
+.section#special ul li div.nth-2,
+section#special ul li div.nth-5,
+.section#special ul li div.nth-5 {
   background-position: -203px 0;
 }
-section#special ul li:nth-child(3) div {
+section#special ul li div.nth-3,
+.section#special ul li div.nth-3,
+section#special ul li div.nth-6,
+.section#special ul li div.nth-6 {
+  background-position: -406px 0;
+}
+section#special ul li:nth-child(3) div,
+.section#special ul li:nth-child(3) div,
+section#special ul li:last-child div,
+.section#special ul li:last-child div {
   background-position: -406px 0;
 }
 section#special ul li:nth-child(4) div,
+.section#special ul li:nth-child(4) div,
 section#special ul li:nth-child(5) div,
-section#special ul li:last-child div {
+.section#special ul li:nth-child(5) div,
+section#special ul li:last-child div,
+.section#special ul li:last-child div {
   background-image: url("../img/products-02.png");
 }
-section#special ul li:nth-child(5) div {
+section#special ul li:nth-child(2) div,
+.section#special ul li:nth-child(2) div,
+section#special ul li:nth-child(5) div,
+.section#special ul li:nth-child(5) div {
   background-position: -203px 0;
 }
-section#special ul li:last-child {
+section#special ul li:last-child,
+.section#special ul li:last-child {
   margin-right: 0;
 }
-section#special ul li:last-child div {
-  background-position: -406px 0;
-}
-section#exhibition {
+section#exhibition,
+.section#exhibition {
   height: 690px;
 }
-section#exhibition ul.btngroup {
+section#exhibition ul.btngroup,
+.section#exhibition ul.btngroup {
   display: table;
   margin: 30px auto 0;
 }
-section#exhibition ul.btngroup:after {
+section#exhibition ul.btngroup:after,
+.section#exhibition ul.btngroup:after {
   content: "";
   display: table;
   clear: both;
 }
-section#exhibition ul.btngroup > li {
+section#exhibition ul.btngroup > li,
+.section#exhibition ul.btngroup > li {
   float: left;
   width: 100px;
   height: 40px;
@@ -310,21 +373,26 @@ section#exhibition ul.btngroup > li {
   -webkit-transition: all .3s ease;
 }
 section#exhibition ul.btngroup > li:hover,
-section#exhibition ul.btngroup > li.hover {
+.section#exhibition ul.btngroup > li:hover,
+section#exhibition ul.btngroup > li.hover,
+.section#exhibition ul.btngroup > li.hover {
   color: #fff;
   background-color: #7f4d51;
   cursor: pointer;
 }
-section#exhibition ul.btngroup > li:last-child {
+section#exhibition ul.btngroup > li:last-child,
+.section#exhibition ul.btngroup > li:last-child {
   margin-right: 0;
 }
-section#exhibition div.sliderbox {
+section#exhibition div.sliderbox,
+.section#exhibition div.sliderbox {
   position: relative;
   height: 300px;
   margin: 120px auto 0;
   width: 1024px;
 }
-section#exhibition div.sliderbox b {
+section#exhibition div.sliderbox b,
+.section#exhibition div.sliderbox b {
   display: block;
   position: absolute;
   height: 120px;
@@ -333,21 +401,26 @@ section#exhibition div.sliderbox b {
   top: 50%;
   margin-top: -60px;
 }
-section#exhibition div.sliderbox b:hover {
+section#exhibition div.sliderbox b:hover,
+.section#exhibition div.sliderbox b:hover {
   background-position: -60px 0;
   background-color: rgba(0, 0, 0, 0.1);
 }
-section#exhibition div.sliderbox b:active {
+section#exhibition div.sliderbox b:active,
+.section#exhibition div.sliderbox b:active {
   background-color: rgba(0, 0, 0, 0.2);
 }
-section#exhibition div.sliderbox b#prev {
+section#exhibition div.sliderbox b#prev,
+.section#exhibition div.sliderbox b#prev {
   left: 0;
 }
-section#exhibition div.sliderbox b#next {
+section#exhibition div.sliderbox b#next,
+.section#exhibition div.sliderbox b#next {
   background-image: url("../img/arrow-r.png");
   right: 0;
 }
-section#exhibition div.sliderbox ul {
+section#exhibition div.sliderbox ul,
+.section#exhibition div.sliderbox ul {
   height: 100%;
   width: 780px;
   overflow: hidden;
@@ -355,7 +428,8 @@ section#exhibition div.sliderbox ul {
   margin: 0 auto;
   position: relative;
 }
-section#exhibition div.sliderbox ul li {
+section#exhibition div.sliderbox ul li,
+.section#exhibition div.sliderbox ul li {
   width: 780px;
   height: 100%;
   position: absolute;
@@ -367,62 +441,74 @@ section#exhibition div.sliderbox ul li {
   transition: all 1s ease;
   -webkit-transition: all 1.2s ease;
 }
-section#exhibition div.sliderbox ul li:after {
+section#exhibition div.sliderbox ul li:after,
+.section#exhibition div.sliderbox ul li:after {
   content: "";
   display: table;
   clear: both;
 }
-section#exhibition div.sliderbox ul li div {
+section#exhibition div.sliderbox ul li div,
+.section#exhibition div.sliderbox ul li div {
   display: block;
   float: left;
   width: 440px;
   text-align: left;
   box-sizing: border-box;
 }
-section#exhibition div.sliderbox ul li div h1 {
+section#exhibition div.sliderbox ul li div h1,
+.section#exhibition div.sliderbox ul li div h1 {
   text-align: left;
   font-size: 50px;
   width: 350px;
   color: #333;
 }
-section#exhibition div.sliderbox ul li div h3 {
+section#exhibition div.sliderbox ul li div h3,
+.section#exhibition div.sliderbox ul li div h3 {
   font-size: 18px;
   line-height: 26px;
   color: #999;
   text-align: left;
   margin-top: 10px;
 }
-section#exhibition div.sliderbox ul li div img {
+section#exhibition div.sliderbox ul li div img,
+.section#exhibition div.sliderbox ul li div img {
   width: 100%;
 }
-section#exhibition div.sliderbox ul li div.p1 {
+section#exhibition div.sliderbox ul li div.p1,
+.section#exhibition div.sliderbox ul li div.p1 {
   width: 340px;
 }
-section#exhibition div.sliderbox ul li.current {
+section#exhibition div.sliderbox ul li.current,
+.section#exhibition div.sliderbox ul li.current {
   z-index: 10;
   opacity: 1;
 }
-footer#copyright {
+footer#copyright,
+.footer#copyright {
   height: 100px;
   background-color: #2e1b17;
   position: relative;
 }
-footer#copyright:before {
+footer#copyright:before,
+.footer#copyright:before {
   content: "";
   display: table;
   clear: both;
 }
-footer#copyright p {
+footer#copyright p,
+.footer#copyright p {
   text-align: center;
   color: #fff;
   padding-top: 30px;
 }
-footer#copyright p:nth-child(2) {
+footer#copyright p:nth-child(2),
+.footer#copyright p:nth-child(2) {
   padding-top: 10px;
 }
-footer#copyright a {
+footer#copyright a,
+.footer#copyright a {
   position: absolute;
-  right: 100px;
+  right: 40px;
   top: 40%;
   color: #fff;
   text-decoration: underline;
