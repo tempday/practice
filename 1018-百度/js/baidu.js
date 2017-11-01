@@ -64,4 +64,22 @@
 		var key=keywords.value.replace(/^\s*|\s*$/g,"");
 		key&&(location.href="http://www.baidu.com/s?wd="+key);
 	}
+	document.body.onclick=hideFile;
+	//imgBtn弹窗按钮,loadimg被隐藏对象
+	function hideFile(){
+		var src=event.srcElement||event.target;
+		if(src!=this&&src!=imgBtn){
+			var bool=true;
+			do{
+				src=src.parentNode;
+				if(src==loadimg){
+					bool=false;
+					break;
+				}
+			}while(src!=this);
+			if(bool&&loadimg.style.display=="block"){
+				loadimg.style.display="none";
+			}
+		}
+	}
 }();

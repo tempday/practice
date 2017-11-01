@@ -15,7 +15,7 @@ body {
   width: 100%;
   overflow: hidden;
   color: #555;
-  min-width: 640px;
+  min-width: 320px;
   display: block;
 }
 a:visited,
@@ -25,6 +25,10 @@ a:active {
 ul.links {
   float: right;
   margin: 20px 0 5px;
+  height: 25px;
+  line-height: 25px;
+  overflow: hidden;
+  z-index: 200;
 }
 ul.links li {
   display: inline-block;
@@ -75,13 +79,13 @@ ul.links li.last-child a {
   position: relative;
   margin: 10px auto;
   text-align: center;
+  z-index: 10;
 }
 .section form div.btngroup {
   margin: 0 auto;
-  width: 640px;
+  max-width: 640px;
   height: 35px;
   display: block;
-  background-color: #38f;
   box-sizing: border-box;
   position: relative;
 }
@@ -99,7 +103,7 @@ ul.links li.last-child a {
   text-align: left;
   display: none;
   background-color: #fff;
-  z-index: 1000;
+  z-index: 100;
 }
 .section form div.btngroup ul li {
   width: 100%;
@@ -112,16 +116,16 @@ ul.links li.last-child a {
   background-color: #f0f0f0;
 }
 .section form div.btngroup input {
-  width: 540px;
-  *width: 490px;
+  width: 100%;
   height: 100%;
   *height: 29px;
+  line-height: 29px;
   float: left;
   outline: none;
   border: 1px solid #b8b8b8;
   box-sizing: border-box;
-  display: inline-block;
-  padding: 2px 40px 2px 8px;
+  text-indent: 10px;
+  padding: 2px 0 2px 0;
 }
 .section form div.btngroup input:hover {
   border-color: #adadad;
@@ -141,16 +145,18 @@ ul.links li.last-child a {
   background-position: 0 -20px;
 }
 .section form div.btngroup button {
-  display: inline-block;
-  *display: inline;
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: #38f;
   color: #fff;
-  height: 100%;
+  height: 35px;
+  line-height: 35px;
   width: 100px;
   border: none;
   font-size: 15px;
   font-weight: 500;
+  vertical-align: top;
 }
 .section form div.btngroup button:hover {
   background-color: #317ef3;
@@ -168,7 +174,6 @@ ul.links li.last-child a {
   border: 1px solid #38f;
   overflow: hidden;
   margin: 0;
-  z-index: 10;
   display: none;
 }
 .section form div.btngroup div.loadimg span {
@@ -176,6 +181,7 @@ ul.links li.last-child a {
   top: 0;
   left: 0;
   height: 35px;
+  width: 100%;
   box-sizing: border-box;
 }
 .section form div.btngroup div.loadimg span input {
@@ -183,9 +189,9 @@ ul.links li.last-child a {
   border-bottom: 1px solid #b8b8b8;
 }
 .section form div.btngroup div.loadimg span b {
-  top: 10px;
   right: 41px;
   background: url(../img/camera_2.png) no-repeat;
+  z-index: 10;
 }
 .section form div.btngroup div.loadimg span p#tips {
   position: absolute;
@@ -225,8 +231,7 @@ ul.links li.last-child a {
   margin-top: 10px;
 }
 .section form div.btngroup div.loadimg div.imgbox div.upload {
-  display: inline-block;
-  *display: inline;
+  display: block;
   height: 43px;
   line-height: 43px;
   width: 150px;
@@ -239,17 +244,15 @@ ul.links li.last-child a {
   border-color: #317ef3;
 }
 .section form div.btngroup div.loadimg div.imgbox div.upload input#upload {
-  display: inline-block;
-  *display: inline;
+  display: block;
   position: absolute;
   left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   opacity: 0;
   filter: alpha(opacity=0);
-  border: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #fff;
+  background-color: transparent;
   cursor: pointer;
 }
 .section form div.btngroup div.loadimg div.imgbox div.upload i {
@@ -274,12 +277,17 @@ ul.links li.last-child a {
   width: 18px;
   height: 18px;
 }
-@media screen and (max-width: 640px) {
-  .section form div.btngroup {
-    width: 500px;
+@media screen and (max-width: 768px) {
+  .section {
+    padding-top: 0;
+    margin-top: -20px;
   }
-  .section form div.btngroup input {
-    width: 400px;
+  .section div.first img {
+    width: 50%;
+    height: 50%;
+  }
+  .section form div.btngroup {
+    width: 90%;
   }
 }
 .footer {

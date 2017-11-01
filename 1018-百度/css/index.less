@@ -19,7 +19,7 @@ body{
 	width: 100%;
 	overflow: hidden;
 	color: @font-clr;
-	min-width: 640px;
+	min-width: 320px;
 	display: block;
 }
 a:visited,a:active{
@@ -29,6 +29,10 @@ a:visited,a:active{
 ul.links{
 	float: right;
 	margin: 20px 0 5px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	z-index: 200;
 	li{
 		display: inline-block;
 		*display: inline;
@@ -79,14 +83,16 @@ ul.links{
 		position: relative;
 		margin:10px auto;
 		text-align: center;
+		z-index: 10;//设置任意值比footer大
 		div.btngroup{
 			margin:0 auto;
-			width: 640px;
+			max-width: 640px;
 			height: 35px;
 			display: block;
-			background-color: @blue-clr;
+			//background-color: @blue-clr;
 			box-sizing: border-box;
 			position: relative;
+			//弹出关键字列表
 			ul{
 				position:absolute;
                 height:auto;
@@ -101,7 +107,7 @@ ul.links{
                 text-align: left;
                 display: none;
                 background-color: #fff;
-                z-index: 1000;
+                z-index: 100;
 				li{
                     width:100%;
                     height:30px;
@@ -113,23 +119,26 @@ ul.links{
                     }
             	}
 			}
+			//首个搜索输入框
 			input{
-				width: 540px;
-				*width: 490px;
+				//width: 540px;
+				//*width: 490px;
+				width: 100%;
 				height: 100%;
 				*height: 29px;
+				line-height: 29px;
 				float: left;
 				outline: none;
 				border: 1px solid #b8b8b8;
 				box-sizing: border-box;
-				display: inline-block;
+				text-indent:10px;
 				&:hover{
 					border-color:#adadad;
 				}
 				&:focus{
 					border-color: @blue-clr;
 				}
-				padding: 2px 40px 2px 8px;
+				padding: 2px 0 2px 0;
 			}
 			b{
 				position: absolute;
@@ -145,16 +154,18 @@ ul.links{
 			}
 			//搜索按钮
 			button{
-				display: inline-block;
-				*display: inline;
-				float: right;
+				position: absolute;
+				top: 0;
+				right: 0;
 				background-color: @blue-clr;
 				color: #fff;
-				height: 100%;
+				height: 35px;
+				line-height: 35px;
 				width: 100px;
 				border:none;
 				font-size: 15px;
 				font-weight: 500;
+				vertical-align: top;
 				&:hover{
 					background-color: @blue-clr-dark;
 				}
@@ -173,7 +184,6 @@ ul.links{
 				border: 1px solid @blue-clr;
 				overflow: hidden;
 				margin:0;
-				z-index: 10;
 				display: none;
 				//图片搜索输入框+按钮
 				span{
@@ -181,6 +191,7 @@ ul.links{
 					top: 0;
 					left: 0;
 					height: 35px;
+					width: 100%;
 					box-sizing: border-box;
 					input{
 						border:0;
@@ -188,9 +199,10 @@ ul.links{
 					}
 					//相机图标
 					b{
-						top: 10px;
+						//top:0;
 						right: 41px;
 						background: url(../img/camera_2.png) no-repeat;
+						z-index: 10;
 
 					}
 					//输入图片提示
@@ -238,8 +250,7 @@ ul.links{
 					}
 					//上传框外容器
 					div.upload{
-						display: inline-block;
-						*display:inline;
+						display:block;
 						height: 43px;
 						line-height: 43px;
 						width:150px;
@@ -253,17 +264,15 @@ ul.links{
 						}
 						//上传框
 						input#upload{
-							display: inline-block;
-							*display:inline;
+							display:block;
 							position: absolute;
 							left: 0;
+							top: 0;
+							right: 0;
+							bottom: 0;
 							opacity: 0;
 							filter: alpha(opacity=0);
-							border:0;
-							padding:0;
-							height: 100%;
-							width: 100%;
-							background-color: #fff;
+							background-color:transparent;
 							//修改鼠标光标,只对最外层元素有效,input覆盖整个div
 							cursor: pointer;
 						}
@@ -297,12 +306,20 @@ ul.links{
 		}
 	}
 }
-@media screen and (max-width:640px) {
-	.section form div.btngroup{
-		width: 500px;
-		input{
-			width: 400px;
+@media screen and (max-width:768px) {
+	.section{
+		padding-top: 0;
+		margin-top: -20px;
+		div.first{
+			img{
+				width: 50%;
+				height: 50%;
+			}
 		}
+	}
+
+	.section form div.btngroup{
+		width: 90%;
 	}
 }
 .footer{
