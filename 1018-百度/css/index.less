@@ -87,6 +87,32 @@ ul.links{
 			background-color: @blue-clr;
 			box-sizing: border-box;
 			position: relative;
+			ul{
+				position:absolute;
+                height:auto;
+                width:100%;
+				left:0;
+				top:35px;
+                list-style: none;
+                border: 1px solid #ddd;
+                border-top: none;
+                margin: 0;
+                padding:0;
+                text-align: left;
+                display: none;
+                background-color: #fff;
+                z-index: 1000;
+				li{
+                    width:100%;
+                    height:30px;
+                    line-height: 30px;
+                    text-indent:10px;
+                    font-size: 14px;
+                    &:hover{
+                    	background-color:#f0f0f0;
+                    }
+            	}
+			}
 			input{
 				width: 540px;
 				*width: 490px;
@@ -115,7 +141,7 @@ ul.links{
 				&:hover{
 					background-position: 0 -20px;
 				}
-				
+
 			}
 			//搜索按钮
 			button{

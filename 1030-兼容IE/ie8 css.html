@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		div{
+			border: 1px solid #999;
+			text-align: center;
+			line-height:100px;
+			height:200px;
+			width:300px;
+			margin: 20px auto;
+			display: block;
+			
+			/*.background-color: pink;*/
+			/*ie7+*/
+			background-color: pink\9;
+			/*ie8+*/
+			background-color: blue\0;
+			/*ie9+*/
+			background-color: yellow\9\0;
+			/*ie7*/
+			*background-color: green;
+			/*ie7*/
+		}
+	</style>
+</head>
+<body>
+	<!--[if IE 8]>
+	<style>
+		div{
+			color:white;
+			font-size:30px;
+		}
+	</style>
+	<![endif]-->
+	
+	<div>
+		有ie7 和 ie8 两个div
+	</div>
+	<!--[if IE 8]>      <div>blue ie8</div>      <![endif]-->
+	<!--[if IE 7]>      <div>green ie7</div>      <![endif]-->
+	<!--[if IE 9]>      <div>yellow ie9</div>      <![endif]-->
+	<!--[if IE]>      <div>各个版本ie</div>      <![endif]-->
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>

@@ -61,12 +61,11 @@
                 document.body.removeChild(oScript);//删除script标签  
             }  
             //回调函数  
-            function callback(data){  
+            function callback(data){
                 var str="";  
                 for(var i=0;i<data.s.length;i++){  
                     str += "<li><a href=\"https://www.baidu.com/s?wd="+data.s[i]+"\">"+data.s[i]+"</a></li>";  
                 }  
-                //console.log(str);  
                 oUl.innerHTML=str;  
                 oUl.style.display="block";  
   

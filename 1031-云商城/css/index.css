@@ -1,0 +1,100 @@
+@charset "utf-8";
+html {
+  font-family: PingFangSC-Regular, Verdana, Arial, '微软雅黑', '宋体', sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 12px;
+  color: #666;
+  width: 100%;
+}
+body {
+  margin: 0;
+}
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+fieldset,
+img {
+  border: 0;
+  vertical-align: middle;
+}
+ul,
+ol {
+  list-style: none;
+}
+div {
+  height: 200px;
+  width: 100%;
+  text-align: center;
+}
+div:nth-child(odd) {
+  background-color: aliceblue;
+}
+.toolbar {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.header {
+  height: 90px;
+  border-bottom: 4px solid #ff503f;
+}
+.banner {
+  height: 520px;
+}
+.products {
+  height: 646px;
+}
+.solution {
+  height: 965px;
+}
+.project {
+  height: 986px;
+}
+.service {
+  height: 650px;
+}
+.contact {
+  height: 582px;
+}
+.footer {
+  height: 85px;
+}

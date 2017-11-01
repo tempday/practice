@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		main,section{
+			height:500px;
+			width:100%;
+			overflow: hidden;
+			background-color: #DDD;
+			position: relative;
+		}
+		div.md{
+			height:150px;
+			width:300px;
+			background-color: green;
+		}
+		div.out{
+			width:200%;
+			height:100%;
+			position: absolute;
+			top:0;
+			left:-50%;
+		}
+		div.pic{
+			width:1920px;
+			height:100%;
+			margin: 0 auto;
+		}
+		img{
+			width:1920px;
+			height:100%;
+			display: block;
+		}
+
+		section .pic{
+			background:url('images/beauty02.jpg') no-repeat ;
+			/*cover 方式图片不变形,等比例横向放大*/
+			background-size:cover;
+			/*cover 方式图片不变形,等比例竖向放大*/
+			background-size:contain;
+			/*自定义背景图大小,按比例或者像素px*/
+			background-size:100% 100%;
+		}
+	</style>
+</head>
+<body>
+	<h1>图片模式</h1>
+	<main>
+		<div class='md'>中间内容</div>
+		<div class="out">
+		<div class='pic'>
+			<img src="images/beauty02.jpg" alt="">
+		</div>
+		</div>
+	</main>
+	<h1>背景模式</h1>
+	<section>
+		<div class="out">
+			<div class='pic'></div>
+		</div>
+	</section>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>
