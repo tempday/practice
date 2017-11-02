@@ -1,0 +1,103 @@
+//兼容ie
+.opacity(@opa:0,@alp:0){
+	opacity: @opa;
+	filter: alpha(opacity=@alp);
+}
+.transition(@way:all,@time:.2s,@style:ease-in-out){
+	-webkit-transition:@way @time @style;
+	-moz-transition:@way @time @style;
+	transition:@way @time @style;
+}
+
+//动画
+
+.circlesMove(@strpos,@strtop,@finalpos,@finaltop) {
+	0%{
+		.opacity();
+	}
+	60%{
+		left:@strpos;
+		top: @strtop;
+		.opacity();
+	}
+	100%{
+		.opacity(1,100);
+		left:@finalpos;
+		top:@finaltop ;
+	}
+}
+
+.circlesMoveR(@strpos,@strtop,@finalpos,@finaltop) {
+	0%{
+		.opacity();
+	}
+	60%{
+		right:@strpos;
+		top: @strtop;
+		.opacity();
+	}
+	100%{
+		.opacity(1,100);
+		right:@finalpos;
+		top:@finaltop ;
+	}
+}
+@keyframes secondSp1{
+	.circlesMove(62%,19%,55%,16%);
+}
+@-webkit-keyframes secondSp1{
+	.circlesMove(62%,19%,55%,16%);
+}
+@keyframes secondSp2{
+	.circlesMoveR(62%,33%,55%,30%);
+}
+@-webkit-keyframes secondSp2{
+	.circlesMoveR(62%,33%,55%,30%);
+}
+@keyframes secondSp3{
+	.circlesMove(62%,46%,55%,43%);
+}
+@-webkit-keyframes secondSp3 {
+	.circlesMove(62%,46%,55%,43%);
+}
+//-------------------------------------
+@keyframes moves2{
+	.circlesMove(57%,21%,50%,18%);
+}
+@-webkit-keyframes moves2 {
+	.circlesMove(57%,21%,50%,18%);
+}
+@keyframes moves3{
+	.circlesMove(43%,33%,50%,31%);
+}
+@-webkit-keyframes moves3 {
+	.circlesMove(43%,33%,50%,31%);
+}
+@keyframes moves4{
+	.circlesMove(57%,46%,50%,44%);
+}
+@-webkit-keyframes moves4 {
+	.circlesMove(57%,46%,50%,44%);
+}
+
+//----------------------------
+.moveUp() {
+	0%{
+		top:53%;
+		.opacity();
+	}
+	33%{
+		.opacity(1,100);
+	}
+	100%{
+		top:42%;
+		.opacity(1,100);
+	}
+}
+
+@keyframes moveUp{
+	.moveUp();
+}
+@-webkit-keyframes moveUp {
+	.moveUp();
+}

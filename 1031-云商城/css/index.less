@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "animate";
 html {
 	font-family: PingFangSC-Regular, Verdana, Arial, '微软雅黑', '宋体',sans-serif;
 	-ms-text-size-adjust: 100%; // 2
@@ -77,7 +78,7 @@ div:nth-child(odd){
 	margin: 0 auto;
 }
 
-//第一部分,顶部
+//第一部分,顶部---------------------------------------------------01
 .header{
 	background-color: @bg-clr-light;
 	b{
@@ -118,8 +119,7 @@ div:nth-child(odd){
 					border-radius: 14px;
 					outline: none;
 					border:1px solid #ddd;
-					-webkit-transition: width .2s ease-in-out;
-					transition: width .2s ease-in-out;
+					.transition(width);
 					&:focus{
 						width: 180px;
 						background-position: 175px center;
@@ -229,7 +229,7 @@ div:nth-child(odd){
 	}
 	border-bottom: 1px solid #e6e6e6;
 }
-//第2部分,导航栏
+//第2部分,导航栏---------------------------------------------------02
 .nav{
 	border-bottom: 4px solid @clr-red-std;
 	>div {
@@ -288,7 +288,7 @@ div:nth-child(odd){
 					padding:24px 40px 24px 35px;
 					background-color: #fff;
 					box-shadow: 0 0 8px #999;
-					z-index: 10;
+					z-index: 20;
 					//左侧链接竖向列表
 					ul.left{
 						float: left;
@@ -324,7 +324,7 @@ div:nth-child(odd){
 								margin-bottom: 10px;
 							}
 							p{
-								width: 100%;
+								width: 95%;
 								font-size: @font-size-std;
 								line-height: 25px;
 								text-align: justify;
@@ -335,6 +335,10 @@ div:nth-child(odd){
 							width: 50%;
 							height:100%;
 							float: right;
+							img{
+								width: 100%;
+								height: 100%;
+							}
 						}
 					}
 				}
@@ -343,7 +347,9 @@ div:nth-child(odd){
 	}
 }
 
-//第三部分,轮播图
+
+
+//第三部分,轮播图---------------------------------------------------03
 .banner{
 	width: 100%;
 	max-width: 1920px;
@@ -368,21 +374,14 @@ div:nth-child(odd){
 				height:100%;
 				position: absolute;
 				top: 0;
-				opacity: 0;
-				//兼容ie
-				filter: alpha(opacity=0);
+				.opacity();
 				display: block;
-				transition: all .2s ease-in-out;
-				-webkit-transition: all .2s ease-in-out;
+				.transition();
 				&.current{
-					opacity: 1;
-					//兼容ie
-					filter: alpha(opacity=100);
+					.opacity(1,100);
 					.description{
 						top:50%;
-						opacity: 1;
-						//兼容ie
-						filter: alpha(opacity=100);
+						.opacity();
 					}
 				}
 			}
@@ -393,12 +392,9 @@ div:nth-child(odd){
 				margin-top: -115px;
 				top:53%;
 				right: 58%;
-				opacity: 0;
-				//兼容ie
-				filter: alpha(opacity=0);
+				.opacity();
 				background-color:@clr-red-light;
-				transition: all .4s ease-in-out;
-				-webkit-transition: all .4s ease-in-out;
+				.transition(all,0.4s);
 				h1{
 					color: #fff;
 					font-size: 36px;
@@ -459,7 +455,8 @@ div:nth-child(odd){
 	}
 }
 
-//第四块:核心产品
+//第四块:核心产品---------------------------------------------------04
+//+通用样式
 .section,.products{
 	text-align:center;
 	>h1{
@@ -480,12 +477,26 @@ div:nth-child(odd){
 	}
 	>div.container{
 		padding-top:100px;
+		width: 1210px;
 		overflow: hidden;
-		ul{
+		//ie7 下overflow失效,要添加position
+		position: relative;
+		>ul{
 			.after();
 			width: 2300px;
 			margin-bottom: 20px;
-			li{
+			//鼠标悬浮样式:li先上移动,背景色变红,字体颜色白色
+			&.sect4>li:hover{
+				background: @clr-red-light;
+				b{
+					background-position: -109px -296px;
+				}
+				top: -20px;
+				h2,p{
+					color: #fff;
+				}
+			}
+			>li{
 				top:0;
 				background-color: transparent;
 				width: 268px;
@@ -493,12 +504,10 @@ div:nth-child(odd){
 				float: left;
 				margin-right: 43px;
 				position: relative;
-				transition: all .2s ease-in-out;
-				-webkit-transition: all .2s ease-in-out;
+				.transition();
 				border: 1px dashed @clr-red-light;
-				&:hover{
-					background: @clr-red-light;
-				}
+
+				//圆圈图案
 				b{
 					display: block;
 					height: 106px;
@@ -529,16 +538,11 @@ div:nth-child(odd){
 					color: @font-clr-light;
 					line-height: 20px;
 				}
-				&:hover{
-					top: -20px;
-					h2,p{
-						color: #fff;
-					}
-				}
+
 			}
 		}
 	}
-	//公用样式
+	//公用样式:左移右移箭头按钮
 	div.scrollNav{
 		width: 240px;
 		height: 40px;
@@ -576,32 +580,97 @@ div:nth-child(odd){
 		}
 	}
 }
-
-//第5块:解决方案
+.centerize(@h:68px,@w:68px,@pos:absolute,@top:50%,@left:50%){
+	height: @h;
+	width: @w;
+	position: @pos;
+	top: @top;
+	left: @left;
+	margin-top:-@h/2;
+	margin-left:-@w/2;
+}
+//第5块:解决方案---------------------------------------------------05
 .solution{
+	//ie6/ie7 不支持before
+	*padding:50px;
+	.before();
+	.after();
 	background-color: @bg-clr;
+	position: relative;
+	//z-index: 100;
+	margin-bottom: 120px;
+	>h1{
+		background-position: 50% -136px;
+
+	}
 	div.container{
+		overflow: visible;
 		ul{
+			width: 100%;
 			li{
+				border:none;
 				border-bottom: 3px solid #e5e5e5;
 				background-color:#f1f1f1;
+				overflow: hidden;
+				margin-bottom: 20px;
+				//清除每行最后一个右外边距
+				&.margin-clear{
+					margin-right:0;
+				}
+				b{
+					.centerize(68px,68px,absolute,35%,-35px);
+					background: url("../img/icon_circle.png") no-repeat;
+					.transition();
+					.opacity;
+				}
+				i{
+					.centerize(34px,33px,absolute,35%,285px);
+					background: url("../img/icon_zoom.png") no-repeat;
+					.transition();
+					.opacity;
+				}
+				//遮罩层 和 图片
 				>img,>div{
 					display: block;
 					width: 267px;
 					height: 200px;
 					top: 0;
+					left:0;
+					//兼容ie7 必须设置left 为 0
 					position: absolute;
 				}
-				>div{
+				>div.mask{
+
 					z-index: 2;
-					background-color:rgba(255, 80, 63,.7);
+					.transition();
 				}
 				&:hover{
+					b,i{
+						left: 50%;
+						.opacity(1,100);
+					}
 					background-color:#fff;
 					border-bottom-color:@clr-red-std;
 					top:0;
+					color: red;
+					div.mask{
+						//ie7/8 不支持rgba
+						//background-color:rgba(255, 80, 63,.7);
+						background-color:rgb(255, 80, 63);
+						.opacity(.7,70);
+					}
+					h2{
+						color:@clr-red-light;
+					}
 				}
-
+				h2{
+					margin-top: 210px;
+					font-size: @font-size-xl;
+					margin-bottom: 8px;
+				}
+				p{
+					font-size: @font-size-sm;
+				}
 			}
 		}
 	}
@@ -609,16 +678,683 @@ div:nth-child(odd){
 	.scrollNav{
 		background-color: #fff;
 	}
+	.addToBottom{
+		position: absolute;
+		left: 0;
+		bottom:-120px;
+		width:100%;
+		height: 120px;
+		//background: url("../img/bg_row_pv.jpg") no-repeat;
+		//background-size: 100% 100%;
+		//ie7/8 background 有问题,改用img
+		img{
+			height:120px;
+			width: 100%;
+		}
+	}
 }
+
+//第6块:成功案例---------------------------------------------------06
 .project{
-	height:986px;
+	*padding:50px;
+	.before;
+	.after();
+	>h1{
+		background-position: 50% -176px;
+	}
+	//切换按钮
+	div.tabNav{
+		width: 252px;
+		height: 40px;
+		line-height: 42px;
+		border-radius:5px ;
+		overflow: hidden;
+		margin:50px auto 20px;
+		border: 1px solid #ddd;
+		cursor: pointer;
+		span{
+			display: block;
+			float: left;
+			width: 50%;
+			height: 40px;
+			font-size: @font-size-std;
+			&.on{
+				background-color:@clr-red-std;
+				color: #fff;
+			}
+		}
+	}
+	div.container{
+		//position:relative;
+		padding-top: 10px;
+		//通用样式:定位
+		.pos(){
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		div.display{
+			display: block;
+		}
+		//经典案例
+		.caseSpecial{
+			width: 100%;
+			overflow: hidden;
+			display: none;
+			//.pos;
+			.bigBox{
+				position: relative;
+				height: 480px;
+				width: 100%;
+				.item{
+					width: 100%;
+					position:absolute ;
+					overflow: hidden;
+					left: 0;
+					top:0;
+					text-align: left;
+					.transition(all,1s);
+					.opacity();
+					&.current{
+						.opacity(1,100);
+					}
+					div.img{
+						float: left;
+						width:580px ;
+						height: 480px;
+						img{
+							width: 100%;
+							height: 100%;
+						}
+					}
+					div.text{
+						float: right;
+						width:500px;
+						height: 420px;
+						padding: 30px 30px 30px 60px;
+						background: url("../img/bg_text.png") no-repeat;
+						h2{
+							font-size:30px;
+							color: @font-clr-dark;
+							padding-bottom: 40px;
+						}
+						p{
+							font-size: @font-size-std;
+							line-height: 25px;
+							text-indent: @font-size-std*2;
+							margin-bottom: 20px;
+						}
+					}
+				}
+			}
+			//经典案例--切换按钮列表
+			.listBox{
+				width: 100%;
+				position: relative;
+				margin-top: 15px;
+				ol{
+					height: 62px;
+					width: 2000px;
+					margin-left: 2px;
+					li{
+						float: left;
+						width: 198px;
+						height: 60px;
+						border: 1px solid #f6f6f6;
+						position: relative;
+						margin-right:1px;
+						.transition();
+						cursor:pointer;
+						&:hover,&.hover{
+							border-color: @font-clr-light;
+
+						}
+						&.hover{
+							.up{
+								z-index:1;
+							}
+						}
+						img{
+							position: absolute;
+							left: 0;
+							width: 198px;
+							height: 60px;
+							z-index: 1;
+							&.up{
+								z-index: 2;
+							}
+						}
+					}
+				}
+			}
+		}
+		//案例列表
+		.caseList{
+			display: none;
+			//.pos;
+			ul{
+				overflow: hidden;
+				li{
+					border:0;
+					width: 220px;
+					height: 211px;
+					margin-right: 25px;
+					margin-bottom: 25px;
+					float: left;
+					background-color: darken(@bg-clr,20%);
+					&:hover{
+						img{
+							.opacity(.7,70)
+						}
+						span{
+							background-color: @clr-red-std;
+							color: #ffffff;
+						}
+					}
+					img{
+						width:100%;
+						border:1px solid #d6d6d6;
+						border-bottom:0;
+						.transition();
+					}
+					span{
+						display: block;
+						height: 42px;
+						line-height: 42px;
+						width: 100%;
+						background-color: @bg-clr;
+						color: @font-clr;
+						.transition();
+					}
+					&.margin-clear{
+						margin-right: 0;
+					}
+				}
+			}
+			>a{
+				margin: 0 auto 50px;
+				display: block;
+				height:44px;
+				width: 155px;
+				font-size: @font-size-std;
+				color: @font-clr;
+				background-color: @bg-clr;
+				border: 1px solid #d6d6d6;
+				line-height: 44px;
+				border-radius: 5px;
+				&:hover{
+					color: #fff;
+					background-color: @clr-red-std;
+				}
+			}
+		}
+	}
+
 }
+
+//第7块:项目服务---------------------------------------------------
+
+.setList(@liLeft:0,@size:80px,@color:rgb(235,139,127)){
+	left: @liLeft;
+	height:@size;
+	width:@size;
+	line-height:@size;
+	margin-top: -@size/2;
+	.mask{
+		background-color: @color;
+	}
+}
+.setListR(@liRight:0,@size:80px,@color:rgb(235,139,127)){
+	left: initial;
+	right:@liRight;
+	height:@size;
+	width:@size;
+	line-height:@size;
+	margin-top: -@size/2;
+	.mask{
+		background-color: @color;
+	}
+}
+
+
+//第7块:项目服务
 .service{
-	height:650px;
+	height: 550px;
+	*padding-top: 50px;
+	padding-bottom: 50px;
+	.before;
+	background:@bg-clr url("../img/bg_earth.png") no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	>h1{
+		background-position: 50% -216px;
+	}
+	div.container{
+		padding-top: 100px;
+		ul.circles{
+			width: 100%;
+			height: 272px;
+			position: relative;
+			li{
+				margin: 0;
+				position: absolute;
+				top:50%;
+				border-radius:50%;
+				border:0;
+				text-align: center;
+				overflow: hidden;
+				.transition();
+				.setList;
+				&:hover{
+					width: 272px;
+					height: 272px;
+					margin-top:-136px;
+					color: #fff;
+					z-index: 10;
+					&.list5{
+						left: 550px;
+					}
+					&.list6{
+						left: 710px;
+					}
+					&.list7{
+						left: 820px;
+					}
+					&.list8{
+						left: 940px;
+					}
+					&.list9{
+						left: 1030px;
+					}
+					.mask{
+						.opacity(1,100);
+					}
+					>h4{
+						font-size: 30px;
+						color: #fff;
+						height: 180px;
+						line-height: 180px;
+					}
+				}
+				//透明遮罩
+				.mask{
+					width: 100%;
+					height: 100%;
+					border-radius:50%;
+					.opacity(0.3,30);
+					position: absolute;
+					left: 0;
+					top: 0;
+
+				}
+				h4{
+					font-size: 15px;
+					//height: 36px;
+					//line-height: 36px;
+					color: darken(@font-clr-dark,80%);
+					position: absolute;
+					z-index: 5;
+					text-align: center;
+					top:0;
+					left: 0;
+					width: 100%;
+					.transition();
+				}
+				div.datas{
+					width: 272px;
+					height: 272px;
+					position: absolute;
+					left:0;
+					top:53%;
+					.opacity();
+					//.transition(all,.2s,linear);
+					//竖线
+					.line{
+						width: 50%;
+						height: 100%;
+						position: absolute;
+						left: 0;
+						right:0;
+						border-right: 1px dotted #fff;
+					}
+					//圆圈开始状态
+					s{
+						width: 6px;
+						height: 6px;
+						border: 2px solid #fff;
+						background-color: @clr-red-std;
+						border-radius: 50%;
+						position: absolute;
+						margin-left: -5px;
+						&.first{
+							top: 0;
+							left:50%;
+							margin-left: -3px;
+							border: 0;
+							background-color: #fff;
+						}
+						&.second{
+							//left:57%;
+							//top: 20%;
+							left: 50%;
+							top: 18%;
+						}
+						&.third{
+							//left:43%;
+							//top: 33%;
+							left: 50%;
+							top: 31%;
+						}
+						&.fourth{
+							//left:57%;
+							//top: 46%;
+							left: 50%;
+							top: 44%;
+						}
+					}
+					//文字开始状态
+					span{
+						position: absolute;
+						display: block;
+						//不定高和行高,出现不可预知的错误
+						height:20px;
+						line-height: 20px;
+						top: 20%;
+
+						&.first{
+							left:55%;
+							top: 16%;
+						}
+						&.second{
+							left:initial;
+							right:55%;
+							top:30%;
+						}
+						&.third{
+							left:55%;
+							top:43%;
+						}
+					}
+				}
+				//动画过程
+				&:hover{//,&.final
+
+					div.datas{
+						//width: 100%;
+						//height: 100%;
+						//.opacity(1,100);
+						//top:42%;
+						animation: moveUp .6s forwards;
+						-webkit-animation:moveUp .6s forwards;
+						//结束状态
+						s{
+							&.first{
+								.opacity(1,100);
+							}
+							&.second{
+								animation: moves2 .8s forwards;
+								-webkit-animation:moves2 .8s forwards;
+							}
+							&.third{
+								animation: moves3 1.2s forwards;
+								-webkit-animation: moves3 1.2s forwards;
+							}
+							&.fourth{
+								animation: moves4 1.8s forwards;
+								-webkit-animation: moves4 1.8s forwards;
+
+							}
+						}
+						//结束状态
+						span{
+							&.first{
+								//.opacity(1,100);
+								//left:55%;
+								//top: 16%;
+								animation: secondSp1 .8s forwards;
+								-webkit-animation: secondSp1 .8s forwards;
+							}
+							&.second{
+								//.opacity(1,100);
+								//right:55%;
+								//top:28%;
+								animation: secondSp2 1.2s forwards;
+								-webkit-animation: secondSp2 1.2s forwards;
+							}
+							&.third{
+								animation: secondSp3 1.8s forwards;
+								-webkit-animation: secondSp3 1.8s forwards;
+							}
+						}
+					}
+				}
+			}
+			.list9{
+				.setList(1130px);
+			}
+			.list1{
+				.setList(85px,100px,rgb(207,90,75));
+			 }
+			.list8{
+				.setList(1025px,100px,rgb(207,90,75));
+			}
+			.list2{
+				.setList(190px,126px,rgb(239,116,103));
+			}
+			.list7{
+				.setList(894px,126px,rgb(239,116,103));
+				//.setListR(190px,126px,rgb(239,116,103));
+			}
+			.list3{
+				.setList(288px,156px,rgb(243,163,115));
+			}
+			.list6{
+				.setList(766px,156px,rgb(243,163,115));
+				//.setListR(288px,156px,rgb(243,163,115));
+			}
+			.list4{
+				.setList(421px,194px,rgb(203,124,124));
+			}
+			.list5{
+				.setList(595px,194px,rgb(203,124,124));
+				//.setListR(421px,194px,rgb(203,124,124));
+			}
+		}
+	}
 }
+//第8块:联系我们---------------------------------------------------
 .contact{
-	height:582px;
+	.after;
+	padding-bottom: 50px;
+	>h1{
+		background-position: 50% -256px;
+	}
+	//height:582px;
+	div.container{
+		overflow: hidden;
+		margin-top: 50px;
+		.userInfo{
+			float: left;
+			overflow: hidden;
+			width: 728px;
+			dl{
+				overflow: hidden;
+				float: left;
+				dt{
+					text-align: right;
+					float: left;
+					width:80px;
+					height: 44px;
+					line-height: 44px;
+					padding-right: 8px;
+					span{
+						color: @clr-red-std;
+					}
+					span:after{
+						content: " ";
+					}
+				}
+				dd{
+					float: left;
+					margin-left: 0;
+					input{
+						width: 258px;
+						height: 34px;
+						padding:5px 6px 5px 10px;
+						border: 1px solid #dadada;
+						outline: none;
+					}
+					textarea{
+						width: 638px;
+						border: 1px solid #dadada;
+						outline: none;
+					}
+				}
+
+			}
+			button{
+				float: left;
+				border: 0;
+				background-color: #e31939;
+				color: #fff;
+				display: block;
+				height:40px ;
+				line-height: 40px;
+				width: 118px;
+				font-size: @font-size-xl;
+				&:hover{
+					background-color: @clr-red-std;
+				}
+				margin-left: 88px;
+				margin-top: 10px;
+			}
+
+
+		}
+		form{
+			overflow: hidden;
+			>input{
+				float: left;
+				height:28px ;
+				width: 150px;
+				line-height: 40px;
+				border: 1px solid #dadada;
+				margin-top: 10px;
+				margin-left: 15px;
+				padding:5px 6px 5px 10px;
+			}
+			>span{
+				float: left;
+				height: 40px;
+				line-height: 40px;
+				width: 80px;
+				margin-top: 10px;
+				margin-left: 15px;
+				background: url("../img/checkcode.jpg");
+				text-align: center;
+				font-size: @font-size-xm;
+				color: @font-clr-light;
+			}
+		}
+		.company{
+			margin-top: 12px;
+			width: 430px;
+			height: 256px;
+			float: right;
+			//background-color: #c3c3c3;
+			ul.tabs{
+				overflow: hidden;
+				width: 100%;
+				li{
+					font-size: @font-size-std;
+					float: left;
+					height: 24px;
+					line-height: 24px;
+					border-bottom: 3px solid transparent;
+					margin:0 40px 0 0;
+					cursor: pointer;
+					&:hover,&.hover{
+						border-color: @clr-red-std;
+					}
+				}
+			}
+			div.details{
+				margin-top: 12px;
+				width: 100%;
+				height:223px;
+				//border: 1px solid #ddd;
+				background: url("../img/cities/region_shenzhen.png") no-repeat;
+				p{
+					color: @font-clr-light;
+					font-size: @font-size-std;
+					margin: 15px 0;
+				}
+				ol{
+					.before();
+					margin-top: 40px;
+					overflow: hidden;
+					li{
+						text-align: center;
+						float: left;
+						a{
+							border: 0;
+							background-color: #e31939;
+							display: block;
+							height:30px ;
+							line-height: 30px;
+							border-radius: 5px;
+							padding: 0 15px;
+							font-size: @font-size-std;
+							&:hover{
+								background-color: @clr-red-std;
+							}
+							margin-right: 10px;
+							color: #fff;
+
+						}
+						&:last-child a{
+							border: 1px solid @clr-red-std;
+							background-color: #fff;
+							color: @font-clr;
+						}
+					}
+				}
+			}
+
+		}
+	}
 }
 .footer{
 	height:85px;
+	line-height: 85px;
+	background-color: @bg-clr;
+	border-top: 1px solid #dadada;
+	div{
+		text-align: center;
+		margin:0 auto;
+		p{
+			height: 20px;
+		}
+	}
+}
+
+div.aside{
+	position:fixed;
+	right: 0;
+	top: 20%;
+	div{
+		background: url("../img/icons.png") no-repeat;
+		width: 40px;
+		height:40px;
+	}
+	div.online{
+		height:70px;
+		background-position: 0 -575px;
+	}
+	.QRcode{
+		background-position: 0 -645px;
+	}
+	.totop{
+		background-position: 0 -685px;
+	}
 }
