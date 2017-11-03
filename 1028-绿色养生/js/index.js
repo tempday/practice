@@ -156,7 +156,6 @@ var jumpToAnchor={
 			var src=event.srcElement||event.target;
 			if(src.nodeName=="A"){
 				var href=src.getAttribute('href');
-				console.log(href);
 				if(href.match(/#/)){//^#  兼容ie7,ie7获得的是整个超链接
 					jumpToAnchor.getScrollTop();
 					(jumpToAnchor.getData(href.replace(/(.*?)#|\s/g,'')))&&(jumpToAnchor.jump());

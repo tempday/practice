@@ -31,7 +31,21 @@ fieldset,img {
 ul,ol{
 	list-style:none;
 }
-
+//清除浮动/边距越界
+.before(){
+	&:before{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+.after(){
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
 //全局变量
 @bg-clr-light:#fafafa;
 @bg-clr:#f6f6f6;
@@ -48,21 +62,7 @@ ul,ol{
 @clr-red-std:#ff503f;
 @clr-red-light:#e4695e;
 
-.before(){
-	&:before{
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
-.after(){
-	&:after{
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
-
+//测试用
 /*
 div:root{
 	height: 200px;
@@ -73,6 +73,7 @@ div:nth-child(odd){
 	background-color: aliceblue;
 }
 */
+
 .container{
 	width: 1210px;
 	margin: 0 auto;
@@ -164,6 +165,8 @@ div:nth-child(odd){
 					&:hover div{
 						display: block;
 						z-index: 10;
+						-webkit-animation: showSub .2s;
+						animation: showSub .2s;
 					}
 					div{
 						position: absolute;
@@ -174,6 +177,7 @@ div:nth-child(odd){
 						display: none;
 						img{
 							width:100%;
+							height: 100%;
 						}
 					}
 				}
@@ -221,8 +225,6 @@ div:nth-child(odd){
 							}
 						}
 					}
-
-
 				}
 			}
 		}
@@ -287,7 +289,8 @@ div:nth-child(odd){
 					height: 230px;
 					padding:24px 40px 24px 35px;
 					background-color: #fff;
-					box-shadow: 0 0 8px #999;
+					box-shadow:0 3px 8px #999;
+					//box-shadow: ;
 					z-index: 20;
 					//左侧链接竖向列表
 					ul.left{
@@ -376,12 +379,12 @@ div:nth-child(odd){
 				top: 0;
 				.opacity();
 				display: block;
-				.transition();
+				.transition(all,.8s);
 				&.current{
 					.opacity(1,100);
 					.description{
 						top:50%;
-						.opacity();
+						.opacity(1,100);
 					}
 				}
 			}
@@ -394,7 +397,8 @@ div:nth-child(odd){
 				right: 58%;
 				.opacity();
 				background-color:@clr-red-light;
-				.transition(all,0.4s);
+				.transition(all,1s);
+				z-index: 5;
 				h1{
 					color: #fff;
 					font-size: 36px;
@@ -420,6 +424,7 @@ div:nth-child(odd){
 					margin-left: 20px;
 					text-align: center;
 					font-size: @font-size-std;
+					z-index: 12;
 				}
 			}
 		}
@@ -430,7 +435,7 @@ div:nth-child(odd){
 			height:100%;
 			position: relative;
 			top:-100%;
-			z-index: 100;
+			z-index: 10;
 			>div{
 				position: absolute;
 				width: 450px;
@@ -438,6 +443,7 @@ div:nth-child(odd){
 				top: 65%;
 				overflow: hidden;
 				ul{
+					z-index: 13;
 					float: right;
 					li{
 						width: 12px;
@@ -485,6 +491,7 @@ div:nth-child(odd){
 			.after();
 			width: 2300px;
 			margin-bottom: 20px;
+			//.transition(margin-left,.5s);
 			//鼠标悬浮样式:li先上移动,背景色变红,字体颜色白色
 			&.sect4>li:hover{
 				background: @clr-red-light;
@@ -551,6 +558,9 @@ div:nth-child(odd){
 		margin: 30px auto 50px;
 		text-align: center;
 		position: relative;
+		a{
+			.transition(all,.1s);
+		}
 		a.scrollNav-prev{
 			//border-right:1px solid #ddd ;
 			//兼容ie 取消浮动用定位
@@ -580,14 +590,14 @@ div:nth-child(odd){
 		}
 	}
 }
-.centerize(@h:68px,@w:68px,@pos:absolute,@top:50%,@left:50%){
+.centerize(@h:68px,@w:68px,@pos:absolute,@top:50%){//,@left:50%
 	height: @h;
 	width: @w;
 	position: @pos;
 	top: @top;
-	left: @left;
+	//left: @left;
 	margin-top:-@h/2;
-	margin-left:-@w/2;
+	//@margin-style:-@w/2;
 }
 //第5块:解决方案---------------------------------------------------05
 .solution{
@@ -601,7 +611,6 @@ div:nth-child(odd){
 	margin-bottom: 120px;
 	>h1{
 		background-position: 50% -136px;
-
 	}
 	div.container{
 		overflow: visible;
@@ -617,14 +626,20 @@ div:nth-child(odd){
 				&.margin-clear{
 					margin-right:0;
 				}
+				//圆圈+下+搜索
+				//定好left和right的方向,兼容Safari
 				b{
-					.centerize(68px,68px,absolute,35%,-35px);
+					.centerize(68px,68px,absolute,35%);
+					margin-right:-34px;
+					right:100% ;
 					background: url("../img/icon_circle.png") no-repeat;
 					.transition();
 					.opacity;
 				}
 				i{
-					.centerize(34px,33px,absolute,35%,285px);
+					.centerize(34px,33px,absolute,35%);
+					left: 100%;
+					margin-left:-17px;
 					background: url("../img/icon_zoom.png") no-repeat;
 					.transition();
 					.opacity;
@@ -645,7 +660,11 @@ div:nth-child(odd){
 					.transition();
 				}
 				&:hover{
-					b,i{
+					b{
+						right: 50%;
+						.opacity(1,100);
+					}
+					i{
 						left: 50%;
 						.opacity(1,100);
 					}
@@ -735,12 +754,14 @@ div:nth-child(odd){
 		}
 		div.display{
 			display: block;
+			z-index: 10;
 		}
 		//经典案例
 		.caseSpecial{
 			width: 100%;
 			overflow: hidden;
 			display: none;
+			z-index: 5;
 			//.pos;
 			.bigBox{
 				position: relative;
@@ -831,6 +852,7 @@ div:nth-child(odd){
 		//案例列表
 		.caseList{
 			display: none;
+			z-index: 5;
 			//.pos;
 			ul{
 				overflow: hidden;
@@ -872,7 +894,7 @@ div:nth-child(odd){
 				}
 			}
 			>a{
-				margin: 0 auto 50px;
+				margin: 15px auto 50px;
 				display: block;
 				height:44px;
 				width: 155px;
@@ -919,6 +941,7 @@ div:nth-child(odd){
 
 //第7块:项目服务
 .service{
+
 	height: 550px;
 	*padding-top: 50px;
 	padding-bottom: 50px;
@@ -926,7 +949,7 @@ div:nth-child(odd){
 	background:@bg-clr url("../img/bg_earth.png") no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
-	>h1{
+	>div>h1{
 		background-position: 50% -216px;
 	}
 	div.container{
@@ -1000,6 +1023,8 @@ div:nth-child(odd){
 					width: 100%;
 					.transition();
 				}
+
+
 				div.datas{
 					width: 272px;
 					height: 272px;
@@ -1166,7 +1191,7 @@ div:nth-child(odd){
 .contact{
 	.after;
 	padding-bottom: 50px;
-	>h1{
+	>div>h1{
 		background-position: 50% -256px;
 	}
 	//height:582px;
@@ -1203,11 +1228,18 @@ div:nth-child(odd){
 						padding:5px 6px 5px 10px;
 						border: 1px solid #dadada;
 						outline: none;
+						&:focus{
+							outline:1px solid #a5c7fe;
+						}
+
 					}
 					textarea{
 						width: 638px;
 						border: 1px solid #dadada;
 						outline: none;
+						&:focus{
+							outline:1px solid #a5c7fe;
+						}
 					}
 				}
 
@@ -1242,6 +1274,10 @@ div:nth-child(odd){
 				margin-top: 10px;
 				margin-left: 15px;
 				padding:5px 6px 5px 10px;
+				outline: none;
+				&:focus{
+					outline:1px solid #a5c7fe;
+				}
 			}
 			>span{
 				float: left;
@@ -1256,6 +1292,7 @@ div:nth-child(odd){
 				color: @font-clr-light;
 			}
 		}
+		//右侧地址
 		.company{
 			margin-top: 12px;
 			width: 430px;
@@ -1273,26 +1310,41 @@ div:nth-child(odd){
 					border-bottom: 3px solid transparent;
 					margin:0 40px 0 0;
 					cursor: pointer;
+					.transition;
 					&:hover,&.hover{
 						border-color: @clr-red-std;
 					}
 				}
 			}
+			//地址中间详情
 			div.details{
 				margin-top: 12px;
 				width: 100%;
 				height:223px;
 				//border: 1px solid #ddd;
+				position:relative;
 				background: url("../img/cities/region_shenzhen.png") no-repeat;
-				p{
-					color: @font-clr-light;
-					font-size: @font-size-std;
-					margin: 15px 0;
+				//单个地址
+				div {
+					position: absolute;
+					top:0;
+					left: 0;
+					display: none;
+					p{
+						color: @font-clr-light;
+						font-size: @font-size-std;
+						margin: 15px 0;
+					}
+					&.current{
+						display: block;
+					}
 				}
+
 				ol{
-					.before();
-					margin-top: 40px;
 					overflow: hidden;
+					position: absolute;
+					top:150px;
+					left: 0;
 					li{
 						text-align: center;
 						float: left;
@@ -1305,6 +1357,7 @@ div:nth-child(odd){
 							border-radius: 5px;
 							padding: 0 15px;
 							font-size: @font-size-std;
+							.transition;
 							&:hover{
 								background-color: @clr-red-std;
 							}
@@ -1315,7 +1368,11 @@ div:nth-child(odd){
 						&:last-child a{
 							border: 1px solid @clr-red-std;
 							background-color: #fff;
-							color: @font-clr;
+							color:@clr-red-std;
+							&:hover{
+								background-color: @clr-red-std;
+								color:#fff ;
+							}
 						}
 					}
 				}
@@ -1341,20 +1398,98 @@ div:nth-child(odd){
 div.aside{
 	position:fixed;
 	right: 0;
-	top: 20%;
-	div{
+	top: 50%;
+	z-index: 1000;
+	display: none;
+	width: 40px;
+	.transition(display);
+	>div{
 		background: url("../img/icons.png") no-repeat;
 		width: 40px;
 		height:40px;
 	}
+	//联系客服窗口
 	div.online{
 		height:70px;
 		background-position: 0 -575px;
+		position: relative;
+		&:hover{
+			background-position: -40px -575px;
+			.connect{
+				display: block;
+				-webkit-animation: showConnect .5s;
+				animation: showConnect 1s;
+			}
+		}
+		.connect{
+			position: absolute;
+			top: 0;
+			right: 100%;
+			width: 245px;
+			height: 315px;
+			background: url("../img/tb-nbg.png");
+			display: none;
+			h3{
+				text-align: center;
+				font-size: @font-size-xm;
+				margin-top: 10px;
+			}
+			span{
+				display: block;
+				margin:25px 10px 10px 10px;
+			}
+			p{
+				margin:10px;
+				font-size: @font-size-xl;
+				color: @clr-red-std;
+			}
+			div{
+				position: absolute;
+				left: 0;
+				bottom: 15px;
+				height: 72px;
+				img{
+					margin-left:5px;
+					float: left;
+					height: 67px;
+					width: 72px;
+				}
+			}
+		}
 	}
+	//二维码
 	.QRcode{
-		background-position: 0 -645px;
+		background-position: 0 -646px;
+		position: relative;
+		z-index: 10;
+		&:hover{
+			background-position: -40px -646px;
+			div{
+				display: block;
+				-webkit-animation: showConnect .5s;
+				animation: showConnect 1s;
+			}
+		}
+		div{
+			z-index: 5;
+			position: absolute;
+			right: 100%;
+			height: 80px;
+			width: 80px;
+			display:none;
+			img{
+				display: block;
+				height:100%;
+				width:100%;
+			}
+		}
 	}
-	.totop{
-		background-position: 0 -685px;
+	.toTop{
+		background-position: 0 -686px;
+		&:hover{
+			background-position: -41px -686px;
+		}
 	}
+
+
 }
