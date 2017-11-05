@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		div[data-i=ok]{
+			height:200px;
+			width:200px;
+			background-color: #DDD;
+		}
+	</style>
+</head>
+<body>
+	<button name="test" type="button" value="val" onclick="changeVal()">Button Text</button>
+	<div id="div" data-i="ok">12313</div>
+	<div data-i="ok">123131</div>
+</body>
+<script type="text/javascript">
+	function fun(){
+		this.n=5;
+	}
+	//fun.prototype也是一个对象,fun.prototype.intro的意思是给原型对象添加一个属性方法
+	//fun.prototype原本是一个无名空对象,new 构造函数时所有属性追加到新对象
+	//fun.prototype={} 将属性和方法写到里面本质跟第一个说法一样,且所有属性和方法都是可继承的
+	//知道了要到哪里去,现在只需要明白 prototype是从哪里来
+
+	//问题:直接将方法写在构造函数里和写在原型里有什么区别?
+		//解决:实例化的时候并不会在内存中再复制一份
+		//属性写在原型和构造函数里都行,没有什么大的意义,原型就是为了创建函数时省内存用的
+
+
+		/*
+		new的过程拆分成以下三步：
+		(1) var p={}; 也就是说，初始化一个对象p
+		(2) p.__proto__ = Person.prototype;
+		(3) Person.call(p); 也就是说构造p，也可以称之为初始化p
+			p这个对象将代替Function里this对象
+		*/
+	fun.prototype={
+			age:"123"
+		}
+	var a=new fun();
+
+
+
+	function changeVal(){
+		var div=document.getElementById("div");
+		console.log(div.getAttribute("data-i"));
+		if(div.getAttribute("data-i")=="ok"){
+			div.setAttribute("data-i","123"); 
+		}else{
+			div.setAttribute("data-i","ok"); 
+		}
+	
+	}
+	
+</script>
+</html>

@@ -78,7 +78,11 @@ var slider={
 	btns:null,
 	btnState:0,
 	timer:null,
-	inverval:4000,
+	interval:4000,
+	opacity:100,
+	alpha:0,
+	opaInter:30,
+	step:1,
 	init:function(){
 		//没有左右切换按钮
 		//var prev=document.getElementById("prev");
@@ -95,7 +99,10 @@ var slider={
 			if(src.nodeName=="LI"){
 				for (var i=0;i<this.children.length;i++){
 					if(this.children[i]==src){
-						me.changeImg(i-me.counter);
+						me.step=i-me.counter;
+						me.changeImg();
+						//me.clearOpacity();
+						me.step=1;
 						break;
 					}
 				}
@@ -110,15 +117,21 @@ var slider={
 			me.autoMove();
 		}
 	},
-	setCouter:function(){
+	setCounter:function(){
+		//var bool=false;
+		//this.counter<0||this.counter==this.imgs.length&&(bool=true);
 		this.counter<0&&(this.counter=this.imgs.length-1);
 		this.counter==this.imgs.length&&(this.counter=0);
+		//bool==true&&(this.imgs[this.counter].style.filter="alpha(opacity=100)");
 	},
-	changeImg:function(n){
+	changeImg:function(){
+		//this.clearOpacity();
 		this.clearState();
-		this.counter+=n;
-		this.setCouter();
+		this.counter+=this.step;
+		//this.setOpacity();
+		this.setCounter();
 		this.setState();
+
 	},
 	clearState:function(){
 		this.imgs[this.counter].className=this.imgs[this.counter].className.replace("current","").replace(/(.*?)#|\s/g,'');
@@ -130,9 +143,41 @@ var slider={
 	},
 	autoMove:function(){
 		this.timer=setTimeout(function(){
-			this.changeImg(1);
+			this.changeImg();
 			this.autoMove();
-		}.bind(this),this.inverval);
+		}.bind(this),this.interval);
+	},
+	clearOpacity:function(){
+		this.counter<0&&(this.counter=this.imgs.length-1);
+		this.counter==this.imgs.length&&(this.counter=0);
+		console.log("counter"+this.counter);
+		this.opacity=Math.floor(this.opacity/1.1);
+		this.imgs[this.counter].style.filter="alpha(opacity="+this.opacity+")";
+		if(this.opacity>0){
+			setTimeout(function(){
+				this.clearOpacity();
+			}.bind(this),this.opaInter)
+		}else{
+			this.opacity=100;
+		}
+	},
+	setOpacity:function(){
+		this.counter==0&&(this.imgs[4].style.filter="alpha(opacity=0)");
+		this.counter<0&&(this.counter=this.imgs.length-1);
+		this.counter==this.imgs.length&&(this.counter=0);
+		this.alpha+=100-this.alpha-Math.floor((100-this.alpha)/1.1);
+		this.imgs[this.counter].style.filter="alpha(opacity="+this.alpha+")";
+		console.log("setter"+this.counter+"alp:"+this.alpha);
+
+		if(this.alpha<100){
+			setTimeout(function(){
+				this.setOpacity();
+			}.bind(this),this.opaInter)
+		}else{
+			this.alpha=0;
+			//this.setCounter();
+			//this.setState();
+		}
 	}
 };
 slider.init();
@@ -264,14 +309,14 @@ var sliderCase={
 			}
 		};
 	},
-	setCouter:function(){
+	setCounter:function(){
 		this.counter<0&&(this.counter=this.imgs.length-1);
 		this.counter==this.imgs.length&&(this.counter=0);
 	},
 	changeImg:function(n){
 		this.clearState();
 		this.counter+=n;
-		this.setCouter();
+		this.setCounter();
 		this.setState();
 	},
 	clearState:function(){

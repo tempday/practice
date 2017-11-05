@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function person(){
+		var myname="old+myname";
+		return {
+			say:function(){
+				console.log("myname:is "+myname);
+			},
+			set:function(n){
+				myname=n;
+			}
+		}
+	}
+	var p1=person();
+	var p2=person();
+	p1.say();
+	p2.say();
+	p1.set("p1+what");
+	p1.set("p2+ok");
+	p1.say();
+	p2.say();
+	function en(a){
+		return function(){
+			console.log(a++);
+		}
+	}
+	o=en(1);
+	for(var i=0;i<10;i++){
+		o();
+	}
+</script>
+</html>

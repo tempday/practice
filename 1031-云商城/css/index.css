@@ -287,6 +287,26 @@
     height: 130px;
   }
 }
+@-webkit-keyframes spinning {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinning {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 html {
   font-family: PingFangSC-Regular, Verdana, Arial, '微软雅黑', '宋体', sans-serif;
   -ms-text-size-adjust: 100%;
@@ -297,6 +317,7 @@ html {
 }
 body {
   margin: 0;
+  /**zoom:1;*/
 }
 ul,
 ol,
@@ -778,6 +799,8 @@ div:nth-child(odd){
 .section > div.container > ul.sect4 > li:hover b,
 .products > div.container > ul.sect4 > li:hover b {
   background-position: -109px -296px;
+  -webkit-animation: spinning 2s linear infinite;
+  animation: spinning 2s linear infinite;
 }
 .section > div.container > ul.sect4 > li:hover h2,
 .products > div.container > ul.sect4 > li:hover h2,
@@ -1571,7 +1594,6 @@ div:nth-child(odd){
   float: left;
   height: 28px ;
   width: 150px;
-  line-height: 40px;
   border: 1px solid #dadada;
   margin-top: 10px;
   margin-left: 15px;

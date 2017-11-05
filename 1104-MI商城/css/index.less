@@ -1,0 +1,414 @@
+@charset "utf-8";
+html {
+	-ms-text-size-adjust: 100%; // 2
+	-webkit-text-size-adjust: 100%; // 2
+	font-size:100%;
+	font-family: sans-serif;
+}
+body {
+	margin: 0;
+	font:@font-size-std/1.5 PingFangSC-Regular, Verdana, Arial, 'Microsoft Yahei', '宋体',sans-serif;
+	color: @clr-333;
+}
+ul,ol,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{
+	margin:0;
+	padding:0;
+}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+table{border-collapse:collapse;border-spacing:0;}
+a {
+	background-color: transparent;
+	text-decoration: none;
+}
+a:active,a:hover {
+	outline: 0;
+}
+fieldset,img {
+	border: 0;
+	vertical-align: middle;
+}
+ul,ol{
+	list-style:none;
+}
+//清除浮动/边距越界
+.before(){
+	&:before{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+.after(){
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+//全局变量
+@font-size-sm:12px;
+@font-size-std:14px;
+@font-size-16:16px;
+@font-size-18:18px;
+@font-size-20:20px;
+@font-size-24:24px;
+@font-size-26:26px;
+@font-size-28:28px;
+@clr-org:#ff6700;
+@clr-yel:#ffac13;
+@clr-red:#e53935;
+@clr-gre:#83c44e;
+@clr-blu:#2196f3;
+@clr-sky:#00c0a5;
+@clr-bg-blu-dark:#0f1c3b;
+@clr-bg-light:#fafafa;
+@clr-bg-dark:#f5f5f5;
+@clr-border:#e0e0e0;
+@clr-333:#333;
+@clr-font-75:#757575;
+@clr-font-b0:#b0b0b0;
+.boxShadow(@y:2px,@blur:10px,@alpha:0.15){
+	-webkit-box-shadow: 0 @y,@blur,@alpha;
+	box-shadow: 0 @y @blur rgba(0,0,0,@alpha);
+}
+
+//测试用
+///*
+body>div{
+	height: 200px;
+	width: 100%;
+	text-align: center;
+}
+div:nth-child(odd):not(:first-child){
+	background-color: aliceblue;
+}
+//*/
+
+.container{
+	width: 1226px;
+	margin-right: auto;
+	margin-left: auto;
+}
+//1.顶部工具栏
+
+div.topBar{
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	background-color: @clr-333;
+	font-size: @font-size-sm;
+	text-align: center;
+	.container,ul,ol{
+		//overflow: hidden;
+	}
+	a{
+		display:block;
+		height: 100%;
+		color: @clr-font-b0;
+		&:hover{
+			color: #fff;
+		}
+	}
+	li{
+		float: left;
+		margin: 0 3px;
+		color:#424242;
+	}
+
+	ul{
+		float: left;
+		li{
+			float: left;
+		}
+	}
+	ol{
+		float: right;
+		margin-right: 15px;
+	}
+	//购物车
+	div.cart{
+		float: right;
+		position: relative;
+		a{
+			background-color: @clr-org;
+			color: #fff;
+			padding:0 12px 0 10px;
+			position: relative;
+			z-index: 51;
+			&.empty{
+				background-color: lighten(@clr-333,5%);
+				color: @clr-font-b0;
+			}
+			b{
+				float: left;
+				display: block;
+				height: 20px;
+				width: 20px;
+				margin: 9px 5px auto 5px;
+				background: url("../img/cart.png") -20px 0 no-repeat;
+			}
+		}
+		&:hover{
+			a{
+				b{
+					background-position: 0 0;
+				}
+				background-color:#ffffff;
+				color: @clr-org;
+			}
+			.subCart{
+				display: block;
+			}
+		}
+		.subCart{
+			position: absolute;
+			top: 40px;
+			right: 0;
+			width: 316px;
+			display: none;
+			.boxShadow;
+			z-index: 50;
+			>p{
+				width:100%;
+				margin: 30px 0;
+			}
+		}
+	}
+
+}
+
+//2.导航栏
+
+.navBar{
+	height:100px;
+	position: relative;
+	div.container{
+		height: 100%;
+		div.logo{
+			float: left;
+			margin-top: 25px;
+		}
+		//导航列表
+		ul.navList{
+			float: left;
+			height: 100%;
+			margin-left: 30px;
+			li{
+				float: left;
+				height: 100%;
+				text-align: center;
+				line-height: 100%;
+				a{
+					font-size: @font-size-16;
+					display: block;
+					height: 100%;
+					line-height: 100px;
+					color: @clr-333;
+					padding:0 10px;
+				}
+				&:hover{
+					a{
+						color:@clr-org;
+					}
+				}
+			}
+			li.category{
+				width: 127px;
+				margin-right: 15px;
+				visibility: hidden;
+				&.display{
+					visibility: visible;
+				}
+			}
+		}
+		div.nav-search{
+			float: right;
+			form{
+				margin-top: 25px;
+				position: relative;
+				outline: 0;
+				label{
+					display: none;
+				}
+				input,button{
+					float: left;
+					border: 1px solid @clr-border;
+					outline: 0;
+				}
+				input{
+					width:225px;
+					height:48px;
+					line-height: 48px;
+					padding: 0 10px;
+				}
+				//搜索按钮
+				button{
+					width:50px;
+					background-color: #ffffff;
+					padding: 0;
+					height:50px;
+					color: #616161;
+					font-size: @font-size-18;
+					border-left: 0;
+					filter:chroma(color=#000000);
+					&:hover{
+						color: #ffffff;
+						background-color: @clr-org;
+					}
+					&:before{
+						content:"搜索";
+					}
+				}
+				//下弹出框,关键字
+				ul.keywords{
+					width: 225px;
+					border: 1px solid @clr-org;
+					border-top: 0;
+					position: absolute;
+					left: 0;
+					top: 50px;
+					padding: 0 10px;
+					background-color: #ffffff;
+					overflow: hidden;
+					display: none;
+					z-index: 40;
+					li{
+						width: 100%;
+						&:hover{
+							background-color: @clr-bg-light;
+						}
+						a{
+							line-height: 21px;
+							display: block;
+							height: 21px;
+							width: 100%;
+							font-size: @font-size-sm;
+							color: @clr-333;
+							text-align: left;
+							padding:5px 0;
+							position: relative;
+							span{
+								position: absolute;
+								right: 0;
+								top: 4px;
+								color: @clr-font-b0;
+							}
+						}
+					}
+				}
+				&.form-hover:hover{
+					input,button{
+						border-color: @clr-org;
+					}
+					ul.keywords{
+						display: block;
+					}
+				}
+
+
+			}
+		}
+	}
+	div.nav-dropdown{
+		width: 100%;
+		height:230px;
+		border-top: 1px solid @clr-border;
+		background-color: #fff;
+		position: absolute;
+		top: 100px;
+		left: 0;
+		z-index: 40;
+		.boxShadow(3px,4px,0.18);
+		div.container{
+			position: relative;
+		}
+		ul.current{
+			display: block;
+		}
+		ul{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			li.first:before{
+				display: none;
+			}
+			li{
+				&:before{
+					content:"" ;
+					position: absolute;
+					left: 0;
+					height: 100px;
+					top:50%;
+					margin-top: -50px;
+					width: 1px;
+					background-color: @clr-border;
+				}
+				width: 160px;
+				float: left;
+				padding:35px 20px 0;
+				position: relative;
+				//顶部新品
+				div.flag{
+					position: absolute;
+					top: 0;
+					left:0;
+					width:100%;
+					text-align: center;
+					z-index: 45;
+					margin-top: -2px;
+					span{
+						color: @clr-org;
+						border: 1px solid @clr-org;
+						padding-left: 15px;
+						padding-right: 15px;
+					}
+				}
+				//商品图片
+				a.shopPic{
+					position: relative;
+					z-index: 42;
+					height: 110px;
+					width: 160px;
+					display: block;
+					img{
+						height: 100%;
+					}
+				}
+				//商品名称
+				div.shopName{
+					height: 20px;
+					line-height: 20px;
+					text-align: center;
+					margin: 20px auto 2px;
+					a{
+						font-size: @font-size-sm;
+						color: @clr-333;
+					}
+				}
+				//价钱
+				p.price{
+					color:@clr-org;
+					cursor: default;
+				}
+			}
+		}
+	}
+}
+
+//3.菜单+广告
+
+//4.精品
+
+//5.明星单品
+
+//6.家电
+
+//7.智能
+
+//8.搭配
+
+//9.配件
+
+//10.周边
+

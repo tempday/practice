@@ -495,8 +495,11 @@ div:nth-child(odd){
 			//鼠标悬浮样式:li先上移动,背景色变红,字体颜色白色
 			&.sect4>li:hover{
 				background: @clr-red-light;
+
 				b{
 					background-position: -109px -296px;
+					-webkit-animation: spinning 2s linear infinite;
+					animation: spinning 2s linear infinite;
 				}
 				top: -20px;
 				h2,p{
@@ -1269,7 +1272,7 @@ div:nth-child(odd){
 				float: left;
 				height:28px ;
 				width: 150px;
-				line-height: 40px;
+				//line-height: 40px;
 				border: 1px solid #dadada;
 				margin-top: 10px;
 				margin-left: 15px;

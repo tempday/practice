@@ -15,17 +15,18 @@
 	var keywords=document.getElementById("keywords");
 	var keyslist=document.getElementById("keyslist");
 	keyslist.onclick=function(){
+		console.log(this);
 		var src=event.srcElement||event.target;
-		if(src.nodeName="LI"){
+		if(src.nodeName=="LI"){
 			keywords.value=src.innerHTML;
 		}
 	}
 	keywords.onblur=function(){
 		setTimeout(function(){
 			keyslist.style.display="none";
-		}, 200);
+		}, 2000);
 	}
-	keywords.onfocus=keywords.onkeyup=getWords;
+	keywords.onfocus=keywords.onkeyup=keywords.onchange=getWords;
 	function getWords(){
 		var key=keywords.value.replace(/^\s*|\s*$/g,"");
 		if(key){
@@ -68,7 +69,10 @@
 	//imgBtn弹窗按钮,loadimg被隐藏对象
 	function hideFile(){
 		var src=event.srcElement||event.target;
-		if(src!=this&&src!=imgBtn){
+		if(src==this){
+			loadimg.style.display="none";
+			return;
+		}else if(src!=imgBtn){
 			var bool=true;
 			do{
 				src=src.parentNode;
