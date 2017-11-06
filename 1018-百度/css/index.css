@@ -221,6 +221,21 @@ ul.links li.last-child a {
   background-color: #fafafa;
   padding-top: 25px;
   margin-bottom: 16px;
+  position: relative;
+}
+.section form div.btngroup div.loadimg div.imgbox div.pullpic > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  display: none;
+}
+.section form div.btngroup div.loadimg div.imgbox div.pullpic > div img {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
 }
 .section form div.btngroup div.loadimg div.imgbox div.pullpic i {
   display: inline-block;

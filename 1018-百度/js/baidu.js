@@ -14,18 +14,17 @@
 	var search=document.getElementById("search");
 	var keywords=document.getElementById("keywords");
 	var keyslist=document.getElementById("keyslist");
+	var picMask=document.getElementById("picMask");
+	var upload=document.getElementById("upload");
 	keyslist.onclick=function(){
-		console.log(this);
+		//console.log(this);
 		var src=event.srcElement||event.target;
 		if(src.nodeName=="LI"){
 			keywords.value=src.innerHTML;
 		}
+		this.style.display="none";
 	}
-	keywords.onblur=function(){
-		setTimeout(function(){
-			keyslist.style.display="none";
-		}, 2000);
-	}
+	
 	keywords.onfocus=keywords.onkeyup=keywords.onchange=getWords;
 	function getWords(){
 		var key=keywords.value.replace(/^\s*|\s*$/g,"");
@@ -67,23 +66,73 @@
 	}
 	document.body.onclick=hideFile;
 	//imgBtn弹窗按钮,loadimg被隐藏对象
+	//点击任意地方关闭keyslist
 	function hideFile(){
 		var src=event.srcElement||event.target;
 		if(src==this){
 			loadimg.style.display="none";
+			keyslist.style.display="none";
 			return;
 		}else if(src!=imgBtn){
 			var bool=true;
+			var boolKw=true;
 			do{
-				src=src.parentNode;
-				if(src==loadimg){
-					bool=false;
-					break;
-				}
+				src==keyslist||src==keywords&&(boolKw=false);
+				src=src.parentNode;//无关先后,loadimg被撑大的实际无法被点击
+				src==loadimg&&(bool=false);
 			}while(src!=this);
 			if(bool&&loadimg.style.display=="block"){
 				loadimg.style.display="none";
 			}
+			if(boolKw&&keyslist.style.display=="block"){
+				keyslist.style.display="none";
+			}
+		}else{
+			keyslist.style.display="none";
+		}
+	}
+	function getFileUrl(sourceId) {
+		var url;
+		if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE 
+			url = document.getElementById(sourceId).value;
+		} else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox 
+			url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+		} else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome 
+			url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+		}
+		return url;
+	}
+
+	/** 
+	* 将本地图片 显示到浏览器上 
+	*/ 
+	function preImg(sourceId, targetId) {
+		var url =document.getElementById(sourceId).value;
+		//console.log(url);
+		var reg=new RegExp("\.","g"),
+			result,
+			index;
+		while((result=reg.exec(url))!=null){
+			result[0]=="."&&(index=result.index);
+		}
+		//console.log(index);
+		if(!index){
+			return false;
+		}
+		if(url.slice(index+1).match(/png|jpg|jpeg|bmp|gif|ico/i)==null){
+			return false;
+		}
+		//验证url结束
+		url = getFileUrl(sourceId);
+		var imgPre = document.getElementById(targetId);
+		imgPre.src = url;
+		return true;
+	}
+	upload.onchange=function(){
+		if(preImg(this.id, "uploadPic")){
+			picMask.style.display="block";
+		}else{
+			picMask.style.display="none";
 		}
 	}
 }();

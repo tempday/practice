@@ -83,7 +83,7 @@ ul.links{
 		position: relative;
 		margin:10px auto;
 		text-align: center;
-		z-index: 10;//设置任意值比footer大
+		z-index: 10;//设置任意值比footer大 ,兼容ie7/8
 		div.btngroup{
 			margin:0 auto;
 			max-width: 640px;
@@ -239,6 +239,22 @@ ul.links{
 						background-color:#fafafa;
 						padding-top: 25px;
 						margin-bottom: 16px;
+						position: relative;
+						>div{
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							left: 0;
+							top: 0;
+							background-color: #fff;
+							display: none;
+							img{
+								display: block;
+								margin: 0 auto;
+								height: 100%;
+							}
+						}
+						
 						i{
 							display: inline-block;
 							height: 28px;
