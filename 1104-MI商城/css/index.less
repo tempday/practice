@@ -48,7 +48,7 @@ ul,ol{
 //浏览器兼容
 .opacity(@opa:0,@alp:0){
 	opacity: @opa;
-	filter: alpha(opacity=@alp);
+	filter: alpha(opacity=@alp)@ie7-10;
 }
 .transition(@way:all,@time:.2s,@style:ease-in-out){
 	-webkit-transition:@way @time @style;
@@ -267,6 +267,9 @@ div.topBar{
 					height:48px;
 					line-height: 48px;
 					padding: 0 10px;
+					&:focus{
+						border-color: @clr-org;
+					}
 				}
 				//搜索按钮
 				button{
@@ -321,13 +324,19 @@ div.topBar{
 						}
 					}
 				}
-				&.form-hover:hover{
+
+				&:hover{
+					input,button{
+						border-color:@clr-font-b0;
+					}
+					// js实现
+					//ul.keywords{ display: block; }
+				}
+				&.hover{
 					input,button{
 						border-color: @clr-org;
 					}
-					ul.keywords{
-						display: block;
-					}
+					ul.keywords{ display: block; }
 				}
 
 
@@ -336,16 +345,23 @@ div.topBar{
 	}
 	//导航栏下拉框
 	div.nav-dropdown{
-		width: 100%;
-		height:230px;
-		border-top: 1px solid @clr-border;
-		background-color: #fff;
 		position: absolute;
 		top: 100px;
 		left: 0;
+		width: 100%;
+		height:0;
+		overflow: hidden;
+		background-color: #fff;
 		z-index: 40;
-		.boxShadow(3px,4px,0.18);
-		display: none;
+		.transition();
+		//display: none;
+		&.display{
+			//display: block;
+			border-top: 1px solid @clr-border;
+			height:230px;
+			.boxShadow(3px,4px,0.18);
+
+		}
 		div.container{
 			position: relative;
 		}
@@ -378,7 +394,7 @@ div.topBar{
 				//顶部新品
 				div.flag{
 					position: absolute;
-					top: 0;
+					top: 1px;
 					left:0;
 					width:100%;
 					text-align: center;
@@ -723,7 +739,7 @@ div.title{
 	padding-top: 39px;
 	padding-bottom: 20px;
 	text-align: center;
-	h5{
+	>h5{
 		position: absolute;
 		top: 0;
 		left: 50%;
@@ -742,7 +758,7 @@ div.title{
 	.freight{
 		background-color: @clr-yel;
 	}
-	h4{
+	>h4{
 		height: 18px;
 		line-height: 18px;
 		padding:8px;
@@ -751,7 +767,7 @@ div.title{
 		white-space: nowrap;
 		overflow: hidden;
 	}
-	p{
+	>p{
 		color: @clr-font-b0;
 		font-size: @font-size-sm;
 	}
@@ -768,6 +784,8 @@ div.title{
 .superStar,.recommend{
 
 	div.sliderBox{
+		//兼容ie7 hidden失效
+		position: relative;
 		height: 340px;
 		width: 100%;
 		overflow: hidden;
@@ -810,7 +828,7 @@ div.title{
 }
 .application,.intelligent,.combination,.piece,.related,.recommend,.amusement,.videos,.remark,.amusement {
 	background-color: @clr-bg-dark;
-	overflow: hidden;
+	.after;
 }
 //6.家电
 .application{
@@ -841,6 +859,7 @@ div.title{
 		position: absolute;
 		left:242px;
 		top: 0;
+		display: none;
 		li{
 			.liStyle();
 			margin-left:12px ;
@@ -855,10 +874,10 @@ div.title{
 				margin:0;
 				padding-bottom:6px;
 			}
-			p{
+			>p{
 				margin-bottom:10px;
 			}
-			span{
+			>span{
 				margin-bottom:10px;
 			}
 		}
@@ -883,8 +902,40 @@ div.title{
 				cursor: pointer;
 			}
 		}
+		li:hover{
+			.review{
+				height: 60px;
+				.opacity(1,100);
+			}
+		}
+		.review{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 0;
+			width: 174px;
+			padding:8px 30px;
+			background-color: @clr-org;
+			color: #ffffff;
+			font-size: @font-size-sm;
+			text-align: left;
+			.opacity();
+			.transition();
+			p{
+				max-height: 36px;
+				overflow: hidden;
+				margin-bottom: 5px;
+			}
+		}
+		.author{
+			.opacity(.6,60);
+		}
+	}
+	.display{
+		display: block;
 	}
 }
+
 //7.智能
 
 //8.搭配
@@ -916,12 +967,12 @@ div.title{
 	}
 }
 //12.remark 热评
+//通用
 .row-1{
-	overflow:hidden;
 	.first{
 		margin-left:0;
 	}
-	li{
+	>li{
 		float:left;
 		width:296px;
 		height:415px;
@@ -930,10 +981,214 @@ div.title{
 		.shadowAnimate();
 	}
 }
+//主体布局
 .remark{
+	//商品图片
+	.shopPic{
+		img{
+			width: 100%;
+		}
+	}
+	//评论
+	.comment{
+		padding:22px 28px 0 28px;
+		margin-bottom: 22px;
+		line-height: 25px;
+		height: 75px;
+		overflow: hidden;
+	}
+	//来自
+	.author{
+		padding-left: 28px;
+		padding-bottom: 10px;
+		font-size: @font-size-sm;
+		text-align: left;
+		.opacity(.6,60);
+	}
+	//名称|价钱
+	.info{
+		padding-left: 28px;
+		a{
+			color: @clr-333;
+		}
+	}
+	.sep{
+		margin: 0 10px;
+		color: @clr-font-b0;
+	}
+	.price{
+		color: @clr-org;
+	}
+}
+
+//13.内容
+
+
+
+.amusement{
+	ul.row-1{
+		li[data-item-i]{
+			position: relative;
+			text-align: center;
+			border-top: 1px solid @clr-yel;
+			//内层单个ol
+			overflow: hidden;
+			ol{
+				width:296px*4;
+				//margin-left: -296px*2;
+				li{
+					float: left;
+					width:296px;
+					padding-top: 80px;
+					h5{
+						font-size: @font-size-20;
+						margin-bottom: 5px;
+					}
+					p.summery{
+						font-size: @font-size-sm;
+						color:@clr-font-b0;
+						padding:0 40px;
+						height: 40px;
+						line-height: 20px;
+						margin-bottom: 15px;
+					}
+					span.more{
+						display: block;
+						width: 120px;
+						height:30px;
+						line-height: 30px;
+						border: 1px solid @clr-yel;
+						margin:0 auto;
+						color: @clr-yel;
+						font-size: @font-size-sm;
+					}
+					div{
+						width: 216px;
+						height: 154px;
+						margin: 10px auto;
+						img{
+							width: 100%;
+						}
+					}
+				}
+			}
+			//类型
+			>h4{
+				position: absolute;
+				left: 0;
+				top:45px;
+				height:21px;
+				width: 100%;
+				color: @clr-yel;
+				font-size: @font-size-16;
+			}
+		}
+		//定义通用颜色
+		.setLiColor(@commonClr:@clr-gre){
+			border-color: @commonClr;
+			span.more{
+				border-color: @commonClr;
+				color: @commonClr;
+			}
+			>h4{
+				color: @commonClr;
+			}
+			.focusLis>li{
+				&.hover{
+					border-color:@commonClr;
+				}
+				&:hover{
+					background-color: @commonClr;
+				}
+			}
+		}
+		li[data-item-i="2"]{
+			.setLiColor();
+		}
+		li[data-item-i="3"]{
+			.setLiColor(@clr-red);
+		}
+		li[data-item-i="4"]{
+			.setLiColor(@clr-blu);
+		}
+		//左右切换按钮
+		>li>span{
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+			height: 48px;
+			width: 20px;
+			margin-top: -24px;
+			background:rgb(0,0,0) url("../img/icon-slides.png") -9px -8px no-repeat;
+			.opacity();
+			.transition();
+		}
+		>li>span[data-pos="left"]{
+			left: 0;
+
+		}
+		>li>span[data-pos="right"]{
+			right: 0;
+			background-position: -54px -8px;
+		}
+		>li:hover>span{
+			.opacity(.1,10);
+			&:hover{
+				.opacity(.3,30);
+			}
+		}
+	}
+
+	//焦点图点点
+	.focusLis{
+		position: absolute;
+		//flex 方法居中,兼容性:只适合ie11+
+		//display: flex;
+		//justify-content: center;
+
+		left: 50%;
+		//left:0;
+		bottom: 30px;
+		//width: 100%;
+		//transform 方法居中,兼容性: IE9+
+		//transform:translate(-50%,0);
+		//table 方法居中,
+		//display:table-cell;
+		//text-align: center;
+		//vertical-align: middle;
+		margin-left: -80px;
+		li{
+			float: left;
+			height: 6px;
+			width: 6px;
+			border:2px solid #ffffff;
+			border-radius: 50%;
+			margin: 0 15px;
+			background-color: @clr-font-b0;
+			.transition();
+			//display: inline-block;
+			&.hover{
+				border-color:@clr-yel;
+				background-color: #ffffff;
+			}
+			&:hover{
+				//border-color:@clr-org;
+				background-color: @clr-yel;
+			}
+		}
+
+	}
+
+}
+//14.视频
+.videos{
+	.before;
+	//查看全部
+	padding-bottom: 60px;
 	.more-link{
 		float:right;
 		margin-top:40px;
+		margin-right: 10px;
 		height:21px;
 		line-height:21px;
 		font-size:16px;
@@ -948,11 +1203,211 @@ div.title{
 			}
 		}
 	}
+
+
+	//字体样式
+	li{
+		height: 285px;
+		position: relative;
+	}
+	p.title{
+		text-align: center;
+		margin-top: 25px;
+	}
+	.detail{
+		margin-top: 8px;
+		text-align: center;
+		font-size: @font-size-sm;
+		color: @clr-font-b0;
+
+	}
+	//播放按钮
+	.playVideo{
+		position: absolute;
+		left: 10px;
+		bottom: 5px;
+		display: block;
+		height: 32px;
+		width: 50px;
+		background: url("../img/video-100x32-2.png");
+		.transition();
+	}
+	.shopPic{
+		img{
+			cursor: pointer;
+		}
+		position: relative;
+		&:hover a{
+			background: url("../img/video-100x32-1.png");
+		}
+	}
 }
+//视频模态框
+.videosBox{
+	position: fixed;
+	left: 0;
+	top:0;
+	height: 100%;
+	width: 100%;
+	background-color:rgba(0,0,0,.4);
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#66000000,endColorStr=#66000000)@ie7-10;
+	z-index: 100;
+	display: none;
+	&.show{
+		display: block;
+	}
+	.video{
+		position: fixed;
+		left: 50%;
+		top:50%;
+		height: 600px;
+		width: 880px;
+		margin-left: -440px;
+		margin-top: -300px;
+		z-index: 110;
+		h1{
+			height: 60px;
+			line-height: 60px;
+			padding:0 15px;
+			width: 850px;
+			font-size: @font-size-18;
+			background-color: #ffffff;
+		}
+		b{
+			position: absolute;
+			right: 20px;
+			top:18px;
+			height: 20px;
+			width: 20px;
+			background: url("../img/close-1.png") no-repeat center center;
+			border-radius: 50%;
+			.transition();
+			&:hover{
+				top:13px;
+				right: 15px;
+				height: 30px;
+				width: 30px;
+				background:@clr-red url("../img/close-2.png")no-repeat center center;
+			}
+		}
+		div{
+			width: 100%;
+			height: 540px;
+			video{
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				background-color: black;
+			}
+		}
+	}
+}
+//15.服务
+.service{
+	.title{
+		line-height: 80px;
+		text-align: center;
+		a{
+			font-size: @font-size-16;
+			color: #616161;
+			margin: 0 60px;
+			&:hover{
+				color: @clr-org;
+			}
+		}
+		border-bottom: 1px solid @clr-border;
+		margin-bottom: 40px;
+	}
+
+	//列表+号码
+	.service-list{
+		overflow: hidden;
+		padding-bottom: 30px;
+		>ul{
+			float: left;
+			position: relative;
+			&:after{
+				content:"";
+				position: absolute;
+				top:50%;
+				right: 0;
+				height:120px ;
+				width: 1px;
+				margin-top: -60px;
+				background-color: @clr-border;
+			}
+			>li{
+				float: left;
+				width: 160px;
+				font-size: @font-size-sm;
+				color: @clr-font-75;
 
 
+				li{
+					margin-bottom: 10px;
+					&:hover{
+						color: @clr-org;
+					}
+				}
+				li.head{
+					font-size: @font-size-std;
+					color: @clr-333;
+					margin-bottom: 25px;
+					&:hover{
+						color: @clr-333;
+					}
+				}
+			}
+		}
+	}
+	.contact{
+		float: right;
+		text-align: center;
+		h1{
+			color: @clr-org;
+			font-size: @font-size-22;
+		}
+		p{
+			margin: 10px 0 15px;
+		}
+	}
+	//客户服务按钮
+	span.kefu{
+		display: block;
+		width: 120px;
+		height:30px;
+		line-height: 30px;
+		border: 1px solid @clr-org;
+		margin:0 auto;
+		color: @clr-org;
+		font-size: @font-size-sm;
+		.transition();
+		&:hover{
+			color: #fff;
+			background-color: @clr-org;
+		}
+	}
+}
 .footer{
+	&:after{
+		content:'探索科技,为技术而生!';
+		display: block;
+		margin-top: 10px;
+		font-size: @font-size-18;
+		text-align: center;
+		color: @clr-font-b0;
+	}
+	.before;
 	height:166px;
-	background-color:grey;
+	background-color:@clr-bg-light;
+	p{
+		line-height: 40px;
+		text-align: center;
+		color: @clr-font-b0;
+		margin-top: 20px;
+		padding:0 30px;
+
+	}
 }
+
 
