@@ -1,47 +1,15 @@
 /**
  * Created by lglong on 2017-11-04.
  */
-if (!Function.prototype.bind) {
-	Function.prototype.bind = function(oThis) {
-		if (typeof this !== "function") {
-			throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
-		}
-		var aArgs = Array.prototype.slice.call(arguments, 1),
-				fToBind = this,
-				fNOP = function() {},
-				fBound = function() {
-					return fToBind.apply(this instanceof fNOP && oThis ? this : oThis,
-							aArgs.concat(Array.prototype.slice.call(arguments)));
-				};
-		fNOP.prototype = this.prototype;
-		fBound.prototype = new fNOP();
-		return fBound;
-	};
-}
-function getElemByAttr(tagName,attrType,attr,parentId){
-	parentId=parentId||"";
-	attr=attr||"";
-	var parent=document.getElementById(parentId),
-			tags;
-	if(parent){
-		tags=parent.getElementsByTagName(tagName);
-	}else{
-		tags=document.getElementsByTagName(tagName);
-	}
-	var reg=new RegExp("^"+attr+"$|^"+attr+"\\s|\\s"+attr+"$|\\s"+attr+"\\s","g");
+function getByData(tagName,attrType,attr){
+	var tags=document.getElementsByTagName(tagName);
 	var typeLis=[],attrLis=[];
-	//console.log(reg);
 	for(var i=0;i<tags.length;i++){
 		var value=tags[i].getAttribute(attrType);
-		if(value){//判断属性是否有效
+		if(value){
 			value=value.replace(/^\s*|\s*$/g,"");
 			value&&(typeLis.push(tags[i]));
-			if(attrType=="class"){
-				//console.log(value);
-				attr&&reg.test(value)&&(attrLis.push(tags[i]));
-			}else {
-				value==attr&&(attrLis.push(tags[i]));
-			}
+			value==attr&&(attrLis.push(tags[i]));
 		}
 	}
 	if(attr){
@@ -50,29 +18,19 @@ function getElemByAttr(tagName,attrType,attr,parentId){
 		return typeLis;
 	}
 }
-
-function addClass(elem,cls){
-	elem.className=elem.className==""?cls:elem.className+" "+cls;
-}
-function removeClass(elem,cls){
-	var reg=new RegExp("^"+cls+"$|^"+cls+"\\s|\\s"+cls+"$|\\s"+cls+"\\s","g");
-	elem.className=elem.className.replace(/\s/g,"  ").replace(reg," ").replace(/^\s*|\s*$/g,"").replace(/\s{2,}/g," ");
-}
 //输入框下拉
 var search=document.getElementById("search");
 search.onfocus=function(){
-	//this.parentNode.className+=" hover";
-	addClass(this.parentNode,"hover");
+	this.parentNode.className+=" hover";
 };
 search.onblur=function(){
-	//this.parentNode.className=this.parentNode.className.replace(/\s+hover/g,"");
-	removeClass(this.parentNode,"hover");
+	this.parentNode.className=this.parentNode.className.replace(/\s+hover/g,"");
 };
 //导航栏下拉
 var navList=document.getElementById("navList");
 var navDropdown=document.getElementById("navDropdown");
 
-navList.onmouseover=function(event){
+navList.onmouseover=function(){
 	var src=event.srcElement||event.target;
 	var data=src.getAttribute("data-item-i")||src.parentNode.getAttribute("data-item-i");
 	//console.log(src);
@@ -93,14 +51,14 @@ navList.onmouseout=function(){
 var liSwitch={
 	timer:null,
 	interval:10,
-	WIDTH:1226,
+	width:1226,
 	ul:null,
 	left:0,
 	right:0,
 	val:0,
 	init:function(id,btnId,isAuto){
 		this.ul=document.getElementById(id);
-		this.right=this.WIDTH;
+		this.right=this.width;
 		var sliderSuperBtn=document.getElementById(btnId).children;
 		var me=this;
 		sliderSuperBtn[0].onclick=function(){
@@ -126,7 +84,7 @@ var liSwitch={
 		}else {
 			clearTimeout(this.timer);
 			this.timer=null;
-			this.right=this.WIDTH;
+			this.right=this.width;
 		}
 	},
 	moveR:function(){
@@ -146,7 +104,7 @@ var liSwitch={
 		}else {
 			clearTimeout(this.timer);
 			this.timer=null;
-			this.left=this.WIDTH;
+			this.left=this.width;
 			this.incre=0;
 		}
 	}
@@ -156,114 +114,144 @@ liSwitch.init("sliderSuper","sliderSuperBtn",true);
 liSwitch.init("sliderRec","recBtn");
 */
 
-//商品列表左右切换构造函数
+//多对象可复用
 function SwitchLi(id,btnId,isAuto){
 	this.timer=null;
 	this.interval=10;
 	this.wait=5000;
-	this.WIDTH=1226;
-	this.RATE=1.1;
-	this.mgLeft=1226;
-	this.direction=false;//判断左方向按钮状态
+	this.width=1226;
+	this.left=0;
+	this.right=0;
+	this.incre=0;
 	this.ul=document.getElementById(id);
 	this.toggles=document.getElementById(btnId).children;
 	this.isAuto=isAuto||false;
-	this.autoTimer=null;
 }
 SwitchLi.prototype={
-	move:function(){
-		this.timer&&(clearTimeout(this.timer));
-		this.mgLeft=Math.floor(this.mgLeft/this.RATE);
-		this.direction?
-				this.ul.style.marginLeft="-"+this.mgLeft+"px":
-				this.ul.style.marginLeft="-"+(this.WIDTH-this.mgLeft)+"px";
-		if(this.mgLeft){
+	moveL:function(){
+		//避免动画重叠
+		//clearTimeout(this.timer);
+		if(!this.left||this.right){
+			return;
+		}
+		this.left=Math.floor(this.left/1.1);
+		//左margin逐渐减小,直到0
+		this.ul.style.marginLeft="-"+this.left+"px";
+		if(this.left){
 			this.timer=setTimeout(function(){
-				this.move();
+				this.moveL();
 			}.bind(this),this.interval)
-		}else{
+		}else {
 			clearTimeout(this.timer);
 			this.timer=null;
-			this.mgLeft=this.WIDTH;
-			this.direction=!this.direction;
-			this.checkState();
-			this.autoMove();
-		}
-	},//判断是否自动移动
-	autoMove:function(){
-		if(this.isAuto){
-			this.autoTimer=setTimeout(function(){
-				this.move();
-			}.bind(this),this.wait)
+			this.right=this.width;
 		}
 	},
-	checkState:function(){
-		if(this.direction){
-			this.toggles[0].className="on";
-			this.toggles[1].className="off";
-		}else{
-			this.toggles[0].className="off";
-			this.toggles[1].className="on"
+	moveR:function(){
+		//clearTimeout(this.timer);
+		if(!this.right||this.left){
+			return;
+		}
+		/*
+		var step=Math.ceil(this.right/11);
+		this.incre+=step;
+		this.right=this.right-step;
+		//console.log("val: "+this.incre+" tem: "+this.right);
+		this.ul.style.marginLeft="-"+this.incre+"px";
+		*/
+		this.right=Math.floor(this.right/1.1);
+		//左margin逐渐增大,直到1226
+		this.ul.style.marginLeft="-"+(this.width-this.right)+"px";
+
+		if(this.right){
+			this.timer=setTimeout(function(){
+				this.moveR();
+			}.bind(this),this.interval)
+		}else {
+			clearTimeout(this.timer);
+			this.timer=null;
+			this.left=this.width;
+			this.incre=0;
+			if(this.isAuto){
+				setTimeout(function(){
+					this.moveL();
+				}.bind(this),this.wait)
+			}
+		}
+	},
+	autoMove:function(){
+		if(this.isAuto){
+			setTimeout(function(){
+				if(this.left){
+					this.moveR();
+				}else{
+					this.incre=0;
+					this.moveR();
+				}
+
+			}.bind(this),this.wait)
 		}
 	}
 };
 
 var liSwitch={
-	init:function(id,btnId,isAuto){
-		var newSwitch=new SwitchLi(id,btnId,isAuto);
-		newSwitch.autoMove();
-		newSwitch.checkState();
+	init:function(newSwitch,id,btnId,isAuto){
+		newSwitch=new SwitchLi(id,btnId,isAuto);
+		newSwitch.right=newSwitch.width;
 		newSwitch.toggles[0].onclick=function(){
-			if(newSwitch.direction){
-				newSwitch.autoTimer&&(clearTimeout(newSwitch.autoTimer));
-				newSwitch.move();
-			}
+			newSwitch.moveL();
 		};
 		newSwitch.toggles[1].onclick=function(){
-			if(!newSwitch.direction){
-				newSwitch.autoTimer&&(clearTimeout(newSwitch.autoTimer));
-				newSwitch.move();
-			}
+			newSwitch.incre=0;
+			newSwitch.moveR();
 		};
+		if(newSwitch.isAuto){
+			setTimeout(function(){
+				newSwitch.incre=0;
+				newSwitch.moveR();
+			},newSwitch.wait)
+		}
 	}
 };
 
-liSwitch.init("sliderSuper","sliderSuperBtn",true);
-liSwitch.init("sliderRec","recBtn");
+liSwitch.init(sliderSuper,"sliderSuper","sliderSuperBtn",true);
+liSwitch.init(sliderRec,"sliderRec","recBtn");
 
-function tabsOnAndOf(tabsId,optionsId){
-	var tabs=document.getElementById(tabsId);
-	var options=document.getElementById(optionsId);
-	tabs.onmousemove=function(){
-		var src=event.srcElement||event.target;
-		var data=src.getAttribute("data-item-i");
-		//console.log(src);
-		if(data){
-			removeClass(getElemByAttr("li","class","hover",tabsId)[0],"hover");
-			removeClass(getElemByAttr("ul","class","display",optionsId)[0],"display");
-			addClass(src,"hover");
-			addClass(options.children[data],"display");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (!Function.prototype.bind) {
+	Function.prototype.bind = function(oThis) {
+		if (typeof this !== "function") {
+			throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
 		}
+		var aArgs = Array.prototype.slice.call(arguments, 1),
+			fToBind = this,
+			fNOP = function() {},
+			fBound = function() {
+				return fToBind.apply(this instanceof fNOP && oThis ? this : oThis,
+					aArgs.concat(Array.prototype.slice.call(arguments)));
+			};
+		fNOP.prototype = this.prototype;
+		fBound.prototype = new fNOP();
+		return fBound;
 	};
 }
-tabsOnAndOf("appTabs","appOptions");
-tabsOnAndOf("intelTabs","intelOptions");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //跳转页面顶部
 var jumpToTop={

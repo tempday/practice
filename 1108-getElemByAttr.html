@@ -1,0 +1,26 @@
+//json {pId:parentId,tName:tagName,type:attrType,val:attr}
+function getElemByAttr(data){
+	var parentId=data.pId||"";
+	var parent=document.getElementById(parentId),tags;
+	if(parent){
+		tags=parent.getElementsByTagName(data.tName);
+	}else{
+		tags=document.getElementsByTagName(data.tName);
+	}
+	var typeLis=[],attrLis=[];
+	var reg=new RegExp("");
+	for(var i=0;i<tags.length;i++){
+		var value=tags[i].getAttribute(data.type);
+		if(value){
+			value=value.replace(/^\s*|\s*$/g,"");
+			value&&(typeLis.push(tags[i]));
+			value==data.val&&(attrLis.push(tags[i]));
+		}
+	}
+	if(data.val){
+		return attrLis;
+	}else{
+		return typeLis;
+	}
+}
+getElemByAttr({tName:"ul",type:"data-item-i",val:"1",pId:"appOptions"});
