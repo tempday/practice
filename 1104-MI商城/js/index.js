@@ -1,5 +1,5 @@
 /**
- * Created by lglong on 2017-11-04.
+ * Created by lglong519 on 2017-11-04.
  */
 if (!Function.prototype.bind) {
 	Function.prototype.bind = function(oThis) {
@@ -50,13 +50,32 @@ function getElemByAttr(tagName,attrType,attr,parentId){
 		return typeLis;
 	}
 }
-
+//添加class,elem是dom,cls是class属性值
 function addClass(elem,cls){
-	elem.className=elem.className==""?cls:elem.className+" "+cls;
+	if(!elem){
+		return false;
+	}else{
+		elem.className=elem.className==""?cls:elem.className+" "+cls;
+	}
 }
 function removeClass(elem,cls){
-	var reg=new RegExp("^"+cls+"$|^"+cls+"\\s|\\s"+cls+"$|\\s"+cls+"\\s","g");
-	elem.className=elem.className.replace(/\s/g,"  ").replace(reg," ").replace(/^\s*|\s*$/g,"").replace(/\s{2,}/g," ");
+	var reg=new RegExp("^"+cls+"$|^"+cls+"\\s|\\s"+cls+"$|\\s"+cls+"\\s|^\\s*|\\s*$","g");
+	if(!elem){
+		return false;
+	}else{
+		elem.className=elem.className.replace(/\s/g,"  ").replace(reg,"").replace(/\s{2,}/g," ");
+	}
+}
+//兼容:获取事件或事件目标,ev=0:返回事件[默认可不填],ev=1:返回目标
+function getEventTarget(ev){
+	ev=ev==1?ev:0;
+	var e=window.event||arguments.callee.caller.arguments[0];
+	var src= e.srcElement|| e.target;
+	if(ev){
+		return src;
+	}else{
+		return e;
+	}
 }
 //输入框下拉
 var search=document.getElementById("search");
@@ -72,8 +91,8 @@ search.onblur=function(){
 var navList=document.getElementById("navList");
 var navDropdown=document.getElementById("navDropdown");
 
-navList.onmouseover=function(event){
-	var src=event.srcElement||event.target;
+navList.onmouseover=function(){
+	var src=getEventTarget(1);
 	var data=src.getAttribute("data-item-i")||src.parentNode.getAttribute("data-item-i");
 	//console.log(src);
 	if(data){
@@ -87,74 +106,6 @@ navList.onmouseout=function(){
 	for(var i=0;i<childs.length;childs[i++].className="nav-item");
 };
 
-//明星单品左右切换
-//单对象方式
-/*
-var liSwitch={
-	timer:null,
-	interval:10,
-	WIDTH:1226,
-	ul:null,
-	left:0,
-	right:0,
-	val:0,
-	init:function(id,btnId,isAuto){
-		this.ul=document.getElementById(id);
-		this.right=this.WIDTH;
-		var sliderSuperBtn=document.getElementById(btnId).children;
-		var me=this;
-		sliderSuperBtn[0].onclick=function(){
-			me.moveL();
-		};
-		sliderSuperBtn[1].onclick=function(){
-			me.incre=0;
-			me.moveR();
-		}
-
-	},
-	moveL:function(){
-		//clearTimeout(this.timer);
-		if(!this.left){
-			return;
-		}
-		this.left=Math.floor(this.left/1.1);
-		this.ul.style.marginLeft="-"+this.left+"px";
-		if(this.left){
-			this.timer=setTimeout(function(){
-				this.moveL();
-			}.bind(this),this.interval)
-		}else {
-			clearTimeout(this.timer);
-			this.timer=null;
-			this.right=this.WIDTH;
-		}
-	},
-	moveR:function(){
-		//clearTimeout(this.timer);
-		if(!this.right){
-			return;
-		}
-		var step=Math.ceil(this.right/11);
-		this.incre+=step;
-		this.right=this.right-step;
-		//console.log("val: "+this.incre+" tem: "+this.right);
-		this.ul.style.marginLeft="-"+this.incre+"px";
-		if(this.right){
-			this.timer=setTimeout(function(){
-				this.moveR();
-			}.bind(this),this.interval)
-		}else {
-			clearTimeout(this.timer);
-			this.timer=null;
-			this.left=this.WIDTH;
-			this.incre=0;
-		}
-	}
-};
-
-liSwitch.init("sliderSuper","sliderSuperBtn",true);
-liSwitch.init("sliderRec","recBtn");
-*/
 
 //商品列表左右切换构造函数
 function SwitchLi(id,btnId,isAuto){
@@ -167,7 +118,7 @@ function SwitchLi(id,btnId,isAuto){
 	this.direction=false;//判断左方向按钮状态
 	this.ul=document.getElementById(id);
 	this.toggles=document.getElementById(btnId).children;
-	this.isAuto=isAuto||false;
+	this.isAuto=isAuto||false;//是否开启自动移动
 	this.autoTimer=null;
 }
 SwitchLi.prototype={
@@ -208,46 +159,62 @@ SwitchLi.prototype={
 	}
 };
 
+//根据id实例化SwitchLi
 var liSwitch={
 	init:function(id,btnId,isAuto){
 		var newSwitch=new SwitchLi(id,btnId,isAuto);
 		newSwitch.autoMove();
 		newSwitch.checkState();
 		newSwitch.toggles[0].onclick=function(){
-			if(newSwitch.direction){
-				newSwitch.autoTimer&&(clearTimeout(newSwitch.autoTimer));
-				newSwitch.move();
-			}
+			liSwitch.moveByDir(newSwitch,true);
 		};
 		newSwitch.toggles[1].onclick=function(){
-			if(!newSwitch.direction){
-				newSwitch.autoTimer&&(clearTimeout(newSwitch.autoTimer));
-				newSwitch.move();
-			}
+			liSwitch.moveByDir(newSwitch,false);
 		};
+	},//根据按钮左右方向移动
+	moveByDir:function(Fun,bool){
+		if(Fun.direction==bool){
+			Fun.autoTimer&&(clearTimeout(Fun.autoTimer));
+			Fun.move();
+		}
 	}
 };
-
+//5.明星单品
 liSwitch.init("sliderSuper","sliderSuperBtn",true);
+//11.推荐
 liSwitch.init("sliderRec","recBtn");
 
-function tabsOnAndOf(tabsId,optionsId){
+//商品大分类鼠标悬浮切换函数
+
+// data是可选项数组["class1,"class2"],可以自定义class的值,第一个元素指向标签,第二个指向内容
+function tabsOnAndOff(tabsId,optionsId,data){
+	data=data||[];
+	data[0]||(data[0]="hover");
+	data[1]||(data[1]="display");
 	var tabs=document.getElementById(tabsId);
 	var options=document.getElementById(optionsId);
 	tabs.onmousemove=function(){
-		var src=event.srcElement||event.target;
-		var data=src.getAttribute("data-item-i");
+		var src=getEventTarget(1);
+		var attr=src.getAttribute("data-item-i");
 		//console.log(src);
-		if(data){
-			removeClass(getElemByAttr("li","class","hover",tabsId)[0],"hover");
-			removeClass(getElemByAttr("ul","class","display",optionsId)[0],"display");
-			addClass(src,"hover");
-			addClass(options.children[data],"display");
+		if(attr){
+			removeClass(getElemByAttr("li","class",data[0],tabsId)[0],data[0]);
+			removeClass(getElemByAttr("ul","class",data[1],optionsId)[0],data[1]);
+			addClass(src,data[0]);
+			addClass(options.children[attr],data[1]);
 		}
 	};
 }
-tabsOnAndOf("appTabs","appOptions");
-tabsOnAndOf("intelTabs","intelOptions");
+//6.家电
+tabsOnAndOff("appTabs","appOptions");
+//7.智能
+tabsOnAndOff("intelTabs","intelOptions");
+//8.搭配
+tabsOnAndOff("combiTabs","combiOptions");
+//9.配件
+tabsOnAndOff("pieTabs","pieOptions");
+//10.周边
+tabsOnAndOff("relatTabs","relatOptions");
 
 
 

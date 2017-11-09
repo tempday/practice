@@ -94,7 +94,7 @@ var slider={
 		var imgList=document.getElementById("slideBox");
 		this.imgs=imgList.children;
 		var me=this;
-		btngroup.onclick=function(){
+		btngroup.onclick=function(event){
 			var src=event.srcElement||event.target;
 			if(src.nodeName=="LI"){
 				for (var i=0;i<this.children.length;i++){
@@ -257,7 +257,7 @@ var leftAndRight={
 leftAndRight.init();
 //选项点击切换
 	//1.案例选项卡
-document.getElementById("project").onclick=function(){
+document.getElementById("project").onclick=function(event){
 	var src=event.srcElement||event.target;
 	if(src.parentNode.className=="tabNav"){
 		var caseToggle=document.getElementById("caseToggle");
@@ -296,7 +296,7 @@ var sliderCase={
 		next.onclick=function(){
 			me.changeImg(1);
 		};
-		btngroup.onclick=function(){
+		btngroup.onclick=function(event){
 			var src=event.srcElement||event.target;
 			src.nodeName=="IMG"&&(src=src.parentNode);
 			if(src.nodeName=="LI"){
@@ -330,7 +330,7 @@ var sliderCase={
 };
 sliderCase.init();
 //地址选项卡
-document.getElementById("tabs").onclick=function(){
+document.getElementById("tabs").onclick=function(event){
 	var src=event.srcElement||event.target;
 	if(src.nodeName=="LI"){
 		var details=document.getElementById("details");

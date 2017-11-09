@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<button name="test" type="button" id="button" value="val" >Button 1</button>
+	<button name="test" type="button" id="button2" value="val" >Button 2</button>
+</body>
+<script type="text/javascript">
+	var button=document.getElementById("button");
+	//event||arguments[0]
+	//除了Firefox,所有浏览器支持 window.event / event
+
+	//ie7 不支持 arguments[0]
+	//ie7 不支持参数 (e), 如果将event当作参数也会失效
+
+	//arguments[0]							获得的是当前函数的事件
+	//argumentps.callee.caller.arguments[0] 获得的是调用当前函数的函数的事件,caller就是函数体的调用函数体
+	button.onclick=function(){
+		var e=getEvent(); //不带参数,兼容所有浏览器,args兼容FF,防止弹出加window
+		if(!e){alert('不支持 arg')}
+		var src=e.srcElement||e.target;
+		alert(src.id);
+	}
+	var button2=document.getElementById("button2");
+	button2.onclick=function(e){		//带参数e,兼容所有浏览器
+		var e=e||event||arguments[0]; 
+		if(!e){alert('不支持 arg')}
+		var src=e.srcElement||e.target;
+		alert(src.id);
+	}
+	function getEvent(){
+		return arguments.callee.caller.arguments[0]||window.event;
+	}
+	function getEvent(ev) {
+				return ev || window.event;
+			}
+</script>
+</html>
