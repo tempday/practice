@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Fun and prototype</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script  src="http://192.168.3.200/Components/Docms.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div id="div" class="div">aaa</div>
+	<span id="span" class="span">
+		op
+	</span>
+	<ul id="ul" class="ul">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+	</ul>
+	
+</body>
+<script type="text/javascript">
+	function Fun(){
+		return new Fun.fn.init();
+	}
+	Fun.prototype={
+		pId:"Fun",
+		info:function(){
+			console.log("fun.pro.info");
+		}
+	}
+	//Fun.fn.prototype=Fun.prototype;
+	Fun.fn={
+		init:function(){
+			this.id="init";
+			this.say=function(){
+				console.log("init.say");
+			}
+		}
+	}
+	Fun.fn.init.prototype=Fun.prototype;
+
+
+
+	function structure(){
+		this.name="9527";
+		this.say=function(){
+			alert("ok");
+		}
+	}
+</script>
+</html>

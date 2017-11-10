@@ -1,6 +1,7 @@
 /**
  * Created by lglong519 on 2017-11-04.
  */
+
 if (!Function.prototype.bind) {
 	Function.prototype.bind = function(oThis) {
 		if (typeof this !== "function") {
@@ -18,21 +19,21 @@ if (!Function.prototype.bind) {
 		return fBound;
 	};
 }
+//按属性获取元素
 function getElemByAttr(tagName,attrType,attr,parentId){
 	parentId=parentId||"";
 	attr=attr||"";
-	var parent=document.getElementById(parentId),
-			tags;
+	var parent=document.getElementById(parentId), tags;
 	if(parent){
 		tags=parent.getElementsByTagName(tagName);
 	}else{
 		tags=document.getElementsByTagName(tagName);
 	}
-	var reg=new RegExp("^"+attr+"$|^"+attr+"\\s|\\s"+attr+"$|\\s"+attr+"\\s","g");
-	var typeLis=[],attrLis=[];
+	var reg=new RegExp("^"+attr+"$|^"+attr+"(?=\\s)|\\s"+attr+"(?=\\s+)|\\s"+attr+"$","g");
+	var value,typeLis=[],attrLis=[];
 	//console.log(reg);
 	for(var i=0;i<tags.length;i++){
-		var value=tags[i].getAttribute(attrType);
+		value=attrType=="class"?tags[i].className:tags[i].getAttribute(attrType);
 		if(value){//判断属性是否有效
 			value=value.replace(/^\s*|\s*$/g,"");
 			value&&(typeLis.push(tags[i]));
@@ -58,12 +59,15 @@ function addClass(elem,cls){
 		elem.className=elem.className==""?cls:elem.className+" "+cls;
 	}
 }
+//移除class
 function removeClass(elem,cls){
-	var reg=new RegExp("^"+cls+"$|^"+cls+"\\s|\\s"+cls+"$|\\s"+cls+"\\s|^\\s*|\\s*$","g");
+	//var reg=new RegExp("^"+cls+"$|^"+cls+"\\s|\\s"+cls+"$|\\s"+cls+"\\s|^\\s*|\\s*$","g");
+	var reg=new RegExp("^"+cls+"$|^"+cls+"(?=\\s)|\\s"+cls+"(?=\\s+)|\\s"+cls+"$","g");
 	if(!elem){
 		return false;
 	}else{
-		elem.className=elem.className.replace(/\s/g,"  ").replace(reg,"").replace(/\s{2,}/g," ");
+		//elem.className=elem.className.replace(/\s/g,"  ").replace(reg,"").replace(/\s{2,}/g," ");
+		elem.className=elem.className.replace(reg,"").replace(/^\s*|\s*$/g,"");
 	}
 }
 //兼容:获取事件或事件目标,ev=0:返回事件[默认可不填],ev=1:返回目标
@@ -77,6 +81,7 @@ function getEventTarget(ev){
 		return e;
 	}
 }
+
 //输入框下拉
 var search=document.getElementById("search");
 search.onfocus=function(){
@@ -147,7 +152,7 @@ SwitchLi.prototype={
 				this.move();
 			}.bind(this),this.wait)
 		}
-	},
+	},//设置左右按钮的状态
 	checkState:function(){
 		if(this.direction){
 			this.toggles[0].className="on";
@@ -171,6 +176,7 @@ var liSwitch={
 		newSwitch.toggles[1].onclick=function(){
 			liSwitch.moveByDir(newSwitch,false);
 		};
+		return newSwitch;
 	},//根据按钮左右方向移动
 	moveByDir:function(Fun,bool){
 		if(Fun.direction==bool){
@@ -184,8 +190,7 @@ liSwitch.init("sliderSuper","sliderSuperBtn",true);
 //11.推荐
 liSwitch.init("sliderRec","recBtn");
 
-//商品大分类鼠标悬浮切换函数
-
+//商品主分类鼠标悬浮切换函数
 // data是可选项数组["class1,"class2"],可以自定义class的值,第一个元素指向标签,第二个指向内容
 function tabsOnAndOff(tabsId,optionsId,data){
 	data=data||[];

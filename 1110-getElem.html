@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div id="d1--" class="v1">
+		<b>12313</b>
+		<span>inner span</span>
+	</div>
+	<span>outer span</span>
+</body>
+<script type="text/javascript">
+	function getElem(selector,parent){
+		var doms=[];
+		//parent.nodeType||(parent=document);
+		(parent&&parent.nodeType==1)||(parent=document);
+		if(!selector||typeof(selector)!="string"){
+			console.error("selector is undefined");
+			return [];
+		}
+		if(/^#[^\s]*$/.test(selector)){
+			return document.getElementById(selector.replace("#",""));
+		}
+		if(/^[A-z]*$/.test(selector)){
+			doms=parent.getElementsByTagName(selector);
+		}
+		if(/^\.[^\s]*$/.test(selector)){
+			var selector=selector.replace(".","");
+			if(document.getElementsByClassName){
+				doms=parent.getElementsByClassName(selector);
+			}else{
+				var elems=parent.getElementsByTagName("*"),
+					reg=new RegExp("^"+selector+"$|^"+selector+"(?=\\s)|\\s"+selector+"(?=\\s+)|\\s"+selector+"$");
+				for(var i=0;i<elems.length;i++){
+					reg.test(elems.className)&&(doms.push(elems[i]));
+				}
+			}
+		}
+		return Array.prototype.slice.call(doms);
+	}
+</script>
+</html>
