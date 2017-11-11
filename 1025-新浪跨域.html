@@ -31,7 +31,7 @@
 	$.getJSON('http://1.lglong519.applinzi.com/data/api?callback=?',function (data){
 		console.log(data);
 		console.log(data['keywords']);
-		div.innerHTML=data['keywords'][1].type;
+		div.innerHTML=data['keywords'][parseInt(Math.random()*data['keywords'].length)].type;
 		/*		
 		 $.each(data,function(a,b){
 		        console.log(a+b);

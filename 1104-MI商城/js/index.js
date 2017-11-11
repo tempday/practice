@@ -20,7 +20,7 @@ if (!Function.prototype.bind) {
 	};
 }
 //按属性获取元素
-function getElemByAttr(tagName,attrType,attr,parentId){
+function getElemsByAttr(tagName,attrType,attr,parentId){
 	parentId=parentId||"";
 	attr=attr||"";
 	var parent=document.getElementById(parentId), tags;
@@ -203,8 +203,8 @@ function tabsOnAndOff(tabsId,optionsId,data){
 		var attr=src.getAttribute("data-item-i");
 		//console.log(src);
 		if(attr){
-			removeClass(getElemByAttr("li","class",data[0],tabsId)[0],data[0]);
-			removeClass(getElemByAttr("ul","class",data[1],optionsId)[0],data[1]);
+			removeClass(getElemsByAttr("li","class",data[0],tabsId)[0],data[0]);
+			removeClass(getElemsByAttr("ul","class",data[1],optionsId)[0],data[1]);
 			addClass(src,data[0]);
 			addClass(options.children[attr],data[1]);
 		}

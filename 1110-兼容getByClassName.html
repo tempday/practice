@@ -33,5 +33,23 @@
 	}else{
 		alert('不支持 all');
 	}
+
+	var value,typeLis=[],attrLis=[];
+	/*
+	//console.log(reg);
+	for(var i=0;i<tags.length;i++){
+		value=attrType=="class"?tags[i].className:tags[i].getAttribute(attrType);
+		if(value){//判断属性是否有效
+			value=value.replace(/^\s*|\s*$/g,"");
+			value&&(typeLis.push(tags[i]));
+			if(attrType=="class"){
+				//console.log(value);
+				attr&&reg.test(value)&&(attrLis.push(tags[i]));
+			}else {
+				value==attr&&(attrLis.push(tags[i]));
+			}
+		}
+	}
+	*/
 </script>
 </html>
