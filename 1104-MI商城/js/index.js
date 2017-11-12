@@ -221,7 +221,23 @@ tabsOnAndOff("pieTabs","pieOptions");
 //10.周边
 tabsOnAndOff("relatTabs","relatOptions");
 
-
+//视频
+DM("#videoBtns").addEvent('click',function(){
+	var src=DM.getEventSrc(1),
+			me=this;
+	if(src.nodeName=='IMG'||src.nodeName=='A'){
+		var i=Docms.index(src.parentNode.parentNode,this)+1;
+		DM("#videosBox").addClass("show");
+		var video=DM("video","#videosBox")[0];
+		video.src=video.src.replace(/\d(?=(\.mp4))/,i);
+	}
+});
+DM("b","#videosBox").addEvent('click',function(){
+	DM("#videosBox").removeClass("show");
+	var video=DM("#videosBox").removeClass("show").getByAttr("src")[0];
+	video.pause();
+	video.currentTime=0;
+});
 
 
 

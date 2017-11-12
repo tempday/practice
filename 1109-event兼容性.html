@@ -15,6 +15,7 @@
 <body>
 	<button name="test" type="button" id="button" value="val" >Button 1</button>
 	<button name="test" type="button" id="button2" value="val" >Button 2</button>
+	<button name="test" type="button" id="button3" value="val" >Button 3</button>
 </body>
 <script type="text/javascript">
 	var button=document.getElementById("button");
@@ -39,6 +40,14 @@
 		var src=e.srcElement||e.target;
 		alert(src.id);
 	}
+	var button3=document.getElementById("button3");
+	button3.onclick=function(){		//带参数e,兼容所有浏览器
+		var e=window.event||arguments[0]; 
+		if(!e){alert('不支持 arg')}
+		var src=e.srcElement||e.target;
+		alert(src.id);
+	}
+	
 	function getEvent(){
 		return arguments.callee.caller.arguments[0]||window.event;
 	}

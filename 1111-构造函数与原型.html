@@ -10,19 +10,45 @@
 	<link rel="stylesheet" href=""/>
 	<script  src="http://192.168.3.200/Components/Docms.js"></script>
 	<style>
-		
+		div,ul{
+			min-height:100px;min-width:100px;background-color: #DDD;margin:10px;border: 1px solid #999;overflow: hidden;
+		}
+		#div:before{
+			content:"happy new year"
+		}
 	</style>
 </head>
 <body>
-	<div id="div" class="div">aaa</div>
+	<div id="div" class="div">
+		<h1 data-item=1 >h1</h1>
+		<span class="ins">span1</span>
+		<span data-item="ins">span1</span>
+		<div data-item="d">div1</div>
+	</div>
+	<div id="div2" class="div2">
+		<h1>h2</h1>
+		<span class="ins">span2</span>
+		<div>div2</div>
+	</div>
 	<span id="span" class="span">
 		op
 	</span>
 	<ul id="ul" class="ul">
 		<li><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
+		<li class="ul"><a href="#">2</a></li>
 		<li><a href="#">3</a></li>
 	</ul>
+	<ul id="ul2" class="ul">
+		<li><a href="#">21</a></li>
+		<li><a href="#">22</a></li>
+		<li><a href="#">23</a></li>
+	</ul>
+	<ul id="ul3" class="u3">
+		<li><a href="#">321</a></li>
+		<li><a href="#">322</a></li>
+		<li><a href="#">323</a></li>
+	</ul>
+	<li class="ul"><a href="#">out li</a></li>
 	<span ></span>
 </body>
 <script type="text/javascript">
@@ -46,13 +72,22 @@
 	}
 	Fun.fn.init.prototype=Fun.prototype;
 
-
-
 	function structure(){
 		this.name="9527";
 		this.say=function(){
 			alert("ok");
 		}
 	}
+
+	//------------------------
+	function fn(){
+	}
+	fn.prototype={
+		d:1,
+		n:"name"
+	}
+	var nf=new fn();
+	var mf=new fn();
+	
 </script>
 </html>
