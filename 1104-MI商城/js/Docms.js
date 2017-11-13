@@ -10,24 +10,28 @@
 		init:function(selector,parentArg){
 			this.elems=[];
 			this.count=0;
+			this.tempElems=[];
+			this.isTemp=false;
 			this.getElems(selector,parentArg);
 		},
-		//兼容ie7+,按("#id")|(".class")|("tagName") 获取元素,parentArg:[可选]值类型可以是3种,1.DM对象,2.dom对象,3.选择器字符串;最后获得的元素放入数组elems中
+		//兼容ie7+,按("#id")|(".class")|("tagName.class")|("tagName") 获取元素,
+			//parentArg:[可选]值类型可以是3种,1.DM对象,2.dom对象,3.选择器字符串;最后获得的元素放入数组elems中
 		//?多个选择器用逗号分隔("#id,.class")
 		getElems:function(selector,parentArg){
 			this.elems=[];
 			//父元素暂时只支持单对象
 			typeof(parentArg)=="string"&&(parentArg=this.getElems(parentArg).elems[0]);
+			this.elems=[];
 			if(!parentArg || parentArg.nodeType!==1){
 				//传入的父对象是非dom元素提示错误
 				parentArg && parentArg.nodeType!==1&& parentArg.nodeType!==9&&console.error('getElems() error: invalid parentArg');
 				parentArg=d;
 			}
+			//判断selector的4个条件:1.未定义或是空字符;2.是对象且长度大于零;3.是对象且节点类型为1;4.字符串
 			if(selector==undefined||selector==""){
 				console.info("getElems() info:selector is undefined");
 				return this;
-			}
-			if(typeof(selector)==="object"&&selector.length!=0){
+			}else if(typeof(selector)==="object"&&selector.length>0){
 				this.elems=selector;
 			}else if(selector.nodeType===1){
 				this.elems[0]=selector;
@@ -37,31 +41,42 @@
 					return this;
 				}
 				//按id获取元素
-				/^#[^\s]*$/.test(selector)&&(
+				/^#[^\s\.]+$/.test(selector)&&(
 					this.elems[0]=d.getElementById(selector.replace("#",""))
 				);
 				//按标签名获取元素
-				/^!?[A-z]*[1-6]?$|^\*$/.test(selector)&&(
+				/^!?[A-z]+[1-6]?$|^\*$/.test(selector)&&(
 					this.elems=parentArg.getElementsByTagName(selector)
 				);
 				//按class获取元素
-				if(/^\.[^\s]*$/.test(selector)){
-					var selector=selector.replace(".","");
-					if(d.getElementsByClassName){
-						this.elems=parentArg.getElementsByClassName(selector);
-					}else{
-						var tags=parentArg.getElementsByTagName("*"),
-							reg=Docms.regOfIndStr(selector);
+				if(/^([A-z]+[1-6]?)?\.[^\s]+$/.test(selector)){
+					var selArr=selector.match(/^([A-z]+[1-6]?)|\.|[^\s\.]+$/g);
+					//var selector=selector.replace(".","");
+					var tags,reg;
+					if(selArr.length==3){
+						tags=parentArg.getElementsByTagName(selArr[0]);
+						reg=Docms.regOfIndStr(selArr[2]);
 						for(var i=0;i<tags.length;i++){
 							reg.test(tags[i].className)&&(this.elems.push(tags[i]));
 						}
+					}else if(selArr.length==2){
+						if(d.getElementsByClassName){
+							this.elems=parentArg.getElementsByClassName(selArr[1]);
+						}else{
+							tags=parentArg.getElementsByTagName("*"),
+								reg=Docms.regOfIndStr(selArr[1]);
+							for(var i=0;i<tags.length;i++){
+								reg.test(tags[i].className)&&(this.elems.push(tags[i]));
+							}
+						}
 					}
+					
 				}
 			}
 			this.resetElems();
 			return this;
 		},
-		//重置元素列表
+		//内部api:重置元素列表
 		resetElems:function(doms){
 			doms&&(this.elems=doms);
 			//清除getByAttr后多余的this[n]
@@ -149,9 +164,16 @@
 		isElems:function(){
 			//return this[0].length?:this.isArray(this[0]);
 		},
-		find:function(){
-		},
-		on:function(){
+		fetch:function(n){
+			if(n>=this.elems.length){
+				throw new RangeError("Docms tips:fetch() n is out of index.");
+			}
+			this.isTemp=true;
+			this.tempElems=this.elems;
+			this.elems=[];
+			this.elems[0]=this.tempElems[n];
+			this.resetElems();
+			return this;
 		},
 		each:function(){
 		}

@@ -8,6 +8,7 @@
 	<link rel="icon" href="img/logo.png">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!--<script src="js/media.js"></script>-->
 	<style>
 
 	</style>
@@ -2740,9 +2741,9 @@
 		</div>
 	</div>
 	<!--视频-->
-	<!--[if lte IE 8]>
+	<!--[if gte IE 9]>
 	<style>
-		.videosBox{
+		.videosBox object{
 			display:none !important;
 		}
 	</style>
@@ -2753,12 +2754,19 @@
 				雷军与斯塔克打造全面屏2.0
 			</h1>
 			<b></b>
-			<div>
-				<video src="video/video-1.mp4" controls></video>
+			<div id="objectBox">
+				<video src="video/video-3.mp4" height="540" width="800" controls></video>
+				<object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" id="objMedia" class="objMedia" width="100%" height="540">
+					<param name="AutoSize" value="1">
+					<param name="AutoStart" value="0">
+					<param name="controller" value="true" />
+					<param name="src" value="video/video-1.mp4" id="mvSource"/>
+				</object>
 			</div>
 		</div>
 	</div>
-	<script  src="js/Docms.min.js"></script>
+	<!--<script  src="js/Docms.min.js"></script>-->
+	<script  src="js/Docms.js"></script>
 	<script  src="js/index.js"></script>
 <script>
 	/*

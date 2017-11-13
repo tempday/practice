@@ -20,6 +20,7 @@ if (!Function.prototype.bind) {
 	};
 }
 //按属性获取元素
+/*
 function getElemsByAttr(tagName,attrType,attr,parentId){
 	parentId=parentId||"";
 	attr=attr||"";
@@ -51,6 +52,7 @@ function getElemsByAttr(tagName,attrType,attr,parentId){
 		return typeLis;
 	}
 }
+*/
 //添加class,elem是dom,cls是class属性值
 function addClass(elem,cls){
 	if(!elem){
@@ -101,7 +103,8 @@ navList.onmouseover=function(){
 	var data=src.getAttribute("data-item-i")||src.parentNode.getAttribute("data-item-i");
 	//console.log(src);
 	if(data){
-		navDropdown.className+=" display";
+		//navDropdown.className+=" display";
+		DM('#navDropdown').addClass('display');
 		navDropdown.children[0].children[data-1].className+=" current";
 	}
 };
@@ -196,50 +199,76 @@ function tabsOnAndOff(tabsId,optionsId,data){
 	data=data||[];
 	data[0]||(data[0]="hover");
 	data[1]||(data[1]="display");
-	var tabs=document.getElementById(tabsId);
-	var options=document.getElementById(optionsId);
-	tabs.onmousemove=function(){
-		var src=getEventTarget(1);
+	//var tabs=document.getElementById(tabsId);
+	//var options=document.getElementById(optionsId);
+	DM(tabsId)[0].onmousemove=function(){
+		//var src=getEventTarget(1);
+		var src=DM.getEventSrc(1);
 		var attr=src.getAttribute("data-item-i");
 		//console.log(src);
 		if(attr){
+			/*
 			removeClass(getElemsByAttr("li","class",data[0],tabsId)[0],data[0]);
 			removeClass(getElemsByAttr("ul","class",data[1],optionsId)[0],data[1]);
 			addClass(src,data[0]);
 			addClass(options.children[attr],data[1]);
+			*/
+			DM('li.'+data[0],tabsId).removeClass(data[0]).getElems(src).addClass(data[0]);
+			DM('ul.'+data[1],optionsId).removeClass(data[1]).getElems("ul",optionsId).fetch(attr).addClass(data[1]);
 		}
 	};
 }
 //6.家电
-tabsOnAndOff("appTabs","appOptions");
+tabsOnAndOff("#appTabs","#appOptions");
 //7.智能
-tabsOnAndOff("intelTabs","intelOptions");
+tabsOnAndOff("#intelTabs","#intelOptions");
 //8.搭配
-tabsOnAndOff("combiTabs","combiOptions");
+tabsOnAndOff("#combiTabs","#combiOptions");
 //9.配件
-tabsOnAndOff("pieTabs","pieOptions");
+tabsOnAndOff("#pieTabs","#pieOptions");
 //10.周边
-tabsOnAndOff("relatTabs","relatOptions");
+tabsOnAndOff("#relatTabs","#relatOptions");
 
 //视频
 DM("#videoBtns").addEvent('click',function(){
 	var src=DM.getEventSrc(1),
-			me=this;
+			me=DM("#videoBtns")[0];
 	if(src.nodeName=='IMG'||src.nodeName=='A'){
-		var i=Docms.index(src.parentNode.parentNode,this)+1;
+		console.log();
+		var i=Docms.index(src.parentNode.parentNode,me)+1;
 		DM("#videosBox").addClass("show");
+		DM("h1","#videosBox")[0].innerHTML=DM(".title",src.parentNode.parentNode)[0].innerHTML;
 		var video=DM("video","#videosBox")[0];
 		video.src=video.src.replace(/\d(?=(\.mp4))/,i);
+		//var mvObj=getFlashObject("objMedia");
+		//mvObj.SetVariable(video.src, document.getElementById("mvSource").value);
+		DM("param","#objMedia")[3].value=video.src;
+		console.log(video.src);
 	}
 });
 DM("b","#videosBox").addEvent('click',function(){
 	DM("#videosBox").removeClass("show");
 	var video=DM("#videosBox").removeClass("show").getByAttr("src")[0];
-	video.pause();
-	video.currentTime=0;
+	try{
+		video.pause();
+		video.currentTime=0;
+	}catch (e){
+		getFlashObject("objMedia").stop();
+	}
+
 });
-
-
+//获取object,兼容ie
+function getFlashObject(movieName) {
+	if (window.document[movieName]) {
+		return window.document[movieName];
+	}
+	if (navigator.appName.indexOf("Microsoft Internet")==-1) {
+		if (document.embeds && document.embeds[movieName])
+			return document.embeds[movieName];
+		}else{
+		return document.getElementById(movieName);
+	}
+}
 
 
 

@@ -209,6 +209,8 @@ div.topBar{
 .navBar{
 	height:100px;
 	position: relative;
+	//兼容ie7,定位图层遮盖bug
+	z-index: 40;
 	div.container{
 		height: 100%;
 		div.logo{
@@ -289,12 +291,12 @@ div.topBar{
 				}
 				//下弹出框,关键字
 				ul.keywords{
-					width: 225px;
-					border: 1px solid @clr-org;
-					border-top: 0;
 					position: absolute;
 					left: 0;
 					top: 50px;
+					width: 225px;
+					border: 1px solid @clr-org;
+					border-top: 0;
 					padding: 0 10px;
 					background-color: #ffffff;
 					overflow: hidden;
@@ -1185,18 +1187,26 @@ div.title{
 	.before;
 	//查看全部
 	padding-bottom: 60px;
+
 	.more-link{
 		float:right;
+		position:relative;
 		margin-top:40px;
 		margin-right: 10px;
 		height:21px;
 		line-height:21px;
 		font-size:16px;
+		padding-right: 25px;
 		b{
-			float:right;
+			//float:right;
+			//兼容Safari 改用定位
+			position: absolute;
+			display: block;
+			right:0;
+			bottom:0;
 			height:20px;
 			width:20px;
-			margin-left:5px;
+			//margin-left:5px;
 			background:url('../img/sign-12_20x20.png') no-repeat;
 			&:hover{
 				background-position:-20px 0;
@@ -1258,6 +1268,10 @@ div.title{
 	//显示需添加类名show
 	&.show{
 		display: block;
+	}
+	.objMedia{
+		position: relative;
+		z-index: 120;
 	}
 	.video{
 		position: fixed;
@@ -1410,8 +1424,14 @@ div.title{
 		margin-top: 20px;
 		padding:0 30px;
 	}
+	//logo ,
 	img{
-
+		.transition(border-color);
+	}
+	&:hover img{
+		border:3px solid darken(@clr-org,10%);
+		width: 44px;
+		height:44px;
 	}
 }
 @-webkit-keyframes bounce {

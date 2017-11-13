@@ -158,6 +158,7 @@ div.topBar div.cart .subCart > p {
 .navBar {
   height: 100px;
   position: relative;
+  z-index: 40;
 }
 .navBar div.container {
   height: 100%;
@@ -237,12 +238,12 @@ div.topBar div.cart .subCart > p {
   background-color: #ff6700;
 }
 .navBar div.container div.nav-search form ul.keywords {
-  width: 225px;
-  border: 1px solid #ff6700;
-  border-top: 0;
   position: absolute;
   left: 0;
   top: 50px;
+  width: 225px;
+  border: 1px solid #ff6700;
+  border-top: 0;
   padding: 0 10px;
   background-color: #ffffff;
   overflow: hidden;
@@ -1192,17 +1193,21 @@ div.title ul.tab li.hover {
 }
 .videos .more-link {
   float: right;
+  position: relative;
   margin-top: 40px;
   margin-right: 10px;
   height: 21px;
   line-height: 21px;
   font-size: 16px;
+  padding-right: 25px;
 }
 .videos .more-link b {
-  float: right;
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
   height: 20px;
   width: 20px;
-  margin-left: 5px;
   background: url('../img/sign-12_20x20.png') no-repeat;
 }
 .videos .more-link b:hover {
@@ -1259,6 +1264,10 @@ div.title ul.tab li.hover {
 }
 .videosBox.show {
   display: block;
+}
+.videosBox .objMedia {
+  position: relative;
+  z-index: 120;
 }
 .videosBox .video {
   position: fixed;
@@ -1410,6 +1419,16 @@ div.title ul.tab li.hover {
   color: #b0b0b0;
   margin-top: 20px;
   padding: 0 30px;
+}
+.footer img {
+  -webkit-transition: border-color 0.2s ease-in-out;
+  -moz-transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
+}
+.footer:hover img {
+  border: 3px solid #cc5200;
+  width: 44px;
+  height: 44px;
 }
 @-webkit-keyframes bounce {
   0% {
