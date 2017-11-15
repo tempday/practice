@@ -113,6 +113,8 @@
 		},
 		//兼容ie7+,按属性获取后代元素,1.attrType:属性类型;2.attr:属性值[可选],如果元素类型不为空则此参数必须设置可以为"";3.tagName:查找标签类型[可选],如果缺省则查找全部类型
 		getByAttr:function(attrType,attr,tagName){
+			this.isChaining?this.tempElems=this.elems:this.tempElems=this.source=this.elems;
+			this.isChaining=true;
 			//父元素时当前元素[0],如果当前元素是空则父元素是document
 			attr=attr||"";
 			var parentArg=this.elems[0]||d,

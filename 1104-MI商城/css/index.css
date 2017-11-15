@@ -105,6 +105,7 @@ div.topBar ul li {
 div.topBar ol {
   float: right;
   margin-right: 15px;
+  background-color: #333;
 }
 div.topBar div.cart {
   float: right;
@@ -130,11 +131,11 @@ div.topBar div.cart a b {
   margin: 9px 5px auto 5px;
   background: url("../img/cart.png") -20px 0 no-repeat;
 }
-div.topBar div.cart:hover a {
+div.topBar div.cart:hover a.empty {
   background-color: #ffffff;
   color: #ff6700;
 }
-div.topBar div.cart:hover a b {
+div.topBar div.cart:hover a.empty b {
   background-position: 0 0;
 }
 div.topBar div.cart:hover .subCart {
@@ -232,10 +233,11 @@ div.topBar div.cart .subCart > p {
   font-size: 18px;
   border-left: 0;
   filter: chroma(color=#000000);
+  background: url("../img/search-ico.jpg");
 }
 .navBar div.container div.nav-search form button:hover {
-  color: #ffffff;
   background-color: #ff6700;
+  background-position: 0 -48px;
 }
 .navBar div.container div.nav-search form ul.keywords {
   position: absolute;
@@ -291,17 +293,18 @@ div.topBar div.cart .subCart > p {
   width: 100%;
   height: 0;
   overflow: hidden;
+  border-top: 1px solid transparent;
   background-color: #fff;
   z-index: 40;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: height 0.2s ease-in-out;
+  -moz-transition: height 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out;
 }
 .navBar div.nav-dropdown.display {
-  border-top: 1px solid #e0e0e0;
   height: 230px;
   -webkit-box-shadow: 0 3px, 4px, 0.18;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
+  border-color: #e0e0e0;
 }
 .navBar div.nav-dropdown div.container {
   position: relative;
@@ -314,6 +317,7 @@ div.topBar div.cart .subCart > p {
   top: 0;
   left: 0;
   display: none;
+  text-align: center;
 }
 .navBar div.nav-dropdown ul li.first:before {
   display: none;
@@ -500,6 +504,10 @@ div.topBar div.cart .subCart > p {
 .menuBar .container div.sliderBox span:hover[data-pos=right] {
   background-position: -41px 0;
 }
+.menuBar .container div.sliderBox span:active {
+  opacity: 0.8;
+  filter: alpha(opacity=80) \9;
+}
 .menuBar .container div.sliderBox span[data-pos=left] {
   left: 234px;
 }
@@ -588,6 +596,22 @@ div.topBar div.cart .subCart > p {
   display: block;
   font-size: 32px;
   margin: 17px auto 0;
+  background: url("../img/othersList.png") -21px -18px no-repeat;
+}
+.proBest > div ol li .fa-gift {
+  background-position: -100px -18px;
+}
+.proBest > div ol li .fa-facebook {
+  background-position: -179px -18px;
+}
+.proBest > div ol li .fa-credit-card-alt {
+  background-position: -21px -103px;
+}
+.proBest > div ol li .fa-recycle {
+  background-position: -100px -103px;
+}
+.proBest > div ol li .fa-money {
+  background-position: -179px -103px;
 }
 .proBest > div div {
   float: left;
@@ -616,19 +640,32 @@ div.title ul.trigger li {
   line-height: 16px;
   width: 24px;
   padding: 1px 5px 5px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 20px;
-  color: #b0b0b0;
+}
+div.title ul.trigger li b {
+  display: block;
+  float: left;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  background: url('../img/sprite-assorted.png') no-repeat -34px -94px;
+}
+div.title ul.trigger li .fa-angle-right {
+  background-position: -34px -124px;
 }
 div.title ul.trigger li[data-triggle="left"] {
   border-right: 1px solid #e0e0e0;
 }
-div.title ul.trigger li.on:hover {
-  color: #ff6700;
+div.title ul.trigger li.on:hover .fa-angle-left {
+  background-position: -64px -94px;
 }
-div.title ul.trigger li.off {
-  color: #e0e0e0;
+div.title ul.trigger li.on:hover .fa-angle-right {
+  background-position: -64px -124px;
+}
+div.title ul.trigger li.on .fa-angle-left {
+  background-position: -4px -94px;
+}
+div.title ul.trigger li.on .fa-angle-right {
+  background-position: -4px -124px;
 }
 div.title ul.tab {
   float: right;
@@ -903,6 +940,9 @@ div.title ul.tab li.hover {
 .row .right .small p {
   padding-left: 20px;
 }
+.row .right .small h4 {
+  padding-right: 90px;
+}
 .row .right .small .more {
   font-size: 18px;
   cursor: pointer;
@@ -1036,6 +1076,11 @@ div.title ul.tab li.hover {
 }
 .amusement ul.row-1 li[data-item-i] ol {
   width: 1184px;
+}
+.amusement ul.row-1 li[data-item-i] ol:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .amusement ul.row-1 li[data-item-i] ol li {
   float: left;
@@ -1371,6 +1416,7 @@ div.title ul.tab li.hover {
 .service .contact {
   float: right;
   text-align: center;
+  margin-right: 35px;
 }
 .service .contact h1 {
   color: #ff6700;

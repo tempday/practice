@@ -4,7 +4,7 @@
 if (!Function.prototype.bind) {
 	Function.prototype.bind = function(oThis) {
 		if (typeof this !== "function") {
-			throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+			throw new TypeError("Function.prototype.bind");
 		}
 		var aArgs = Array.prototype.slice.call(arguments, 1),
 			fToBind = this,

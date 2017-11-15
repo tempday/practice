@@ -1,7 +1,7 @@
 /**
  * Created by lglong519 on 2017-11-04.
  */
-
+//!function(){
 
 //输入框下拉
 DM('#search')[0].onfocus=function(){
@@ -16,16 +16,25 @@ DM('#navList')[0].onmouseover=function(){
 	var data=src.getAttribute("data-item-i")||src.parentNode.getAttribute("data-item-i");
 	if(data){
 		DM('#navDropdown').addClass('display');
+		DM('#navDropdown').all('ul.current').removeClass('current');
 		DM('ul','#navDropdown').fetch(data-1).addClass('current');
 	}
 };
-DM('#navList')[0].onmouseout=function(){
-	DM('#navDropdown').removeClass('display');
-	var childs=DM("#navDropdown").sub().children;
-	for(var i=0;i<childs.length;childs[i++].className="nav-item");
+DM('#navDropdown')[0].onmouseout=DM('#navList')[0].onmouseout=function(){
+	var e=DM.getEventSrc();
+	jumpToTop.getScrollTop();
+	var y1=140-jumpToTop.wTop,y2=y1+230,ms=e.clientY;
+	if(ms>y2||ms<y1){
+		DM('#navDropdown').removeClass('display');
+	}
 };
 
-//常用变量
+DM('#navDropdown').addEvent('mouseover',function(){
+	DM(this).addClass('display');
+});
+
+
+//常用属性
 function InitialArgs(dir,interval,rate,wait){
 	this.dir=dir;//控制方向
 	this.interval=interval;//控制渐变动画的速度
@@ -33,7 +42,8 @@ function InitialArgs(dir,interval,rate,wait){
 	this.wait=wait;//动画等待时间
 	this.timer=null;//定时器
 	this.autoTimer=null;
-	this.isAuto=false;
+	this.isAuto=false;//是否开启自动移动
+	this.count=0;
 }
 //商品列表左右切换构造函数
 function SwitchLi(id,btnId){
@@ -42,9 +52,10 @@ function SwitchLi(id,btnId){
 	this.mgLeft=1226;
 	this.ul=document.getElementById(id);
 	this.toggles=document.getElementById(btnId).children;
-	//this.dir=false;//判断左方向按钮状态
-	//this.isAuto=isAuto||false;//是否开启自动移动
 }
+
+
+
 SwitchLi.prototype={
 	move:function(){
 		this.timer&&(clearTimeout(this.timer));
@@ -110,10 +121,11 @@ liSwitch.init("sliderSuper","sliderSuperBtn",true);
 //11.推荐
 liSwitch.init("sliderRec","recBtn");
 
+
+
 //3.主广告轮播
 function SliderDatas(){
 	InitialArgs.call(this,true,35,1.1,6000);
-	this.count=0;//当前显示的图片的索引
 	this.last=null;//上一个位置
 	this.imgs=null;//所有图片
 	this.focusLis=null;//焦点图标
@@ -123,7 +135,7 @@ function SliderDatas(){
 	this.incre=null;//透明度增加
 	this.desc=null;//透明度减少
 	this.inChanging=false;//动画是否正在执行
-	this.classes={'imgs':null,'focus':null};//控制 图片/焦点/按钮 的状态的class
+	this.classes={'imgs':null,'focus':null,'btns':null};//控制 图片/焦点/按钮 的状态的class
 }
 SliderDatas.prototype={
 	move:function(){
@@ -140,7 +152,6 @@ SliderDatas.prototype={
 		DM(this.focusLis[this.count]).addClass(this.classes.focus);
 		DM(this.focusLis[this.last]).removeClass(this.classes.focus);
 		this.turnTo();
-
 	},
 	checkState:function(){
 		if(this.count<0){
@@ -187,7 +198,7 @@ var bannerSlider={
 		var mySli=new SliderDatas();
 		mySli.imgs=DM(imgs).children;
 		mySli.focusLis=DM(pic).all('li');
-		mySli.classes={imgs:arr[0],focus:arr[1],btns:arr[2]};
+		mySli.classes={imgs:arr[0],focus:arr[1]};
 		mySli.autoMove(isAuto);
 		DM(btnL).addEvent('click',function(){
 			if(!mySli.inChanging){
@@ -217,26 +228,123 @@ var bannerSlider={
 		return mySli;
 	}
 };
+//3.主广告轮播初始化
 bannerSlider.init('ul.banner','#sliderLeft','#sliderRight','#focusPic',['display','hover'],true);
+
+
+
+
+//13.内容
+function AmuseFun(){
+	SliderDatas.call(this);
+	this.sBox=null;
+	this.olBox=null;
+	this.width=null;
+	this.mgLeft=0;
+	this.dist=0;
+}
+AmuseFun.prototype.move=function(){
+	this.inChanging=true;
+	this.last=this.count;
+	if(this.isFoc){
+		this.count=this.focIn;
+	}else{
+		this.dir?this.count++:this.count--;
+		SliderDatas.prototype.checkState.call(this);
+	}
+	DM(this.focusLis[this.count]).addClass(this.classes.focus);
+	DM(this.focusLis[this.last]).removeClass(this.classes.focus);
+	this.desc=this.dist=Math.abs(this.count-this.last)*296;
+	this.turnTo();
+};
+AmuseFun.prototype.turnTo=function(){
+	this.desc=Math.floor(this.desc/this.rate);
+	this.incre=this.dist-this.desc;
+	if(this.count-this.last>0){
+		this.mgLeft=this.last*296+this.incre;
+	}else if(this.count-this.last<0){
+		this.mgLeft=this.last*296-this.incre;
+	}else{
+		return;
+	}
+	this.olBox.style.marginLeft=-this.mgLeft+'px';
+	if(this.desc){
+		this.timer=setTimeout(function(){
+			this.turnTo();
+		}.bind(this),this.interval);
+	}else{
+		this.inChanging=false;
+		this.isFoc=false;
+	}
+};
+var amuseSlider={
+	init:function(sBox,sn,cls){
+		var mySli=new AmuseFun();
+		mySli.interval=10;
+		//获取单个外容器li
+		mySli.sBox=DM(sBox).getByAttr('data-item-i',sn)[0];
+		//获取内容器ol
+		mySli.olBox=DM(mySli.sBox).sub('ol')[0];
+		mySli.imgs=mySli.olBox.children;
+		mySli.width=296*mySli.imgs.length+'px';
+		//焦点图
+		mySli.focusLis=DM(mySli.sBox).sub('.focusLis').children;
+		mySli.classes.focus=cls;
+		//左侧按钮
+		DM(mySli.sBox).getByAttr('data-pos','left').addEvent('click',function(){
+			if(!mySli.inChanging){
+				clearTimeout(mySli.autoTimer);
+				mySli.dir=false;
+				mySli.move();
+			}
+		});
+		//右侧侧按钮
+		DM(mySli.sBox).getByAttr('data-pos','right').addEvent('click',function(){
+			if(!mySli.inChanging){
+				clearTimeout(mySli.autoTimer);
+				mySli.dir=true;
+				mySli.move();
+			}
+		});
+		//焦点图点击事件
+		DM(mySli.sBox).all('.focusLis').addEvent('click',function(){
+			var src=DM.getEventSrc(1);
+			if(src.nodeName=='LI'){
+				if(!mySli.inChanging){
+					clearTimeout(mySli.autoTimer);
+					mySli.isFoc=true;
+					mySli.focIn=DM.index(src);
+					mySli.move();
+				}
+			}
+		});
+		return mySli;
+	}
+};
+//图书
+amuseSlider.init('#amuseBox','1','hover');
+//主题
+amuseSlider.init('#amuseBox','2','hover');
+//游戏
+amuseSlider.init('#amuseBox','3','hover');
+//应用
+amuseSlider.init('#amuseBox','4','hover');
+
+
+
+
+
+
 //商品主分类鼠标悬浮切换函数
 // data是可选项数组["class1,"class2"],可以自定义class的值,第一个元素指向标签,第二个指向内容
 function tabsOnAndOff(tabsId,optionsId,data){
 	data=data||[];
 	data[0]||(data[0]="hover");
 	data[1]||(data[1]="display");
-	//var tabs=document.getElementById(tabsId);
-	//var options=document.getElementById(optionsId);
 	DM(tabsId)[0].onmousemove=function(){
 		var src=DM.getEventSrc(1);
 		var attr=src.getAttribute("data-item-i");
-		//console.log(src);
 		if(attr){
-			/*
-			removeClass(getElemsByAttr("li","class",data[0],tabsId)[0],data[0]);
-			removeClass(getElemsByAttr("ul","class",data[1],optionsId)[0],data[1]);
-			addClass(src,data[0]);
-			addClass(options.children[attr],data[1]);
-			*/
 			DM('li.'+data[0],tabsId).removeClass(data[0]).getElems(src).addClass(data[0]);
 			DM('ul.'+data[1],optionsId).removeClass(data[1]).getElems("ul",optionsId).fetch(attr).addClass(data[1]);
 		}
@@ -252,6 +360,7 @@ tabsOnAndOff("#combiTabs","#combiOptions");
 tabsOnAndOff("#pieTabs","#pieOptions");
 //10.周边
 tabsOnAndOff("#relatTabs","#relatOptions");
+
 
 //视频
 DM("#videoBtns").addEvent('click',function(){
@@ -333,3 +442,4 @@ var jumpToTop={
 	}
 };
 jumpToTop.init("toTop");
+//}();

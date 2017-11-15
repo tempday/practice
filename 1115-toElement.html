@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script src="http://192.168.3.200/Components/Docms.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<button name="test" id="button" value="val">Button Text</button>
+</body>
+<script type="text/javascript">
+	DM('#button').addEvent('click',function(){
+		e=DM.getEventSrc();
+		src=DM.getEventSrc(1);
+		
+		console.log(e.toElement);
+		console.log(src.offsetLeft);
+	});
+</script>
+</html>
