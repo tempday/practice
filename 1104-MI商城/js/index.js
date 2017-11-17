@@ -366,7 +366,7 @@ tabsOnAndOff("#relatTabs","#relatOptions");
 DM("#videoBtns").addEvent('click',function(){
 	var src=DM.getEventSrc(1);
 	if(src.nodeName=='IMG'||src.nodeName=='A'){
-		console.log();
+		//console.log();
 		var i=Docms.index(DM(src).sup(1))+1;
 		DM("#videosBox").addClass("show");
 		DM("h1","#videosBox")[0].innerHTML=DM(".title",DM(src).sup(1)[0])[0].innerHTML;
