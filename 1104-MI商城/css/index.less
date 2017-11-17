@@ -63,6 +63,7 @@ ul,ol{
 //滤镜 透明度0~1 [00,19,33,4c,66,7f,99,b2,cc,e5,ff]
 .backAlpha(){
 	background-color:rgba(0,0,0,.6);
+	//子元素不能超出父元素的范围,否则会消失
 	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#99000000,endColorStr=#99000000)@ie7-10;
 }
 
@@ -449,15 +450,17 @@ div.topBar{
 .menuBar{
 	.container{
 		position: relative;
+		z-index: 30;
 		//左侧菜单
 		div.category{
-			width: 234px;
+			//width: 234px;
 			position: absolute;
 			left: 0;
 			top: 0;
 			z-index: 37;
-			.backAlpha();
-			/*
+			// ...!!!...ie下用这个背景透明滤镜定位元素超出父元素后会消失
+			//.backAlpha();
+			//改用遮罩的方式
 			.mask{
 				position: absolute;
 				left: 0;
@@ -467,28 +470,31 @@ div.topBar{
 				background-color: rgb(0,0,0);
 				.opacity(0.6,60);
 			}
-			*/
+			
 			ul.cate_box{
-				//position: relative;
+				position: relative;
 				height: 420px;
 				padding:20px 0;
 				z-index: 38;
+				//菜单每一行
 				>li{
 					text-align: left;
 					height: 42px;
+					width: 209px;
 					line-height: 42px;
 					background: url("../img/white_arrow.png") no-repeat 210px center;
 					padding-left: 25px;
 					color: #fff;
 					//position: relative;
+					//z-index: 38;
 					&:hover{
 						background-color: @clr-org;
-						.sub_cate_box{
+						div.sub_cate_box{
 							display: block;
 						}
 					}
 					@ulWidth:248px;
-					//右侧弹出菜单
+					//每行菜单对应的右侧弹出菜单
 					div[data-item-col='1']{
 						width:@ulWidth;
 					}
@@ -501,24 +507,28 @@ div.topBar{
 					div[data-item-col='4']{
 						width:@ulWidth*4;
 					}
+					//右侧弹出菜单详情
 					.sub_cate_box{
 						position: absolute;
+						display: none;
 						left: 234px;
 						top: 0;
 						//width:1060px;
-						display: none;
+						background-color: #fff;
 						.boxShadow(8px,16px,0.18);
-						ul{
+
+						z-index: 36;
+						//子弹菜单列
+						>ul{
+							position: relative;
+							z-index: 36;
+							float: left;
 							height: 460px;
 							width: 248px;
-							background-color: #fff;
-							overflow: hidden;
-							float: left;
 
-							li{
+							>li{
 								width: 100%;
 								height: 77px;
-								position: relative;
 								img{
 									width: 40px;
 									height: 40px;
@@ -538,14 +548,14 @@ div.topBar{
 									}
 								}
 								>a{
-									display: block;
-									height: 24px;
-									line-height:24px;
-									text-align:center;
-									width: 60px;
 									position: absolute;
+									display: block;
 									right: 10px;
 									top: 26px;
+									height: 24px;
+									width: 60px;
+									line-height:24px;
+									text-align:center;
 									border: 1px solid @clr-org;
 									color: @clr-org;
 									&:hover{
@@ -556,6 +566,7 @@ div.topBar{
 							}
 						}
 					}
+					
 
 				}
 			}
@@ -601,6 +612,7 @@ div.topBar{
 					float: right;
 					margin-right: 30px;
 					li{
+						position: relative;
 						float: left;
 						width: 6px;
 						height: 6px;
@@ -1208,6 +1220,7 @@ div.title{
 		//vertical-align: middle;
 		margin-left: -80px;
 		li{
+			position: relative;
 			float: left;
 			height: 6px;
 			width: 6px;
@@ -1320,6 +1333,7 @@ div.title{
 	.objMedia{
 		position: relative;
 		z-index: 120;
+		display: none;
 	}
 	.video{
 		position: fixed;

@@ -8,9 +8,18 @@
 	<title>小m商城</title>
 	<link rel="icon" href="img/logo.png">
 	<link rel="stylesheet" href="css/index.css">
+	<!--[if lte ie 8]>
 	<style>
-
+		/*
+		.focusPic li,.video b{
+			behavior: url(ie-css3.htc);
+		}
+		*/
+		.videosBox .objMedia{
+			display:block;
+		}
 	</style>
+	<![endif]-->
 </head>
 <body>
 	<!--1.顶部工具栏-->
@@ -3497,13 +3506,7 @@
 		</div>
 	</div>
 	<!--视频-->
-	<!--[if gte IE 9]>
-	<style>
-		.videosBox object{
-			display:none !important;
-		}
-	</style>
-	<![endif]-->
+	
 	<div class="videosBox" id="videosBox">
 		<div class="video">
 			<h1>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>获取html页面</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script src="http://192.168.3.200/yesterday/03-1-Jquery/JS/jquery-1.11.3.min.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	/*
+	$.ajax({
+		url: "in.html",
+		async:false,
+		type:'post',
+		dataType:'html',
+		success:function(data) {
+			a=data.replace(/[\r\n]/gm,"<br>");
+			b=a.match(/<body>.*?<\/body>/gm);
+			console.log(a);
+			console.log(b);
+			$('body').html(b[0].replace(/<body>|<\/body>|<br>/g,''));
+		}
+		});
+		*/
+	$.get('in.html',function(a){
+		c=a.match(/<body>(\s|\S)*?<\/body>/g)[0];
+		b=c.replace(/<body>|<\/body>/g,'');
+		$('body').html(b);
+		//console.log(c);
+		/*
+		b=$(a);
+		console.log(b);
+		for(var i=0;i<b.length;i++){
+			if(b[i].nodeType==1&&b[i].nodeName!='META'&&b[i].nodeName!='LINK'&&b[i].nodeName!='TITLE'){
+				$('body')[0].appendChild(b[i]);
+				console.log();
+				
+			}
+		};
+		*/
+		//b.appendTo($('body'));
+		//$('body').html($(c).find('body'))
+	});
+</script>
+</html>
