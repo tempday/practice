@@ -1,7 +1,7 @@
 /**
  * Created by lglong519 on 2017-11-04.
  */
-//!function(){
+!function(){
 
 //输入框下拉
 DM('#search')[0].onfocus=function(){
@@ -28,11 +28,6 @@ DM('#navDropdown')[0].onmouseout=DM('#navList')[0].onmouseout=function(){
 		DM('#navDropdown').removeClass('display');
 	}
 };
-
-DM('#navDropdown').addEvent('mouseover',function(){
-	DM(this).addClass('display');
-});
-
 
 //常用属性
 function InitialArgs(dir,interval,rate,wait){
@@ -442,4 +437,4 @@ var jumpToTop={
 	}
 };
 jumpToTop.init("toTop");
-//}();
+}();

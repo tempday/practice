@@ -226,14 +226,13 @@ div.topBar div.cart .subCart > p {
 }
 .navBar div.container div.nav-search form button {
   width: 50px;
-  background-color: #ffffff;
   padding: 0;
   height: 50px;
   color: #616161;
   font-size: 18px;
   border-left: 0;
   filter: chroma(color=#000000);
-  background: url("../img/search-ico.jpg");
+  background: #fff url("../img/search-ico.jpg");
 }
 .navBar div.container div.nav-search form button:hover {
   background-color: #ff6700;

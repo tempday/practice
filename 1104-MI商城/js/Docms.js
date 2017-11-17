@@ -32,7 +32,7 @@
 			}
 			//判断selector的4个条件:1.未定义或是空字符;2.是对象且长度大于零;3.是对象且节点类型为1;4.字符串
 			if(selector==undefined||selector==""){
-				console.info("Docms tips:getElems() selector is undefined");
+				//console.info("Docms tips:getElems() selector is undefined");
 				return this;
 			}else if(typeof(selector)==="object"&&selector.length>0&&selector.nodeType!=1&&selector.nodeType!=9){
 				this.elems=selector;
@@ -40,7 +40,7 @@
 				this.elems[0]=selector;
 			}else{
 				if(typeof(selector)!="string"){
-					console.warn("Docms tips:getElems() selector is not a String");
+					//console.warn("Docms tips:getElems() selector is not a String");
 					return this;
 				}
 				//按id获取元素
@@ -407,7 +407,7 @@
 if (!Function.prototype.bind) {
 		Function.prototype.bind = function(oThis) {
 			if (typeof this !== "function") {
-				throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+				throw new TypeError("Function.prototype.bind");
 			}
 			var aArgs = Array.prototype.slice.call(arguments, 1),
 					fToBind = this,

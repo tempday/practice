@@ -1,0 +1,464 @@
+@charset "utf-8";
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 100%;
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+  font: 14px/1.5 PingFangSC-Regular, Verdana, Arial, 'Microsoft Yahei', '宋体', sans-serif;
+  color: #333;
+}
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+fieldset,
+img {
+  border: 0;
+  vertical-align: middle;
+}
+ul,
+ol {
+  list-style: none;
+}
+.container {
+  width: 1226px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.header {
+  height: 100px;
+  border-bottom: 2px solid #ff6700;
+}
+.header .container {
+  overflow: hidden;
+}
+.header .img {
+  float: left;
+  height: 48px;
+  width: 48px;
+  margin-top: 25px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  background: url("../img/logo-home.png") -48px 0 no-repeat;
+}
+.header .img:hover {
+  background-position: 0 0;
+}
+.header h1 {
+  float: left;
+  height: 48px;
+  line-height: 48px;
+  margin-left: 48px;
+  margin-top: 25px;
+  font-size: 28px;
+}
+.header ul {
+  float: right;
+}
+.header ul li {
+  float: left;
+}
+.header ul li a {
+  display: block;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 10px;
+  margin: 25px 0 0;
+  color: #757575;
+}
+.main {
+  background-color: #f5f5f5;
+}
+.main:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.main .emptyCart {
+  padding: 70px 0 130px;
+  overflow: hidden;
+  display: none;
+}
+.main .emptyCart.display {
+  display: block;
+}
+.main .emptyCart > div {
+  float: left;
+  height: 280px;
+}
+.main .left {
+  width: 45%;
+}
+.main .left img {
+  display: block;
+  height: 250px;
+  width: 250px;
+  margin: 15px auto;
+}
+.main .right {
+  width: 55%;
+}
+.main .right h1 {
+  margin-top: 50px;
+  font-size: 36px;
+  font-weight: 600;
+  color: #b0b0b0;
+}
+.main .right h3 {
+  margin: 3px 0 25px;
+  font-size: 18px;
+  color: #b0b0b0;
+}
+.main .right a {
+  float: left;
+  display: block;
+  height: 50px;
+  width: 170px;
+  line-height: 50px;
+  margin-right: 10px;
+  text-align: center;
+  border: 1px solid #ff6700;
+  color: #fff;
+  background-color: #ff6700;
+}
+.main .right .login:hover {
+  background-color: #e65d00;
+}
+.main .right .toBuy {
+  color: #ff6700;
+  background-color: #fff;
+}
+.main .right .toBuy:hover {
+  color: #fff;
+  background-color: #ff6700;
+}
+.main .myCart {
+  width: 100%;
+  margin-top: 40px;
+  background-color: #fff;
+  display: none;
+}
+.main .myCart.display {
+  display: table;
+}
+.main .myCart thead {
+  border-bottom: 1px solid #e0e0e0;
+}
+.main .myCart thead tr {
+  height: 70px;
+}
+.main .myCart tr {
+  width: 100%;
+}
+.main .myCart th,
+.main .myCart td {
+  width: 10%;
+  text-align: center;
+  font-weight: normal;
+}
+.main .myCart .shopName {
+  width: 32%;
+  text-align: left;
+  text-indent: 15px;
+}
+.main .myCart .num {
+  width: 20%;
+}
+.main .myCart .img {
+  width: 9%;
+  text-align: left;
+}
+.main .myCart .img img {
+  height: 86px;
+  width: 86px;
+}
+.main .myCart .select {
+  width: 9%;
+  text-align: left;
+}
+.main .myCart tbody {
+  font-size: 16px;
+}
+.main .myCart tbody tr {
+  height: 120px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.main .myCart tbody .shopName {
+  font-size: 18px;
+}
+.main .myCart tbody .num div {
+  width: 150px;
+  height: 38px;
+  border: 1px solid #e0e0e0;
+  margin: 0 auto;
+}
+.main .myCart tbody .num div a {
+  float: left;
+  display: block;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px;
+  color: #757575;
+}
+.main .myCart tbody .num div a.right {
+  float: right;
+}
+.main .myCart tbody .num div input {
+  height: 100%;
+  width: 74px;
+  border: none;
+  text-align: center;
+  font-size: 100%;
+}
+.main .myCart tbody .count {
+  color: #ff6700;
+}
+.main .myCart tbody .action i {
+  display: block;
+  width: 25px;
+  height: 25px;
+  line-height: 22px;
+  margin: 0 auto;
+  border-radius: 50%;
+  font-style: normal;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.main .myCart tbody .action i:hover {
+  background-color: #f56300;
+  color: #fff;
+}
+.main .myCart .select b {
+  float: left;
+  display: block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border: 1px solid #e0e0e0;
+  margin-left: 25px;
+  margin-right: 15px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+.main .myCart .select b:hover {
+  color: #333;
+}
+.main .myCart .select b.check {
+  border-color: #ff6700;
+  background-color: #ff6700;
+  color: #fff;
+}
+.main .counter {
+  width: 1226px;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #fff;
+  display: none;
+}
+.main .counter.display {
+  display: block;
+}
+.main .counter.hook {
+  position: fixed;
+  bottom: 0;
+  background-color: #fafafa;
+  z-index: 10;
+}
+.main .counter a {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.main .counter a.toShop {
+  float: left;
+  width: 9%;
+  color: #757575;
+}
+.main .counter p {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  color: #757575;
+}
+.main .counter p span {
+  color: #ff6700;
+}
+.main .counter div {
+  float: right;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 30px;
+  font-size: 14px;
+  color: #ff6700;
+}
+.main .counter div em {
+  font-size: 24px;
+  font-style: normal;
+}
+.main .counter a.Checkout {
+  float: right;
+  width: 200px;
+  font-size: 18px;
+  color: #b0b0b0;
+  background-color: #dcdcdc;
+}
+.section {
+  background-color: #f5f5f5;
+}
+.section .container {
+  overflow: hidden;
+  padding-top: 30px;
+}
+.section div.title {
+  height: 50px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+.section div.title span {
+  display: block;
+  width: 400px;
+  margin: -25px auto 0;
+  background-color: #f5f5f5;
+  font-size: 30px;
+  color: #757575;
+}
+.section .addToCart {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: -61px;
+  border: 1px solid #ff6700;
+  background-color: #fff;
+  color: #ff6700;
+  text-align: center;
+  display: none;
+}
+.section .addToCart:hover {
+  color: #fff;
+  background-color: #ff6700;
+}
+.section .tips {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 100%;
+  line-height: 35px;
+  color: #fff;
+  text-align: center;
+  background-color: #83c44e;
+}
+.section .tips.display {
+  display: block;
+}
+.section ul {
+  height: 340px;
+  width: 1250px;
+}
+.section ul li {
+  float: left;
+  position: relative;
+  width: 234px;
+  padding-top: 39px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin-right: 14px;
+  background-color: #fff;
+}
+.section ul li .discount {
+  background-color: #e53935;
+}
+.section ul li .gift {
+  background-color: #2196f3;
+}
+.section ul li .freight {
+  background-color: #ffac13;
+}
+.section ul li > h4 {
+  height: 18px;
+  line-height: 18px;
+  padding: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.section ul li > p {
+  color: #b0b0b0;
+  font-size: 12px;
+}
+.section ul li > span {
+  color: #ff6700;
+  display: block;
+  height: 21px;
+  line-height: 21px;
+}
+.section ul li > span del {
+  color: #b0b0b0;
+}
+.section ul li img {
+  width: 160px;
+  height: 160px;
+}
+.section ul li h4 {
+  margin: 25px 0 5px;
+}
+.section ul li p {
+  margin-bottom: 10px;
+}
+.section ul li span {
+  margin-bottom: 10px;
+}
+.section ul li:hover .addToCart {
+  display: block;
+}

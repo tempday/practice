@@ -44,5 +44,18 @@
 	for(var i=0;i<10;i++){
 		o();
 	}
+
+	//2017-11-17
+	newI=[];
+	function outer(){
+		var i=1;
+		newI[newI.length]=function(){
+			i++;
+		}
+		return function(){
+			console.log(i);
+		}
+	}
+	var getO=outer();
 </script>
 </html>

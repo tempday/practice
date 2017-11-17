@@ -17,12 +17,15 @@
 	<button name="test" id="button" value="val">Button Text</button>
 </body>
 <script type="text/javascript">
-	DM('#button').addEvent('click',function(){
+	//ie7 不支持toElement
+	DM('#button').addEvent('mouseover',function(){
 		e=DM.getEventSrc();
 		src=DM.getEventSrc(1);
 		
 		console.log(e.toElement);
 		console.log(src.offsetLeft);
+		console.log("rel:");
+		console.log(e.relatedTarget);
 	});
 </script>
 </html>
