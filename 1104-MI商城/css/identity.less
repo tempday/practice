@@ -1,0 +1,129 @@
+@charset "utf-8";
+@import "common";
+@clr-org:#ff6700;
+@clr-yel:#ffac13;
+@clr-red:#e53935;
+@clr-gre:#83c44e;
+@clr-blu:#2196f3;
+@clr-sky:#00c0a5;
+@clr-border:#e0e0e0;
+@clr-333:#333;
+@clr-font-75:#757575;
+@clr-font-b0:#b0b0b0;
+
+body{
+	background-color:#fafafa;
+}
+.container{
+	width: 1226px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.identity{
+	.before;
+	width: 850px;
+	padding-bottom: 60px;
+	margin: 20px auto 60px;
+	background-color: #fff;
+	h1{
+		margin: 30px auto 50px;
+		font-size: 30px;
+		text-align: center;
+	}
+}
+
+//form
+.userInfo{
+	width: 330px;
+	margin: 20px auto;
+	input{
+		width:314px;
+		height: 32px;
+		//兼容ie和Safari
+		line-height:1;
+		line-height: 32px@ie7-10;
+		padding: 5px 6px 5px 10px;
+		border: 1px solid #dadada;
+		outline: none;
+		margin:8px 0 9px;
+		color: @clr-font-75;
+	}
+	label{
+		display: block;
+		margin-top: 9px;
+	}
+	.tips{
+		display: none;
+		b{
+			float: left;
+			height: 14px;
+			width: 14px;
+			margin-right: 5px;
+			background: url("../img/tips.png");
+		}
+		font-size: 12px;
+		color: @clr-org;
+		&.display{
+			display: block;
+		}
+	}
+	//注册按钮
+	input[type=button],.instant{
+		width: 330px;
+		height: 40px;
+		line-height: 40px;
+		padding: 0;
+		margin-top: 9px;
+		color: #fff;
+		font-size: 14px;
+		background-color: @clr-org;
+		&:hover{
+			background-color: darken(@clr-org,5%);
+		}
+	}
+	//同意注册条例
+	span.infor{
+		color: @clr-font-b0;
+		strong{
+			color:#616161;
+		}
+	}
+	.toLogin{
+		color: @clr-font-b0;
+		text-align: right;
+		a{
+			color: @clr-org;
+		}
+	}
+	.goToCart{
+		margin: 60px auto 30px;
+		text-align: center;
+		color: @clr-font-b0;
+	}
+	.instant{
+		display: block;
+		text-align: center;
+	}
+	//用户名已存在
+	.invalid{
+		a{
+			color:@clr-org;
+			text-decoration: underline;
+		}
+	}
+}
+
+.footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid @clr-border;
+	background-color: #fff;
+	p{
+		line-height: 40px;
+		text-align: center;
+		color: @clr-font-b0;
+		margin-top: 20px;
+		padding:0 30px;
+	}
+}

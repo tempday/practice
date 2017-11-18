@@ -107,6 +107,61 @@ div.topBar ol {
   margin-right: 15px;
   background-color: #333;
 }
+div.topBar .onLine {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  min-width: 80px;
+  background-color: #333;
+  z-index: 50;
+  color: #b0b0b0;
+}
+div.topBar .onLine b {
+  float: right;
+  margin: 18px 0 0 5px;
+  border: 5px solid transparent;
+  border-top-color: #b0b0b0;
+}
+div.topBar .onLine:hover {
+  background-color: #fff;
+  color: #333;
+}
+div.topBar .onLine:hover .logout {
+  display: block;
+}
+div.topBar .onLine:hover b {
+  color: #666;
+}
+div.topBar .onLine {
+  position: relative;
+}
+div.topBar li.offline {
+  display: none;
+}
+div.topBar div.logout {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  min-width: 80px;
+  padding: 10px 0 5px;
+  text-align: center;
+  -webkit-box-shadow: 0 2px, 10px, 0.15;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+div.topBar div.logout a {
+  display: block;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  color: #757575;
+}
+div.topBar div.logout a:hover {
+  color: #ff6700;
+}
 div.topBar div.cart {
   float: right;
   position: relative;
@@ -564,9 +619,6 @@ div.topBar div.cart .subCart > p {
   display: table;
   clear: both;
 }
-.proBest > div {
-  overflow: hidden;
-}
 .proBest > div ol {
   float: left;
   height: 170px;
@@ -613,11 +665,18 @@ div.topBar div.cart .subCart > p {
 .proBest > div ol li .fa-money {
   background-position: -179px -103px;
 }
-.proBest > div div {
+.proBest > div > div {
   float: left;
   margin-left: 14px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-.proBest > div div img {
+.proBest > div > div:hover {
+  -webkit-box-shadow: 0 7px, 30px, 0.18;
+  box-shadow: 0 7px 30px rgba(0, 0, 0, 0.18);
+}
+.proBest > div > div img {
   height: 170px;
   width: 316px;
 }

@@ -153,6 +153,62 @@ div.topBar{
 		//wechat
 		background-color: @clr-333;
 	}
+	//用户名
+	.onLine{
+		position: relative;
+		height: 40px;
+		line-height: 40px;
+		padding: 0 10px;
+		min-width: 80px;
+		background-color: @clr-333;
+		z-index: 50;
+		color: @clr-font-b0;
+		b{
+			float: right;
+			margin:18px 0 0 5px;
+			border: 5px solid transparent;
+			border-top-color:@clr-font-b0;
+		}
+		&:hover{
+			background-color:#fff;
+			color: @clr-333;
+			.logout{
+				display: block;
+			}
+			b{
+				color: #666;
+			}
+		}
+	}
+	.onLine{
+		position: relative;
+	}
+	li.offline{
+		display: none;
+	}
+	//退出登录
+	div.logout{
+		display:none;
+		position: absolute;
+		top:40px;
+		left: 0;
+		width: 100%;
+		min-width: 80px;
+		padding:10px 0 5px;
+		text-align: center;
+		.boxShadow(2px,10px,0.15);
+		background-color: #fff;
+		a{
+			display: block;
+			width: 100%;
+			height: 25px;
+			line-height: 25px;
+			color: @clr-font-75;
+			&:hover{
+				color: @clr-org;
+			}
+		}
+	}
 	//购物车
 	div.cart{
 		float: right;
@@ -650,7 +706,7 @@ div.topBar{
 	.before;
 	margin-top: 16px;
 	>div{
-		overflow: hidden;
+		//overflow: hidden;
 		ol{
 			float: left;
 			height: 170px;
@@ -695,9 +751,13 @@ div.topBar{
 				}
 			}
 		}
-		div{
+		>div{
 			float: left;
 			margin-left:14px;
+			.transition();
+			&:hover{
+				.boxShadow(7px,30px,0.18);
+			}
 			img{
 				height: 170px;
 				width: 316px;
