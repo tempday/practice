@@ -22,8 +22,7 @@ DM('#navList')[0].onmouseover=function(){
 };
 DM('#navDropdown')[0].onmouseout=DM('#navList')[0].onmouseout=function(){
 	var e=DM.getEventSrc();
-	jumpToTop.getScrollTop();
-	var y1=140-jumpToTop.wTop,y2=y1+230,ms=e.clientY;
+	var y1=140-DM.wTop(),y2=y1+230,ms=e.clientY;
 	if(ms>y2||ms<y1){
 		DM('#navDropdown').removeClass('display');
 	}
@@ -56,8 +55,8 @@ SwitchLi.prototype={
 		this.timer&&(clearTimeout(this.timer));
 		this.mgLeft=Math.floor(this.mgLeft/this.rate);
 		this.dir?
-				this.ul.style.marginLeft="-"+this.mgLeft+"px":
-				this.ul.style.marginLeft="-"+(this.WIDTH-this.mgLeft)+"px";
+				DM(this.ul).css({marginLeft:-this.mgLeft}):
+				DM(this.ul).css({marginLeft:this.mgLeft-this.WIDTH});
 		if(this.mgLeft){
 			this.timer=setTimeout(function(){
 				this.move();
@@ -160,10 +159,8 @@ SliderDatas.prototype={
 		this.alpha=Math.floor(this.alpha/this.rate);
 		this.desc=this.alpha;
 		this.incre=100-this.alpha;
-		this.imgs[this.last].style.opacity=this.desc/100;
-		this.imgs[this.last].style.filter='alpha(opacity='+this.desc+')';
-		this.imgs[this.count].style.opacity=this.incre/100;
-		this.imgs[this.count].style.filter='alpha(opacity='+this.incre+')';
+		DM(this.imgs[this.last]).css('opacity',this.desc/100);
+		DM(this.imgs[this.count]).css('opacity',this.incre/100);
 		if(this.alpha){
 			this.timer=setTimeout(function(){
 				this.turnTo();
@@ -328,8 +325,6 @@ amuseSlider.init('#amuseBox','4','hover');
 
 
 
-
-
 //商品主分类鼠标悬浮切换函数
 // data是可选项数组["class1,"class2"],可以自定义class的值,第一个元素指向标签,第二个指向内容
 function tabsOnAndOff(tabsId,optionsId,data){
@@ -405,27 +400,14 @@ var jumpToTop={
 	interval:10,
 	init:function(id){
 		var me=this;
-		var btnElem=document.getElementById(id);
-		btnElem.onclick=function(){
-			me.getScrollTop();
+		DM('#'+id)[0].onclick=function(){
+			me.wTop=DM.wTop();
 			me.jump();
-			return false;
 		}
-	},
-	getScrollTop:function(){
-		var y=[];
-		if (document.documentElement) {
-			y[y.length] = document.documentElement.scrollTop || 0;
-		}
-		if (document.body) {
-			y[y.length] = document.body.scrollTop || 0;
-		}
-		y[y.length] = window.scrollY || 0;
-		this.wTop=Math.max.apply(this,y);
 	},
 	jump:function(){
 		this.wTop=Math.floor(this.wTop/1.1);
-		window.scrollTo(0,this.wTop);
+		DM.wTop(this.wTop);
 		if(this.wTop>0){
 			this.timer=setTimeout(function(){
 				this.jump();

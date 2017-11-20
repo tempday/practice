@@ -141,7 +141,7 @@
 			},1000);
 		}else{
 			setTimeout(function(){
-				document.location=url;
+				document.location.href=url;
 			},1000);
 		}
 	}

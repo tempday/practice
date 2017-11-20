@@ -164,8 +164,9 @@ div.topBar{
 		z-index: 50;
 		color: @clr-font-b0;
 		b{
-			float: right;
-			margin:18px 0 0 5px;
+			position: absolute;
+			right: 5px;
+			top: 18px;
 			border: 5px solid transparent;
 			border-top-color:@clr-font-b0;
 		}
@@ -198,6 +199,7 @@ div.topBar{
 		text-align: center;
 		.boxShadow(2px,10px,0.15);
 		background-color: #fff;
+		filter:progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')@ie7-10;
 		a{
 			display: block;
 			width: 100%;

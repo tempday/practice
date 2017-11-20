@@ -21,13 +21,12 @@
 					<div class="logout"><a href="#">退出登录</a></div>
 				</li>
 			</ul>
-
 		</div>
 	</div>
 	<!--商品列表-->
 	<div class="main">
 		<div class="container">
-			<div class="emptyCart display">
+			<div class="emptyCart">
 				<div class="left">
 					<img src="img/shoppingcart.png" alt="">
 				</div>
@@ -39,7 +38,7 @@
 				</div>
 			</div>
 
-			<table class="myCart display" id="myCart">
+			<table class="myCart" id="myCart">
 				<thead>
 					<tr>
 						<th class="select"><b id="selectAll">√</b>全选</th>
@@ -53,25 +52,25 @@
 				</thead>
 				<tbody class="shopList">
 					<tr>
-						<td class="select"><b class="check">√</b></td>
+						<td class="select"><b class="">√</b></td>
 						<td class="img"><img src="img/rec/items-2.jpg" alt=""></td>
 						<td class="shopName">小米笔记本电脑Pro 15 i7 16G</td>
 						<td class="price">6999元</td>
 						<td class="num">
-							<div><a href="#" class="left">-</a><input type="text" value="1"><a href="#" class="right">+</a></div>
+							<div><a href="javascript:void(0)" class="left">-</a><input type="text" value="1"><a href="javascript:void(0)" class="right">+</a></div>
 						</td>
 						<td class="count">6999元</td>
 						<td class="action"><i>x</i></td>
 					</tr>
 					<tr>
-						<td class="select"><b class="check">√</b></td>
+						<td class="select"><b class="">√</b></td>
 						<td class="img"><img src="img/rec/items-2.jpg" alt=""></td>
 						<td class="shopName">小米笔记本电脑Pro 15 i7 16G</td>
-						<td class="price">6999元</td>
+						<td class="price">1358元</td>
 						<td class="num">
-							<div><a href="#" class="left">-</a><input type="text" value="1"><a href="#" class="right">+</a></div>
+							<div><a href="javascript:void(0)" class="left">-</a><input type="text" value="2"><a href="javascript:void(0)" class="right">+</a></div>
 						</td>
-						<td class="count">6999元</td>
+						<td class="count">1358元</td>
 						<td class="action"><i>x</i></td>
 					</tr>
 				</tbody>
@@ -80,7 +79,7 @@
 				<a href="#" class="toShop">继续购物</a>
 				<p>共 <span id="cNum">2</span> 件商品，已选择 <span id="sNum">0</span> 件</p>
 				<a href="#" id="checkout" class="checkout active">去结算</a>
-				<div id="amount">合计：<em>1499</em>元</div>
+				<div>合计：<em id="amount">0</em>元</div>
 			</div>
 		</div>
 	</div>

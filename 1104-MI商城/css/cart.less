@@ -71,12 +71,17 @@
 			height: 48px;
 			line-height: 48px;
 			margin-top: 25px;
-			padding: 0 10px;
+			padding: 0 18px 0 10px;
 			background-color: #fff;
 			z-index: 50;
 			b{
-				float: right;
-				margin:22px 0 0 5px;
+				//ie7下 右浮动会无限撑大li
+				//float: right;
+				//改用定位
+				position: absolute;
+				right: 5px;
+				top: 22px;
+				//margin:22px 0 0 5px;
 				border: 5px solid transparent;
 				border-top-color: #666;
 			}
@@ -100,6 +105,8 @@
 			text-align: center;
 			.boxShadow(2px,10px,0.15);
 			background-color: #fff;
+			//ie7/8 box-shadow
+			filter:progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')@ie7-10;
 			a{
 				display: block;
 				width: 100%;
@@ -186,9 +193,8 @@
 		width: 100%;
 		margin-top: 40px;
 		background-color: #fff;
-		display: none;
-		&.display{
-			display: table;
+		&.hide{
+			display: none;
 		}
 		thead{
 			border-bottom: 1px solid @clr-border;
@@ -255,12 +261,19 @@
 						float: right;
 					}
 					input{
-						height: 100%;
+						float: left;
+						height:18px;
 						width: 74px;
+						//兼容ie7
+						*width:70px;
+						*height: 14px;
+						padding: 10px 0;
 						border: none;
 						text-align: center;
 						font-size: 100%;
 						outline: none;
+						//ie7 下会有黑色内嵌
+						background-color: #ffffff;
 					}
 				}
 			}
@@ -514,6 +527,8 @@
 	right: 0;
 	top: 0;
 	bottom: 0;
+	//兼容ie7
+	height: 100%;
 	z-index: 100;
 	display: none;
 	.mask{
