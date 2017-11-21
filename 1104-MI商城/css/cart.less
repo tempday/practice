@@ -473,7 +473,7 @@
 	}
 	//成功加入购物车
 	.tips{
-		display: none;
+		//display: none;
 		position: absolute;
 		top:0;
 		left: 0;
@@ -483,8 +483,11 @@
 		color: #fff;
 		text-align: center;
 		background-color: @clr-gre;
+		.transition();
+		.opacity();
 		&.display{
-			display: block;
+			//display: block;
+			.opacity(1,100);
 		}
 	}
 	ul{

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script src="http://192.168.3.200/Components/Docms.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var data='[{"username":"lglong"},{"pid":"001","pic":"","pname":"","price":"","pnum":"","people":""}]';
+	var ck="username=;pid=123&pic=&pname=&price=&num=;pid=123&pic=&pname=&price=&num="
+	//document.cookie=encodeURIComponent('userInfo='+data);
+	//DM.cookie('userInfo',data);
+	sessionStorage.setItem('mycart_userInfo',ck);
+	DM.ajax({
+		url:'data/1121.php',
+		type:'get',
+		dataType:'json',
+		success:function(data){
+			console.log(data);
+		}
+	});
+	data='[{"username":"lglong"},{"pid":"001","pic":"","pname":"max2 超大屏","price":"1499","pnum":"2","people":"564"}]';
+	//SELECT p.pname from m_products as p,m_user as u where p.pid=u.pid
+</script>
+</html>

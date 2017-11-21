@@ -442,7 +442,6 @@ ol {
   background-color: #ff6700;
 }
 .section .tips {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -452,9 +451,15 @@ ol {
   color: #fff;
   text-align: center;
   background-color: #83c44e;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  filter: alpha(opacity=0) \9;
 }
 .section .tips.display {
-  display: block;
+  opacity: 1;
+  filter: alpha(opacity=100) \9;
 }
 .section ul {
   height: 340px;

@@ -8,7 +8,8 @@
 	<meta name="keywords" content="9527" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href=""/>
-	<script src="http://192.168.3.200/yesterday/03-1-Jquery/JS/jquery-1.11.3.min.js"></script>
+	<!--<script src="http://192.168.3.200/yesterday/03-1-Jquery/JS/jquery-1.11.3.min.js"></script>-->
+	<script src="http://192.168.3.200/Components/Docms.js"></script>
 	<style>
 		
 	</style>
@@ -32,11 +33,13 @@
 		}
 		});
 		*/
+		/*
 	$.get('in.html',function(a){
 		c=a.match(/<body>(\s|\S)*?<\/body>/g)[0];
 		b=c.replace(/<body>|<\/body>/g,'');
 		$('body').html(b);
 		//console.log(c);
+		*/
 		/*
 		b=$(a);
 		console.log(b);
@@ -50,10 +53,22 @@
 		*/
 		//b.appendTo($('body'));
 		//$('body').html($(c).find('body'))
-	});
-
+	//});
+	/*
 	$.get('rec-tpl.html',function(a){
 		console.log(a);
+	});
+	*/
+
+
+	DM.ajax({
+		url:'1104-MI/rec-tpl.html',
+		success:function(data){
+			var li=data.match(/<li>(\s|\S)*?<\/li>/g)[0],
+				tr=data.match(/<tr>(\s|\S)*?<\/tr>/g)[0];
+			console.log('li标签:'+li);
+			console.log('tr标签:'+tr);
+		}
 	});
 </script>
 </html>
