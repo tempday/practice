@@ -1,5 +1,4 @@
 <?php
-
 		//执行数据库操作
     	$conn=mysqli_connect('127.0.0.1','lglong519','123','myCart');
     	//设置中文编码

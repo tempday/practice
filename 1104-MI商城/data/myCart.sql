@@ -16,7 +16,7 @@ INSERT INTO m_products(id,pid,pic,pname,price,people) VALUES
     '001',
     'img/rec/items-1.jpg',
     '5X 全网通版 4GB内存',
-    1499,
+    1799,
     '714'
 ),
 (   null,
@@ -60,7 +60,7 @@ INSERT INTO m_products(id,pid,pic,pname,price,people) VALUES
     '007',
     'img/rec/items-7.jpg',
     '手环 2',
-    2699,
+    299,
     '2606'
     
 ),
@@ -99,14 +99,14 @@ CREATE TABLE m_user_order(
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(16),
     pnum INT,
-    pid VARCHAR(16)
+    pid VARCHAR(16),
+    state INT
 );
 
 INSERT INTO m_user(id,user_name,pwd) VALUES
 (NULL,'123','123456'),
 (NULL,'123','123456');
-INSERT INTO m_user_order(id,user_name,pnum,pid) VALUES
-(NULL,'123',1,'001'),
-(NULL,'123',2,'003');
+INSERT INTO m_user_order(id,user_name,pnum,pid,state) VALUES
+(NULL,'123',2,'003',1);
 
 ##SELECT * FROM m_user;

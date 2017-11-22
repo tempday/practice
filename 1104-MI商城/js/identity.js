@@ -27,15 +27,36 @@
 					},100);
 				}else{
 					if(a[0]){
+						var user=DM('#username')[0].value;
 						Docms.ajax({
 							type:'post',
 							url:'data/register.php',
-							data:{'user':DM('#username')[0].value,
+							data:{'user':user,
 								'pwd':DM('#password')[0].value
 							},
 							success:function(data){
-								console.log(data);
-								data&&(document.location='log_success.html#register');
+								if(data){
+									if(getSession()){
+										var data=localStorage.getItem('mCart_userInfo').replace('_temporaty',user);
+										DM.cookie('mCart_userInfo',data);
+										//_temporary
+										Docms.ajax({
+											type: 'post',
+											url: 'data/upDateInfo.php',
+											data:{'json':data},
+											success:function(data){
+												console.log(data);
+											}
+										});
+										//如果本地储存没有数据,只写入用户名
+									}else{
+										DM.cookie('mCart_userInfo','[{"username":"'+user+'"}]');
+									}
+									localStorage.setItem('mCart_userInfo','');
+									document.location='log_success.html#register';
+								}else{
+									alert('注册失败,请稍后重试');
+								}
 							}
 						});
 					}
@@ -48,15 +69,27 @@
 		var a=validUser(DM('#username')[0]),
 				b=validPwd(DM('#password')[0]);
 		if(a&&b){
+			var user=DM('#username')[0].value,data='';
+			if(getSession()){
+				data=localStorage.getItem('mCart_userInfo').replace('_temporaty',user);
+			}
 			Docms.ajax({
 				type:'post',
 				url:'data/login.php',
 				data:{'user':DM('#username')[0].value,
-					'pwd':DM('#password')[0].value
+					'pwd':DM('#password')[0].value,
+					'json':data
 				},
 				success:function(data){
-					console.log(data);
-					data&&(document.location='log_success.html#login');
+					if(data){
+						var str='[{"username":"'+user+'"},'+data.slice(1);
+						DM.cookie('mCart_userInfo',str);
+						DM('#error').removeClass('display');
+						localStorage.setItem('mCart_userInfo','');
+						document.location='log_success.html#login';
+					}else{
+						DM('#error').addClass('display');
+					}
 				}
 			});
 		}
@@ -71,6 +104,7 @@
 				url:'data/validName.php',
 				data:{'user':obj.value},
 				success:function(data){
+					//返回1:通过验证
 					a.push(data);
 					data?DM('.invalid').removeClass('display'):
 							DM('.invalid').addClass('display');
@@ -146,3 +180,19 @@
 		}
 	}
 }();
+
+//获取本地储存数据
+function getSession(){
+	var ls=localStorage.getItem('mCart_userInfo');
+	//如果ls内容不为空,则读取商品数据
+	if(ls) {
+		try {
+			ls = eval(ls);
+		} catch (e) {
+			ls = [];
+		}
+	}else{
+		ls = [];
+	}
+	return ls.length>0&&ls[0].username?ls:!1;
+}
