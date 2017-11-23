@@ -2,9 +2,9 @@
  * Created by lglong519 on 2017-11-18.
  */
 //表单验证
-//;!function(){
+;!function(){
 	//验证用户名和密码
-	DM('.userInfo').sub('input').addEvent('blur',function(){
+	DM('.userInfo input').addEvent('blur',function(){
 		validPwd(this);
 	});
 	//向服务器发送请求验证用户名是否已存在
@@ -35,8 +35,8 @@
 								'pwd':DM('#password')[0].value
 							},
 							success:function(data){
-								if(data){
-									if(getSession()){
+								if(data=='success'){
+									if(validFuns.getStorage(0)){
 										var data=localStorage.getItem('mCart_userInfo').replace('_temporaty',user);
 										DM.cookie('mCart_userInfo',data);
 										//_temporary
@@ -70,7 +70,7 @@
 				b=validPwd(DM('#password')[0]);
 		if(a&&b){
 			var user=DM('#username')[0].value,data='';
-			if(getSession()){
+			if(validFuns.getStorage(0)){
 				data=localStorage.getItem('mCart_userInfo').replace('_temporaty',user);
 			}
 			Docms.ajax({
@@ -81,7 +81,7 @@
 					'json':data
 				},
 				success:function(data){
-					if(data){
+					if(/pid/i.test(data)){
 						var str='[{"username":"'+user+'"},'+data.slice(1);
 						DM.cookie('mCart_userInfo',str);
 						DM('#error').removeClass('display');
@@ -139,10 +139,10 @@
 		}
 	}
 
-//}()
+}()
 
 
-//注册/登录成功
+//注册||登录成功
 ;!function(){
 	if(!DM('.seconds')[0]){
 		return;
@@ -180,19 +180,3 @@
 		}
 	}
 }();
-
-//获取本地储存数据
-function getSession(){
-	var ls=localStorage.getItem('mCart_userInfo');
-	//如果ls内容不为空,则读取商品数据
-	if(ls) {
-		try {
-			ls = eval(ls);
-		} catch (e) {
-			ls = [];
-		}
-	}else{
-		ls = [];
-	}
-	return ls.length>0&&ls[0].username?ls:!1;
-}

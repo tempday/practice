@@ -14,43 +14,133 @@
 	</style>
 </head>
 <body>
-	
+	<br/><p></p><h id='h'></h><a href="#"></a>
+	<ul class='li'>
+		<li class='11'>11</li>
+		<li class='12'>12</li>
+		<li class='13'>
+			<ul>
+				<li class='131'>131</li>
+				<li class='132'>131</li>
+				<li class='133'>131</li>
+			</ul>
+		</li>
+	</ul>
+	<ul>
+		<li class='21'>21</li>
+		<li class='22'>22</li>
+	</ul>
 </body>
 <script type="text/javascript">
-	function getElems(selector,d){
-		var arr=[];
-		var se=selector.match(/(\s+|>)|#[\w-]+|.[\w-]+/g);
-		//按id获取元素
-			if(selector.indexof('#')){
-				arr[0]=d.getElementById(selector.replace("#",""));
-				return arr;
-			}
-			//按标签名获取元素
-			/^!?[A-z]+[1-6]?$|^\*$/.test(selector)&&(
-				this.elems=origin.getElementsByTagName(selector)
-			);
-			//按class获取元素
-			if(/^([A-z]+[1-6]?)?\.[^\s]+$/.test(selector)){
-				var selArr=selector.match(/^([A-z]+[1-6]?)|\.|[^\s\.]+$/g);
-				var tags,reg;
-				if(selArr.length==3){
-					tags=origin.getElementsByTagName(selArr[0]);
-					reg=Docms.regOfIndStr(selArr[2]);
-					for(var i=0;i<tags.length;i++){
-						reg.test(tags[i].className)&&(this.elems.push(tags[i]));
+	Docms.query=function(selector,par){
+		par=par||document;
+		var elems,
+			selArr=selector.match(/\s+|>|[^\s>]+/g),
+			isLink=false,
+			pars=[par];
+		if(selArr.length){
+			for(var i=0,arr;i<selArr.length;i++){
+				elems=[];
+				if(selArr[i].trim()){
+					if(selArr[i]=='>'){
+						isLink=true;
+						continue;
 					}
-				}else if(selArr.length==2){
-					if(d.getElementsByClassName){
-						this.elems=origin.getElementsByClassName(selArr[1]);
+					//如果两个标签间有>,获取每个元素的子元素
+					if(isLink){
+						for(var n=0;n<pars.length;n++){
+							arr=pars[n].children;
+							if(arr.length){
+								elems=elems.concat(Docms.arrConvert(arr));
+							}
+						}
+						//根据选择器筛选全部子元素
+						console.log(i+":"+elems);
+						pars=Docms.elemsFilter(elems,selArr[i]);
 					}else{
-						tags=origin.getElementsByTagName("*"),
-							reg=Docms.regOfIndStr(selArr[1]);
-						for(var i=0;i<tags.length;i++){
-							reg.test(tags[i].className)&&(this.elems.push(tags[i]));
+						//如果两个标签间是空格,获取每个元素所有后代元素
+						for(var n=0;n<pars.length;n++){
+						//使用单个子选择器获取元素
+							arr=Docms.getOne(selArr[i],pars[n]);
+							arr.length&&(elems=elems.concat(arr));
+						}
+						pars=elems;
+					}
+					
+					
+				}else{
+					isLink=false;
+				}
+			}
+			if(pars.length&&pars[0]!=par){
+				//元素数组去重
+				elems=[pars[0]];
+				for(var i=1,bool;i<pars.length;i++){
+					bool=!0;
+					for(var j=0;j<elems.length;j++){
+						if(pars[i]==elems[j]){
+							bool=!1;
+							break;
+						}
+					}
+					bool&&(elems.push(pars[i]));
+				}
+				return elems;
+			}else{
+				return [];
+			}
+		}
+	}
+	Docms.getOne=function(exp,par){
+		par=par||document;
+		//如果传入的元素数组和筛选条件不为空
+		if(typeof(exp)=="string"&&exp){
+			//按类型格式化筛选条件
+			var result=Docms.formatSelector(exp), _temp=[];
+			//如果筛选条件是id,只需查询一次
+			if(result.type=='id'){
+				_temp.push(par.getElementById(result.n));
+				return _temp;
+			}
+			//如果是单标签
+			if(result.type=='tag'){
+				_temp=par.getElementsByTagName(result.t);
+				if(_temp.length){
+					return Docms.arrConvert(_temp);
+				}
+			}
+			//如果是类选择器,则生成对应的查询正则表达式
+			if(result.type=='class'){
+				var reg=Docms.regOfIndStr(result.n);
+				//如果按class获取有效
+				if(par.getElementsByClassName){
+					var tags=par.getElementsByClassName(result.n);
+					if(tags.length){
+						if(result.t){
+							for(var i=0;i<tags.length;i++){
+								tags[i].nodeName==result.t&&(_temp.push(tags[i]));
+							}
+						}else{
+							_temp=Docms.arrConvert(tags);
+						}
+					}
+				}else{
+					var tags=par.getElementsByTagName("*");
+					for(var i=0;i<tags.length;i++){
+						
+						if(result.t){
+							reg.test(tags[i].className)&&tags[i].nodeName==result.t&&(_temp.push(tags[i]));
+						}else{
+							reg.test(tags[i].className)&&(_temp.push(tags[i]));
 						}
 					}
 				}
 			}
+			return _temp;
+		}else{
+			console.info("Docms tips:getOne() 参数格式不对");
+			return [];
+		}
 	}
 </script>
 </html>

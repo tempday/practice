@@ -184,7 +184,7 @@ div.topBar{
 	.onLine{
 		position: relative;
 	}
-	li.offline{
+	li.offLine{
 		display: none;
 	}
 	//退出登录
@@ -201,11 +201,13 @@ div.topBar{
 		background-color: #fff;
 		filter:progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')@ie7-10;
 		a{
+			position: relative;
 			display: block;
 			width: 100%;
 			height: 25px;
 			line-height: 25px;
 			color: @clr-font-75;
+			z-index: 50;
 			&:hover{
 				color: @clr-org;
 			}

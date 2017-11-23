@@ -1,12 +1,12 @@
 /**
  * Created by lglong519 on 2017-11-18.
  */
-
++function(){
 //获取模板
 var templet={};
 getTemplet();
 //设置登录状态
-isOnline();
+validFuns.isOnline();
 //获取模板函数
 function getTemplet(){
 	DM.ajax({
@@ -49,29 +49,27 @@ function setRecList() {
 function attachEvents(){
 
 	//全选和全不选
-	DM('#selectAll')[0].onclick=function(){
+	DM('#selectAll').on('click',function(){
 		if(/check/i.test(this.className)){
 			DM('.select').all('b').removeClass('check');
 		}else{
 			DM('.select').all('b').addClass('check');
 		}
 		account();
-	};
+	});
 	//单选
-	DM('#shopList').all('b').each(function(){
-		this.onclick=function(){
-			if(/check/i.test(this.className)){
-				this.className='';
-			}else{
-				this.className='check';
-			}
-			checkIsAll();
-			account();
+	DM('#shopList b').on('click',function(){
+		if(/check/i.test(this.className)){
+			this.className='';
+		}else{
+			this.className='check';
 		}
+		checkIsAll();
+		account();
 	});
 
 	//数量+1和-1
-	DM('.num','#shopList').each(function(i){
+	DM('#shopList .num').each(function(){
 		this.onclick=function(){
 			var src=DM.getEventSrc(1);
 			if(src.nodeName=='A'){
@@ -104,7 +102,7 @@ function attachEvents(){
 //合计总价
 function account(){
 	var n=0,sum=0,trNum=0,data='',p;
-	DM('#shopList').all('tr').each(function(i,tr){
+	DM('#shopList>tr').each(function(i,tr){
 		trNum++;
 		//小计=单价x数量
 		var price=parseFloat(DM('.price',tr).html()),
@@ -173,16 +171,12 @@ function checkTable(){
 }
 //推荐列表点击事件,添加购物车
 function addToCart(){
-	DM('#recShops').all('li').addEvent('click',function(){
-		var data={}, src=DM.getEventSrc(1),li=src;
-		while(li.nodeName!='LI'){
-			li=li.parentNode;
-		}
-		//console.log(li);
-		data.pid=li.getAttribute('data-pid');
-		data.pic=li.children[0].src;
-		data.pname=DM('h4',li).html();
-		data.price=parseFloat(DM('span',li).html());
+	DM('#recShops>li').on('click',function(){
+		var data={}, src=DM.getEventSrc(1);
+		data.pid=this.getAttribute('data-pid');
+		data.pic=this.children[0].src;
+		data.pname=DM('h4',this).html();
+		data.price=parseFloat(DM('span',this).html());
 		data.pnum=1;
 		var trs=DM('#shopList').html();
 		if(/addToCart/.test(src.className)){
@@ -202,10 +196,10 @@ function addToCart(){
 				DM('#shopList').html(trs+tr);
 			}
 			//提示添加成功,并在1秒后自动隐藏
-			DM('.tips',li).addClass('display');
+			DM('.tips',this).addClass('display');
 			setTimeout(function(){
-				DM('.tips',li).removeClass('display');
-			}.bind(li),1300);
+				DM('.tips',this).removeClass('display');
+			}.bind(this),1300);
 
 			//添加购物车后重新计算商品总价
 			account();
@@ -217,13 +211,12 @@ function addToCart(){
 	});
 }
 
-//fetchInfo();
+
 //根据cookie初始化购物车函数
 function initCart(){
 	//读取cookie
-	var ck=getCookie()||getSession();
+	var ck=validFuns.getStorage(1)||validFuns.getStorage(0);
 	if(ck){
-		//console.log("228:"+ck[1]);
 		//购物车列表
 		for(var i=1,reg,trs='',tr;i<ck.length;i++){
 			tr=templet.tr;
@@ -245,60 +238,8 @@ function initCart(){
 	account();
 	//给新列表设置点击事件
 	attachEvents();
-	//ss=sessionStorage.getItem(user),
-	//ls=localStorage.getItem('temporaryUser'),
 }
 
-//判断登录状态函数
-function isOnline(){
-	var ck=getCookie();
-	if(ck&&ck[0].username!='_temporaty'){
-		DM('#user').html(ck[0].username);
-		DM('.onLine').removeClass('offLine');
-		DM('.nav-info').addClass('offLine');
-		DM('#login').css('display','none');
-		return !0;
-	}else{
-		DM('#user').html("");
-		DM('.onLine').addClass('offLine');
-		DM('.nav-info').removeClass('offLine');
-		DM('#login').css('display','block');
-		return !1;
-	}
-}
-//获取cookie函数
-function getCookie(){
-	//读取cookie
-	var ck=DM.cookie('mCart_userInfo');
-	//console.log('275:'+ck);
-	//如果ck内容不为空,则读取用户名
-	if(ck) {
-		try {
-			ck = eval(ck);
-		} catch (e) {
-			ck = [];
-		}
-	}else{
-		ck = [];
-	}
-	//只返回用户名有效的数组,否则返回空数组
-	return ck.length>0&&ck[0].username?ck:!1;
-}
-//获取本地储存数据
-function getSession(){
-	var ls=localStorage.getItem('mCart_userInfo');
-	//如果ls内容不为空,则读取商品数据
-	if(ls) {
-		try {
-			ls = eval(ls);
-		} catch (e) {
-			ls = [];
-		}
-	}else{
-		ls = [];
-	}
-	return ls.length>0&&ls[0].username?ls:!1;
-}
 //其他----------------------------------------------------------------
 DM('#logout').addEvent('click',function(){
 	//清除cookie
@@ -306,7 +247,7 @@ DM('#logout').addEvent('click',function(){
 	//清除localStorage
 	localStorage.setItem('mCart_userInfo','');
 	//设置登录的状态(根据cookie判断)
-	isOnline();
+	validFuns.isOnline();
 	//再次初始化购物车
 	initCart();
 	//重新判断购物车的状态(显示购物车 或 显示空提示)
@@ -328,3 +269,4 @@ DM('.cancel','.confirm')[0].onclick=DM('.mask','.confirm')[0].onclick=DM('.close
 	DM('.confirm').removeClass('display');
 	return !1;
 };
+}();

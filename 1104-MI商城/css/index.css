@@ -137,7 +137,7 @@ div.topBar .onLine:hover b {
 div.topBar .onLine {
   position: relative;
 }
-div.topBar li.offline {
+div.topBar li.offLine {
   display: none;
 }
 div.topBar div.logout {
@@ -155,11 +155,13 @@ div.topBar div.logout {
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000') \9;
 }
 div.topBar div.logout a {
+  position: relative;
   display: block;
   width: 100%;
   height: 25px;
   line-height: 25px;
   color: #757575;
+  z-index: 50;
 }
 div.topBar div.logout a:hover {
   color: #ff6700;

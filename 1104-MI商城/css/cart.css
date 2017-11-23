@@ -140,11 +140,13 @@ ol {
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000') \9;
 }
 .header ul div.logout a {
+  position: relative;
   display: block;
   width: 100%;
   height: 25px;
   line-height: 25px;
   color: #757575;
+  z-index: 50;
 }
 .header ul div.logout a:hover {
   color: #ff6700;
@@ -367,6 +369,9 @@ ol {
   float: left;
   width: 9%;
   color: #757575;
+}
+.main .counter a.toShop:hover {
+  color: #ff6700;
 }
 .main .counter p {
   float: left;

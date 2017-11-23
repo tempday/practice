@@ -2,7 +2,7 @@
  * Created by lglong519 on 2017-11-04.
  */
 !function(){
-
+	validFuns.isOnline();
 //输入框下拉
 DM('#search')[0].onfocus=function(){
 	DM(this).sup().addClass("hover");
@@ -419,4 +419,13 @@ var jumpToTop={
 	}
 };
 jumpToTop.init("toTop");
+	//退出登录
+	DM('#logout').addEvent('click',function(){
+		//清除cookie
+		DM.cookie('mCart_userInfo','','s1');
+		//清除localStorage
+		localStorage.setItem('mCart_userInfo','');
+		//设置登录的状态(根据cookie判断)
+		validFuns.isOnline();
+	});
 }();

@@ -108,11 +108,13 @@
 			//ie7/8 box-shadow
 			filter:progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')@ie7-10;
 			a{
+				position: relative;
 				display: block;
 				width: 100%;
 				height: 25px;
 				line-height: 25px;
 				color: @clr-font-75;;
+				z-index: 50;
 				&:hover{
 					color: @clr-org;
 				}
@@ -352,7 +354,9 @@
 			float: left;
 			width: 9%;
 			color: @clr-font-75;
-
+			&:hover{
+				color:@clr-org;
+			}
 		}
 		p{
 			float: left;
