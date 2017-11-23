@@ -93,14 +93,18 @@ INSERT INTO m_products(id,pid,pic,pname,price,people) VALUES
 CREATE TABLE m_user(
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(16),
-    pwd VARCHAR(16)
+    pwd VARCHAR(16),
+    ptime datetime,
+    pip VARCHAR(16)
 );
 CREATE TABLE m_user_order(
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(16),
     pnum INT,
     pid VARCHAR(16),
-    state INT
+    state INT,
+    ptime datetime,
+    pip VARCHAR(16)
 );
 
 INSERT INTO m_user(id,user_name,pwd) VALUES

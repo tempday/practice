@@ -104,7 +104,7 @@ function attachEvents(){
 //合计总价
 function account(){
 	var n=0,sum=0,trNum=0,data='',p;
-	DM('.shopList').all('tr').each(function(i,tr){
+	DM('#shopList').all('tr').each(function(i,tr){
 		trNum++;
 		//小计=单价x数量
 		var price=parseFloat(DM('.price',tr).html()),
@@ -132,6 +132,7 @@ function account(){
 	data=data.replace(/},$/,"}");
 	var user=DM('#user').html()||'_temporaty';
 	data='[{"username":"'+user+'"},'+data+']';
+	//console.log('135data:'+data);
 	DM.cookie('mCart_userInfo',data);
 	if(DM('#user').html()){
 		Docms.ajax({
@@ -145,10 +146,14 @@ function account(){
 	}else{
 		localStorage.setItem('mCart_userInfo',data);
 	}
+	//ie7 要手动更新样式
+	if(/msie\s*7\.0/i.test(navigator.userAgent)){
+		DM('#recShops').css('display','none').css('display','block');
+	}
 }
 //检测是否全选
 function checkIsAll(){
-	var bs=DM('.shopList').all('b').elems,isAll=true;
+	var bs=DM('#shopList').all('b').elems,isAll=true;
 	for(var i=0;i<bs.length;bs[i++].className!='check'&&(isAll=false));
 	isAll?DM('#selectAll').addClass('check'): DM('#selectAll').removeClass('check');
 }
@@ -183,16 +188,17 @@ function addToCart(){
 		if(/addToCart/.test(src.className)){
 			var tr=templet.tr,
 					str='data-pid="'+data.pid+'"';
-			console.log(str);
+			//console.log(str);
 			if(trs.indexOf(str)!=-1){//ie7判断失败
 				var ipt=DM('#shopList').getByAttr('data-pid',data.pid).all('input');
-				console.log(ipt.val());
+				//console.log(ipt.val());
 				ipt.val(ipt.val()*1+1);
 			}else{
 				for(var k in data){
 					reg=new RegExp('\\$\\{'+k+'\\}','gm');
 					tr=tr.replace(reg,data[k]);
 				}
+				//console.log(trs+tr);
 				DM('#shopList').html(trs+tr);
 			}
 			//提示添加成功,并在1秒后自动隐藏
@@ -208,7 +214,6 @@ function addToCart(){
 			//给新列表设置点击事件
 			attachEvents();
 		}
-		//?刷新购物车列表,将信息发送后台,将信息写入cookie
 	});
 }
 
@@ -218,6 +223,7 @@ function initCart(){
 	//读取cookie
 	var ck=getCookie()||getSession();
 	if(ck){
+		//console.log("228:"+ck[1]);
 		//购物车列表
 		for(var i=1,reg,trs='',tr;i<ck.length;i++){
 			tr=templet.tr;
@@ -226,7 +232,8 @@ function initCart(){
 				reg=new RegExp('\\$\\{'+k+'\\}','gm');
 				tr=tr.replace(reg,ck[i][k]);
 			}
-			trs+=tr;
+			tr!=templet.tr&&(trs+=tr);
+			//console.log('238:'+trs);
 		}
 		DM('#shopList').html(trs);
 	}else{
@@ -250,18 +257,20 @@ function isOnline(){
 		DM('.onLine').removeClass('offLine');
 		DM('.nav-info').addClass('offLine');
 		DM('#login').css('display','none');
-
+		return !0;
 	}else{
 		DM('#user').html("");
 		DM('.onLine').addClass('offLine');
 		DM('.nav-info').removeClass('offLine');
-		DM('#login').css('display','block')
+		DM('#login').css('display','block');
+		return !1;
 	}
 }
 //获取cookie函数
 function getCookie(){
 	//读取cookie
 	var ck=DM.cookie('mCart_userInfo');
+	//console.log('275:'+ck);
 	//如果ck内容不为空,则读取用户名
 	if(ck) {
 		try {
@@ -294,10 +303,10 @@ function getSession(){
 DM('#logout').addEvent('click',function(){
 	//清除cookie
 	DM.cookie('mCart_userInfo','','s1');
-	//设置登录的状态(根据cookie判断)
-	isOnline();
 	//清除localStorage
 	localStorage.setItem('mCart_userInfo','');
+	//设置登录的状态(根据cookie判断)
+	isOnline();
 	//再次初始化购物车
 	initCart();
 	//重新判断购物车的状态(显示购物车 或 显示空提示)

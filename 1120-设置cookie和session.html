@@ -21,7 +21,7 @@
 	var ck="username=;pid=123&pic=&pname=&price=&num=;pid=123&pic=&pname=&price=&num="
 	//document.cookie=encodeURIComponent('userInfo='+data);
 	//DM.cookie('userInfo',data);
-	sessionStorage.setItem('mycart_userInfo',ck);
+	//sessionStorage.setItem('mycart_userInfo',ck);
 	DM.ajax({
 		url:'data/1121.php',
 		type:'get',
@@ -36,5 +36,10 @@
 
 	//localStorage.setItem('mCart_userInfo','[{"username":"lglong"},{"pid":"001","pic":"","pname":"max2 超大屏","price":"1499","pnum":"2","people":"564"}]');
 	//SELECT p.pid, p.pic, p.pname, p.price, u.pnum from m_products as p,m_user_order as u WHERE u.user_name=456 and u.pid=p.pid and u.state=1
+
+	//localStorage.setItem('mCart_userInfo','')
+	//localStorage.getItem('mCart_userInfo')
+	DM.cookie()
+	
 </script>
 </html>

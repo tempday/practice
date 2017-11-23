@@ -23,7 +23,8 @@
 		} 
 		return $ip; 
 	}
-	@$reIP=getIP().'<br>'.date('Y-m-d H:i:s',time()); 
+	date_default_timezone_set('Asia/Shanghai');
+	@$reIP=getIP().'<br>'.date('Y-m-d H:i:s'); 
 	echo $reIP;
 	$arrStr = explode('.',$reIP);
 	echo '<br>';

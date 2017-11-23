@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>New Document</title>
+	<meta name="generator" content="EverEdit" />
+	<meta name="author" content="lglong519" />
+	<meta name="keywords" content="9527" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href=""/>
+	<script src="http://192.168.3.200/Components/Docms.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function getElems(selector,d){
+		var arr=[];
+		var se=selector.match(/(\s+|>)|#[\w-]+|.[\w-]+/g);
+		//按id获取元素
+			if(selector.indexof('#')){
+				arr[0]=d.getElementById(selector.replace("#",""));
+				return arr;
+			}
+			//按标签名获取元素
+			/^!?[A-z]+[1-6]?$|^\*$/.test(selector)&&(
+				this.elems=origin.getElementsByTagName(selector)
+			);
+			//按class获取元素
+			if(/^([A-z]+[1-6]?)?\.[^\s]+$/.test(selector)){
+				var selArr=selector.match(/^([A-z]+[1-6]?)|\.|[^\s\.]+$/g);
+				var tags,reg;
+				if(selArr.length==3){
+					tags=origin.getElementsByTagName(selArr[0]);
+					reg=Docms.regOfIndStr(selArr[2]);
+					for(var i=0;i<tags.length;i++){
+						reg.test(tags[i].className)&&(this.elems.push(tags[i]));
+					}
+				}else if(selArr.length==2){
+					if(d.getElementsByClassName){
+						this.elems=origin.getElementsByClassName(selArr[1]);
+					}else{
+						tags=origin.getElementsByTagName("*"),
+							reg=Docms.regOfIndStr(selArr[1]);
+						for(var i=0;i<tags.length;i++){
+							reg.test(tags[i].className)&&(this.elems.push(tags[i]));
+						}
+					}
+				}
+			}
+	}
+</script>
+</html>
