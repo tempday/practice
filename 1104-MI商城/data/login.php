@@ -5,9 +5,9 @@
 	date_default_timezone_set('Asia/Shanghai');
 	$ptime=date("Y-m-d H:i:s");
     @$reIP=getIP();
-	//$conn=mysqli_connect('127.0.0.1','lglong519','123','myCart');
+	$conn=mysqli_connect('127.0.0.1','lglong519','123','myCart');
 	//$conn = mysql_connect(SAE_MYSQL_HOST_M.':'.SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);
-	$conn = mysqli_connect(SAE_MYSQL_HOST_M, SAE_MYSQL_USER, SAE_MYSQL_PASS,  SAE_MYSQL_DB, SAE_MYSQL_PORT);
+	//$conn = mysqli_connect(SAE_MYSQL_HOST_M, SAE_MYSQL_USER, SAE_MYSQL_PASS,  SAE_MYSQL_DB, SAE_MYSQL_PORT);
     //设置中文编码
     $sql='SET NAMES UTF8';
     mysqli_query($conn,$sql);
@@ -17,6 +17,8 @@
 	//验证通过后,将localStorage 更新到用户信息
 	if ( $row=mysqli_fetch_assoc($result) ) //如果成功验证
 	{
+		$sql="INSERT INTO m_user_online(id,user_name,ptime,pip) VALUES (NULL,'$user','$ptime','$reIP')";
+        mysqli_query($conn,$sql);
 		if($json!=''){
         	$data=json_decode($json);
        		for($i=1;$i<count($data);$i++){
@@ -27,7 +29,7 @@
         		$check=mysqli_query($conn,$sql);
         		if ( $ckRow=mysqli_fetch_assoc($check) ){
         			//如果已经存在就更新商品的数量
-                	$sql="update m_user_order set pnum=pnum+'$pnum' where user_name='$user' and pid='$pid' and state=1";
+                	$sql="update m_user_order set pnum=pnum+'$pnum',ptime='$ptime',pip='$reIP' where user_name='$user' and pid='$pid' and state=1";
                 	mysqli_query($conn,$sql);
                 }else{
                 	//如果不存在就添加更新商品

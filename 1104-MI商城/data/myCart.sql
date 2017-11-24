@@ -106,6 +106,12 @@ CREATE TABLE m_user_order(
     ptime datetime,
     pip VARCHAR(16)
 );
+CREATE TABLE m_user_online(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(16),
+    ptime datetime,
+    pip VARCHAR(16)
+);
 
 INSERT INTO m_user(id,user_name,pwd) VALUES
 (NULL,'123','123456'),

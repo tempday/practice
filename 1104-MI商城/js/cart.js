@@ -101,6 +101,7 @@ function attachEvents(){
 
 //合计总价
 function account(){
+	//n:商品种类,sum:价钱合计
 	var n=0,sum=0,trNum=0,data='',p;
 	DM('#shopList>tr').each(function(i,tr){
 		trNum++;
@@ -130,19 +131,25 @@ function account(){
 	data=data.replace(/},$/,"}");
 	var user=DM('#user').html()||'_temporaty';
 	data='[{"username":"'+user+'"},'+data+']';
-	//console.log('135data:'+data);
-	DM.cookie('mCart_userInfo',data);
-	if(DM('#user').html()){
-		Docms.ajax({
-			type:'post',
-			url:'data/upDateInfo.php',
-			data:{'json':data},
-			success:function(data){
-				console.log(data);
-			}
-		});
-	}else{
-		localStorage.setItem('mCart_userInfo',data);
+	//console.log('d:'+data.replace(/pic(.*?)(?=(pnum))/g,''));
+	//console.log('o:'+DM.cookie('mCart_userInfo').replace(/pic(.*?)(?=(pnum))/g,''));
+	if(data.replace(/pic(.*?)(?=(pnum))/g,'')!=DM.cookie('mCart_userInfo').replace(/pic(.*?)(?=(pnum))/g,'')){
+		DM.cookie('mCart_userInfo',data);
+		if(DM('#user').html()){
+			//如果缺少用户数据不发送请求
+				if(/pid/i.test(data)){
+					Docms.ajax({
+						type:'post',
+						url:'data/upDateInfo.php',
+						data:{'json':data},
+						success:function(data){
+							console.log(data);
+						}
+					});
+				}
+		}else{
+			localStorage.setItem('mCart_userInfo',data);
+		}
 	}
 	//ie7 要手动更新样式
 	if(/msie\s*7\.0/i.test(navigator.userAgent)){

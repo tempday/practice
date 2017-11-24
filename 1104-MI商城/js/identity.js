@@ -22,7 +22,7 @@
 				var arg=arguments;
 				if(!a.length){
 					setTimeout(function(){
-						console.log(a.length);
+						//console.log(a.length);
 						arg.callee();
 					},100);
 				}else{
@@ -81,8 +81,11 @@
 					'json':data
 				},
 				success:function(data){
-					if(/pid/i.test(data)){
-						var str='[{"username":"'+user+'"},'+data.slice(1);
+					if(data){
+						var str='[{"username":"'+user+'"},';
+						(/pid/i.test(data))?
+							str+=data.slice(1):
+							str+=']';
 						DM.cookie('mCart_userInfo',str);
 						DM('#error').removeClass('display');
 						localStorage.setItem('mCart_userInfo','');
