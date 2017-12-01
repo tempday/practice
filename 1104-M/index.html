@@ -1,0 +1,3529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="robots" content="noindex, nofollow">
+	<!-- saved from url=(0014)about:internet -->
+	<title>小m商城</title>
+	<link rel="icon" href="img/logo.png">
+	<link rel="stylesheet" href="css/index.css">
+	<!--[if lte ie 8]>
+	<style>
+		.focusPic li,.video b{behavior: url(ie-css3.htc);z-index:100;}
+		.videosBox .objMedia{display:block;}
+	</style>
+	<![endif]-->
+</head>
+<body>
+	<!--1.顶部工具栏-->
+	<div class="topBar">
+		<div class="container">
+			<ul>
+				<li><a href="#">小M商城</a></li>
+				<li>|</li>
+				<li><a href="#">MMUI</a></li>
+				<li>|</li>
+				<li><a href="#">M聊</a></li>
+				<li>|</li>
+				<li><a href="#">游戏</a></li>
+				<li>|</li>
+				<li><a href="#">M阅读</a></li>
+				<li>|</li>
+				<li><a href="#">M服务</a></li>
+				<li>|</li>
+				<li><a href="#">M金融</a></li>
+				<li>|</li>
+				<li><a href="#">M币</a></li>
+				<li>|</li>
+				<li><a href="#">小M商城手机版</a></li>
+				<li>|</li>
+				<li><a href="#">问题反馈</a></li>
+				<li>|</li>
+				<li><a href="#">Select Region</a></li>
+			</ul>
+			<div class="cart">
+				<a href="cart.html" class="empty"><b></b>购物车（<span id="cart_item_count">0</span>）</a>
+				<div class="subCart">
+					<p>购物车中还没有商品，赶紧选购吧！</p>
+				</div>
+			</div>
+			<ol>
+				<li class="nav-info"><a href="login.html">登录</a></li>
+				<li class="nav-info">|</li>
+				<li class="nav-info"><a href="register.html">注册</a></li>
+				<li class="nav-info">|</li>
+				<li class="onLine offline"><span class="user" id="user"></span><b></b>
+					<div class="logout"><a href="#" id="logout">退出登录</a></div>
+				</li>
+				<li class="offline">|</li>
+				<li><a href="#">消息通知</a></li>
+			</ol>
+
+		</div>
+	</div>
+	<!--2.导航栏-->
+	<div class="navBar">
+		<div class="container">
+			<div class="logo"><a href="index.html"><img src="img/logo.png" alt=""></a></div>
+			<ul class="navList" id="navList">
+				<li class="category"><a href="#">全部商品分类</a></li>
+				<li data-item-i="1"><a href="#">小米手机</a></li>
+				<li data-item-i="2"><a href="#">红米</a></li>
+				<li data-item-i="3"><a href="#">笔记本</a></li>
+				<li data-item-i="4"><a href="#">电视</a></li>
+				<li data-item-i="5"><a href="#">盒子</a></li>
+				<li><a href="#">新品</a></li>
+				<li data-item-i="6"><a href="#">路由器</a></li>
+				<li data-item-i="7"><a href="#">智能硬件</a></li>
+				<li><a href="#">服务</a></li>
+				<li><a href="#">社区</a></li>
+			</ul>
+			<!--搜索框-->
+			<div class="nav-search">
+				<form action="" class="form-hover">
+					<label for="search" hidden></label>
+					<input type="text" id="search">
+						<!--<b class="fa fa-search"></b>-->
+					<button type="submit" id="searchBtn"></button>
+					<ul class="keywords" id="keywords">
+						<li>
+							<a href="#">
+								小米6
+								<span>约有7件</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								小米MIX 2
+								<span>约有17件</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								手环
+								<span>约有33件</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								耳机
+								<span>约有6件</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								充电宝
+								<span>约有19件</span>
+							</a>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		<!--下拉列表-->
+		<div class="nav-dropdown" id="navDropdown">
+			<div class="container">
+				<ul class="nav-item current">
+					<li class="first">
+						<div class="flag"><span>新品</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/01.png" alt=""></a>
+						<div class="shopName"><a href="#">小米MIX 2</a></div>
+						<p class="price">3299起</p>
+					</li>
+					<li>
+						<div class="flag"><span>新品</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/02.png" alt=""></a>
+						<div class="shopName"><a href="#">小米note 3</a></div>
+						<p class="price">2199起</p>
+					</li>
+					<li>
+						<div class="flag"><span>陶瓷版现货</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/03.jpg" alt=""></a>
+						<div class="shopName"><a href="#">小米6</a></div>
+						<p class="price">2499起</p>
+					</li>
+					<li>
+						<div class="flag"><span>享多重优惠</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/04.png" alt=""></a>
+						<div class="shopName"><a href="#">小米MAX 2</a></div>
+						<p class="price">1399起</p>
+					</li>
+					<li>
+						<!--<div class="flag"><span></span></div>-->
+						<a href="#" class="shopPic"><img src="img/nav/05.png" alt=""></a>
+						<div class="shopName"><a href="#">小米5x</a></div>
+						<p class="price">1499起</p>
+					</li>
+					<li>
+						<!--<div class="flag"><span></span></div>-->
+						<a href="#" class="shopPic"><img src="img/nav/06.png" alt=""></a>
+						<div class="shopName"><a href="#">小米note2</a></div>
+						<p class="price">2799起</p>
+					</li>
+
+				</ul>
+				<ul class="nav-item">
+					<li class="first">
+						<div class="flag"><span>新品</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/07.png" alt=""></a>
+						<div class="shopName"><a href="#">红米5A</a></div>
+						<p class="price">599 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>新品</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/08.jpg" alt=""></a>
+						<div class="shopName"><a href="#">红米note 5A</a></div>
+						<p class="price">699 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>新品</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/09.png" alt=""></a>
+						<div class="shopName"><a href="#">红米note 5A 高配版</a></div>
+						<p class="price">899 元起</p>
+					</li>
+					<li>
+						<!--<div class="flag"><span>新品</span></div>-->
+						<a href="#" class="shopPic"><img src="img/nav/10.jpg" alt=""></a>
+						<div class="shopName"><a href="#">红米note 4x</a></div>
+						<p class="price">999 元起</p>
+					</li>
+					<li>
+						<!--<div class="flag"><span></span></div>-->
+						<a href="#" class="shopPic"><img src="img/nav/11.jpg" alt=""></a>
+						<div class="shopName"><a href="#">红米4x</a></div>
+						<p class="price">699 元起</p>
+					</li>
+
+
+				</ul>
+				<ul class="nav-item">
+					<li class="first">
+						<a href="#" class="shopPic"><img src="img/nav/13.jpg" alt=""></a>
+						<div class="shopName"><a href="#">红米5A</a></div>
+						<p class="price">小米笔记本Air 12.5"</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/13.jpg" alt=""></a>
+						<div class="shopName"><a href="#">小米笔记本Air 13.3" 独显</a></div>
+						<p class="price">5199 元</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/13.jpg" alt=""></a>
+						<div class="shopName"><a href="#">小米笔记本Air 13.3" 集显</a></div>
+						<p class="price">4799 元起</p>
+					</li>
+					<li>
+						<div class="flag"><span>新品</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/14.png" alt=""></a>
+						<div class="shopName"><a href="#">小米笔记本Pro 15.6</a></div>
+						<p class="price">5599 元起</p>
+					</li>
+
+				</ul>
+				<ul class="nav-item">
+					<li class="first">
+						<div class="flag"><span>超薄旗舰</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/15.png" alt=""></a>
+						<div class="shopName"><a href="#">小米电视4 55英寸</a></div>
+						<p class="price">3699 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>超薄旗舰</span></div>
+
+						<a href="#" class="shopPic"><img src="img/nav/16.png" alt=""></a>
+						<div class="shopName"><a href="#">小米电视4 65英寸</a></div>
+						<p class="price">8999 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>热卖</span></div>
+
+						<a href="#" class="shopPic"><img src="img/nav/17.png" alt=""></a>
+						<div class="shopName"><a href="#">小米电视4A 32英寸</a></div>
+						<p class="price">949 元起</p>
+					</li>
+					<li>
+						<div class="flag"><span>热卖</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/18.png" alt=""></a>
+						<div class="shopName"><a href="#">小米电视4A 43英寸</a></div>
+						<p class="price">1799 元起</p>
+					</li>
+					<li>
+						<div class="flag"><span>热卖</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/19.png" alt=""></a>
+						<div class="shopName"><a href="#">小米电视4A 49英寸</a></div>
+						<p class="price">1999 元起</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/20.png" alt=""></a>
+						<div class="shopName"><a href="#">查看全部<br/>小米电视</a></div>
+					</li>
+
+				</ul>
+				<ul class="nav-item">
+					<li class="first">
+						<a href="#" class="shopPic"><img src="img/nav/21.png" alt=""></a>
+						<div class="shopName"><a href="#">小米盒子3s
+						</a></div>
+						<p class="price">329 元</p>
+					</li>
+
+					<li>
+
+						<a href="#" class="shopPic"><img src="img/nav/21.png" alt=""></a>
+						<div class="shopName"><a href="#">小米盒子3c
+						</a></div>
+						<p class="price">229 元起</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/22.jpg" alt=""></a>
+						<div class="shopName"><a href="#">小米盒子3 增强版
+						</a></div>
+						<p class="price">399 元起</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/23.png" alt=""></a>
+						<div class="shopName"><a href="#">小米家庭影院
+						</a></div>
+						<p class="price">1999 元起</p>
+					</li>
+
+
+				</ul>
+				<ul class="nav-item">
+					<li class="first">
+						<div class="flag"><span>新品</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/26.png" alt=""></a>
+						<div class="shopName"><a href="#">小米路由器 3A</a></div>
+						<p class="price">139 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>大容量</span></div>
+
+						<a href="#" class="shopPic"><img src="img/nav/24.png" alt=""></a>
+						<div class="shopName"><a href="#">小米路由器 HD/Pro</a></div>
+						<p class="price">499 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>双千兆</span></div>
+
+						<a href="#" class="shopPic"><img src="img/nav/25.png" alt=""></a>
+						<div class="shopName"><a href="#">小米路由器 3G</a></div>
+						<p class="price">249 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>双频</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/26.png" alt=""></a>
+						<div class="shopName"><a href="#">小米路由器 3</a></div>
+						<p class="price">149 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>包邮</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/26.png" alt=""></a>
+						<div class="shopName"><a href="#">小米路由器 3C</a></div>
+						<p class="price">99 元</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/27.jpg" alt=""></a>
+						<div class="shopName"><a href="#">小米WiFi放大器 2</a></div>
+						<p class="price">49 元</p>
+					</li>
+
+				</ul>
+				<ul class="nav-item">
+					<li class="first">
+						<div class="flag"><span>航拍利器</span></div>
+						<a href="#" class="shopPic"><img src="img/nav/28.jpg" alt=""></a>
+						<div class="shopName"><a href="#">小米无人机</a></div>
+						<p class="price">2999 元</p>
+					</li>
+					<li>
+						<div class="flag"><span>包邮</span></div>
+
+						<a href="#" class="shopPic"><img src="img/nav/29.png" alt=""></a>
+						<div class="shopName"><a href="#">小米手环2
+						</a></div>
+						<p class="price">149 元</p>
+					</li>
+					<li>
+
+						<a href="#" class="shopPic"><img src="img/nav/30.png" alt=""></a>
+						<div class="shopName"><a href="#">小米净水器</a></div>
+						<p class="price">1499 元</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/31.jpg" alt=""></a>
+						<div class="shopName"><a href="#">米家扫地机器人</a></div>
+						<p class="price">1699 元</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/32.jpg" alt=""></a>
+						<div class="shopName"><a href="#">米家压力IH电饭煲</a></div>
+						<p class="price">999 元</p>
+					</li>
+					<li>
+						<a href="#" class="shopPic"><img src="img/nav/33.jpg" alt=""></a>
+						<div class="shopName"><a href="#">查看全部<br/>智能硬件</a></div>
+					</li>
+
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<!--3.商品分类+广告-->
+	<div class="menuBar">
+		<div class="container">
+			<!--菜单-->
+			<div class="category">
+				<div class="mask"></div>
+				<ul class="cate_box">
+					<li>
+						手机 电话卡
+						<div class="sub_cate_box" data-item-col="3">
+							<ul class="sub_item_1">
+								<li>
+									<img src="img/cate-items/cate-items-1.png" alt="">
+									<span>小米Note 3</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-2.png" alt="">
+									<span>小米MIX 2</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-3.png" alt="">
+									<span>小米6</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-4.png" alt="">
+									<span>小米5X</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-5.png" alt="">
+									<span>小米Max 2</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-6.png" alt="">
+									<span>小米手机5c</span>
+									<a href="#">选购</a>
+								</li>
+							</ul>
+							<ul class="sub_item_2">
+								<li>
+									<img src="img/cate-items/cate-items-7.png" alt="">
+									<span>小米Note 2</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-8.png" alt="">
+									<span>小米5s</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-9.png" alt="">
+									<span>小米5s Plus</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-10.png" alt="">
+									<span>红米5A</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-11.png" alt="">
+									<span>红米Note 5A</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-12.png" alt="">
+									<span>红米Note 4X</span>
+									<a href="#">选购</a>
+								</li>
+							</ul>
+							<ul class="sub_item_3">
+								<li>
+									<img src="img/cate-items/cate-items-13.png" alt="">
+									<span>红米4X</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-14.png" alt="">
+									<span>红米4</span>
+									<a href="#">选购</a>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-15.png" alt="">
+									<span>移动4G+专区</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-18.png" alt="">
+									<span>对比手机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-16.png" alt="">
+									<span>米粉卡 日租卡</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-items-17.png" alt="">
+									<span>小米移动 电话卡</span>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>笔记本
+						<div class="sub_cate_box" data-item-col="3">
+							<ul class="sub_item_1">
+								<li>
+									<img src="img/cate-items/cate-2items-1.png" alt="">
+									<span>笔记本Air 12.5"</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-1.png" alt="">
+									<span>笔记本Air 13.3" 独显</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-1.png" alt="">
+									<span>笔记本Air 13.3" 集显</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-2.png" alt="">
+									<span>笔记本Pro 15.6"</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-3.png" alt="">
+									<span>USB-C电源适配器</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-7.png" alt="">
+									<span>USB-C转接器</span>
+								</li>
+
+							</ul>
+							<ul class="sub_item_2">
+								<li>
+									<img src="img/cate-items/cate-2items-8.png" alt="">
+									<span>VGA 千兆网口转接器</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-11.png" alt="">
+									<span>小米笔记本内胆包</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-4.png" alt="">
+									<span>悦米机械键盘</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-10.png" alt="">
+									<span>小米便携鼠标</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-6.png" alt="">
+									<span>小米无线鼠标</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-2items-5.png" alt="">
+									<span>鼠标垫</span>
+								</li>
+							</ul>
+							<ul class="sub_item_3">
+								<li>
+									<img src="img/cate-items/cate-2items-9.png" alt="">
+									<span>DisplayPort转接器</span>
+								</li>
+
+							</ul>
+						</div>
+					</li>
+					<li>电视 盒子
+						<div class="sub_cate_box" data-item-col="4">
+							<ul class="sub_item_1">
+								<li>
+									<img src="img/cate-items/cate-3items-1.png" alt="">
+									<span>小米电视4C 43英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-2.png" alt="">
+									<span>小米电视4C 55英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-3.png" alt="">
+									<span>小米电视4 49英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-4.png" alt="">
+									<span>小米电视4 55英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-5.png" alt="">
+									<span>小米电视4 65英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-6.png" alt="">
+									<span>小米电视4A 32英寸</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-3items-7.png" alt="">
+									<span>小米电视4A 43英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-8.png" alt="">
+									<span>小米电视4A 55英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-9.png" alt="">
+									<span>小米电视4A 49英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-10.png" alt="">
+									<span>小米电视4A 65英寸</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-11.png" alt="">
+									<span>小米电视3s 65英寸 曲面</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-14.png" alt="">
+									<span>小米盒子3s</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-3items-16.png" alt="">
+									<span>小米盒子3c</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-17.png" alt="">
+									<span>小米盒子3 增强版</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-15.png" alt="">
+									<span>家庭音响</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-19.png" alt="">
+									<span>安装服务</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-15.png" alt="">
+									<span>电视盒子配件</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-3items-18.png" alt="">
+									<span>小米影视会员</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-3items-20.png" alt="">
+									<span>小米儿童会员</span>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>路由器 智能硬件
+						<div class="sub_cate_box" data-item-col="4">
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-4items-16.png" alt="">
+									<span>九号平衡车</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-13.png" alt="">
+									<span>米家扫地机器人及配件</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-22.png" alt="">
+									<span>小米VR眼镜</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-15.png" alt="">
+									<span>小米路由器</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-4.png" alt="">
+									<span>电助力折叠自行车</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-18.png" alt="">
+									<span>电水壶</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-4items-5.png" alt="">
+									<span>米家车载空气净化器</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-7.png" alt="">
+									<span>手表</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-19.png" alt="">
+									<span>米家智能电饭煲</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-14.png" alt="">
+									<span>智能摄像机/相机/微单</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-12.png" alt="">
+									<span>净化器及滤芯</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-11.png" alt="">
+									<span>净水器及滤芯</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-4items-17.png" alt="">
+									<span>手环及配件</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-23.png" alt="">
+									<span>牙刷</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-2.png" alt="">
+									<span>智能灯</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-9.png" alt="">
+									<span>米兔智能故事机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-21.png" alt="">
+									<span>智能家庭组合</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-1.png" alt="">
+									<span>血压计</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-4items-13.png" alt="">
+									<span>体重秤 / 体脂秤</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-10.png" alt="">
+									<span>电动滑板车</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-20.png" alt="">
+									<span>小米无人机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-14.png" alt="">
+									<span>米家行车记录仪</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-8.png" alt="">
+									<span>小米米家对讲机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-4items-3.png" alt="">
+									<span>全部智能硬件</span>
+								</li>
+							</ul>
+						</div></li>
+					<li>移动电源 电池 插线板
+						<div class="sub_cate_box" data-item-col="2">
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-5items-1.png" alt="">
+									<span>小米移动电源</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-5items-2.png" alt="">
+									<span>插线板</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-5items-3.png" alt="">
+									<span>品牌移动电源</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-5items-4.png" alt="">
+									<span>移动电源附件</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-5items-5.png" alt="">
+									<span>充电器</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-5items-6.png" alt="">
+									<span>彩虹5号电池</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-5items-7.png" alt="">
+									<span>彩虹7号电池</span>
+								</li>
+							</ul>
+						</div></li>
+					<li>耳机 音箱
+						<div class="sub_cate_box" data-item-col="4">
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-6items-1.png" alt="">
+									<span>小米头戴式耳机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-2.png" alt="">
+									<span>头戴式耳机轻松版</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-3.png" alt="">
+									<span>小米降噪耳机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-4.png" alt="">
+									<span>小米圈铁耳机 Pro</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-5.png" alt="">
+									<span>小米圈铁耳机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-4.png" alt="">
+									<span>小米胶囊耳机</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-6items-7.png" alt="">
+									<span>小米活塞耳机清新版</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-8.png" alt="">
+									<span>小米蓝牙耳机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-9.png" alt="">
+									<span>小米运动蓝牙耳机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-10.png" alt="">
+									<span>小米运动蓝牙耳机mini</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-6.png" alt="">
+									<span>品牌耳机</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-11.png" alt="">
+									<span>小米网络音响</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-6items-12.png" alt="">
+									<span>小米蓝牙音箱</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-13.png" alt="">
+									<span>小米随身蓝牙音箱</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-14.png" alt="">
+									<span>小钢炮音箱2</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-15.png" alt="">
+									<span>小米方盒子蓝牙音箱2</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-11.png" alt="">
+									<span>小米音乐闹钟</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-19.png" alt="">
+									<span>小米米兔音箱</span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-6items-18.png" alt="">
+									<span>音乐蓝牙车充</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-16.png" alt="">
+									<span>小米蓝牙音频接收器</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-6items-17.png" alt="">
+									<span>小米AI音箱</span>
+								</li>
+
+							</ul>
+						</div>
+					</li>
+					<li>保护套 贴膜
+						<div class="sub_cate_box" data-item-col="1">
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-7items-1.png" alt="">
+									<span>贴膜</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-7items-2.png" alt="">
+									<span>保护套/保护壳</span>
+								</li>
+
+							</ul>
+						</div>
+					</li>
+					<li>线材 支架 存储卡
+						<div class="sub_cate_box" data-item-col="1">
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-8items-1.png" alt="">
+									<span>线材</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-8items-2.png" alt="">
+									<span>自拍杆</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-8items-3.png" alt="">
+									<span>手机支架</span>
+								</li>
+
+								<li>
+									<img src="img/cate-items/cate-8items-4.png" alt="">
+									<span>存储卡</span>
+								</li>
+
+							</ul>
+						</div>
+					</li>
+					<li>箱包 服饰 鞋 眼镜
+						<div class="sub_cate_box" data-item-col="1">
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-9items-1.png" alt="">
+									<span>箱包</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-9items-2.png" alt="">
+									<span>90分旅行箱</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-9items-3.png" alt="">
+									<span>服饰</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-9items-4.png" alt="">
+									<span>运动鞋 板鞋</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-9items-5.png" alt="">
+									<span>眼镜</span>
+								</li>
+
+							</ul>
+						</div></li>
+					<li>米兔 生活周边
+						<div class="sub_cate_box" data-item-col="1">
+							<ul>
+								<li>
+									<img src="img/cate-items/cate-10items-5.png" alt="">
+									<span>米兔玩偶</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-10items-4.png" alt="">
+									<span>生活周边</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-10items-3.png" alt="">
+									<span>《小米》会刊</span>
+								</li>
+
+								<li>
+									<img src="img/cate-items/cate-10items-2.png" alt="">
+									<span>毛巾/浴巾</span>
+								</li>
+								<li>
+									<img src="img/cate-items/cate-10items-1.png" alt="">
+									<span>8H家居产品</span>
+								</li>
+
+							</ul>
+						</div></li>
+				</ul>
+			</div>
+			<div class="sliderBox" id="sliderBox">
+				<ul class="banner">
+					<li class="display"><img src="img/banner/banner-1.jpg" alt=""></li>
+					<li><img src="img/banner/banner-2.jpg" alt=""></li>
+					<li><img src="img/banner/banner-3.jpg" alt=""></li>
+					<li><img src="img/banner/banner-4.jpg" alt=""></li>
+					<li><img src="img/banner/banner-5.jpg" alt=""></li>
+					<li><img src="img/banner/banner-6.jpg" alt=""></li>
+					<li><img src="img/banner/banner-7.jpg" alt=""></li>
+				</ul>
+				<span id="sliderLeft" data-pos="left"></span>
+				<span id="sliderRight" data-pos="right"></span>
+				<div class="focusPic" id="focusPic">
+					<ol>
+						<li class="hover" data-slider-i="0"></li>
+						<li data-slider-i="1"></li>
+						<li data-slider-i="2"></li>
+						<li data-slider-i="3"></li>
+						<li data-slider-i="4"></li>
+						<li data-slider-i="5"></li>
+						<li data-slider-i="6"></li>
+					</ol>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!--4.精品-->
+	<div class="proBest">
+		<div class="container">
+			<ol>
+				<li><b class="fa fa-mobile-phone (alias)"></b><h5>选购手机</h5></li>
+				<li><b class="fa fa-gift"></b><h5>企业团购</h5></li>
+				<li><b class="fa fa-facebook"></b><h5>F码通道</h5></li>
+				<li><b class="fa fa-credit-card-alt"></b><h5>米粉卡</h5></li>
+				<li><b class="fa fa-recycle"></b><h5>以旧换新</h5></li>
+				<li><b class="fa fa-money"></b><h5>话费充值</h5></li>
+			</ol>
+			<div><img src="img/jp-1.jpg" alt=""></div>
+			<div><img src="img/jp-2.jpg" alt=""></div>
+			<div><img src="img/jp-3.jpg" alt=""></div>
+		</div>
+	</div>
+	<!--5.明星单品__s1-->
+	<div class="superStar">
+		<div class="container">
+			<div class="title">
+				<h2>小米明星单品</h2>
+				<ul class="trigger" id="sliderSuperBtn">
+					<li class="off" data-triggle="left"><b class="fa fa-angle-left"></b></li>
+					<li class="on" data-triggle="right"><b class="fa fa-angle-right"></b></li>
+				</ul>
+			</div>
+			<div class="sliderBox">
+				<ul id="sliderSuper">
+					<li>
+						<img src="img/stars/star-items-1.png" alt="">
+						<h4>小米Max 2</h4>
+						<p>大屏大电量，享多重好礼</p>
+						<span>1399元起</span>
+					</li>
+					<li data-slider-i="2">
+						<img src="img/stars/star-items-2.png" alt="">
+						<h4>红米Note 4X</h4>
+						<p>4100mAh超长续航，多彩金属</p>
+						<span>999元起</span>
+					</li>
+					<li data-slider-i="3">
+						<img src="img/stars/star-items-3.png" alt="">
+						<h4>红米4X</h4>
+						<p>4100mAh超长续航，8 核处理器</p>
+						<span>699元起</span>
+					</li>
+					<li data-slider-i="4">
+						<img src="img/stars/star-items-4.png" alt="">
+						<h4>小米电视4A 43英寸 标准版</h4>
+						<p>全高清HDR 四核高性能处理器</p>
+						<span>1799元</span>
+					</li>
+					<li data-slider-i="5">
+						<img src="img/stars/star-items-5.png" alt="">
+						<h4>小米笔记本</h4>
+						<p>更轻更薄，像杂志一样随身携带</p>
+						<span>3599元起</span>
+					</li>
+					<li data-slider-i="1">
+						<img src="img/stars/star-items-6.png" alt="">
+						<h4>米家智能摄像机云台版</h4>
+						<p>红外夜视，720P分辨率</p>
+						<span>199元</span>
+					</li>
+					<li data-slider-i="2">
+						<img src="img/stars/star-items-7.png" alt="">
+						<h4>小米手环 2</h4>
+						<p>OLED 显示屏幕，升级计步算法</p>
+						<span>149元</span>
+					</li>
+					<li data-slider-i="3">
+						<img src="img/stars/star-items-8.png" alt="">
+						<h4>米家压力IH电饭煲</h4>
+						<p>智能烹饪，压力IH加热技术</p>
+						<span>999元</span>
+					</li>
+					<li data-slider-i="4">
+						<img src="img/stars/star-items-9.png" alt="">
+						<h4>米家空气净化器Pro</h4>
+						<p>OLED显示屏幕，激光颗粒物传感器</p>
+						<span>1499元</span>
+					</li>
+					<li data-slider-i="5">
+						<img src="img/stars/star-items-10.png" alt="">
+						<h4>小米路由器3</h4>
+						<p>更快更强，不止四天线</p>
+						<span>149元</span>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--6.家电__s2-->
+	<div class="application">
+		<div class="container">
+			<div class="title">
+				<h2>家电</h2>
+				<ul class="tab" id="appTabs">
+					<li class="hover" data-item-i="1">热门</li>
+					<li data-item-i="2">电视影音</li>
+					<li data-item-i="3">电脑</li>
+					<li data-item-i="4">家居</li>
+				</ul>
+			</div>
+			<div class="row" id="appOptions">
+				<ul class="left">
+					<li>
+						<img src="img/main/1-appli/1.png" alt="" >
+					</li>
+				</ul>
+				<ul class="right display" data-item-i="1">
+					<li>
+						<h5 class="discount">享8折</h5>
+						<img src="img/main/1-appli/items-1.png" alt="">
+						<h4>小米电视4A 32"</h4>
+						<p>64位四核处理器／1GB+4GB大内存</p>
+						<span>949元起 <del>1199元</del></span>
+						<div class="review">
+							<p class="content">非常满意，小米你最棒。</p>
+							<span class="author">来自于 浮生若梦 的评价</span>
+						</div>
+
+					</li>
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-2.png" alt="">
+						<h4>小米电视4A 49英寸 标准版</h4>
+						<p>2GB+8GB 大储存／全高清HDR</p>
+						<span>1999元 <del>2399元</del></span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="">新品</h5>
+						<img src="img/main/1-appli/items-2.png" alt="">
+						<h4>小米笔记本Pro 15.6英寸 </h4>
+						<p>全金属强化机身/FHD全贴合屏幕</p>
+						<span>5599元 <del></del></span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-17.png" alt="">
+						<h4>小米笔记本Air 13.3" i7处理器</h4>
+						<p>Intel酷睿i7处理器，8GB内存+256GB</p>
+						<span>5599元 <del></del></span>
+						<div class="review">
+							<p class="content">真的非常漂亮！</p>
+							<span class="author">来自于 静影沉璧 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-8.png" alt="">
+						<h4>米家恒温电水壶</h4>
+						<p>水温智能控制，304 不锈钢内胆</p>
+						<span>199元 <del></del></span>
+						<div class="review">
+							<p class="content">收到了家人都说好。</p>
+							<span class="author">来自于 未来日子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="">新品</h5>
+						<img src="img/main/1-appli/items-7.png" alt="">
+						<h4>智米全直流变频空调</h4>
+						<p>一级能效，强劲冷暖</p>
+						<span>4399元 <del></del></span>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-6.png" alt="">
+						<h4>小米净水器（厨上式） 增强版</h4>
+						<p>400 加仑大流量，纯水更多，废水更少</p>
+						<span>1499元 <del></del></span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/1-appli/items-5.png" alt="">
+						<h4>小白摄像机</h4>
+						<span>399元 <del></del></span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+						<span> <del></del></span>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="2">
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-9.png" alt="">
+						<h4>小米电视4A 55" 标准版</h4>
+						<p>4K高清HDR / 真四核64位高性能处理器</p>
+						<span>2549元 <del>2999元</del></span>
+						<div class="review">
+							<p class="content">非常满意，小米你最棒。</p>
+							<span class="author">来自于 浮生若梦 的评价</span>
+						</div>
+
+					</li>
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-10.png" alt="">
+						<h4>小米电视4 55英寸</h4>
+						<p>4.9mm极超薄机身／4K高清HDR</p>
+						<span>3699元 <del>4499元</del></span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享9.2折</h5>
+						<img src="img/main/1-appli/items-11.png" alt="">
+						<h4>小米电视4 49英寸</h4>
+						<p>4.9mm 极超薄机身／无边框式设计</p>
+						<span>3299元 <del>3599元</del></span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享9.2折</h5>
+						<img src="img/main/1-appli/items-12.png" alt="">
+						<h4>小米电视4A 65" 标准版</h4>
+						<p>4K超高清屏／真四核64位高性能处理器</p>
+						<span>4599元 <del>4999元</del></span>
+						<div class="review">
+							<p class="content">真的非常漂亮！</p>
+							<span class="author">来自于 静影沉璧 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-13.png" alt="">
+						<h4>电视4A 65英寸 人工智能语音版</h4>
+						<p>4K超高清屏 / 四核64位高性能处理器</p>
+						<span>5499元 <del></del></span>
+						<div class="review">
+							<p class="content">收到了家人都说好。</p>
+							<span class="author">来自于 未来日子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-14.png" alt="">
+						<h4>小米电视4 65英寸</h4>
+						<p>无边框式设计 / 3GB+32GB超大内存</p>
+						<span>8999元 <del>9999元</del></span>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-15.png" alt="">
+						<h4>小米盒子3s</h4>
+						<p>4K HDR 人工智能机顶盒</p>
+						<span>329元 <del></del></span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/1-appli/items-16.png" alt="">
+						<h4>盒子3 增强版</h4>
+						<span>399元 <del></del></span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>电视影音</p>
+						<span> <del></del></span>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="3">
+					<li>
+						<h5 class="discount">享8折</h5>
+						<img src="img/main/1-appli/items-2.png" alt="">
+						<h4>小米笔记本Air 13.3" i7处理器</h4>
+						<p>第7代CPU 2G独显 指纹解锁</p>
+						<span>5949元起 <del>1199元</del></span>
+						<div class="review">
+							<p class="content">非常满意，小米你最棒。</p>
+							<span class="author">来自于 浮生若梦 的评价</span>
+						</div>
+
+					</li>
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-17.png" alt="">
+						<h4>小米电视4A 49英寸 标准版</h4>
+						<p>2GB+8GB 大储存／全高清HDR</p>
+						<span>1999元 <del>2399元</del></span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="">新品</h5>
+						<img src="img/main/1-appli/items-18.png" alt="">
+						<h4>小米笔记本Pro 15.6英寸 </h4>
+						<p>全金属强化机身/FHD全贴合屏幕</p>
+						<span>5599元 <del></del></span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-19.png" alt="">
+						<h4>小米笔记本Air 13.3" i7处理器</h4>
+						<p>Intel酷睿i7处理器，8GB内存+256GB</p>
+						<span>5599元 <del></del></span>
+						<div class="review">
+							<p class="content">真的非常漂亮！</p>
+							<span class="author">来自于 静影沉璧 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-20.png" alt="">
+						<h4>小米笔记本Air 12.5英寸</h4>
+						<p>更轻更薄，像杂志一样随身携带</p>
+						<span>4199元 <del></del></span>
+						<div class="review">
+							<p class="content">收到了家人都说好。</p>
+							<span class="author">来自于 未来日子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="">新品</h5>
+						<img src="img/main/1-appli/items-21.png" alt="">
+						<h4>小米无线鼠标</h4>
+						<p>耐脏亲肤涂层，人体工学设计</p>
+						<span>399元 <del></del></span>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-22.png" alt="">
+						<h4>小米便携鼠标</h4>
+						<p>轻薄便携，铝合金外壳 +ABS 材质</p>
+						<span>99元 <del></del></span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/1-appli/items-23.png" alt="">
+						<h4>小白摄像机</h4>
+						<span>399元 <del></del></span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+						<span> <del></del></span>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="4">
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-24.png" alt="">
+						<h4>转接口</h4>
+						<p>4K高清HDR</p>
+						<span>49元 <del>99元</del></span>
+						<div class="review">
+							<p class="content">非常满意，小米你最棒。</p>
+							<span class="author">来自于 浮生若梦 的评价</span>
+						</div>
+
+					</li>
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-25.png" alt="">
+						<h4>米家恒温电水壶</h4>
+						<p>水温智能控制，304 不锈钢内胆</p>
+						<span>399元 <del>499元</del></span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享9.2折</h5>
+						<img src="img/main/1-appli/items-26.png" alt="">
+						<h4>米家声波电动牙刷</h4>
+						<p>磁悬浮声波马达，定制多种刷牙模式</p>
+						<span>99元 <del>399元</del></span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享9.2折</h5>
+						<img src="img/main/1-appli/items-27.png" alt="">
+						<h4>米家扫地机器人</h4>
+						<p>智能路径规划，扫得干净扫得快</p>
+						<span>1699元 <del>2999元</del></span>
+						<div class="review">
+							<p class="content">真的非常漂亮！</p>
+							<span class="author">来自于 静影沉璧 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-28.png" alt="">
+						<h4>小米空气净化器2</h4>
+						<p>10分钟，房间空气焕然一新</p>
+						<span>699元 <del></del></span>
+						<div class="review">
+							<p class="content">收到了家人都说好。</p>
+							<span class="author">来自于 未来日子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享9折</h5>
+						<img src="img/main/1-appli/items-29.png" alt="">
+						<h4>米家压力IH电饭煲</h4>
+						<p>智能烹饪，灰铸铁粉体涂层内胆</p>
+						<span>899元 <del>999元</del></span>
+					</li>
+					<li>
+						<img src="img/main/1-appli/items-30.png" alt="">
+						<h4>飞利浦智睿球泡灯</h4>
+						<p>自由调节亮度，Wi-Fi随时操控</p>
+						<span>39元 <del></del></span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/1-appli/items-31.png" alt="">
+						<h4>米家 LED 智能台灯</h4>
+						<span>169元 <del></del></span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>家居</p>
+						<span> <del></del></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--7.智能__s2-->
+	<div class="intelligent">
+		<div class="container">
+			<div class="title">
+				<h2>智能</h2>
+				<ul class="tab"  id="intelTabs">
+					<li class="hover" data-item-i="1">热门</li>
+					<li data-item-i="2">出行</li>
+					<li data-item-i="3">健康</li>
+					<li data-item-i="4">酷玩</li>
+					<li data-item-i="5">路由器</li>
+				</ul>
+			</div>
+			<div class="row" id="intelOptions">
+				<ul class="left">
+					<li>
+						<img src="img/main/2-intel/1.jpg" alt="" >
+					</li>
+					<li>
+						<img src="img/main/2-intel/2.jpg" alt="" >
+					</li>
+				</ul>
+				<ul class="right display" data-item-i="1">
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/2-intel/items-33.jpg" alt="">
+						<h4></h4>
+						<p>小米AI音箱</p>
+						<span>299元</span>
+						<div class="review">
+							<p class="content">很好，很好用，用了一段时间才来评价，爱不释手！</p>
+							<span class="author">来自于 灵气 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/2-intel/items-34.jpg" alt="">
+						<h4>米家床头灯</h4>
+						<p>如梦如幻，多彩光世界</p>
+						<span>249元</span>
+						<div class="review">
+							<p class="content">用了一段时间感觉超级捧..y( ˙ᴗ. )耶~</p>
+							<span class="author">来自于 向前看 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/2-intel/items-35.jpg" alt="">
+						<h4>小白智能摄像机大众版</h4>
+						<p>看得更清，看得更远</p>
+						<span>109元</span>
+						<div class="review">
+							<p class="content">手感好，用着速度快，赞</p>
+							<span class="author">来自于  的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/2-intel/items-36.jpg" alt="">
+						<h4>车载空气净化器(USB车充版)</h4>
+						<p>高效净化车内空气</p>
+						<span>449元</span>
+						<div class="review">
+							<p class="content">比理想的要好，不错加油小米！</p>
+							<span class="author">来自于 小米粥 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-37.jpg" alt="">
+						<h4>米家行车记录仪</h4>
+						<p>晚上能拍清车牌的行车记录仪</p>
+						<span>349元</span>
+						<div class="review">
+							<p class="content">手表挺好的，手感很棒</p>
+							<span class="author">来自于 雨中霞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-38.jpg" alt="">
+						<h4>九号平衡车</h4>
+						<p>年轻人的酷玩具，骑行遥控两种玩法</p>
+						<span>1999元</span>
+						<div class="review">
+							<p class="content">第三次来买了真的不错！</p>
+							<span class="author">来自于 少中天 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-39.jpg" alt="">
+						<h4>米家iHealth血压计</h4>
+						<p>爸妈上手就会用的智能血压计</p>
+						<span>149元</span>
+						<div class="review">
+							<p class="content">一个字 好！哈哈……</p>
+							<span class="author">来自于 惜分飞 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/2-intel/items-40.jpg" alt="">
+						<h4>小米VR眼镜</h4>
+						<span>299元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+
+					</li>
+				</ul>
+				<ul class="right" data-item-i="2">
+					<li>
+						<img src="img/main/2-intel/items-1.jpg" alt="">
+						<h4>小米米家电动滑板车</h4>
+						<p>极简几何设计，1 分钟轻松上手</p>
+						<span>1999元</span>
+						<div class="review">
+							<p class="content">很好，很好用，用了一段时间才来评价，爱不释手！</p>
+							<span class="author">来自于 灵气 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-2.jpg" alt="">
+						<h4>电助力折叠自行车</h4>
+						<p>力矩传感电助力，折叠便携设计</p>
+						<span>2999</span>
+						<div class="review">
+							<p class="content">用了一段时间感觉超级捧..y( ˙ᴗ. )耶~</p>
+							<span class="author">来自于 向前看 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-3.jpg" alt="">
+						<h4>小米米家对讲机</h4>
+						<p>8天超长待机，位置共享，FM收音机</p>
+						<span>249元</span>
+						<div class="review">
+							<p class="content">手感好，用着速度快，赞</p>
+							<span class="author">来自于  的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-4.jpg" alt="">
+						<h4>米家车载空气净化器</h4>
+						<p>双风机循环气流，高效净化车内空气</p>
+						<span>449元</span>
+						<div class="review">
+							<p class="content">比理想的要好，不错加油小米！</p>
+							<span class="author">来自于 小米粥 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/2-intel/items-5.jpg" alt="">
+						<h4>Amazfit 运动手表</h4>
+						<p>蓝牙听歌，运动心率，智能通知提醒</p>
+						<span>799元</span>
+						<div class="review">
+							<p class="content">手表挺好的，手感很棒</p>
+							<span class="author">来自于 雨中霞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-6.jpg" alt="">
+						<h4>小蚁微单相机M1双镜头套机</h4>
+						<p>2016 万有效像素，4K视频录制</p>
+						<span>2999元</span>
+					</li>
+					<li>
+						<h5 class="freight">免邮费</h5>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-7.jpg" alt="">
+						<h4>小米手环2</h4>
+						<p>OLED 显示屏幕，升级计步算法</p>
+						<span>149元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/2-intel/items-8.jpg" alt="">
+						<h4>米家车载空气净化器滤芯</h4>
+						<span>69元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>出行</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="3">
+					<li>
+						<img src="img/main/2-intel/items-9.jpg" alt="">
+						<h4>小米米家电动滑板车</h4>
+						<p>极简几何设计，1 分钟轻松上手</p>
+						<span>1999元</span>
+						<div class="review">
+							<p class="content">很好，很好用，用了一段时间才来评价，爱不释手！</p>
+							<span class="author">来自于 灵气 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-10.jpg" alt="">
+						<h4>电助力折叠自行车</h4>
+						<p>力矩传感电助力，折叠便携设计</p>
+						<span>2999</span>
+						<div class="review">
+							<p class="content">用了一段时间感觉超级捧..y( ˙ᴗ. )耶~</p>
+							<span class="author">来自于 向前看 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-11.jpg" alt="">
+						<h4>小米米家对讲机</h4>
+						<p>8天超长待机，位置共享，FM收音机</p>
+						<span>249元</span>
+						<div class="review">
+							<p class="content">手感好，用着速度快，赞</p>
+							<span class="author">来自于  的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-12.jpg" alt="">
+						<h4>米家车载空气净化器</h4>
+						<p>双风机循环气流，高效净化车内空气</p>
+						<span>449元</span>
+						<div class="review">
+							<p class="content">比理想的要好，不错加油小米！</p>
+							<span class="author">来自于 小米粥 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/2-intel/items-13.jpg" alt="">
+						<h4>Amazfit 运动手表</h4>
+						<p>蓝牙听歌，运动心率，智能通知提醒</p>
+						<span>799元</span>
+						<div class="review">
+							<p class="content">手表挺好的，手感很棒</p>
+							<span class="author">来自于 雨中霞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-14.jpg" alt="">
+						<h4>小蚁微单相机M1双镜头套机</h4>
+						<p>2016 万有效像素，4K视频录制</p>
+						<span>2999元</span>
+					</li>
+					<li>
+						<h5 class="freight">免邮费</h5>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-15.jpg" alt="">
+						<h4>小米手环2</h4>
+						<p>OLED 显示屏幕，升级计步算法</p>
+						<span>149元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/2-intel/items-16.jpg" alt="">
+						<h4>米家车载空气净化器滤芯</h4>
+						<span>69元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>出行</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="4">
+					<li>
+						<img src="img/main/2-intel/items-17.jpg" alt="">
+						<h4>小米米家电动滑板车</h4>
+						<p>极简几何设计，1 分钟轻松上手</p>
+						<span>1999元</span>
+						<div class="review">
+							<p class="content">很好，很好用，用了一段时间才来评价，爱不释手！</p>
+							<span class="author">来自于 灵气 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-18.jpg" alt="">
+						<h4>电助力折叠自行车</h4>
+						<p>力矩传感电助力，折叠便携设计</p>
+						<span>2999</span>
+						<div class="review">
+							<p class="content">用了一段时间感觉超级捧..y( ˙ᴗ. )耶~</p>
+							<span class="author">来自于 向前看 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-19.jpg" alt="">
+						<h4>小米米家对讲机</h4>
+						<p>8天超长待机，位置共享，FM收音机</p>
+						<span>249元</span>
+						<div class="review">
+							<p class="content">手感好，用着速度快，赞</p>
+							<span class="author">来自于  的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-20.jpg" alt="">
+						<h4>米家车载空气净化器</h4>
+						<p>双风机循环气流，高效净化车内空气</p>
+						<span>449元</span>
+						<div class="review">
+							<p class="content">比理想的要好，不错加油小米！</p>
+							<span class="author">来自于 小米粥 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/2-intel/items-21.jpg" alt="">
+						<h4>Amazfit 运动手表</h4>
+						<p>蓝牙听歌，运动心率，智能通知提醒</p>
+						<span>799元</span>
+						<div class="review">
+							<p class="content">手表挺好的，手感很棒</p>
+							<span class="author">来自于 雨中霞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-22.jpg" alt="">
+						<h4>小蚁微单相机M1双镜头套机</h4>
+						<p>2016 万有效像素，4K视频录制</p>
+						<span>2999元</span>
+					</li>
+					<li>
+						<h5 class="freight">免邮费</h5>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-23.jpg" alt="">
+						<h4>小米手环2</h4>
+						<p>OLED 显示屏幕，升级计步算法</p>
+						<span>149元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/2-intel/items-24.jpg" alt="">
+						<h4>米家车载空气净化器滤芯</h4>
+						<span>69元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>出行</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="5">
+					<li>
+						<img src="img/main/2-intel/items-25.jpg" alt="">
+						<h4>小米米家电动滑板车</h4>
+						<p>极简几何设计，1 分钟轻松上手</p>
+						<span>1999元</span>
+						<div class="review">
+							<p class="content">很好，很好用，用了一段时间才来评价，爱不释手！</p>
+							<span class="author">来自于 灵气 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-26.jpg" alt="">
+						<h4>电助力折叠自行车</h4>
+						<p>力矩传感电助力，折叠便携设计</p>
+						<span>2999</span>
+						<div class="review">
+							<p class="content">用了一段时间感觉超级捧..y( ˙ᴗ. )耶~</p>
+							<span class="author">来自于 向前看 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-27.jpg" alt="">
+						<h4>小米米家对讲机</h4>
+						<p>8天超长待机，位置共享，FM收音机</p>
+						<span>249元</span>
+						<div class="review">
+							<p class="content">手感好，用着速度快，赞</p>
+							<span class="author">来自于  的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-28.jpg" alt="">
+						<h4>米家车载空气净化器</h4>
+						<p>双风机循环气流，高效净化车内空气</p>
+						<span>449元</span>
+						<div class="review">
+							<p class="content">比理想的要好，不错加油小米！</p>
+							<span class="author">来自于 小米粥 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/2-intel/items-29.jpg" alt="">
+						<h4>Amazfit 运动手表</h4>
+						<p>蓝牙听歌，运动心率，智能通知提醒</p>
+						<span>799元</span>
+						<div class="review">
+							<p class="content">手表挺好的，手感很棒</p>
+							<span class="author">来自于 雨中霞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/2-intel/items-30.jpg" alt="">
+						<h4>小蚁微单相机M1双镜头套机</h4>
+						<p>2016 万有效像素，4K视频录制</p>
+						<span>2999元</span>
+					</li>
+					<li>
+						<h5 class="freight">免邮费</h5>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/2-intel/items-31.jpg" alt="">
+						<h4>小米手环2</h4>
+						<p>OLED 显示屏幕，升级计步算法</p>
+						<span>149元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/2-intel/items-32.jpg" alt="">
+						<h4>米家车载空气净化器滤芯</h4>
+						<span>69元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>出行</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--8.搭配__s2-->
+	<div class="combination">
+		<div class="container">
+			<div class="title">
+				<h2>搭配</h2>
+				<ul class="tab" id="combiTabs">
+					<li class="hover" data-item-i="1">热门</li>
+					<li data-item-i="2">耳机音箱</li>
+					<li data-item-i="3">电源</li>
+					<li data-item-i="4">电池存储卡</li>
+				</ul>
+			</div>
+			<div class="row" id="combiOptions">
+				<ul class="left">
+					<li>
+						<img src="img/main/3-combi/1.jpg" alt="" >
+					</li>
+					<li>
+						<img src="img/main/3-combi/2.jpg" alt="" >
+					</li>
+				</ul>
+				<ul class="right display" data-item-i="1">
+					<li>
+						<img src="img/main/3-combi/items-1.jpg" alt="">
+						<h4>小米移动电源2C 20000mAh</h4>
+						<p>129元</p>
+						<span>2168人评价</span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/3-combi/items-2.jpg" alt="">
+						<h4>10000mAh小米移动电源2</h4>
+						<p>79元</p>
+						<span>5.9万人评价</span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-3.jpg" alt="">
+						<h4>小米蓝牙音频接收器</h4>
+						<p>99元</p>
+						<span>3099人评价</span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-4.jpg" alt="">
+						<h4>小米运动蓝牙耳机</h4>
+						<p>149元</p>
+						<span>1.8万人评价</span>
+						<div class="review">
+							<p class="content">产品很好，服务态度也好！</p>
+							<span class="author">来自于 三河少年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/3-combi/items-5.jpg" alt="">
+						<h4>小米移动电源10000mAh高配版</h4>
+						<p>149元</p>
+						<span>1.4万人评价</span>
+						<div class="review">
+							<p class="content">宝贝质量不错，很喜欢了。</p>
+							<span class="author">来自于 不想平凡 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-6.jpg" alt="">
+						<h4>小米活塞耳机 清新版</h4>
+						<p>29元</p>
+						<span>6.6万人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-7.jpg" alt="">
+						<h4>小米蓝牙耳机青春版</h4>
+						<p>59元</p>
+						<span>3.5万人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/3-combi/items-8.jpg" alt="">
+						<h4>小米运动蓝牙耳机mini</h4>
+						<span>169元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="2">
+					<li>
+						<img src="img/main/3-combi/items-9.jpg" alt="">
+						<h4>小米移动电源2C 20000mAh</h4>
+						<p>129元</p>
+						<span>2168人评价</span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/3-combi/items-10.jpg" alt="">
+						<h4>10000mAh小米移动电源2</h4>
+						<p>79元</p>
+						<span>5.9万人评价</span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-11.jpg" alt="">
+						<h4>小米蓝牙音频接收器</h4>
+						<p>99元</p>
+						<span>3099人评价</span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-12.jpg" alt="">
+						<h4>小米运动蓝牙耳机</h4>
+						<p>149元</p>
+						<span>1.8万人评价</span>
+						<div class="review">
+							<p class="content">产品很好，服务态度也好！</p>
+							<span class="author">来自于 三河少年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/3-combi/items-13.jpg" alt="">
+						<h4>小米移动电源10000mAh高配版</h4>
+						<p>149元</p>
+						<span>1.4万人评价</span>
+						<div class="review">
+							<p class="content">宝贝质量不错，很喜欢了。</p>
+							<span class="author">来自于 不想平凡 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-14.jpg" alt="">
+						<h4>小米活塞耳机 清新版</h4>
+						<p>29元</p>
+						<span>6.6万人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-15.jpg" alt="">
+						<h4>小米蓝牙耳机青春版</h4>
+						<p>59元</p>
+						<span>3.5万人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/3-combi/items-16.jpg" alt="">
+						<h4>小米运动蓝牙耳机mini</h4>
+						<span>169元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="3">
+					<li>
+						<img src="img/main/3-combi/items-1.jpg" alt="">
+						<h4>小米移动电源2C 20000mAh</h4>
+						<p>129元</p>
+						<span>2168人评价</span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/3-combi/items-2.jpg" alt="">
+						<h4>10000mAh小米移动电源2</h4>
+						<p>79元</p>
+						<span>5.9万人评价</span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-3.jpg" alt="">
+						<h4>小米蓝牙音频接收器</h4>
+						<p>99元</p>
+						<span>3099人评价</span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-4.jpg" alt="">
+						<h4>小米运动蓝牙耳机</h4>
+						<p>149元</p>
+						<span>1.8万人评价</span>
+						<div class="review">
+							<p class="content">产品很好，服务态度也好！</p>
+							<span class="author">来自于 三河少年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/3-combi/items-5.jpg" alt="">
+						<h4>小米移动电源10000mAh高配版</h4>
+						<p>149元</p>
+						<span>1.4万人评价</span>
+						<div class="review">
+							<p class="content">宝贝质量不错，很喜欢了。</p>
+							<span class="author">来自于 不想平凡 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-6.jpg" alt="">
+						<h4>小米活塞耳机 清新版</h4>
+						<p>29元</p>
+						<span>6.6万人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-7.jpg" alt="">
+						<h4>小米蓝牙耳机青春版</h4>
+						<p>59元</p>
+						<span>3.5万人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/3-combi/items-8.jpg" alt="">
+						<h4>小米运动蓝牙耳机mini</h4>
+						<span>169元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="4">
+					<li>
+						<img src="img/main/3-combi/items-9.jpg" alt="">
+						<h4>小米移动电源2C 20000mAh</h4>
+						<p>129元</p>
+						<span>2168人评价</span>
+						<div class="review">
+							<p class="content">不错不错不错不错不错 超级喜欢！希望小米以后做出更好的产品！</p>
+							<span class="author">来自于 清韵 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9折</h5>-->
+						<img src="img/main/3-combi/items-10.jpg" alt="">
+						<h4>10000mAh小米移动电源2</h4>
+						<p>79元</p>
+						<span>5.9万人评价</span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-11.jpg" alt="">
+						<h4>小米蓝牙音频接收器</h4>
+						<p>99元</p>
+						<span>3099人评价</span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-12.jpg" alt="">
+						<h4>小米运动蓝牙耳机</h4>
+						<p>149元</p>
+						<span>1.8万人评价</span>
+						<div class="review">
+							<p class="content">产品很好，服务态度也好！</p>
+							<span class="author">来自于 三河少年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享9.9折</h5>-->
+						<img src="img/main/3-combi/items-13.jpg" alt="">
+						<h4>小米移动电源10000mAh高配版</h4>
+						<p>149元</p>
+						<span>1.4万人评价</span>
+						<div class="review">
+							<p class="content">宝贝质量不错，很喜欢了。</p>
+							<span class="author">来自于 不想平凡 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-14.jpg" alt="">
+						<h4>小米活塞耳机 清新版</h4>
+						<p>29元</p>
+						<span>6.6万人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/3-combi/items-15.jpg" alt="">
+						<h4>小米蓝牙耳机青春版</h4>
+						<p>59元</p>
+						<span>3.5万人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/3-combi/items-16.jpg" alt="">
+						<h4>小米运动蓝牙耳机mini</h4>
+						<span>169元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--9.配件__s2-->
+	<div class="piece">
+		<div class="container">
+			<div class="title">
+				<h2>配件</h2>
+				<ul class="tab" id="pieTabs">
+					<li class="hover" data-item-i="1">热门</li>
+					<li data-item-i="2">保护套</li>
+					<li data-item-i="3">贴膜</li>
+					<li data-item-i="4">其他配件</li>
+				</ul>
+			</div>
+			<div class="row" id="pieOptions">
+				<ul class="left">
+					<li>
+						<img src="img/main/4-piece/1.jpg" alt="" >
+					</li>
+					<li>
+						<img src="img/main/4-piece/2.jpg" alt="" >
+					</li>
+				</ul>
+				<ul class="right display" data-item-i="1">
+					<li>
+						<img src="img/main/4-piece/items-1.jpg" alt="">
+						<h4>小米Note 3  硅胶保护套</h4>
+						<p>69元</p>
+						<span>1824人评价</span>
+						<div class="review">
+							<p class="content">宝贝质量不错，很喜欢了。</p>
+							<span class="author">来自于 不想平凡 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-2.jpg" alt="">
+						<h4>小米6 高透软胶保护套</h4>
+						<p>19元</p>
+						<span>1958人评价</span>
+						<div class="review">
+							<p class="content">期盼之中，终于等到了心爱的东东，谢谢！</p>
+							<span class="author">来自于 淡如烟 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享6折</h5>-->
+						<img src="img/main/4-piece/items-3.jpg" alt="">
+						<h4>小米6 弧边高透膜</h4>
+						<p>29元</p>
+						<span>8302人评价</span>
+						<div class="review">
+							<p class="content">终于拿到啦~~ 好开心那！</p>
+							<span class="author">来自于 无聊 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-4.jpg" alt="">
+						<h4>MIX 2 标准高透膜</h4>
+						<p>39元</p>
+						<span>390人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享7折</h5>-->
+						<img src="img/main/4-piece/items-5.jpg" alt="">
+						<h4>MIX 2 硅胶保护套</h4>
+						<p>69元</p>
+						<span>211人评价</span>
+						<div class="review">
+							<p class="content">非常满意，小米你最棒。</p>
+							<span class="author">来自于 浮生若梦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-6.jpg" alt="">
+						<h4>小米Note 3 标准高透保护膜</h4>
+						<p>19元</p>
+						<span>1557人评价</span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-7.jpg" alt="">
+						<h4>小米6 硅胶保护套</h4>
+						<p>49元</p>
+						<span>7469人评价</span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/4-piece/items-8.jpg" alt="">
+						<h4>小米Note 3  智能立显半透保护套</h4>
+						<span>69元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="2">
+					<li>
+						<img src="img/main/4-piece/items-9.jpg" alt="">
+						<h4>小米6 硅胶保护套</h4>
+						<p>69元</p>
+						<span>466人评价</span>
+						<div class="review">
+							<p class="content">还不错，这个价格还值！</p>
+							<span class="author">来自于 那些年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-10.jpg" alt="">
+						<h4>红米Note 4X 高透软胶保护套 透明</h4>
+						<p>19元</p>
+						<span>7259人评价</span>
+						<div class="review">
+							<p class="content">非常满意，外观没毛病，后续看运行</p>
+							<span class="author">来自于 平行线 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享6折</h5>
+						<img src="img/main/4-piece/items-11.jpg" alt="">
+						<h4>小米Note  2 高透软胶保护套</h4>
+						<p>9.9元</p>
+						<span>2589人评价</span>
+						<div class="review">
+							<p class="content">价格实在，不错</p>
+							<span class="author">来自于 莫思归 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-12.jpg" alt="">
+						<h4>小米5s Plus 智能翻盖保护套</h4>
+						<p>49元</p>
+						<span>390人评价</span>
+						<div class="review">
+							<p class="content">手机挺好的，手感很棒，相机还有待改进，还好我不喜欢拍照</p>
+							<span class="author">来自于 雨中霞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享7折</h5>
+						<img src="img/main/4-piece/items-13.jpg" alt="">
+						<h4>小米5s 智能立显点阵式保护套</h4>
+						<p>45元</p>
+						<span>211人评价</span>
+						<div class="review">
+							<p class="content">手感好，用着速度快，赞</p>
+							<span class="author">来自于  的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-14.jpg" alt="">
+						<h4>小米Max 超薄肤感软胶保护套</h4>
+						<p>29元</p>
+						<span>1557人评价</span>
+						<div class="review">
+							<p class="content">比理想的要好，不错加油小米！</p>
+							<span class="author">来自于 小米粥 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-15.jpg" alt="">
+						<h4>红米4高配版 超薄肤感软胶保护套</h4>
+						<p>19元</p>
+						<span>7469人评价</span>
+						<div class="review">
+							<p class="content">用了一段时间感觉超级捧..y( ˙ᴗ. )耶~</p>
+							<span class="author">来自于 向前看 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/4-piece/items-16.jpg" alt="">
+						<h4>红米Note4 智能显示保护套</h4>
+						<span>39元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>保护套</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="3">
+					<li>
+						<img src="img/main/4-piece/items-1.jpg" alt="">
+						<h4>小米Note 3  硅胶保护套</h4>
+						<p>69元</p>
+						<span>1824人评价</span>
+						<div class="review">
+							<p class="content">宝贝质量不错，很喜欢了。</p>
+							<span class="author">来自于 不想平凡 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-2.jpg" alt="">
+						<h4>小米6 高透软胶保护套</h4>
+						<p>19元</p>
+						<span>1958人评价</span>
+						<div class="review">
+							<p class="content">期盼之中，终于等到了心爱的东东，谢谢！</p>
+							<span class="author">来自于 淡如烟 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享6折</h5>-->
+						<img src="img/main/4-piece/items-3.jpg" alt="">
+						<h4>小米6 弧边高透膜</h4>
+						<p>29元</p>
+						<span>8302人评价</span>
+						<div class="review">
+							<p class="content">终于拿到啦~~ 好开心那！</p>
+							<span class="author">来自于 无聊 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-4.jpg" alt="">
+						<h4>MIX 2 标准高透膜</h4>
+						<p>39元</p>
+						<span>390人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5 class="discount">享7折</h5>-->
+						<img src="img/main/4-piece/items-5.jpg" alt="">
+						<h4>MIX 2 硅胶保护套</h4>
+						<p>69元</p>
+						<span>211人评价</span>
+						<div class="review">
+							<p class="content">非常满意，小米你最棒。</p>
+							<span class="author">来自于 浮生若梦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-6.jpg" alt="">
+						<h4>小米Note 3 标准高透保护膜</h4>
+						<p>19元</p>
+						<span>1557人评价</span>
+						<div class="review">
+							<p class="content">挺好的！我很喜欢！</p>
+							<span class="author">来自于 仙子曦 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-7.jpg" alt="">
+						<h4>小米6 硅胶保护套</h4>
+						<p>49元</p>
+						<span>7469人评价</span>
+						<div class="review">
+							<p class="content">很喜欢.喜欢小米的任何一样产品</p>
+							<span class="author">来自于 明天 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/4-piece/items-8.jpg" alt="">
+						<h4>小米Note 3  智能立显半透保护套</h4>
+						<span>69元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="4">
+					<li>
+						<img src="img/main/4-piece/items-9.jpg" alt="">
+						<h4>小米6 硅胶保护套</h4>
+						<p>69元</p>
+						<span>466人评价</span>
+						<div class="review">
+							<p class="content">还不错，这个价格还值！</p>
+							<span class="author">来自于 那些年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-10.jpg" alt="">
+						<h4>红米Note 4X 高透软胶保护套 透明</h4>
+						<p>19元</p>
+						<span>7259人评价</span>
+						<div class="review">
+							<p class="content">非常满意，外观没毛病，后续看运行</p>
+							<span class="author">来自于 平行线 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享6折</h5>
+						<img src="img/main/4-piece/items-11.jpg" alt="">
+						<h4>小米Note  2 高透软胶保护套</h4>
+						<p>9.9元</p>
+						<span>2589人评价</span>
+						<div class="review">
+							<p class="content">价格实在，不错</p>
+							<span class="author">来自于 莫思归 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-12.jpg" alt="">
+						<h4>小米5s Plus 智能翻盖保护套</h4>
+						<p>49元</p>
+						<span>390人评价</span>
+						<div class="review">
+							<p class="content">手机挺好的，手感很棒，相机还有待改进，还好我不喜欢拍照</p>
+							<span class="author">来自于 雨中霞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5 class="discount">享7折</h5>
+						<img src="img/main/4-piece/items-13.jpg" alt="">
+						<h4>小米5s 智能立显点阵式保护套</h4>
+						<p>45元</p>
+						<span>211人评价</span>
+						<div class="review">
+							<p class="content">手感好，用着速度快，赞</p>
+							<span class="author">来自于  的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-14.jpg" alt="">
+						<h4>小米Max 超薄肤感软胶保护套</h4>
+						<p>29元</p>
+						<span>1557人评价</span>
+						<div class="review">
+							<p class="content">比理想的要好，不错加油小米！</p>
+							<span class="author">来自于 小米粥 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/4-piece/items-15.jpg" alt="">
+						<h4>红米4高配版 超薄肤感软胶保护套</h4>
+						<p>19元</p>
+						<span>7469人评价</span>
+						<div class="review">
+							<p class="content">用了一段时间感觉超级捧..y( ˙ᴗ. )耶~</p>
+							<span class="author">来自于 向前看 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/4-piece/items-16.jpg" alt="">
+						<h4>红米Note4 智能显示保护套</h4>
+						<span>39元</span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>保护套</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--10.周边__s2-->
+	<div class="related">
+		<div class="container">
+			<div class="title">
+				<h2>周边</h2>
+				<ul class="tab" id="relatTabs">
+					<li class="hover" data-item-i="1">热门</li>
+					<li data-item-i="2">服装</li>
+					<li data-item-i="3">居家</li>
+					<li data-item-i="4">生活周边</li>
+					<li data-item-i="5">箱包</li>
+				</ul>
+			</div>
+			<div class="row" id="relatOptions">
+				<ul class="left">
+					<li>
+						<img src="img/main/5-related/1.jpg" alt="" >
+					</li>
+					<li>
+						<img src="img/main/5-related/2.jpg" alt="" >
+					</li>
+				</ul>
+				<ul class="right display" data-item-i="1">
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-1.jpg" alt="">
+						<h4>知吾煮抗摔玻璃保鲜盒1100ml</h4>
+						<p>
+							59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">产品很好，服务态度也好！</p>
+							<span class="author">来自于 三河少年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-2.jpg" alt="">
+						<h4>8H懒人舒适沙发</h4>
+						<p>649元</p>
+						<span>55人评价</span>
+						<div class="review">
+							<p class="content">终于拿到啦~~ 好开心那！</p>
+							<span class="author">来自于 无聊 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-3.jpg" alt="">
+						<h4>8H乳胶床垫</h4>
+						<p>999元</p>
+						<span>1405人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-4.jpg" alt="">
+						<h4>贝医生巴氏牙刷（单支装）</h4>
+						<p>9.9元</p>
+						<span>1006人评价</span>
+						<div class="review">
+							<p class="content">好好好！very good！</p>
+							<span class="author">来自于 小丸子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-5.jpg" alt="">
+						<h4>经典百搭连帽卫衣</h4>
+						<p>149元</p>
+						<span>2105人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/5-related/items-6.jpg" alt="">
+						<h4>8H护颈乳胶枕</h4>
+						<p>239元</p>
+						<span>1.5万人评价</span>
+						<div class="review">
+							<p class="content">还不错，这个价格还值！</p>
+							<span class="author">来自于 那些年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-7.jpg" alt="">
+						<h4>小米休闲防风连帽外套</h4>
+						<p>299元</p>
+						<span>275人评价</span>
+						<div class="review">
+							<p class="content">价格实在，不错</p>
+							<span class="author">来自于 莫思归 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/5-related/items-8.jpg" alt="">
+						<h4>90分旅行箱28寸</h4>
+						<span>499元</span>
+
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="2">
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-9.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">还不错，这个价格还值！</p>
+							<span class="author">来自于 那些年 的评价</span>
+						</div>
+
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-10.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">一个字 好，两个字 很好，三个字 太好了！哈哈……</p>
+							<span class="author">来自于 惜分飞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-11.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">终于拿到啦~~ 好开心那！</p>
+							<span class="author">来自于 无聊 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-12.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">好好好！very good！</p>
+							<span class="author">来自于 小丸子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-13.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-14.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">第三次来买了真的不错！</p>
+							<span class="author">来自于 少中天 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/5-related/items-15.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/5-related/items-16.jpg" alt="">
+						<h4></h4>
+						<span></span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>服装</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="3">
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-1.jpg" alt="">
+						<h4>知吾煮抗摔玻璃保鲜盒1100ml</h4>
+						<p>
+							59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">产品很好，服务态度也好！</p>
+							<span class="author">来自于 三河少年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-2.jpg" alt="">
+						<h4>8H懒人舒适沙发</h4>
+						<p>649元</p>
+						<span>55人评价</span>
+						<div class="review">
+							<p class="content">终于拿到啦~~ 好开心那！</p>
+							<span class="author">来自于 无聊 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-3.jpg" alt="">
+						<h4>8H乳胶床垫</h4>
+						<p>999元</p>
+						<span>1405人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-4.jpg" alt="">
+						<h4>贝医生巴氏牙刷（单支装）</h4>
+						<p>9.9元</p>
+						<span>1006人评价</span>
+						<div class="review">
+							<p class="content">好好好！very good！</p>
+							<span class="author">来自于 小丸子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-5.jpg" alt="">
+						<h4>经典百搭连帽卫衣</h4>
+						<p>149元</p>
+						<span>2105人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/5-related/items-6.jpg" alt="">
+						<h4>8H护颈乳胶枕</h4>
+						<p>239元</p>
+						<span>1.5万人评价</span>
+						<div class="review">
+							<p class="content">还不错，这个价格还值！</p>
+							<span class="author">来自于 那些年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-7.jpg" alt="">
+						<h4>小米休闲防风连帽外套</h4>
+						<p>299元</p>
+						<span>275人评价</span>
+						<div class="review">
+							<p class="content">价格实在，不错</p>
+							<span class="author">来自于 莫思归 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/5-related/items-8.jpg" alt="">
+						<h4>90分旅行箱28寸</h4>
+						<span>499元</span>
+
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="4">
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-9.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">还不错，这个价格还值！</p>
+							<span class="author">来自于 那些年 的评价</span>
+						</div>
+
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-10.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">一个字 好，两个字 很好，三个字 太好了！哈哈……</p>
+							<span class="author">来自于 惜分飞 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-11.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">终于拿到啦~~ 好开心那！</p>
+							<span class="author">来自于 无聊 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-12.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">好好好！very good！</p>
+							<span class="author">来自于 小丸子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-13.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-14.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">第三次来买了真的不错！</p>
+							<span class="author">来自于 少中天 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/5-related/items-15.jpg" alt="">
+						<h4>
+							周边生活用品
+						</h4>
+						<p>59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/5-related/items-16.jpg" alt="">
+						<h4></h4>
+						<span></span>
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>服装</p>
+					</li>
+				</ul>
+				<ul class="right" data-item-i="5">
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-1.jpg" alt="">
+						<h4>知吾煮抗摔玻璃保鲜盒1100ml</h4>
+						<p>
+							59元</p>
+						<span>41人评价</span>
+						<div class="review">
+							<p class="content">产品很好，服务态度也好！</p>
+							<span class="author">来自于 三河少年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-2.jpg" alt="">
+						<h4>8H懒人舒适沙发</h4>
+						<p>649元</p>
+						<span>55人评价</span>
+						<div class="review">
+							<p class="content">终于拿到啦~~ 好开心那！</p>
+							<span class="author">来自于 无聊 的评价</span>
+						</div>
+					</li>
+					<li>
+						<!--<h5>新品</h5>-->
+						<img src="img/main/5-related/items-3.jpg" alt="">
+						<h4>8H乳胶床垫</h4>
+						<p>999元</p>
+						<span>1405人评价</span>
+						<div class="review">
+							<p class="content">货超值，呵，下次再来。</p>
+							<span class="author">来自于 风记忆 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-4.jpg" alt="">
+						<h4>贝医生巴氏牙刷（单支装）</h4>
+						<p>9.9元</p>
+						<span>1006人评价</span>
+						<div class="review">
+							<p class="content">好好好！very good！</p>
+							<span class="author">来自于 小丸子 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-5.jpg" alt="">
+						<h4>经典百搭连帽卫衣</h4>
+						<p>149元</p>
+						<span>2105人评价</span>
+						<div class="review">
+							<p class="content">刚收到货，很好，物超所值！！</p>
+							<span class="author">来自于 期待 的评价</span>
+						</div>
+					</li>
+					<li>
+						<img src="img/main/5-related/items-6.jpg" alt="">
+						<h4>8H护颈乳胶枕</h4>
+						<p>239元</p>
+						<span>1.5万人评价</span>
+						<div class="review">
+							<p class="content">还不错，这个价格还值！</p>
+							<span class="author">来自于 那些年 的评价</span>
+						</div>
+					</li>
+					<li>
+						<h5>新品</h5>
+						<img src="img/main/5-related/items-7.jpg" alt="">
+						<h4>小米休闲防风连帽外套</h4>
+						<p>299元</p>
+						<span>275人评价</span>
+						<div class="review">
+							<p class="content">价格实在，不错</p>
+							<span class="author">来自于 莫思归 的评价</span>
+						</div>
+					</li>
+					<li class="small">
+						<img src="img/main/5-related/items-8.jpg" alt="">
+						<h4>90分旅行箱28寸</h4>
+						<span>499元</span>
+
+					</li>
+					<li class="small">
+						<img src="img/main/more.jpg" alt="">
+						<h4 class="more">浏览更多</h4>
+						<p>热门</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--11.推荐__s1-->
+	<div class="recommend">
+		<div class="container">
+			<div class="title">
+				<h2>为你推荐</h2>
+				<ul class="trigger" id="recBtn">
+					<li class="off" data-triggle="left"><b class="fa fa-angle-left"></b></li>
+					<li class="on" data-triggle="right"><b class="fa fa-angle-right"></b></li>
+				</ul>
+			</div>
+			<div class="sliderBox">
+				<ul id="sliderRec">
+					<li>
+						<img src="img/rec/items-1.jpg" alt="">
+						<h4>小米5X 全网通版 4GB内存</h4>
+						<span>1499元起</span>
+						<p>714人好评</p>
+					</li>
+					<li data-slider-i="2">
+						<img src="img/rec/items-4.jpg" alt="">
+						<h4>小米Max 2 全网通版 4GB内存</h4>
+						<span>1599元</span>
+						<p>3万人好评</p>
+					</li>
+					<li data-slider-i="3">
+						<img src="img/rec/items-3.jpg" alt="">
+						<h4>红米4A 移动4G+版 2GB内存 16GB</h4>
+						<span>599元</span>
+						<p>273人好评</p>
+					</li>
+					<li data-slider-i="4">
+						<img src="img/rec/items-2.jpg" alt="">
+						<h4>小米笔记本电脑Pro 15 i7 16G</h4>
+						<span>6999元</span>
+						<p>217人好评</p>
+					</li>
+					<li data-slider-i="5">
+						<img src="img/rec/items-5.jpg" alt="">
+						<h4>米动手表青春版</h4>
+						<span>399元起</span>
+						<p>1724人好评</p>
+					</li>
+					<li data-slider-i="1">
+						<img src="img/rec/items-6.jpg" alt="">
+						<h4>米家运动鞋 男款</h4>
+						<span>199元</span>
+						<p>528人好评</p>
+					</li>
+					<li data-slider-i="2">
+						<img src="img/rec/items-7.jpg" alt="">
+						<h4>小米手环 2</h4>
+						<span>2699元</span>
+						<p>2606人好评</p>
+					</li>
+					<li data-slider-i="3">
+						<img src="img/rec/items-8.jpg" alt="">
+						<h4>红米Note 4X 全网通版 3GB内存</h4>
+						<span>999元</span>
+						<p>1035人好评</p>
+					</li>
+					<li data-slider-i="4">
+						<img src="img/rec/items-9.jpg" alt="">
+						<h4>小米5X 移动4G+版</h4>
+						<span>1499元</span>
+						<p>361人好评</p>
+					</li>
+					<li data-slider-i="5">
+						<img src="img/rec/items-10.jpg" alt="">
+						<h4>小米Mix2 全网通版 8GB内存 全陶瓷尊享版</h4>
+						<span>4699元</span>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--12.热评产品__s3-->
+	<div class="remark">
+		<div class="container">
+			<div class="title">
+				<h2>热评产品</h2>
+			</div>
+			<ul class="row-1">
+				<li class="first">
+					<div class="shopPic"><img src="img/main/7-remark/items-1.jpg" alt=""></div>
+					<p class="comment">东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在...</p>
+					<p class="author">来自于 yinyin19891117 的评价</p>
+					<div class="info"><a href="#">小米插线板</a><span class="sep">|</span><span class="price">49元</span></div>
+				</li>
+				<li>
+					<div class="shopPic"><img src="img/main/7-remark/items-2.jpg" alt=""></div>
+					<p class="comment">超级喜欢！小巧玲珑！音质完美！不知道为什么！只要是小米出的东西我都喜欢！那倒是因为那一句？？小米为发...</p>
+					<p class="author">来自于 田密 的评价</p>
+					<div class="info"><a href="#">小米随身蓝牙音箱</a><span class="sep">|</span><span class="price">69元</span></div>
+				</li>
+				<li>
+					<div class="shopPic"><img src="img/main/7-remark/items-3.jpg" alt=""></div>
+					<p class="comment">这箱子很好，外观漂亮，实用性强。很轻，有点软但不影响它的坚固。</p>
+					<p class="author">来自于 子书雁 的评价</p>
+					<div class="info"><a href="#">90分旅行箱 20寸</a><span class="sep">|</span><span class="price">299元</span></div>
+				</li>
+				<li>
+					<div class="shopPic"><img src="img/main/7-remark/items-4.jpg" alt=""></div>
+					<p class="comment">先五星好评。再来说说小米空气净化器，北方的天气雾霾越来越常态，这就迫切需要一台性价比高的空气净化器，...</p>
+					<p class="author">来自于 sddyboy 的评价</p>
+					<div class="info"><a href="#">小米空气净化器2</a><span class="sep">|</span><span class="price">599元</span></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--13.内容__s3-->
+	<div class="amusement">
+		<div class="container">
+			<div class="title">
+				<h2>内容</h2>
+			</div>
+			<ul class="row-1" id="amuseBox">
+				<li class="first"  data-item-i="1">
+					<h4>图书</h4>
+					<span id="bookLeft" data-pos="left"></span>
+					<span id="bookRight" data-pos="right"></span>
+					<ul class="focusLis" id="bookFoc">
+						<li class="hover"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<ol>
+						<li>
+							<h5>哈利·波特与被诅咒的孩子</h5>
+							<p class="summery">
+								“哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！
+							</p>
+							<span class="price">29.37元</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-1.png" alt=""></div>
+						</li>
+						<li>
+							<h5>好吗好的</h5>
+							<p class="summery">
+								畅销作家大冰2016年新书！讲给你听，好吗好的！
+							</p>
+							<span class="price">17.99元</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-2.png" alt=""></div>
+						</li>
+						<li>
+							<h5>美丽的卢克塞里</h5>
+							<p class="summery">
+								2017年畅销书！大自然的寂静是消失最快的资源！
+							</p>
+							<span class="price">25.99元</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-0.png" alt=""></div>
+						</li>
+						<li>
+							<p class="summery">
+								海量好书，享受精品阅读时光
+								漂亮的中文排版，千万读者选择！
+							</p>
+							<span class="more">前往多看阅读</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-3.jpg" alt=""></div>
+						</li>
+
+					</ol>
+				</li>
+				<li data-item-i="2">
+					<h4>MIUI 主题</h4>
+					<span data-pos="left"></span>
+					<span data-pos="right"></span>
+					<ul class="focusLis">
+						<li class="hover"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<ol>
+						<li>
+							<h5>剑网3</h5>
+							<p class="summery">
+								剑网3定制主题 免费下载
+							</p>
+							<span class="price">免费</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-4.png" alt=""></div>
+						</li>
+						<li>
+							<h5>初音未来</h5>
+							<p class="summery">
+								超可爱的miku主题来啦~
+							</p>
+							<span class="price">6米币</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-5.png" alt=""></div>
+						</li>
+						<li>
+							<h5>几何</h5>
+							<p class="summery">
+								最新官方主题，带你感受极简视觉冲击
+							</p>
+							<span class="price">免费</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-6.jpg" alt=""></div>
+						</li>
+						<li>
+							<p class="summery">
+								众多个性主题、百变锁屏与自由桌面
+								让你的手机与众不同！
+							</p>
+							<span class="more">前往MIUI主题市场</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-7.jpg" alt=""></div>
+						</li>
+					</ol>
+				</li>
+				<li data-item-i="3">
+					<h4>游戏</h4>
+					<span data-pos="left"></span>
+					<span data-pos="right"></span>
+					<ul class="focusLis">
+						<li class="hover"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<ol>
+						<li>
+							<h5>小米枪战</h5>
+							<p class="summery">
+								只拼枪法不拼枪！！
+							</p>
+							<span class="price">免费</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-8.png" alt=""></div>
+						</li>
+						<li>
+							<h5>米柚手游模拟器</h5>
+							<p class="summery">
+								在电脑上玩遍小米所有手游
+							</p>
+							<span class="price">免费</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-9.png" alt=""></div>
+						</li>
+						<li>
+							<h5>剑侠世界</h5>
+							<p class="summery">
+								一生不容错过的浪漫武侠！！
+							</p>
+							<span class="price">免费</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-10.jpg" alt=""></div>
+						</li>
+						<li>
+							<p class="summery">
+								免费下载海量的手机游戏
+								天天都有现金福利赠送
+							</p>
+							<span class="more">前往小米游戏商店</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-11.jpg" alt=""></div>
+						</li>
+					</ol>
+				</li>
+				<li data-item-i="4">
+					<h4>应用</h4>
+					<span data-pos="left"></span>
+					<span data-pos="right"></span>
+					<ul class="focusLis">
+						<li class="hover"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<ol>
+						<li>
+							<h5>2017金米奖</h5>
+							<p class="summery">
+								最优秀的应用和游戏
+							</p>
+							<div class="shopPic"><img src="img/main/8-amuse/items-12.png" alt=""></div>
+						</li>
+						<li>
+							<h5>Forest</h5>
+							<p class="summery">
+								帮助您专心于生活中每个重要时刻
+							</p>
+							<span class="price">免费</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-13.png" alt=""></div>
+						</li>
+						<li>
+							<h5>小米应用</h5>
+							<p class="summery">
+								小米出品 必属精品
+							</p>
+							<span class="price">免费</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-14.png" alt=""></div>
+						</li>
+						<li>
+							<p class="summery">
+								帮助小米手机和其他安卓手机用户
+								发现好用的安卓应用
+							</p>
+							<span class="more">前往小米应用商店</span>
+							<div class="shopPic"><img src="img/main/8-amuse/items-15.jpg" alt=""></div>
+						</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!--14.视频__s3-->
+	<div class="videos">
+		<div class="container">
+			<div class="title">
+				<h2>视频</h2>
+				<div class="more-link">查看全部 <b></b></div>
+			</div>
+			<ul class="row-1" id="videoBtns">
+				<li class="first">
+					<div class="shopPic"><img src="img/main/9-video/items-1.jpg" alt="">
+						<a href="javascript:void(0)" class="playVideo"></a>
+					</div>
+					<p class="title">雷军与斯塔克打造全面屏2.0</p>
+					<p class="detail">一场关于小米MIX 2 极致工艺的巅峰对话</p>
+				</li>
+				<li>
+					<div class="shopPic"><img src="img/main/9-video/items-2.jpg" alt="">
+						<a href="javascript:void(0)" class="playVideo"></a>
+					</div>
+					<p class="title">小米Note 3</p>
+					<p class="detail">看看小米Note 3帅不帅？</p>
+				</li>
+				<li>
+					<div class="shopPic"><img src="img/main/9-video/items-3.jpg" alt="">
+						<a href="javascript:void(0)" class="playVideo"></a>
+					</div>
+					<p class="title">MIUI 9 理念视频</p>
+					<p class="detail">快如闪电，前所未有的流畅</p>
+				</li>
+				<li>
+					<div class="shopPic"><img src="img/main/9-video/items-4.jpg" alt="">
+						<a href="javascript:void(0)" class="playVideo"></a>
+
+					</div>
+					<p class="title">拍人更美的背后故事</p>
+					<p class="detail">小米手机工程师采访视频</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--15.其他-->
+	<div class="service">
+		<div class="container">
+
+			<div class="title">
+				<a href="#">预约维修服务</a>
+				<a href="#">7天无理由退货</a>
+				<a href="#">15天免费换货</a>
+				<a href="#">满150元包邮</a>
+				<a href="#">520余家售后网点</a>
+			</div>
+			<div class="service-list">
+				<ul>
+					<li>
+						<ul>
+							<li class="head">帮助中心</li>
+							<li>账户管理</li>
+							<li>购物指南</li>
+							<li>订单操作</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li class="head">服务支持</li>
+							<li>售后政策</li>
+							<li>自助服务</li>
+							<li>相关下载</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li class="head">线下门店</li>
+							<li>小米之家</li>
+							<li>服务网点</li>
+							<li>零售网点</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li class="head">关于小米</li>
+							<li>了解小米</li>
+							<li>加入小米</li>
+							<li>联系我们</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li class="head">关注我们</li>
+							<li>新浪微博</li>
+							<li>小米部落</li>
+							<li>官方微信</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li class="head">特色服务</li>
+							<li>F 码通道</li>
+							<li>礼物码</li>
+							<li>防伪查询</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="contact">
+					<h1>400-100-5678</h1>
+					<p>周一至周日 8:00-18:00<br>
+						（仅收市话费）</p>
+					<span class="kefu">24小时在线客服</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--16.页底-->
+	<div class="footer">
+		<div class="container">
+			<p><abbr title="返回顶部"><img src="img/logo.png" alt="" id="toTop"></abbr>&nbsp;&nbsp;京ICP证110666号 京ICP备1000001010号 京公网安备11010802021234号 京网文[2017]0010-0020号
+				违法和不良信息举报电话：000-0123-1234，本网站所列数据，除特殊说明，均为演示数据</p>
+		</div>
+	</div>
+	<!--视频-->
+	
+	<div class="videosBox" id="videosBox">
+		<div class="video">
+			<h1>
+				雷军与斯塔克打造全面屏2.0
+			</h1>
+			<b></b>
+			<div id="objectBox">
+				<video src="video/video-1.mp4" height="540" width="800" controls></video>
+				<object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" id="objMedia" class="objMedia" width="100%" height="540">
+					<param name="AutoSize" value="1">
+					<param name="AutoStart" value="0">
+					<param name="controller" value="true" />
+					<param name="src" value="video/video-1.mp4" id="mvSource"/>
+				</object>
+			</div>
+		</div>
+	</div>
+	<script  src="js/Docms.min.js"></script>
+	<script src="js/common.js"></script>
+	<script  src="js/index.js"></script>
+</body>
+</html>

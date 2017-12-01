@@ -196,7 +196,7 @@ footer ol li:first-child {
   }
 }
 .carousel-fade .carousel-inner .item {
-  opacity: 0;
+  opacity: .5;
   -webkit-transition-property: opacity ;
   -moz-transition-property: opacity ;
   -ms-transition-property: opacity ;
@@ -209,7 +209,7 @@ footer ol li:first-child {
 .carousel-fade .carousel-inner .active.left,
 .carousel-fade .carousel-inner .active.right {
   left: 0;
-  opacity: 0;
+  opacity: .5;
 }
 .carousel-fade .carousel-inner .next.left,
 .carousel-fade .carousel-inner .prev.right {

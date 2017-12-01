@@ -150,13 +150,14 @@ footer{
 		text-align: center;
 	}
 }
-
+//当屏幕小于768
 @media screen and(max-width: 768px){
 	.carousel-control span.glyphicon-menu-right {
 		width: 20px;
 		height: 24px;
 		margin-right: -10px;
 	}
+	//小屏幕导航栏固定
 	header.navbar{
 		position: fixed;
 		width: 100%;
@@ -164,18 +165,22 @@ footer{
 		left: 0;
 		z-index: 10;
 	}
+	//导航栏下的内容上方要留空
 	main{
 		margin-top: 60px;
 	}
+	//logo居中
 	.navbar-brand{
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
 	}
+	//切换按钮放左边
 	.navbar-toggle{
 		float: left;
 		margin-left: 15px;
 	}
+	//下拉列表鼠标悬浮变色
 	.container .navbar-collapse{
 		background-color: #fff;
 		li:hover{
@@ -218,7 +223,7 @@ footer{
 //淡入淡出
 
 .carousel-fade .carousel-inner .item{
-	opacity:0;
+	opacity:.5;
 	-webkit-transition-property:opacity ;
 	-moz-transition-property:opacity ;
 	-ms-transition-property:opacity ;
@@ -233,7 +238,7 @@ footer{
 .carousel-fade .carousel-inner .active.left,
 .carousel-fade .carousel-inner .active.right{
 	left: 0;
-	opacity: 0;
+	opacity: .5;
 }
 
 .carousel-fade .carousel-inner .next.left,
