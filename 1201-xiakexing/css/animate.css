@@ -1,0 +1,657 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 100%;
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+  font: 14px/1.5 PingFangSC-Regular, Verdana, Arial, 'Microsoft Yahei', '宋体', sans-serif;
+  color: #333;
+}
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+fieldset,
+img {
+  border: 0;
+  vertical-align: middle;
+}
+ul,
+ol {
+  list-style: none;
+}
+@-webkit-keyframes slideUp {
+  0% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    top: 55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  70% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-moz-keyframes slideUp {
+  0% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    top: 55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  70% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-ms-keyframes slideUp {
+  0% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    top: 55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  70% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@keyframes slideUp {
+  0% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    top: 55px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  70% {
+    top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-webkit-keyframes slideUpLast {
+  0% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  50% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  70% {
+    top: -110px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-moz-keyframes slideUpLast {
+  0% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  50% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  70% {
+    top: -110px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-ms-keyframes slideUpLast {
+  0% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  50% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  70% {
+    top: -110px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@keyframes slideUpLast {
+  0% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  20% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  50% {
+    top: -55px;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  70% {
+    top: -110px;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-webkit-keyframes cateSlideDown {
+  from {
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-moz-keyframes cateSlideDown {
+  from {
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-ms-keyframes cateSlideDown {
+  from {
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@keyframes cateSlideDown {
+  from {
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-webkit-keyframes waveSlide {
+  from {
+    left: 0;
+  }
+  to {
+    left: -1284px;
+  }
+}
+@-moz-keyframes waveSlide {
+  from {
+    left: 0;
+  }
+  to {
+    left: -1284px;
+  }
+}
+@-ms-keyframes waveSlide {
+  from {
+    left: 0;
+  }
+  to {
+    left: -1284px;
+  }
+}
+@keyframes waveSlide {
+  from {
+    left: 0;
+  }
+  to {
+    left: -1284px;
+  }
+}
+@-webkit-keyframes roleLeft {
+  from {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-moz-keyframes roleLeft {
+  from {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-ms-keyframes roleLeft {
+  from {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@keyframes roleLeft {
+  from {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-webkit-keyframes roleRight {
+  from {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-moz-keyframes roleRight {
+  from {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-ms-keyframes roleRight {
+  from {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@keyframes roleRight {
+  from {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  to {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-webkit-keyframes hideRoleLeft {
+  from {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-moz-keyframes hideRoleLeft {
+  from {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-ms-keyframes hideRoleLeft {
+  from {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@keyframes hideRoleLeft {
+  from {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-webkit-keyframes hideRoleRight {
+  from {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-moz-keyframes hideRoleRight {
+  from {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-ms-keyframes hideRoleRight {
+  from {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@keyframes hideRoleRight {
+  from {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+  to {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+}
+@-webkit-keyframes showRoleLeft {
+  0% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-moz-keyframes showRoleLeft {
+  0% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-ms-keyframes showRoleLeft {
+  0% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@keyframes showRoleLeft {
+  0% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    right: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    right: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-webkit-keyframes showRoleRight {
+  0% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-moz-keyframes showRoleRight {
+  0% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@-ms-keyframes showRoleRight {
+  0% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}
+@keyframes showRoleRight {
+  0% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  50% {
+    left: 30%;
+    opacity: 0;
+    filter: alpha(opacity=0) \9;
+  }
+  100% {
+    left: 40%;
+    opacity: 1;
+    filter: alpha(opacity=100) \9;
+  }
+}

@@ -1,0 +1,992 @@
+@charset "utf-8";
+//声明文件编码必须双引号
+//@import 'common';
+@import "animate";
+.container{
+	width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.wrapper{
+	min-width: 1400px;
+	max-width: 1920px;
+	margin-right: auto;
+	margin-left: auto;
+}
+//全局变量
+@font-size-sm:12px;
+@font-size-std:14px;
+@font-size-16:16px;
+@font-size-18:18px;
+@font-size-20:20px;
+@font-size-22:22px;
+@font-size-24:24px;
+@font-size-26:26px;
+@font-size-28:28px;
+@font-size-30:30px;
+//兼容ie 颜色要写满六位
+@clr-w:#ffffff;
+@clr-000:#000000;
+@clr-333:#333;
+@clr-666:#666;
+@clr-border:#cbcdcc;
+@clr-ching:#e1ebeb;
+@clr-gre:#f6f6f6;
+@clr-bg-light:#b2afaf;
+@clr-bg-slight:#fbfbfb;
+@clr-org-hover:#c1831c;
+@clr-red:#bc2e2e;
+@clr-yel:#dbbe7c;
+
+//兼容ie Safari 背景渐变
+.bggradient(@bfclr1:#f3f3f3,@bfclr2:#fefefe){
+	background: -webkit-gradient(linear,0 0,0 100%,from(@bfclr1),to(@bfclr2));
+	background: linear-gradient(to bottom,@bfclr1,@bfclr2);
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='@{bfclr1}',endColorStr='@{bfclr2}',gradientType='0')@ie7-10;
+
+}
+
+//1.顶部工具条
+.toolbar{
+	background-color:@clr-bg-slight;
+	.container{
+		position: relative;
+		height: 55px;
+		width: 1000px;
+		z-index:50;
+	}
+	.brand{
+		float: left;
+		height:90%;
+	}
+	//顶部广告
+	.adv{
+		float: left;
+		height: 100%;
+		margin-left: 10px;
+		img{
+			height: 100%;
+			.transition();
+		}
+		//广告下拉
+		.adv-dropdown{
+			position: absolute;
+			z-index:35;
+			left:0;
+			top:55px;
+			display: none;
+			.transition();
+			//下拉关闭按钮
+			a{
+				position: absolute;
+				right:13px;
+				top: 11px;
+				display: block;
+				width: 32px;
+				height: 32px;
+			}
+		}
+		&:hover{
+			>img{
+				.opacity();
+			}
+			.adv-dropdown{
+				display: block;
+				animation: cateSlideDown 1s;
+				//兼容Safari 图片无法自动撑开
+				img{
+					width:960px;
+					height: 250px;
+				}
+			}
+		}
+	}
+	//右侧链接
+	.container>ul{
+		float:right;
+		>li{
+			float: left;
+			height:55px;
+			a{
+				display: block;
+				height:52px;
+				line-height:55px;
+				padding:0 15px;
+				border-bottom: 3px solid transparent;
+				color: @clr-333;
+				font-size: @font-size-sm;
+				text-align: center;
+				.transition();
+				&:hover{
+					border-color: @clr-red;
+					color: @clr-red;
+					.bggradient;
+				}
+			}
+		}
+		//游戏目录 li
+		.category{
+			>a{
+				position: relative;
+				color: @clr-red;
+				>span{
+					position: absolute;
+					right: 2px;
+					top:50%;
+					border:4px solid transparent;
+					border-top-color:@clr-red
+				}
+			}
+			.hide{
+				display:none;
+			}
+
+
+		}
+		//游戏目录下拉table
+		.cate-box{
+			position: absolute;
+			z-index:45;
+			left: 0;
+			top:55px;
+			width:100%;
+			background-color:#fdfefe;
+			animation: cateSlideDown 1s;
+			th{
+				height: 50px;
+				text-indent:20px;
+				background-color:@clr-bg-slight;
+				color: @clr-red;
+
+			}
+			td{
+				vertical-align: top;
+				overflow: hidden;
+			}
+			ul{
+				float: left;
+				width: 25%;
+				li{
+					display: block;
+					height: 30px;
+					line-height: 30px;
+					text-indent: 15%;
+					cursor: pointer;
+					&:hover{
+						background-color:@clr-bg-slight;
+						color: @clr-red;
+					}
+				}
+			}
+			.first{
+				width: 25%;
+				ul{
+					width: 50%;
+				}
+			}
+			.last{
+				width:15%;
+				ul{
+					width: 100%;
+				}
+			}
+		}
+		//li自动上滚动
+		.slideup{
+			//ie7 overflow失效,加定位解决
+			position: relative;
+			overflow: hidden;
+			a{
+				position: relative;
+				left: 0;
+				padding: 0;
+				margin-left: 10px;
+			}
+			.first{
+				animation: slideUp 5.5s infinite;
+			}
+			.last{
+				animation: slideUpLast 5.5s infinite;
+			}
+			&:hover{
+				a{
+					-webkit-animation-play-state: paused;
+					animation-play-state: paused;
+				}
+			}
+		}
+	}
+}
+//2.导航栏
+.navbar{
+	position: absolute;
+	z-index: 40;
+	left: 0;
+	top: 55px;
+	width: 100%;
+	//导航栏遮罩
+	.mask{
+		position: absolute;
+		z-index: 20;
+		width: 100%;
+		height: 100%;
+		background: @clr-w;
+		.opacity();
+		.transition(all,.3s);
+	}
+	.content{
+		position: relative;
+		z-index: 25;
+	}
+	//导航栏左侧
+	.left{
+		display: none;
+		float: left;
+		height: 74px;
+		margin-top: 13px;
+		span,img,div{
+			float: left;
+			height: 100%;
+			margin-left: 10px;
+		}
+		.qrcode{
+			margin-right: 15px;
+		}
+		span{
+			width: 16px;
+			line-height: 18px;
+			margin-left: 20px;
+		}
+		div{
+			h1{
+				font-size: @font-size-30;
+				font-weight: 600;
+			}
+			h4{
+				font-size: @font-size-16;
+			}
+		}
+	}
+	//导航栏右侧链接
+	.nav{
+		float: right;
+		li{
+			position: relative;
+			float: left;
+			height: 65px;
+			margin-top: 35px;
+			padding-right:40px;
+			a{
+				.transition();
+				color: @clr-w;
+				font-size: @font-size-16;
+				&:hover{
+					color: @clr-red;
+				}
+			}
+			span{
+				position: absolute;
+				top:0;
+				right:14px;
+				width:15px;
+				height: 24px;
+				background: url("../img/spirits.png") -1545px -396px no-repeat;
+			}
+		}
+	}
+}
+//导航栏固定
+.navbar-fixed{
+	position: fixed;
+	top:0;
+	.left{
+		display: block;
+	}
+	.mask{
+		.opacity(.85,85);
+	}
+	.nav li {
+		a{
+			color: @clr-333;
+			&:hover{
+				color: @clr-333;
+			}
+		}
+		span{
+			background-position:-1545px -419px;
+		}
+	}
+
+}
+//3.banner
+.banner{
+	position: relative;
+	overflow: hidden;
+	//大背景容器
+	.background{
+		width: 100%;
+		height:585px;
+		background-color:@clr-000;
+		img{
+			position: absolute;
+			z-index: 0;
+			top: 0;
+			left: 50%;
+			width: 1920px;
+			margin-left: -960px;
+		}
+	}
+	//波浪背景
+	.wave{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 200%;
+		height: 91px;
+		.bg(){
+			position: absolute;
+			left: 0;
+			top:0;
+			width: 100%;
+			height: 100%;
+		}
+		.bg3{
+			.bg;
+			background: url("../img/wave/wave-03.png");
+			animation: waveSlide 4s linear infinite;
+			z-index: 10;
+		}
+		.bg2{
+			.bg;
+			background: url("../img/wave/wave-02.png");
+			animation: waveSlide 8s linear infinite;
+			z-index:15;
+		}
+		.bg1{
+			.bg;
+			background: url("../img/wave/wave-01.png");
+			animation: waveSlide 6s linear infinite;
+			z-index:20;
+		}
+
+	}
+	//人物图片
+	.roles{
+		position:absolute;
+		z-index: 5;
+		left:-50px;
+		top:0;
+		height:100%;
+		width: 100%;
+
+		b,div{
+			position: absolute;
+		}
+		//role切换按钮
+		b{
+			z-index: 30;
+			width: 41px;
+			height: 66px;
+			right: 28%;
+			top: 50%;
+			background: url("../img/role-toggle.png")no-repeat;
+			.transition(all,.2s,linear);
+			&:hover{
+				transform: scale(1.1);
+			}
+		}
+		.left{
+			right: 40%;
+			&.init{
+				-webkit-animation: roleLeft 1.5s;
+				animation: roleLeft 1.5s;
+			}
+		}
+		.right{
+			left: 40%;
+			&.init{
+				-webkit-animation: roleRight 1.5s;
+				animation: roleRight 1.5s;
+			}
+		}
+		.show{
+			.opacity(1,100);
+			&.left{
+				right: 40%;
+				-webkit-animation: showRoleLeft 3s;
+				animation: showRoleLeft 2.5s;
+			}
+			&.right{
+				left: 40%;
+				-webkit-animation: showRoleRight 3s;
+				animation: showRoleRight 2.5s;
+			}
+		}
+		.hide{
+			.opacity();
+			&.left{
+				right: 30%;
+				-webkit-animation: hideRoleLeft 1.5s;
+				animation: hideRoleLeft 1.5s;
+			}
+			&.right{
+				left: 30%;
+				-webkit-animation: hideRoleRight 1.5s;
+				animation: hideRoleRight 1.5s;
+			}
+		}
+		.part1{
+			top:10px;
+		}
+		//第二部分默认隐藏
+		.part2{
+			top:60px;
+			display:none;
+		}
+	}
+}
+//4.导航选项卡
+//100%宽度背景共同样式
+.bgcommon(@bgurl:"../img/lg-bg-02.jpg"){
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height:100%;
+	width: 1920px;
+	margin-left: -960px;
+	background: url(@bgurl) no-repeat;
+}
+.navbar-nav{
+	//兼容ie7 overflow失效
+	position: relative;
+	height: 1107px;
+	overflow: hidden;
+	margin-top: -248px;
+	.container{
+		position: relative;
+		padding-top:248px;
+	}
+	//游戏日历
+	.aside{
+		position: absolute;
+		z-index: 30;
+		right:0;
+		top:0;
+		width:347px;
+		height: 1107px;
+		//游戏日历背景
+		.bg-sm{
+			width:707px;
+			height: 1107px;
+			background: url("../img/aside-bg.png");
+		}
+	}
+
+	//内部导航
+	.nav-tabs{
+		position: relative;
+		width: 100%;
+		height:300px;
+		padding-bottom:49px;
+		background-color: #b2afaf;
+		.background{
+			.bgcommon;
+			background: none;
+			.bggradient(#fff8e4,@clr-w);
+
+		}
+		//左侧图片轮播
+		.left{
+			position: relative;
+			z-index: 5;
+			float: left;
+			width: 360px;
+			height: 270px;
+			overflow: hidden;
+			margin-left: -100px;
+			.photos-slide-box{
+				width: 360px*5;
+				height: 270px;
+				li{
+					float: left;
+					width: 360px;
+					height: 270px;
+					background: url("../img/news-1.jpg") no-repeat;
+				}
+				li+li{
+					background-image: url("../img/news-2.jpg");
+				}
+				li+li+li{
+					background-image: url("../img/news-3.jpg");
+				}
+				li+li+li+li{
+					background-image: url("../img/news-4.jpg");
+				}
+				li+li+li+li+li{
+					background-image: url("../img/news-5.jpg");
+				}
+			}
+			//焦点图
+			.indicator{
+				position: absolute;
+				left: 0;
+				bottom:4%;
+				width: 100%;
+				.edge{
+					width:35%;
+				}
+				b{
+					display: block;
+					width: 8px;
+					height:8px;
+					margin: 0 auto;
+					border: 2px solid #e37b63;
+					border-radius: 50%;
+					cursor: pointer;
+					&.hover{
+						background-color: #e37b63;
+					}
+				}
+			}
+		}
+		//中间新闻
+		.news{
+			position: relative;
+			z-index: 5;
+			float: left;
+			width: 500px;
+			margin-left: 39px;
+			//news选项卡
+			.tabs{
+				overflow: hidden;
+				padding-bottom: 15px;
+				border-bottom: 2px solid @clr-000;
+				margin-bottom: 2px;
+				a{
+					position: relative;
+					float:left;
+					padding: 0 30px 0 15px;
+					h4{
+						position: relative;
+						z-index: 10;
+						width: 44px;
+						height:30px;
+						background: url("../img/spirits.png") -1480px -1298px no-repeat;
+					}
+					>span{
+						position: absolute;
+						z-index: 5;
+						top:12px;
+						left: 0;
+						width: 85%;
+						height: 33px;
+						border-radius:16px;
+						.opacity();
+						.transition(all,.3s);
+					}
+					&.hover{
+						>span{
+							top:5px;
+							background-color:#68d7fc;
+							.opacity(1,100);
+						}
+					}
+					b{
+						position: absolute;
+						z-index: 10;
+						top:0;
+						right:0;
+						width:15px;
+						height: 26px;
+						background: url("../img/spirits.png") -1538px -675px no-repeat;
+					}
+				}
+				a+a>h4{
+					background-position:-1480px -1237px;
+				}
+				a+a+a>h4{
+					background-position:-1480px -1267px;
+				}
+				a+a+a+a>h4{
+					background-position:-1480px -1328px;
+				}
+				a+a+a+a+a>h4{
+					background-position:-1480px -1358px;
+				}
+			}
+			//news选项卡详情
+			.tabs-details{
+				//兼容ie7 overflow失效
+				position: relative;
+				width: 100%;
+				height: 205px;
+				overflow: hidden;
+				border-top: 1px solid @clr-000;
+				.news-slide-box{
+					width: 500px*5;
+				}
+				ul{
+					width: 500px;
+					float: left;
+					li{
+						overflow: hidden;
+						position: relative;
+						height:40px;
+						line-height: 40px;
+						padding-right: 85px;
+						border-bottom: 1px solid @clr-border;
+						&:hover{
+							color:@clr-org-hover;
+						}
+						span{
+							position: absolute;
+							top: 0;
+							right: 0;
+							height: 100%;
+							color: darken(@clr-ching,15%);
+						}
+					}
+				}
+			}
+		}
+	}
+	//5.角色类型
+	.role-menu{
+		position: relative;
+		z-index: 5;
+		width: 100%;
+		margin-bottom: 25px;
+		margin-top: -30px;
+		//background-color: @clr-w;
+		.after;
+		>div{
+			float: left;
+		}
+		.sigh{
+			width: 130px;
+			height: 69px;
+			margin-top: 20px;
+			background: url("../img/spirits.png") -928px -775px no-repeat;
+		}
+		.dot{
+			width: 44px;
+			height: 4px;
+			margin: 53px 13px auto 15px;
+			background: url("../img/spirits.png") -1502px -392px no-repeat;
+		}
+		.tabs{
+			position: relative;
+			width: 96px;
+			.btn{
+				display: block;
+				position: relative;
+				z-index: 10;
+				width: 70px;
+				height: 33px;
+				margin-top: 40px;
+				margin-left: 12px;
+				background: url("../img/spirits.png") -1480px -1137px no-repeat;
+			}
+			&.right{
+				.btn{
+					background-position:-1480px -1005px;
+				}
+			}
+			.bg{
+				position: absolute;
+				z-index: 5;
+				top: 25px;
+				width: 96px;
+				height: 91px;
+				background: url("../img/spirits.png") -939px -1297px no-repeat;
+				.opacity();
+				.transition(all,.4s);
+			}
+			&:hover,&.hover{
+				.bg{
+					top: 15px;
+					.opacity(1,100);
+				}
+			}
+		}
+	}
+	//角色详情
+	.role-tabs{
+		position: relative;
+		width: 100%;
+		height:394px;
+		.before;
+		.background{
+			.bgcommon;
+		}
+		>.item{
+			display:none;
+			position: relative;
+			z-index:5;
+			width: 800px;
+			//padding-top: 20px;
+			//overflow: hidden;
+
+			&.display{
+				display:block;
+			}
+		}
+		//式神
+		.all{
+			//式神全部tab
+			.sub-tabs{
+				position: relative;
+				height: 50px;
+				line-height: 50px;
+				margin-top: 30px;
+				border-bottom: 1px solid @clr-666;
+				a{
+					margin-right:30px;
+					font-size: @font-size-18;
+					color: @clr-333;
+					&.active,&:hover{
+						color:@clr-org-hover;
+					}
+				}
+				b{
+					position: absolute;
+					left:290px;
+					top:11px;
+					width: 130px;
+					height: 29px;
+					background: url("../img/allRoles.png")  no-repeat;
+					cursor:pointer;
+				}
+			}
+			.sub-items{
+				ul{
+					overflow: hidden;
+				}
+				li{
+					position: relative;
+					float: left;
+					padding-right: 25px;
+					margin-right: 25px;
+					&:after{
+						content: '';
+						position: absolute;
+						top:15%;
+						right: 0;
+						height: 85%;
+						width: 1px;
+						background-color: lighten(@clr-666,20%);
+					}
+					&.last{
+						padding-right:0;
+						margin-right:0;
+						&:after{
+							content:'';
+							display: none;
+						}
+					}
+					div{
+						position: relative;
+						width: 86px;
+						height: 86px;
+						margin:35px auto 0;
+						border-radius: 50%;
+						text-align: center;
+						overflow: hidden;
+						border: 2px solid @clr-w;
+						&:hover{
+							border-color: transparent;
+							i{
+								.opacity(.4,40);
+							}
+							b{
+								.opacity(1,100);
+							}
+						}
+					}
+					div+div{
+						margin-top: 20px;
+					}
+					img{
+						width: 90px;
+						height: 90px;
+					}
+					i,b{
+						position: absolute;
+						z-index: 10;
+						left: 0;
+						top: 0;
+						width:100%;
+						height: 100%;
+						line-height:90px;
+						color: @clr-w;
+						.opacity();
+						.transition();
+					}
+					i{
+						z-index: 5;
+						background-color:@clr-000;
+					}
+
+				}
+			}
+		}
+		//主角
+		.major{
+			.after;
+			.sub-tabs{
+				float: left;
+				margin-top:50px;
+				a{
+					position: relative;
+					display:block;
+					width:130px;
+					height:35px;
+					line-height: 35px;
+					margin-top: 20px;
+					background-color:transparent;
+					border: 2px solid @clr-w;
+					text-align: center;
+					font-size: @font-size-18;
+					color: @clr-333;
+					.transition(all,.3s);
+					&:hover,&.active{
+						background-color:@clr-w;
+						border-color:@clr-000;
+						&:after{
+							content:'';
+							position: absolute;
+							top:12px;
+							left:105%;
+							border: 5px solid transparent;
+							border-left-color: @clr-333;
+						}
+					}
+				}
+			}
+			//主角详情
+			.sub-items{
+				float: left;
+				margin-left: 80px;
+				.item{
+					display: none;
+					position: relative;
+					height:340px;
+					width: 585px;
+					&.display{
+						display: block;
+					}
+
+					img{
+						position: absolute;
+						left: 0;
+						top: 0;
+						//height:340px;
+					}
+					>div{
+						float:right;
+						//width: 180px;
+						margin-left:35px;
+						margin-top:80px;
+						b{
+							display: block;
+							width: 38px;
+							height: 33px;
+							background: url("../img/spirits.png") -1522px -1071px no-repeat;
+						}
+						h3{
+							font-size: 30px;
+							margin-bottom: 2px;
+							border-bottom: 2px solid @clr-333;
+							font-weight: 600;
+						}
+						p{
+							padding-right: 20px;
+							line-height: 25px;
+							border-top: 1px solid @clr-333;
+						}
+					}
+				}
+				.item+div b{
+					background-position:-1522px -1170px;
+				}
+				.item+div+div b{
+					background-position:-1522px -1104px;
+				}
+				.item+div+div+div b{
+					height: 24px;
+					margin-bottom: 9px;
+					background-position:-1480px -1388px;
+				}
+			}
+		}
+	}
+}
+
+//6.攻略
+.strategy{
+	.quest{
+		float: left;
+		width: 360px;
+		border: 2px solid @clr-333;
+		overflow: hidden;
+		>ul{
+			width: 360px*2;
+			height:228px;
+			li{
+				float: left;
+				width: 360px;
+				height:228px;
+				background: url("../img/quest-1.jpg") no-repeat;
+			}
+			li+li{
+				background-image:url("../img/quest-2.jpg");
+			}
+		}
+		>ol{
+			width: 100%;
+			margin: 15px 0;
+			li{
+				float: left;
+				width: 8px;
+				height: 8px;
+				margin-right: 5px;
+				border: 4px solid @clr-333;
+				border-radius: 50%;
+				&:first-child{
+					margin-left: 160px;
+				}
+				&:hover,&.hover{
+					background-color: @clr-333;
+				}
+			}
+		}
+		>div{
+			width: 100%;
+			margin: 40px 0 15px;
+			overflow: hidden;
+			a,b{
+				float: left;
+			}
+			b{
+				width:11px;
+				height: 150px;
+				background: url("../img/spirits.png")-1295px -315px no-repeat;
+			}
+			a{
+				width:24px;
+				height: 134px;
+				margin: 0 28px;
+				background: url("../img/spirits.png")-1368px -315px no-repeat;
+			}
+		}
+	}
+}
+//7.同人
+//8.视频a
+//9.活动
+//10.其他
+//11.页底
+.footer{
+	height: 300px;
+}
+

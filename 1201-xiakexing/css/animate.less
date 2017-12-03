@@ -1,0 +1,270 @@
+@import 'common';
+//自动上滚动
+.slideUpCopy(){
+	0%{
+		top:0;
+		.opacity(1,100);
+	}
+	20%{
+		top:-55px;
+		.opacity();
+	}
+	//中间空白停顿30%
+	50%{
+		top:55px;
+		.opacity();
+	}
+	70%{
+		top:0;
+		.opacity(1,100);
+	}
+	//最后文字停顿30%
+}
+.slideUpLastCopy(){
+	0%{
+		top:0;
+		.opacity();
+	}
+	20%{
+		top:-55px;
+		.opacity(1,100);
+	}
+	//文字停顿30%
+	50%{
+		top:-55px;
+		.opacity(1,100);
+	}
+	70%{
+		top:-110px;
+		.opacity();
+	}
+	//最后回到原地
+	100%{
+		top:0;
+		.opacity();
+	}
+}
+//第一个li
+@-webkit-keyframes slideUp{
+	.slideUpCopy();
+}
+@-moz-keyframes slideUp{
+	.slideUpCopy();
+}
+@-ms-keyframes slideUp{
+	.slideUpCopy();
+}
+@keyframes slideUp{
+	.slideUpCopy();
+}
+//第二li
+@-webkit-keyframes slideUpLast{
+	.slideUpLastCopy();
+}
+@-moz-keyframes slideUpLast{
+	.slideUpLastCopy();
+}
+@-ms-keyframes slideUpLast{
+	.slideUpLastCopy();
+}
+@keyframes slideUpLast{
+	.slideUpLastCopy();
+}
+//下拉游戏目录
+.cateSlideDownCopy(){
+	from{
+		.opacity();
+	}
+	to{
+		.opacity(1,100);
+	}
+}
+@-webkit-keyframes cateSlideDown{
+	.cateSlideDownCopy();
+}
+@-moz-keyframes cateSlideDown{
+	.cateSlideDownCopy();
+}
+@-ms-keyframes cateSlideDown{
+	.cateSlideDownCopy();
+}
+@keyframes cateSlideDown{
+	.cateSlideDownCopy();
+}
+//波浪
+.waveSlideCopy(@left:-1284px){
+	from{
+		left: 0;
+	}
+	to{
+		left:@left;
+	}
+}
+
+@-webkit-keyframes waveSlide{
+	.waveSlideCopy();
+}
+@-moz-keyframes waveSlide{
+	.waveSlideCopy();
+}
+@-ms-keyframes waveSlide{
+	.waveSlideCopy();
+}
+@keyframes waveSlide{
+	.waveSlideCopy();
+}
+
+//人物大图
+.roleLeftCopy(){
+	from{
+		right:30%;
+		.opacity();
+	}
+	to{
+		right:40%;
+		.opacity(1,100);
+	}
+}
+
+@-webkit-keyframes roleLeft{
+	.roleLeftCopy();
+}
+@-moz-keyframes roleLeft{
+	.roleLeftCopy();
+}
+@-ms-keyframes roleLeft{
+	.roleLeftCopy();
+}
+@keyframes roleLeft{
+	.roleLeftCopy();
+}
+
+.roleRightCopy(){
+	from{
+		left:30%;
+		.opacity();
+	}
+	to{
+		left:40%;
+		.opacity(1,100);
+	}
+}
+
+@-webkit-keyframes roleRight{
+	.roleRightCopy();
+}
+@-moz-keyframes roleRight{
+	.roleRightCopy();
+}
+@-ms-keyframes roleRight{
+	.roleRightCopy();
+}
+@keyframes roleRight{
+	.roleRightCopy();
+}
+
+//人物隐藏
+.hideRoleLeftCopy(){
+	from{
+		right:40%;
+		.opacity(1,100);
+	}
+	to{
+		right:30%;
+		.opacity();
+	}
+}
+
+@-webkit-keyframes hideRoleLeft{
+	.hideRoleLeftCopy();
+}
+@-moz-keyframes hideRoleLeft{
+	.hideRoleLeftCopy();
+}
+@-ms-keyframes hideRoleLeft{
+	.hideRoleLeftCopy();
+}
+@keyframes hideRoleLeft{
+	.hideRoleLeftCopy();
+}
+
+.hideRoleRightCopy(){
+	from{
+		left:40%;
+		.opacity(1,100);
+	}
+	to{
+		left:30%;
+		.opacity();
+	}
+}
+
+@-webkit-keyframes hideRoleRight{
+	.hideRoleRightCopy();
+}
+@-moz-keyframes hideRoleRight{
+	.hideRoleRightCopy();
+}
+@-ms-keyframes hideRoleRight{
+	.hideRoleRightCopy();
+}
+@keyframes hideRoleRight{
+	.hideRoleRightCopy();
+}
+
+//人物显示
+.showRoleLeftCopy(){
+	0%{
+		right:30%;
+		.opacity();
+	}
+	50%{
+		right:30%;
+		.opacity();
+	}
+	100%{
+		right:40%;
+		.opacity(1,100);
+	}
+}
+
+@-webkit-keyframes showRoleLeft{
+	.showRoleLeftCopy();
+}
+@-moz-keyframes showRoleLeft{
+	.showRoleLeftCopy();
+}
+@-ms-keyframes showRoleLeft{
+	.showRoleLeftCopy();
+}
+@keyframes showRoleLeft{
+	.showRoleLeftCopy();
+}
+
+.showRoleRightCopy(){
+	0%{
+		left:30%;
+		.opacity();
+	}
+	50%{
+		left:30%;
+		.opacity();
+	}
+	100%{
+		left:40%;
+		.opacity(1,100);
+	}
+}
+
+@-webkit-keyframes showRoleRight{
+	.showRoleRightCopy();
+}
+@-moz-keyframes showRoleRight{
+	.showRoleRightCopy();
+}
+@-ms-keyframes showRoleRight{
+	.showRoleRightCopy();
+}
+@keyframes showRoleRight{
+	.showRoleRightCopy();
+}
