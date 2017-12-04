@@ -656,6 +656,38 @@ ol {
     filter: alpha(opacity=100) \9;
   }
 }
+@-webkit-keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
+@-moz-keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
+@-ms-keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
+@keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
 .container {
   width: 1200px;
   margin-right: auto;
@@ -715,6 +747,7 @@ ol {
 }
 .toolbar .adv:hover .adv-dropdown {
   display: block;
+  -webkit-animation: cateSlideDown 1s;
   animation: cateSlideDown 1s;
 }
 .toolbar .adv:hover .adv-dropdown img {
@@ -769,6 +802,7 @@ ol {
   top: 55px;
   width: 100%;
   background-color: #fdfefe;
+  -webkit-animation: cateSlideDown 1s;
   animation: cateSlideDown 1s;
 }
 .toolbar .container > ul .cate-box th {
@@ -819,9 +853,13 @@ ol {
   margin-left: 10px;
 }
 .toolbar .container > ul .slideup .first {
+  -webkit-animation: slideUp 5.5s infinite;
+  -o-animation: slideUp 5.5s infinite;
   animation: slideUp 5.5s infinite;
 }
 .toolbar .container > ul .slideup .last {
+  -webkit-animation: slideUpLast 5.5s infinite;
+  -o-animation: slideUpLast 5.5s infinite;
   animation: slideUpLast 5.5s infinite;
 }
 .toolbar .container > ul .slideup:hover a {
@@ -958,6 +996,8 @@ ol {
   width: 100%;
   height: 100%;
   background: url("../img/wave/wave-03.png");
+  -webkit-animation: waveSlide 4s linear infinite;
+  -o-animation: waveSlide 4s linear infinite;
   animation: waveSlide 4s linear infinite;
   z-index: 10;
 }
@@ -968,6 +1008,8 @@ ol {
   width: 100%;
   height: 100%;
   background: url("../img/wave/wave-02.png");
+  -webkit-animation: waveSlide 8s linear infinite;
+  -o-animation: waveSlide 8s linear infinite;
   animation: waveSlide 8s linear infinite;
   z-index: 15;
 }
@@ -977,6 +1019,8 @@ ol {
   top: 0;
   width: 100%;
   height: 100%;
+  -webkit-animation: waveSlide 6s linear infinite;
+  -o-animation: waveSlide 6s linear infinite;
   background: url("../img/wave/wave-01.png");
   animation: waveSlide 6s linear infinite;
   z-index: 20;
@@ -998,13 +1042,14 @@ ol {
   width: 41px;
   height: 66px;
   right: 28%;
-  top: 50%;
+  top: 52%;
   background: url("../img/role-toggle.png") no-repeat;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 .banner .roles b:hover {
+  -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 .banner .roles .left {
@@ -1066,11 +1111,108 @@ ol {
   position: relative;
   padding-top: 248px;
 }
+.navbar-nav .frog {
+  position: absolute;
+  z-index: 40;
+  left: 70px;
+  top: 120px;
+  width: 102px;
+  height: 119px;
+  cursor: pointer;
+}
+.navbar-nav .download {
+  position: absolute;
+  z-index: 25;
+  left: 320px;
+  top: 120px;
+  width: 522px;
+  height: 103px;
+  padding: 10px;
+  background-color: #fccc00;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 7px 4px #feeb00 inset;
+  overflow: hidden;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+.navbar-nav .download.fold {
+  left: 812px;
+  width: 22px;
+}
+.navbar-nav .download b {
+  display: none;
+  float: left;
+  width: 22px;
+  height: 23px;
+  background: url("../img/spirits.png") -1538px -703px no-repeat;
+  cursor: pointer;
+}
+.navbar-nav .download b.active {
+  display: block;
+}
+.navbar-nav .download b.open {
+  height: 105px;
+  background-position: -1376px -466px;
+}
+.navbar-nav .download span {
+  position: absolute;
+  left: 47px;
+  top: 10px;
+  width: 45px;
+  height: 100px;
+  background: url("../img/spirits.png") -690px -364px no-repeat;
+}
+.navbar-nav .download .qr {
+  position: absolute;
+  top: 10px;
+  left: 102px;
+  width: 91px;
+  height: 91px;
+  padding: 8px;
+  background-color: #ffffff;
+}
+.navbar-nav .download .qr img {
+  width: 100%;
+}
+.navbar-nav .download .qr img + img {
+  position: absolute;
+  left: 1px;
+  top: 0;
+  width: 106px;
+  height: 9px;
+  -webkit-animation: scanCode 2.5s linear infinite;
+  -o-animation: scanCode 2.5s linear infinite;
+  animation: scanCode 2.5s linear infinite;
+}
+.navbar-nav .download .ios,
+.navbar-nav .download .app {
+  position: absolute;
+  top: 10px;
+  left: 209px;
+  width: 171px;
+  height: 51px;
+  margin-left: 10px;
+  background: url("../img/spirits.png") -335px -1476px no-repeat;
+}
+.navbar-nav .download .app {
+  top: 65px;
+  background-position: -907px -962px;
+}
+.navbar-nav .download .pc {
+  position: absolute;
+  top: 10px;
+  left: 390px;
+  width: 131px;
+  height: 107px;
+  margin-left: 7px;
+  background: url("../img/spirits.png") -907px -855px no-repeat;
+}
 .navbar-nav .aside {
   position: absolute;
   z-index: 30;
   right: 0;
-  top: 0;
+  top: 20px;
   width: 347px;
   height: 1107px;
 }
@@ -1079,10 +1221,183 @@ ol {
   height: 1107px;
   background: url("../img/aside-bg.png");
 }
+.navbar-nav .aside a,
+.navbar-nav .aside h1 {
+  position: absolute;
+  left: 20px;
+  background: url("../img/spirits.png") -586px -855px no-repeat;
+}
+.navbar-nav .aside h1 {
+  top: -15px;
+  width: 321px;
+  height: 168px;
+}
+.navbar-nav .aside a {
+  top: 135px;
+  width: 321px;
+  height: 104px;
+  background-position: -661px -1040px;
+  color: #333;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.navbar-nav .aside a > div {
+  position: absolute;
+  z-index: 33;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background: url("../img/spirits.png") -308px 0 no-repeat;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+.navbar-nav .aside a > div p {
+  float: left;
+  width: 240px;
+  margin-left: 30px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.navbar-nav .aside a > div p:first-child {
+  margin-top: 105px;
+}
+.navbar-nav .aside a h2 {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}
+.navbar-nav .aside a:hover {
+  z-index: 33;
+  left: 40px;
+}
+.navbar-nav .aside a:hover h2 {
+  z-index: 34;
+}
+.navbar-nav .aside a.boss {
+  top: 242px;
+  left: -10px;
+  background-position: -615px -1297px;
+}
+.navbar-nav .aside a.boss h2 {
+  left: 156px;
+  bottom: 20px;
+}
+.navbar-nav .aside a.boss p {
+  float: right;
+  width: 235px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+.navbar-nav .aside a.boss p b {
+  color: #f95c19;
+}
+.navbar-nav .aside a.boss p:first-child {
+  margin-top: 95px;
+}
+.navbar-nav .aside a.boss:hover {
+  left: 10px;
+}
+.navbar-nav .aside a.boss:hover div {
+  height: 363px;
+}
+.navbar-nav .aside a.gather {
+  top: 336px;
+  width: 307px;
+  background-position: -308px -1297px;
+}
+.navbar-nav .aside a.gather h2 {
+  bottom: 14px;
+}
+.navbar-nav .aside a.gather div {
+  background-position: -327px -666px;
+}
+.navbar-nav .aside a.gather:hover div {
+  height: 187px;
+}
+.navbar-nav .aside a.mission {
+  top: 435px;
+  width: 294px;
+  background-position: -1017px -1193px;
+}
+.navbar-nav .aside a.mission h2 {
+  left: 134px;
+  bottom: 14px;
+}
+.navbar-nav .aside a.mission div {
+  background-position: -634px -666px;
+}
+.navbar-nav .aside a.mission:hover div {
+  height: 187px;
+}
+.navbar-nav .aside a.region {
+  z-index: 31;
+  top: 530px;
+  height: 145px;
+  background-position: -330px -1040px;
+}
+.navbar-nav .aside a.region h2 {
+  left: 11px;
+  bottom: 57px;
+}
+.navbar-nav .aside a.region div {
+  background-position: 0px -364px;
+}
+.navbar-nav .aside a.region:hover div {
+  height: 302px;
+}
+.navbar-nav .aside a.challenge {
+  left: 5px;
+  top: 626px;
+  width: 308px;
+  background-position: 0px -1297px;
+}
+.navbar-nav .aside a.challenge h2 {
+  left: 145px;
+  bottom: 20px;
+}
+.navbar-nav .aside a.challenge div {
+  background-position: 0 0;
+}
+.navbar-nav .aside a.challenge:hover {
+  left: 25px;
+}
+.navbar-nav .aside a.challenge:hover div {
+  height: 364px;
+}
+.navbar-nav .aside a.hunt {
+  top: 710px;
+  background-position: -1080px -882px;
+}
+.navbar-nav .aside a.break {
+  left: 5px;
+  top: 808px;
+  width: 312px;
+  background-position: -394px -1193px;
+}
+.navbar-nav .aside a.break h2 {
+  left: 110px;
+  bottom: 20px;
+}
+.navbar-nav .aside a.break:hover {
+  left: 25px;
+}
+.navbar-nav .aside a.seal {
+  top: 895px;
+  width: 312px;
+  background-position: -705px -1193px;
+}
+.navbar-nav .aside a.seal h2 {
+  bottom: 20px;
+}
 .navbar-nav .nav-tabs {
   position: relative;
   width: 100%;
   height: 300px;
+  padding-top: 20px;
   padding-bottom: 49px;
   background-color: #b2afaf;
 }
@@ -1226,6 +1541,7 @@ ol {
 }
 .navbar-nav .nav-tabs .news .tabs-details .news-slide-box {
   width: 2500px;
+  overflow: hidden;
 }
 .navbar-nav .nav-tabs .news .tabs-details ul {
   width: 500px;
@@ -1307,6 +1623,7 @@ ol {
   transition: all 0.4s ease-in-out;
 }
 .navbar-nav .role-menu .tabs:hover .bg,
+.navbar-nav .role-menu .tabs.active .bg,
 .navbar-nav .role-menu .tabs.hover .bg {
   top: 15px;
   opacity: 1;
@@ -1438,6 +1755,7 @@ ol {
 .navbar-nav .role-tabs .all .sub-items li i {
   z-index: 5;
   background-color: #000000;
+  border-radius: 50%;
 }
 .navbar-nav .role-tabs .major:after {
   content: "";
@@ -1529,30 +1847,70 @@ ol {
   margin-bottom: 9px;
   background-position: -1480px -1388px;
 }
+.strategy {
+  margin-top: 50px;
+}
+.strategy .container {
+  margin-bottom: 60px;
+}
+.strategy .container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .strategy .quest {
+  position: relative;
   float: left;
   width: 360px;
   border: 2px solid #333;
+}
+.strategy .quest .search {
+  position: absolute;
+  top: -55px;
+  left: 0;
+  width: 281px;
+  height: 18px;
+  padding: 11px 5px 11px 15px;
+  border: 2px solid #333;
+  border-right-color: transparent;
+  background-color: #ffffff;
+  outline: medium;
+  font-size: 16px;
+}
+.strategy .quest .search-btn {
+  position: absolute;
+  top: -69px;
+  right: -2px;
+  width: 58px;
+  height: 58px;
+  background: url("../img/spirits.png") -1480px -733px no-repeat;
+  cursor: pointer;
+}
+.strategy .quest .search-btn:hover {
+  background-position: -1480px -675px;
+}
+.strategy .quest .carousel {
+  width: 100%;
   overflow: hidden;
 }
-.strategy .quest > ul {
+.strategy .quest ul {
   width: 720px;
   height: 228px;
 }
-.strategy .quest > ul li {
+.strategy .quest ul li {
   float: left;
   width: 360px;
   height: 228px;
   background: url("../img/quest-1.jpg") no-repeat;
 }
-.strategy .quest > ul li + li {
+.strategy .quest ul li + li {
   background-image: url("../img/quest-2.jpg");
 }
-.strategy .quest > ol {
+.strategy .quest ol {
   width: 100%;
   margin: 15px 0;
 }
-.strategy .quest > ol li {
+.strategy .quest ol li {
   float: left;
   width: 8px;
   height: 8px;
@@ -1560,33 +1918,772 @@ ol {
   border: 4px solid #333;
   border-radius: 50%;
 }
-.strategy .quest > ol li:first-child {
+.strategy .quest ol li:first-child {
   margin-left: 160px;
 }
-.strategy .quest > ol li:hover,
-.strategy .quest > ol li.hover {
+.strategy .quest ol li:hover,
+.strategy .quest ol li.hover {
   background-color: #333;
 }
-.strategy .quest > div {
+.strategy .quest .system {
   width: 100%;
   margin: 40px 0 15px;
   overflow: hidden;
 }
-.strategy .quest > div a,
-.strategy .quest > div b {
+.strategy .quest .system a,
+.strategy .quest .system b {
   float: left;
 }
-.strategy .quest > div b {
+.strategy .quest .system b {
   width: 11px;
   height: 150px;
   background: url("../img/spirits.png") -1295px -315px no-repeat;
 }
-.strategy .quest > div a {
+.strategy .quest .system a {
   width: 24px;
   height: 134px;
   margin: 0 28px;
   background: url("../img/spirits.png") -1368px -315px no-repeat;
 }
-.footer {
+.strategy .quest .system a + b + a {
+  background-position: -1328px -465px;
+}
+.strategy .quest .system a + b + a + b + a {
+  background-position: -1344px -315px;
+}
+.strategy .quest .system a + b + a + b + a + b + a {
+  background-position: -1320px -315px;
+}
+.strategy .methods {
+  float: left;
+  margin-left: 35px;
+  margin-top: 10px;
+}
+.strategy .strategy-menu {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  margin-bottom: 25px;
+  margin-top: -30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #cbcdcc;
+}
+.strategy .strategy-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.strategy .strategy-menu > div {
+  float: left;
+}
+.strategy .strategy-menu .sigh {
+  width: 130px;
+  height: 69px;
+  margin-top: 20px;
+  background: url("../img/spirits.png") -928px -775px no-repeat;
+}
+.strategy .strategy-menu .dot {
+  width: 44px;
+  height: 4px;
+  margin: 53px 13px auto 15px;
+  background: url("../img/spirits.png") -1502px -392px no-repeat;
+}
+.strategy .strategy-menu .tabs {
+  position: relative;
+  width: 96px;
+}
+.strategy .strategy-menu .tabs .btn {
+  display: block;
+  position: relative;
+  z-index: 10;
+  width: 70px;
+  height: 33px;
+  margin-top: 40px;
+  margin-left: 12px;
+  background: url("../img/spirits.png") -1480px -1137px no-repeat;
+}
+.strategy .strategy-menu .tabs.right .btn {
+  background-position: -1480px -1005px;
+}
+.strategy .strategy-menu .tabs .bg {
+  position: absolute;
+  z-index: 5;
+  top: 25px;
+  width: 96px;
+  height: 91px;
+  background: url("../img/spirits.png") -939px -1297px no-repeat;
+  opacity: 0;
+  filter: alpha(opacity=0) \9;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.strategy .strategy-menu .tabs:hover .bg,
+.strategy .strategy-menu .tabs.active .bg,
+.strategy .strategy-menu .tabs.hover .bg {
+  top: 15px;
+  opacity: 1;
+  filter: alpha(opacity=100) \9;
+}
+.strategy .strategy-menu .dot {
+  margin: 53px 10px auto 12px;
+}
+.strategy .strategy-menu div[data-tabs] {
+  cursor: pointer;
+}
+.strategy .strategy-menu .sigh {
+  width: 134px;
+  height: 85px;
+  margin-top: 3px;
+  background-position: -410px -576px;
+}
+.strategy .strategy-menu div[data-tabs='1'] .btn {
+  height: 39px;
+  margin-top: 33px;
+  background-position: -1480px -925px;
+}
+.strategy .strategy-menu div[data-tabs='2'] .btn {
+  background-position: -1480px -1203px;
+}
+.strategy .strategy-menu div[data-tabs='3'] .btn {
+  width: 75px;
+  background-position: -1480px -964px;
+}
+.strategy .strategy-menu div[data-tabs='4'] .btn {
+  width: 80px;
+  margin-left: 10px;
+  background-position: -1239px -993px;
+}
+.strategy .strategy-tabs {
+  width: 778px;
+  overflow: hidden;
+}
+.strategy .strategy-tabs .tab-items {
+  width: 3890px;
+}
+.strategy .strategy-tabs .item {
+  float: left;
+  width: 778px;
+}
+.strategy .strategy-tabs ul {
+  float: left;
+  width: 45%;
+  margin-right: 5%;
+}
+.strategy .strategy-tabs ul li {
+  position: relative;
+  border-bottom: 1px solid #cbcdcc;
+  margin-bottom: 10px;
+}
+.strategy .strategy-tabs ul li b {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  border: 5px solid transparent;
+  border-left-color: #333;
+}
+.strategy .strategy-tabs ul p {
+  width: 100%;
+  height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-indent: 15px;
+  cursor: pointer;
+}
+.strategy .strategy-tabs ul p:hover {
+  color: #c1831c;
+}
+.strategy .strategy-tabs ul span {
+  display: block;
+  margin: 6px 0 8px;
+  text-indent: 15px;
+  color: #b2afaf;
+}
+.strategy .strategy-tabs ul + ul {
+  width: 50%;
+  margin-right: 0;
+}
+.cosplay {
+  margin-bottom: 40px;
+}
+.cosplay .header {
+  overflow: hidden;
+}
+.cosplay .header span {
+  float: left;
+  width: 112px;
+  height: 106px;
+  background: url("../img/spirits.png") -982px -1040px no-repeat;
+  cursor: pointer;
+}
+.cosplay .header ul {
+  float: left;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+.cosplay .header ul li[data-tabs]:after {
+  content: '';
+  position: absolute;
+  top: 5%;
+  right: 0;
+  height: 80%;
+  width: 1px;
+  border-right: 1px dotted #333;
+}
+.cosplay .header ul li[data-tabs].hover b {
+  bottom: 55px;
+}
+.cosplay .header ul li[data-tabs].hover i {
+  bottom: -3px;
+}
+.cosplay .header ul li[data-tabs='5']:after {
+  content: '';
+  display: none;
+}
+.cosplay .header ul li {
+  position: relative;
+  float: left;
+  width: 150px;
+  height: 75px;
+  border-bottom: 2px solid #333;
+  cursor: pointer;
+}
+.cosplay .header ul li b {
+  position: absolute;
+  left: 41px;
+  bottom: 35px;
+  width: 72px;
+  height: 18px;
+  background: url("../img/spirits.png") -1480px -1411px no-repeat;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.cosplay .header ul li i {
+  position: absolute;
+  left: 0;
+  bottom: -57px;
+  width: 100%;
+  height: 54px;
+  background: url("../img/cosplay-icons.png") no-repeat;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.cosplay .header ul li.goto b {
+  left: 30px;
+  bottom: 25px;
+  width: 101px;
+  height: 24px;
+  background-position: -930px -608px;
+}
+.cosplay .header ul li.goto:hover b {
+  left: 40px;
+}
+.cosplay .header ul li + li b {
+  background-position: -1400px -1378px;
+}
+.cosplay .header ul li + li i {
+  background-position: -165px 0;
+}
+.cosplay .header ul li + li + li b {
+  background-position: -1480px -1429px;
+}
+.cosplay .header ul li + li + li i {
+  background-position: -314px 0;
+}
+.cosplay .header ul li + li + li + li b {
+  background-position: -1480px -1447px;
+}
+.cosplay .header ul li + li + li + li i {
+  background-position: -476px 0;
+}
+.cosplay .header ul li + li + li + li + li b {
+  background-position: -1400px -1360px;
+}
+.cosplay .header ul li + li + li + li + li i {
+  background-position: -625px 0;
+}
+.cosplay .header ul li + li + li + li + li + li b {
+  background-position: -1307px -734px;
+}
+.cosplay .header ul li + li + li + li + li + li i {
+  background-position: -924px 0;
+}
+.cosplay .content {
+  width: 100%;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+.cosplay .tabs-details {
+  width: 7200px;
+}
+.cosplay .tabs-details ul {
+  float: left;
+  width: 1200px;
+}
+.cosplay .tabs-details ul li {
+  position: relative;
+  float: left;
+  width: 285px;
+  margin-right: 20px;
+  padding-bottom: 10px;
+}
+.cosplay .tabs-details ul li img {
+  width: 100%;
+}
+.cosplay .tabs-details ul li p {
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cosplay .tabs-details ul li b {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.cosplay .tabs-details ul li i {
+  position: absolute;
+  top: 30px;
+  left: 103px;
+  width: 79px;
+  height: 93px;
+  background: url("../img/spirits.png") -541px -474px no-repeat;
+  display: none;
+}
+.cosplay .tabs-details ul li:hover b {
+  background-color: #000000;
+  opacity: 0.5;
+  filter: alpha(opacity=50) \9;
+}
+.cosplay .tabs-details ul li:hover i {
+  display: block;
+}
+.cosplay .pic:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cosplay .pic a {
+  position: relative;
+  float: left;
+  margin-left: 32px;
+}
+.cosplay .pic a p {
+  position: absolute;
+  left: -20px;
+  top: -10px;
+  width: 40px;
+  background-color: #ffffff;
+  border: 2px solid #333;
+  text-align: center;
+}
+.cosplay .pic a p i {
+  position: absolute;
+  left: 14px;
+  width: 11px;
+  height: 11px;
+  background: url("../img/cos/club.png") no-repeat;
+}
+.cosplay .pic a p i:first-child {
+  top: 6px;
+}
+.cosplay .pic a p i + i {
+  bottom: 6px;
+}
+.cosplay .pic a p b {
+  display: block;
+  width: 18px;
+  line-height: 15px;
+  margin: 22px auto;
+  color: #333;
+}
+.clearmg {
+  margin-right: 0!important;
+}
+.video {
+  overflow: hidden;
+}
+.video:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.video .container {
+  position: relative;
+  height: 514px;
+}
+.video .background {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 1920px;
+  margin-left: -960px;
+  background: url("../img/lg-bg-03.jpg") no-repeat;
+}
+.video ul {
+  position: relative;
+  z-index: 10;
+  float: left;
+  width: 580px;
+  margin-top: 50px;
+}
+.video ul li {
+  position: relative;
+  float: left;
+  width: 270px;
+  height: 199px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.video ul li img {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.video ul li:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.video ul li p {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background-color: #ffffff;
+  text-indent: 15px;
+}
+.video ul li b {
+  float: left;
+  width: 227px;
+  height: 148px;
+  background: url("../img/spirits.png") -1080px -614px no-repeat;
+}
+.video ul + ul {
+  float: right;
+}
+.video ul + ul p {
+  background-color: transparent;
+}
+.video ul + ul b {
+  background-position: -1100px -466px;
+}
+.activity {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.activity .container {
+  position: relative;
+}
+.activity .container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.activity .act {
+  float: left;
+  width: 257px;
+  height: 370px;
+  background: url("../img/activity/6.png") no-repeat;
+}
+.activity ul {
+  float: right;
+  width: 910px;
+  overflow: hidden;
+}
+.activity ul li {
+  position: relative;
+  float: left;
+  width: 270px;
+  margin-right: 50px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.activity ul li p {
+  position: absolute;
+  z-index: 5;
+  left: 7px;
+  bottom: 10px;
+  height: 33px;
+  line-height: 33px;
+  padding: 0 10px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+.activity ul li img {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.activity ul li:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.activity .logo {
+  float: left;
+  width: 72px;
+  height: 220px;
+  margin-top: 50px;
+  margin-left: 40px;
+  background: url("../img/logo-name.png") no-repeat;
+  cursor: pointer;
+}
+.activity .connect {
+  position: relative;
+  float: left;
+  width: 245px;
+  height: 200px;
+  padding-left: 25px;
+  margin-left: 110px;
+  margin-top: 50px;
+  background-color: #f6f6f6;
+}
+.activity .connect div {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: -30px;
+  padding: 12px;
+  border: 1px solid #cbcdcc;
+  background-color: #ffffff;
+}
+.activity .connect div img {
+  width: 132px;
+  height: 132px;
+}
+.activity .connect p {
+  float: left;
+  width: 20px;
+  line-height: 15px;
+  margin-right: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.activity .connect b {
+  float: left;
+  width: 24px;
+  height: 96px;
+  margin-top: 20px;
+  background: url("../img/spirits.png") -735px -364px no-repeat;
+}
+.activity .connect a {
+  position: absolute;
+  left: 25px;
+  bottom: 10px;
+  color: #333;
+  font-weight: 600;
+}
+.activity .connect a span {
+  color: #dbbe7c;
+}
+.activity .wechat b {
+  background-position: -1352px -466px;
+  height: 119px;
+}
+.activity .service {
+  float: left;
+  width: 225px;
+  height: 185px;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+.activity .service div {
+  width: 110px;
+  height: 109px;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  background: url("../img/spirits.png") -928px -666px no-repeat;
+}
+.activity .service p + p {
+  margin-bottom: 18px;
+}
+.activity .service a {
+  color: #dbbe7c;
+}
+.activity .service a:hover {
+  text-decoration: underline;
+}
+.activity .totop {
+  position: absolute;
+  left: 101%;
+  bottom: 10px;
+  width: 25px;
+  height: 111px;
+  background: url("../img/spirits.png") -1266px -762px no-repeat;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.activity .totop:hover {
+  bottom: 25px;
+}
+.others {
+  overflow: hidden;
+}
+.others .container {
+  position: relative;
+  height: 524px;
+}
+.others .container:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.others * {
+  position: relative;
+  z-index: 5;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.others .background {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 1920px;
+  margin-left: -960px;
+  background: url('../img/lg-bg-04.jpg') no-repeat;
+  z-index: 1;
+}
+.others h1 {
+  width: 591px;
+  height: 29px;
+  margin: 120px auto;
+  background: url("../img/spirits.png") -661px -1149px no-repeat;
+}
+.others h2 {
+  width: 116px;
+  height: 23px;
+  margin: -50px auto;
+  background: url("../img/spirits.png") -930px -632px no-repeat;
+}
+.others h3 {
+  position: absolute;
+  left: 139px;
+  top: 60px;
+  width: 22px;
+  height: 76px;
+  background: url("../img/spirits.png") -1480px -320px no-repeat;
+}
+.others img {
+  position: absolute;
+  left: 74px;
+  top: 45px;
+  width: 152px;
+  height: 152px;
+  opacity: 0;
+  filter: alpha(opacity=0) \9;
+}
+.others span {
+  position: absolute;
+  left: 250px;
+  top: 45px;
+  width: 16px;
+  height: 150px;
+  background: url("../img/spirits.png") -1279px -315px no-repeat;
+  opacity: 0;
+  filter: alpha(opacity=0) \9;
+}
+.others h4 {
+  position: absolute;
+  left: 45px;
+  top: 120px;
+  width: 210px;
+  height: 319px;
+  background: url("../img/spirits.png") -331px -364px no-repeat;
+}
+.others a {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 300px;
   height: 300px;
+  text-align: center;
+}
+.others a:hover h2 {
+  opacity: 0;
+  filter: alpha(opacity=0) \9;
+}
+.others a:hover h3 {
+  top: -20px;
+  z-index: 4;
+}
+.others a:hover h4 {
+  top: 190px;
+}
+.others a:hover span,
+.others a:hover img {
+  top: 25px;
+  opacity: 1;
+  filter: alpha(opacity=100) \9;
+}
+.footer {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.footer .share {
+  height: 40px;
+  padding-left: 400px;
+  margin-bottom: 15px;
+}
+.footer .share span,
+.footer .share a {
+  float: left;
+  height: 100%;
+  line-height: 40px;
+  color: #de7f7f;
+}
+.footer .share a {
+  position: relative;
+  padding-left: 24px;
+  margin-left: 10px;
+}
+.footer .share a:hover {
+  color: #c9b27c;
+}
+.footer .share a b {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 21px;
+  height: 21px;
+  background: url("../img/share.jpg") no-repeat;
+}
+.footer .share a + a b {
+  background-position: -21px 0;
+}
+.footer .share a + a + a b {
+  background-position: -42px 0;
+}
+.footer .share a + a + a + a b {
+  background-position: -63px 0;
+}
+.footer p {
+  width: 840px;
+  margin: 0px auto 0;
+}
+.footer p a {
+  color: #333;
+}
+.footer p a:hover {
+  text-decoration: underline;
 }

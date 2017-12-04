@@ -655,3 +655,35 @@ ol {
     filter: alpha(opacity=100) \9;
   }
 }
+@-webkit-keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
+@-moz-keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
+@-ms-keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
+@keyframes scanCode {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 91px;
+  }
+}
