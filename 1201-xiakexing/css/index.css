@@ -1399,7 +1399,6 @@ ol {
   height: 300px;
   padding-top: 20px;
   padding-bottom: 49px;
-  background-color: #b2afaf;
 }
 .navbar-nav .nav-tabs .background {
   position: absolute;
@@ -1595,6 +1594,7 @@ ol {
 .navbar-nav .role-menu .tabs {
   position: relative;
   width: 96px;
+  cursor: pointer;
 }
 .navbar-nav .role-menu .tabs .btn {
   display: block;
@@ -1688,6 +1688,7 @@ ol {
 .navbar-nav .role-tabs .all .sub-items li {
   position: relative;
   float: left;
+  width: 90px;
   padding-right: 25px;
   margin-right: 25px;
 }
@@ -1991,6 +1992,7 @@ ol {
 .strategy .strategy-menu .tabs {
   position: relative;
   width: 96px;
+  cursor: pointer;
 }
 .strategy .strategy-menu .tabs .btn {
   display: block;
@@ -2055,6 +2057,7 @@ ol {
   background-position: -1239px -993px;
 }
 .strategy .strategy-tabs {
+  position: relative;
   width: 778px;
   overflow: hidden;
 }
@@ -2079,6 +2082,7 @@ ol {
   position: absolute;
   top: 5px;
   left: 0;
+  height: 0;
   border: 5px solid transparent;
   border-left-color: #333;
 }
@@ -2108,6 +2112,7 @@ ol {
   margin-bottom: 40px;
 }
 .cosplay .header {
+  position: relative;
   overflow: hidden;
 }
 .cosplay .header span {
@@ -2164,7 +2169,7 @@ ol {
 .cosplay .header ul li i {
   position: absolute;
   left: 0;
-  bottom: -57px;
+  bottom: -63px;
   width: 100%;
   height: 54px;
   background: url("../img/cosplay-icons.png") no-repeat;
@@ -2213,6 +2218,7 @@ ol {
   background-position: -924px 0;
 }
 .cosplay .content {
+  position: relative;
   width: 100%;
   margin-top: 35px;
   margin-bottom: 25px;
@@ -2436,6 +2442,10 @@ ol {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+.activity .contact {
+  width: 100%;
+  overflow: hidden;
+}
 .activity .logo {
   float: left;
   width: 72px;
@@ -2536,6 +2546,7 @@ ol {
   bottom: 25px;
 }
 .others {
+  position: relative;
   overflow: hidden;
 }
 .others .container {
@@ -2565,9 +2576,11 @@ ol {
   z-index: 1;
 }
 .others h1 {
+  position: relative;
+  top: 120px;
   width: 591px;
   height: 29px;
-  margin: 120px auto;
+  margin: 0 auto 240px;
   background: url("../img/spirits.png") -661px -1149px no-repeat;
 }
 .others h2 {

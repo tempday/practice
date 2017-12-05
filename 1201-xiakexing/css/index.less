@@ -769,7 +769,7 @@
 		height:300px;
 		padding-top:20px;
 		padding-bottom:49px;
-		background-color: #b2afaf;
+		//background-color: #b2afaf;
 		.background{
 			.bgcommon;
 			background: none;
@@ -959,6 +959,7 @@
 		.tabs{
 			position: relative;
 			width: 96px;
+			cursor:pointer;
 			.btn{
 				display: block;
 				position: relative;
@@ -1047,6 +1048,8 @@
 				li{
 					position: relative;
 					float: left;
+					//ie7 宽度失效,无法自动撑开
+					width:90px;
 					padding-right: 25px;
 					margin-right: 25px;
 					&:after{
@@ -1249,7 +1252,7 @@
 				background-position:-1480px -675px;
 			}
 		}
-		//轮播图片
+		//攻略左侧轮播图片
 		.carousel{
 			width:100%;
 			overflow:hidden;
@@ -1267,7 +1270,7 @@
 				background-image:url("../img/quest-2.jpg");
 			}
 		}
-		//轮播焦点
+		//攻略左侧轮播焦点
 		ol{
 			width: 100%;
 			margin: 15px 0;
@@ -1286,7 +1289,7 @@
 				}
 			}
 		}
-		//系统功能...
+		//攻略左侧系统功能...
 		.system{
 			width: 100%;
 			margin: 40px 0 15px;
@@ -1358,8 +1361,10 @@
 			background-position:-1239px -993px;
 		}
 	}
-	//选项卡详情
+	//攻略右侧选项卡详情
 	.strategy-tabs{
+		//ie7 子元素overflow失效,要设置position
+		position:relative;
 		width: 778px;
 		overflow: hidden;
 		.tab-items{
@@ -1381,6 +1386,7 @@
 					position: absolute;
 					top:5px;
 					left:0;
+					height:0;
 					border: 5px solid transparent;
 					border-left-color: @clr-333;
 				}
@@ -1415,7 +1421,10 @@
 	margin-bottom:40px;
 	//选项卡按钮
 	.header{
+		//ie7 子元素overflow失效,要设置position
+		position:relative;
 		overflow:hidden;
+
 		span{
 			float:left;
 			width: 112px;
@@ -1458,6 +1467,7 @@
 				height:75px;
 				border-bottom:2px solid @clr-333;
 				cursor:pointer;
+				//文字按钮
 				b{
 					position:absolute;
 					left:41px;
@@ -1467,10 +1477,11 @@
 					background: url("../img/spirits.png")-1480px -1411px no-repeat;
 					.transition(all,.4s);
 				}
+				//往上凸凸
 				i{
 					position:absolute;
 					left:0;
-					bottom:-57px;
+					bottom:-63px;
 					width:100%;
 					height:54px;
 					background: url("../img/cosplay-icons.png") no-repeat;
@@ -1514,13 +1525,16 @@
 			}
 		}
 	}
-	//选项详情
+	//同人选项详情
 	.content{
+		//ie7 子元素overflow失效,要设置position
+		position:relative;
 		width:100%;
 		margin-top:35px;
 		margin-bottom:25px;
 		overflow:hidden;
 	}
+	//同人选项
 	.tabs-details{
 		width:1200px*6;
 		//图片ul
@@ -1535,7 +1549,6 @@
 				padding-bottom:10px;
 				img{
 					width:100%;
-					//height:366px;
 				}
 				p{
 					width:100%;
@@ -1730,6 +1743,11 @@
 			}
 		}
 	}
+	//ie7 各个元素排序错位,外加个容器解决
+	.contact{
+		width:100%;
+		overflow:hidden;
+	}
 	//服务
 	.logo{
 		float:left;
@@ -1840,6 +1858,7 @@
 	height:@height;
 }
 .others{
+	position:relative;
 	overflow:hidden;
 	.container{
 		position:relative;
@@ -1857,9 +1876,11 @@
 	}
 
 	h1{
+		position:relative;
+		top:120px;
 		width:591px;
 		height:29px;
-		margin:120px auto;
+		margin:0 auto 240px;
 		background: url("../img/spirits.png")-661px -1149px no-repeat;
 	}
 	h2{
