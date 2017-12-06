@@ -1,0 +1,89 @@
+@charset "utf-8";
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 100%;
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+  font: 14px/1.5 PingFangSC-Regular, Verdana, Arial, 'Microsoft Yahei', '宋体', sans-serif;
+  color: #333;
+}
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+fieldset,
+img {
+  border: 0;
+  vertical-align: middle;
+}
+ul,
+ol {
+  list-style: none;
+}
+.container {
+  max-width: 1000px;
+  margin: 100px auto 0;
+}
+.container > div {
+  float: left;
+  width: 48%;
+  background-color: #ddd;
+}
+.container > div + div {
+  margin-left: 4%;
+}
+.img-responsive {
+  display: block;
+  width: 100%;
+}
+@media screen and (max-width: 999px) {
+  .container > div {
+    float: none;
+    margin: 0 auto 3rem;
+  }
+}
+.wrapper {
+  min-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}

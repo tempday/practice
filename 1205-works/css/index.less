@@ -1,0 +1,65 @@
+@charset "utf-8";
+//声明文件编码必须双引号
+//@import 'common';
+@import "common";
+.container{
+	max-width:1000px;
+	margin:100px auto 0;
+	>div{
+		float: left;
+		width:48%;
+		background-color: #ddd;
+	}
+	>div+div{
+		margin-left: 4%;
+	}
+}
+.img-responsive{
+	display: block;
+	width: 100%;
+}
+@media screen and (max-width:999px){
+	.container>div{
+		float: none;
+		margin:0 auto 3rem;
+	}
+}
+.wrapper{
+	min-width: 1400px;
+	
+	margin-right: auto;
+	margin-left: auto;
+}
+//全局变量
+@font-size-sm:12px;
+@font-size-std:14px;
+@font-size-16:16px;
+@font-size-18:18px;
+@font-size-20:20px;
+@font-size-22:22px;
+@font-size-24:24px;
+@font-size-26:26px;
+@font-size-28:28px;
+@font-size-30:30px;
+//兼容ie 颜色要写满六位
+@clr-w:#ffffff;
+@clr-000:#000000;
+@clr-333:#333;
+@clr-666:#666;
+@clr-border:#cbcdcc;
+@clr-ching:#e1ebeb;
+@clr-gre:#f6f6f6;
+@clr-bg-light:#b2afaf;
+@clr-bg-slight:#fbfbfb;
+@clr-org-hover:#c1831c;
+@clr-red:#bc2e2e;
+@clr-yel:#dbbe7c;
+
+//兼容ie Safari 背景渐变
+.bggradient(@bfclr1:#f3f3f3,@bfclr2:#fefefe){
+	background: -webkit-gradient(linear,0 0,0 100%,from(@bfclr1),to(@bfclr2));
+	background: linear-gradient(to bottom,@bfclr1,@bfclr2);
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='@{bfclr1}',endColorStr='@{bfclr2}',gradientType='0')@ie7-10;
+}
+
+
