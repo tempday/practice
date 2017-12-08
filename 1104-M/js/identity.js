@@ -1,5 +1,5 @@
 /**
- * Created by lglong519 on 2017-11-18.
+ * Created by lglong519 on 2017.
  */
 //表单验证
 ;!function(){
@@ -27,12 +27,12 @@
 					},100);
 				}else{
 					if(a[0]){
-						var user=DM('#username')[0].value;
+						var user=DM('#username').val();
 						Docms.ajax({
 							type:'post',
 							url:'data/register.php',
 							data:{'user':user,
-								'pwd':DM('#password')[0].value
+								'pwd':DM('#password').val()
 							},
 							success:function(data){
 								if(data=='success'){
@@ -69,15 +69,15 @@
 		var a=validUser(DM('#username')[0]),
 				b=validPwd(DM('#password')[0]);
 		if(a&&b){
-			var user=DM('#username')[0].value,data='';
+			var user=DM('#username').val(),data='';
 			if(validFuns.getStorage(0)){
 				data=localStorage.getItem('mCart_userInfo').replace('_temporaty',user);
 			}
 			Docms.ajax({
 				type:'post',
 				url:'data/login.php',
-				data:{'user':DM('#username')[0].value,
-					'pwd':DM('#password')[0].value,
+				data:{'user':DM('#username').val(),
+					'pwd':DM('#password').val(),
 					'json':data
 				},
 				success:function(data){
@@ -124,7 +124,7 @@
 		if(obj.type=='password'){
 			var result;
 			if(obj.id=='reconfirm'){
-				result=obj.value===DM('#password')[0].value&&reg.test(obj.value);
+				result=obj.value===DM('#password').val()&&reg.test(obj.value);
 				return check(obj,result);
 			}else{
 				result=reg.test(obj.value);
@@ -153,25 +153,25 @@
 	var anchor=location.hash,url;
 	switch (true){
 		case /register/.test(anchor):
-			DM('h1','.identity')[0].innerHTML='注册成功!';
+			DM('.identity>h1').html('注册成功!');
 			url='cart.html';
 			break;
 		case /login/.test(anchor):
 			url='cart.html';
-			DM('h1','.identity')[0].innerHTML='登录成功!';
+			DM('.identity>h1').html('登录成功!');
 			break;
 		default:
-			DM('h1','.identity')[0].innerHTML='请先登录!';
-			DM('.noAnchor')[0].innerHTML='登录界面';
+			DM('.identity>h1').html('请先登录!');
+			DM('.noAnchor').html('登录界面');
 			url='login.html';
 	}
-	var i=parseInt(DM('.seconds')[0].innerHTML);
+	var i=parseInt(DM('.seconds').html());
 	setTimeout(function(){
 		counter();
 	},1000);
 	function counter(){
 		i--;
-		DM('.seconds')[0].innerHTML=i;
+		DM('.seconds').html(i);
 		if(i>0){
 			setTimeout(function(){
 				counter();

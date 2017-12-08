@@ -68,6 +68,7 @@ ol {
   float: left;
   width: 48%;
   background-color: #ddd;
+  opacity:.6;
 }
 .container > div + div {
   margin-left: 4%;

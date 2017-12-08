@@ -1,5 +1,5 @@
 /**
- * Created by lglong519 on 2017-11-18.
+ * Created by lglong519 on 2017.
  */
 +function(){
 //获取模板
@@ -37,7 +37,7 @@ function setRecList() {
 				}
 				lis+=oneLi;
 			}
-			DM('.recShops','.section').html(lis);
+			DM('#recShops').html(lis);
 			//生成推荐列表后设置 加入购物车 按钮的点击事件
 			addToCart();
 		}
@@ -133,7 +133,7 @@ function account(){
 	data='[{"username":"'+user+'"},'+data+']';
 	//console.log('d:'+data.replace(/pic(.*?)(?=(pnum))/g,''));
 	//console.log('o:'+DM.cookie('mCart_userInfo').replace(/pic(.*?)(?=(pnum))/g,''));
-	if(data.replace(/pic(.*?)(?=(pnum))/g,'')!=DM.cookie('mCart_userInfo').replace(/pic(.*?)(?=(pnum))/g,'')){
+	if(DM.cookie('mCart_userInfo')&&data.replace(/pic(.*?)(?=(pnum))/g,'')!=DM.cookie('mCart_userInfo').replace(/pic(.*?)(?=(pnum))/g,'')){
 		DM.cookie('mCart_userInfo',data);
 		if(DM('#user').html()){
 			//如果缺少用户数据不发送请求
@@ -207,7 +207,7 @@ function addToCart(){
 			setTimeout(function(){
 				DM('.tips',this).removeClass('display');
 			}.bind(this),1300);
-
+			checkIsAll();
 			//添加购物车后重新计算商品总价
 			account();
 			//设置购物的显示状态
@@ -272,8 +272,9 @@ window.onresize=window.onscroll=function(){
 };
 
 //退出模态框
-DM('.cancel','.confirm')[0].onclick=DM('.mask','.confirm')[0].onclick=DM('.close','.confirm')[0].onclick=function(){
+DM('.confirm .cancel,.confirm .mask,.confirm .close').on('click',function(){
 	DM('.confirm').removeClass('display');
 	return !1;
-};
+})
+
 }();

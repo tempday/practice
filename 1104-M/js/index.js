@@ -1,5 +1,5 @@
 /**
- * Created by lglong519 on 2017-11-04.
+ * Created by lglong519 on 2017.
  */
 !function(){
 	validFuns.isOnline();
